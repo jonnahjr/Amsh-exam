@@ -1,0 +1,362 @@
+// ============================================================================
+// DATA MODEL REFERENCE — NOT USED TO GENERATE ANYTHING.
+//
+// The database this application actually runs on is defined by
+// `prisma/schema.sql`, which is executed by `npm run db:create` and accessed
+// at runtime through Node's built-in `node:sqlite` module.
+//
+// Prisma is NOT a dependency of this project. There is no Prisma client, no
+// generated code, and `npx prisma migrate` will not work. This file is kept
+// only because it is the most readable description of the model, and it was
+// part of the original scaffolding.
+//
+// Differences from `schema.sql` that are forced by Prisma's SQLite support:
+//   * enums are not supported for SQLite, so enum columns are `String` here
+//     with the allowed values listed in a comment. `schema.sql` enforces them
+//     with CHECK constraints.
+//   * `Decimal` is not supported for SQLite; those columns are `Float`.
+//   * JSON columns are stored as TEXT and read through `src/lib/json.ts`, so
+//     they are `String?` here rather than `Json`.
+//
+// If you change the model, change `prisma/schema.sql` first. The integration
+// test builds its schema from that file, so drift is caught by `npm test`.
+// ============================================================================
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_PATH")
+}
+
+// No generator block: nothing is generated from this file.
+
+// ------------------------------------------------------------------ users ---
+
+model User {
+  id        String   @id
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("STUDENT") // STUDENT | INSTRUCTOR | ADMINISTRATOR
+  createdAt String
+  updatedAt String
+
+  authoredQuestions    Question[]
+  examAttempts         ExamAttempt[]        @relation("AttemptOwner")
+  startedAttempts      ExamAttempt[]        @relation("AttemptStartedBy")
+  results              Result[]
+  auditLogs            AuditLog[]
+  importJobs           ImportJob[]
+}
+
+// --------------------------------------------------------------- taxonomy ---
+
+model Category {
+  id           String    @id
+  slug         String    @unique
+  name         String
+  code         String?
+  description  String?
+  subjectCount Int       @default(0)
+  createdAt    String
+  updatedAt    String
+
+  subjects   Subject[]
+  questions  Question[]
+  templates  ExamTemplate[]
+}
+
+model Subject {
+  id         String   @id
+  slug       String   @unique
+  name       String
+  categoryId String
+  createdAt  String
+  updatedAt  String
+
+  category  Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  topics    Topic[]
+  questions Question[]
+  templates ExamTemplate[]
+}
+
+model Topic {
+  id        String   @id
+  slug      String   @unique
+  name      String
+  subjectId String
+  createdAt String
+  updatedAt String
+
+  subject  Subject              @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  questions Question[]
+}
+
+model Tag {
+  id        String   @id
+  slug      String   @unique
+  name      String
+  createdAt String
+  updatedAt String
+
+  questions QuestionTag[]
+}
+
+// -------------------------------------------------------------- questions ---
+
+model Question {
+  id       String  @id
+  // Human-facing code such as Q00001, assigned in the application layer.
+  questionId String? @unique
+  questionText String
+
+  categoryId String?
+  subjectId  String?
+  topicId    String?
+
+  // EASY | INTERMEDIATE | HARD | EXPERT
+  difficulty String @default("EASY")
+  // SINGLE_CHOICE | MULTIPLE_CHOICE | TRUE_FALSE | SHORT_ANSWER | SCENARIO | MATCHING | ESSAY
+  questionType String @default("SINGLE_CHOICE")
+
+  // JSON array of option strings in the authored (canonical) order.
+  options String @default("[]")
+  // JSON array of canonical indices that are correct, e.g. [0,2].
+  correctOptionIndices String @default("[]")
+  // JSON array of the authored indices, used to detect re-ordering.
+  canonicalIndices String @default("[]")
+
+  explanation        String?
+  marks              Float   @default(1.0)
+  negativeMarks      Float?
+  // JSON array of free-form tags.
+  tags               String  @default("[]")
+  learningObjectives String?
+  source             String?
+
+  authorId String
+
+  // DRAFT | PUBLISHED | ARCHIVED
+  status      String  @default("DRAFT")
+  publishedAt String?
+  archivedAt  String?
+
+  importId String? @unique
+
+  createdAt String
+  updatedAt String
+
+  author        User               @relation(fields: [authorId], references: [id])
+  category      Category?          @relation(fields: [categoryId], references: [id])
+  subject       Subject?           @relation(fields: [subjectId], references: [id])
+  topic         Topic?             @relation(fields: [topicId], references: [id])
+  tagLinks      QuestionTag[]
+  questionMarks QuestionMark[]
+  attempts      AttemptQuestion[]
+}
+
+// Explicit join table for the Question <-> Tag many-to-many.
+model QuestionTag {
+  questionId String
+  tagId      String
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  tag      Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([questionId, tagId])
+}
+
+model QuestionMark {
+  id          String  @id
+  questionId  String
+  weight      Float
+  description String?
+  order       Int     @default(0)
+  createdAt   String
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
+// ---------------------------------------------------------- exam templates --
+
+model ExamTemplate {
+  id          String  @id
+  slug        String  @unique
+  name        String
+  categoryId  String?
+  subjectId   String?
+
+  // JSON object of topicId -> weight.
+  topicWeights String?
+
+  totalQuestions   Int   @default(10)
+  durationMinutes  Int   @default(30)
+  marksPerQuestion Float @default(1.0)
+
+  negativeMarking          Boolean @default(false)
+  // JSON object of difficulty -> proportional weight.
+  difficultyDistribution   String?
+  randomizeQuestions       Boolean @default(true)
+  randomizeOptions         Boolean @default(true)
+  avoidPreviouslySeen      Boolean @default(false)
+  // When true, questions already seen may be reused if the pool is too small.
+  allowReuse               Boolean @default(false)
+  autoSubmitOnExpiry       Boolean @default(true)
+  passThresholdPercent     Int     @default(0)
+  description              String?
+  isPublic                 Boolean @default(true)
+
+  publishedAt String?
+  createdAt   String
+  updatedAt   String
+
+  category     Category?              @relation(fields: [categoryId], references: [id])
+  subject      Subject?               @relation(fields: [subjectId], references: [id])
+  attempts     ExamAttempt[]
+  difficultyRows DifficultyDistribution[]
+}
+
+model DifficultyDistribution {
+  id         String @id
+  templateId String
+  // EASY | INTERMEDIATE | HARD | EXPERT
+  difficulty String
+  weight     Float
+  order      Int    @default(0)
+
+  template ExamTemplate @relation(fields: [templateId], references: [id], onDelete: Cascade)
+}
+
+// --------------------------------------------------------------- attempts ---
+
+model ExamAttempt {
+  id           String @id
+  attemptToken String @unique
+  templateId   String
+  userId       String
+
+  // JSON array of question ids in presentation order.
+  selectedQuestionIds String @default("[]")
+  // JSON object of questionId -> array where displayIndex gives the canonical
+  // option index. This is what makes shuffled options reproducible.
+  optionMapping       String?
+  // FORWARD | BACKWARD
+  directionState      String @default("FORWARD")
+  // JSON object of questionId -> boolean.
+  flags               String @default("{}")
+  // JSON object of questionId -> array of display indices chosen.
+  responses           String @default("{}")
+  previouslySeen      String @default("[]")
+
+  startedAt   String?
+  expiresAt   String?
+  submittedAt String?
+  completedAt String?
+
+  // ACTIVE | SUBMITTED | EXPIRED | CANCELLED
+  status String @default("ACTIVE")
+
+  startedByUserId String?
+  // JSON snapshot of the template at start time, so later edits cannot change
+  // how an in-flight attempt is marked.
+  configSnapshot  String?
+
+  createdAt String
+  updatedAt String
+
+  template      ExamTemplate      @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  user          User              @relation("AttemptOwner", fields: [userId], references: [id], onDelete: Cascade)
+  startedBy     User?             @relation("AttemptStartedBy", fields: [startedByUserId], references: [id])
+  questions     AttemptQuestion[]
+  result        Result?
+}
+
+model AttemptQuestion {
+  id         String @id
+  attemptId  String
+  questionId String
+  optionOrder Int   @default(0)
+  response   String?
+  isFlagged  Boolean @default(false)
+  position   Int     @default(0)
+  createdAt  String
+
+  attempt  ExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([attemptId, questionId])
+}
+
+// ---------------------------------------------------------------- results ---
+
+model Result {
+  id        String @id
+  attemptId String @unique
+  userId    String
+
+  totalQuestions      Int
+  correctAnswers      Int
+  incorrectAnswers    Int
+  unansweredQuestions Int
+  earnedMarks         Float
+  maxMarks            Float
+  percentage          Float
+  durationSeconds     Int?
+
+  // PENDING | COMPLETED
+  status String @default("PENDING")
+  // PASS | FAIL
+  passStatus String?
+
+  // JSON array of per-question review entries, all in display index space.
+  answerReview String?
+
+  submittedAt String?
+  createdAt   String
+  updatedAt   String
+
+  attempt ExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  user    User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ---------------------------------------------------------------- imports ---
+
+model ImportJob {
+  id       String @id
+  userId   String
+  fileName String
+  // CSV | JSON
+  fileType String
+  // PENDING | RUNNING | COMPLETED | FAILED
+  status   String @default("PENDING")
+
+  totalRows Int @default(0)
+  imported  Int @default(0)
+  skipped   Int @default(0)
+  // JSON array of { row, error } entries.
+  failedRows String?
+
+  startedAt   String?
+  completedAt String?
+  createdAt   String
+  updatedAt   String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ------------------------------------------------------------------ audit ---
+
+model AuditLog {
+  id       String  @id
+  userId   String?
+  action   String
+  entity   String?
+  entityId String?
+  // JSON object with action-specific context.
+  details  String?
+
+  ipAddress String?
+  userAgent String?
+  createdAt String
+
+  user User? @relation(fields: [userId], references: [id])
+}

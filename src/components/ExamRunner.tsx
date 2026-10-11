@@ -1,0 +1,403 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { apiRequest, errorMessages } from "@/lib/client";
+import { OPTION_LETTERS } from "@/components/review-utils";
+import type { AttemptQuestionView } from "@/types";
+
+
+interface ExamRunnerProps {
+  token: string;
+  examName: string;
+  negativeMarking: boolean;
+  passThresholdPercent: number;
+  initialRemainingSeconds: number;
+  questions: AttemptQuestionView[];
+  initialResponses: Record<string, number[]>;
+  initialFlags: Record<string, boolean>;
+}
+
+function formatClock(totalSeconds: number): string {
+  const safe = Math.max(0, totalSeconds);
+  const minutes = Math.floor(safe / 60);
+  const seconds = safe % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+}
+
+/** Question types where more than one option may be chosen. */
+function allowsMultiple(questionType: AttemptQuestionView["questionType"]): boolean {
+  return questionType === "MULTIPLE_CHOICE" || questionType === "MATCHING";
+}
+
+export function ExamRunner({
+  token,
+  examName,
+  negativeMarking,
+  passThresholdPercent,
+  initialRemainingSeconds,
+  questions,
+  initialResponses,
+  initialFlags,
+}: ExamRunnerProps) {
+  const router = useRouter();
+
+  const [index, setIndex] = useState(0);
+  const [responses, setResponses] = useState<Record<string, number[]>>(initialResponses);
+  const [flags, setFlags] = useState<Record<string, boolean>>(initialFlags);
+  const [remaining, setRemaining] = useState(initialRemainingSeconds);
+  const [saveError, setSaveError] = useState<string[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string[]>([]);
+
+  const question = questions[index];
+  const answeredCount = useMemo(
+    () => questions.filter((entry) => (responses[entry.questionId]?.length ?? 0) > 0).length,
+    [questions, responses],
+  );
+  const flaggedCount = useMemo(
+    () => questions.filter((entry) => flags[entry.questionId]).length,
+    [questions, flags],
+  );
+
+  // ------------------------------------------------------------- submit ----
+  const submitExam = useCallback(
+    async (reason: "manual" | "timeout") => {
+      setSubmitting(true);
+      setSubmitError([]);
+      try {
+        const result = await apiRequest<{ resultId: string }>(
+          `/api/attempts/${token}/submit`,
+          { method: "POST" },
+        );
+        router.push(`/results/${result.resultId}`);
+      } catch (error) {
+        // A failure here is surfaced with a retry button rather than leaving
+        // the candidate staring at a frozen timer.
+        const messages = errorMessages(error);
+        setSubmitError(reason === "timeout" ? ["Time ran out.", ...messages] : messages);
+        setSubmitting(false);
+      }
+    },
+    [router, token],
+  );
+
+  // Keep the latest submit in a ref so the timer effect never needs to
+  // re-subscribe and cannot fire on a stale closure.
+  const submitRef = useRef(submitExam);
+  useEffect(() => {
+    submitRef.current = submitExam;
+  }, [submitExam]);
+
+  const autoSubmitted = useRef(false);
+
+  // -------------------------------------------------------------- timer ----
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setRemaining((current) => (current <= 0 ? 0 : current - 1));
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (remaining > 0 || autoSubmitted.current) return;
+    autoSubmitted.current = true;
+    void submitRef.current("timeout");
+  }, [remaining]);
+
+  // Warn before closing the tab mid-exam.
+  useEffect(() => {
+    function onBeforeUnload(event: BeforeUnloadEvent) {
+      if (submitting) return;
+      event.preventDefault();
+      event.returnValue = "";
+    }
+    window.addEventListener("beforeunload", onBeforeUnload);
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+  }, [submitting]);
+
+  // -------------------------------------------------------------- saving ---
+  const persist = useCallback(
+    async (questionId: string, selectedIndices: number[], flagged?: boolean) => {
+      try {
+        await apiRequest(`/api/attempts/${token}`, {
+          method: "PATCH",
+          body: { questionId, selectedIndices, flagged },
+        });
+        setSaveError([]);
+      } catch (error) {
+        setSaveError(errorMessages(error));
+      }
+    },
+    [token],
+  );
+
+  function chooseOption(optionIndex: number) {
+    if (!question) return;
+    const qid = question.questionId;
+    const current = responses[qid] ?? [];
+
+    let next: number[];
+    if (allowsMultiple(question.questionType)) {
+      next = current.includes(optionIndex)
+        ? current.filter((entry) => entry !== optionIndex)
+        : [...current, optionIndex].sort((a, b) => a - b);
+    } else {
+      next = current.includes(optionIndex) && current.length === 1 ? [] : [optionIndex];
+    }
+
+    // Update optimistically; the server is the source of truth on reload.
+    setResponses((prev) => {
+      const copy = { ...prev };
+      if (next.length === 0) delete copy[qid];
+      else copy[qid] = next;
+      return copy;
+    });
+
+    void persist(qid, next);
+  }
+
+  function toggleFlag() {
+    if (!question) return;
+    const qid = question.questionId;
+    const next = !flags[qid];
+    setFlags((prev) => ({ ...prev, [qid]: next }));
+    void persist(qid, responses[qid] ?? [], next);
+  }
+
+  if (!question) {
+    return (
+      <div className="auth-shell">
+        <div className="auth-card">
+          <h1>No questions</h1>
+          <div className="alert alert-error">
+            This attempt has no questions attached to it. Please contact your instructor.
+          </div>
+          <Link className="btn btn-primary btn-block" href="/exams">
+            Back to exams
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const selected = responses[question.questionId] ?? [];
+  const timerClass =
+    remaining <= 30 ? "timer timer-critical" : remaining <= 120 ? "timer timer-warning" : "timer";
+  const notAutoGradable = question.options.length === 0;
+
+  return (
+    <>
+      <div className="exam-topbar">
+        <div className="exam-title">
+          {examName}
+          <small>
+            {answeredCount} of {questions.length} answered
+            {negativeMarking ? " · negative marking applies" : ""}
+          </small>
+        </div>
+
+        <div className="spacer" />
+
+        <div className={timerClass} title="Time remaining">
+          {formatClock(remaining)}
+        </div>
+
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => {
+            if (submitting) return;
+            const unanswered = questions.length - answeredCount;
+            const message =
+              unanswered > 0
+                ? `You still have ${unanswered} unanswered question${unanswered === 1 ? "" : "s"}. Submit anyway?`
+                : "Submit your exam for marking?";
+            if (window.confirm(message)) void submitExam("manual");
+          }}
+          disabled={submitting}
+        >
+          {submitting ? "Submitting…" : "Submit exam"}
+        </button>
+      </div>
+
+      <div className="exam-layout">
+        <div>
+          {saveError.length > 0 && (
+            <div className="alert alert-error">
+              <strong>Could not save your last answer.</strong>
+              <ul>
+                {saveError.map((message) => (
+                  <li key={message}>{message}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {submitError.length > 0 && (
+            <div className="alert alert-error">
+              <strong>{remaining <= 0 ? "Time is up." : "Submission failed."}</strong>
+              <ul>
+                {submitError.map((message) => (
+                  <li key={message}>{message}</li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                className="btn btn-sm"
+                style={{ marginTop: 8 }}
+                onClick={() => void submitExam("manual")}
+              >
+                Try submitting again
+              </button>
+            </div>
+          )}
+
+          <div className="question-panel">
+            <div className="row-between">
+              <div className="question-number">
+                Question {index + 1} of {questions.length}
+              </div>
+              <div className="row">
+                <span className={`badge badge-${question.difficulty.toLowerCase()}`}>
+                  {question.difficulty}
+                </span>
+                <span className="badge">{question.marks} mark{question.marks === 1 ? "" : "s"}</span>
+                <button
+                  type="button"
+                  className={flags[question.questionId] ? "btn btn-sm btn-danger" : "btn btn-sm"}
+                  onClick={toggleFlag}
+                >
+                  {flags[question.questionId] ? "⚑ Flagged" : "⚐ Flag for review"}
+                </button>
+              </div>
+            </div>
+
+            <div className="question-text">{question.questionText}</div>
+
+            {allowsMultiple(question.questionType) && (
+              <p className="field-hint" style={{ marginBottom: 12 }}>
+                Select every correct answer. Partial answers score no marks.
+              </p>
+            )}
+
+            {notAutoGradable ? (
+              <div className="alert alert-warning" style={{ marginBottom: 0 }}>
+                This question type ({question.questionType}) is not auto-gradable and will be
+                recorded as unanswered.
+              </div>
+            ) : (
+              <div>
+                {question.options.map((option, optionIndex) => {
+                  const isSelected = selected.includes(optionIndex);
+                  return (
+                    <label
+                      key={optionIndex}
+                      className={`option${isSelected ? " option-selected" : ""}`}
+                    >
+                      <input
+                        type={allowsMultiple(question.questionType) ? "checkbox" : "radio"}
+                        name={`question-${question.questionId}`}
+                        checked={isSelected}
+                        onChange={() => chooseOption(optionIndex)}
+                      />
+                      <span className="option-key">{OPTION_LETTERS[optionIndex] ?? "?"}</span>
+                      <span>{option}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="row-between" style={{ marginTop: 22 }}>
+              <button
+                type="button"
+                className="btn"
+                onClick={() => setIndex((current) => Math.max(0, current - 1))}
+                disabled={index === 0}
+              >
+                ← Previous
+              </button>
+
+              {selected.length > 0 && !notAutoGradable && (
+                <button type="button" className="btn btn-ghost btn-sm" onClick={() => chooseOption(selected[0])}>
+                  Clear answer
+                </button>
+              )}
+
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => setIndex((current) => Math.min(questions.length - 1, current + 1))}
+                disabled={index === questions.length - 1}
+              >
+                Next →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <aside className="palette">
+          <div className="row-between">
+            <strong style={{ fontSize: "0.88rem" }}>Questions</strong>
+            <span className="faint small">
+              {answeredCount}/{questions.length}
+            </span>
+          </div>
+
+          <div className="progress-track" style={{ marginTop: 8 }}>
+            <div
+              className="progress-fill"
+              style={{ width: `${(answeredCount / questions.length) * 100}%` }}
+            />
+          </div>
+
+          <div className="palette-grid">
+            {questions.map((entry, entryIndex) => {
+              const classes = ["palette-btn"];
+              if ((responses[entry.questionId]?.length ?? 0) > 0) classes.push("palette-answered");
+              if (entryIndex === index) classes.push("palette-current");
+              if (flags[entry.questionId]) classes.push("palette-flagged");
+              return (
+                <button
+                  key={entry.questionId}
+                  type="button"
+                  className={classes.join(" ")}
+                  onClick={() => setIndex(entryIndex)}
+                  title={
+                    (responses[entry.questionId]?.length ?? 0) > 0 ? "Answered" : "Not answered"
+                  }
+                >
+                  {entryIndex + 1}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="legend">
+            <span className="legend-item">
+              <span className="legend-swatch" style={{ background: "var(--success-soft)", borderColor: "var(--success)" }} />
+              Answered
+            </span>
+            <span className="legend-item">
+              <span className="legend-swatch" />
+              Not answered
+            </span>
+            <span className="legend-item">
+              <span
+                className="legend-swatch"
+                style={{ background: "var(--warning-soft)", borderColor: "var(--warning)" }}
+              />
+              Flagged ({flaggedCount})
+            </span>
+          </div>
+
+          <div className="field-hint" style={{ marginTop: 12 }}>
+            Pass mark: {passThresholdPercent}%. Answers save automatically.
+          </div>
+        </aside>
+      </div>
+    </>
+  );
+}
