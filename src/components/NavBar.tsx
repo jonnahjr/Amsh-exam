@@ -16,7 +16,7 @@ export async function NavBar() {
   return (
     <header className="topbar">
       <div className="topbar-inner">
-        <Link href="/" className="brand">
+        <Link href={isStaff ? "/admin" : "/exams"} className="brand">
           <Image
             src="/amsh-logo.jpg"
             alt="AMSH"
