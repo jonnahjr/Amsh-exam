@@ -200,10 +200,7 @@ export function ExamRunner({
       <div className="exam-topbar">
         <div className="exam-title">
           {examName}
-          <small>
-            {answeredCount} of {questions.length} answered
-            {negativeMarking ? " · negative marking applies" : ""}
-          </small>
+          <small>{answeredCount} of {questions.length} answered</small>
         </div>
 
         <div className="spacer" />
@@ -263,29 +260,34 @@ export function ExamRunner({
           )}
 
           <div className="question-panel">
-            <div className="row-between">
-              <div className="question-number">
+            <div className="row-between" style={{ marginBottom: 16 }}>
+              <div className="question-number" style={{ margin: 0, fontSize: "0.95rem", fontWeight: 700, color: "var(--text)" }}>
                 Question {index + 1} of {questions.length}
               </div>
-              <div className="row">
+              <div className="row" style={{ gap: 8 }}>
                 <span className={`badge badge-${question.difficulty.toLowerCase()}`}>
                   {question.difficulty}
                 </span>
-                <span className="badge">{question.marks} mark{question.marks === 1 ? "" : "s"}</span>
+                <span className="badge" style={{ fontWeight: 600 }}>
+                  {question.marks} mark{question.marks === 1 ? "" : "s"}
+                </span>
                 <button
                   type="button"
                   className={flags[question.questionId] ? "btn btn-sm btn-danger" : "btn btn-sm"}
                   onClick={toggleFlag}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 5 }}
                 >
                   {flags[question.questionId] ? "⚑ Flagged" : "⚐ Flag for review"}
                 </button>
               </div>
             </div>
 
-            <div className="question-text">{question.questionText}</div>
+            <div className="question-text" style={{ fontSize: "1.08rem", fontWeight: 500, lineHeight: 1.65, marginBottom: 26 }}>
+              {question.questionText}
+            </div>
 
             {allowsMultiple(question.questionType) && (
-              <p className="field-hint" style={{ marginBottom: 12 }}>
+              <p className="field-hint" style={{ marginBottom: 14 }}>
                 Select every correct answer. Partial answers score no marks.
               </p>
             )}
@@ -318,7 +320,7 @@ export function ExamRunner({
               </div>
             )}
 
-            <div className="row-between" style={{ marginTop: 22 }}>
+            <div className="row-between" style={{ marginTop: 26, paddingTop: 16, borderTop: "1px solid var(--border)" }}>
               <button
                 type="button"
                 className="btn"
@@ -348,28 +350,21 @@ export function ExamRunner({
 
         <aside className="palette">
           <div className="row-between" style={{ alignItems: "center" }}>
-            <strong style={{ fontSize: "0.92rem", letterSpacing: "-0.01em" }}>Question Matrix</strong>
-            <span className="badge badge-accent" style={{ fontSize: "0.78rem" }}>
+            <strong style={{ fontSize: "0.95rem", fontWeight: 700, letterSpacing: "-0.01em" }}>Question Matrix</strong>
+            <span className="badge badge-accent" style={{ fontSize: "0.8rem", fontWeight: 700 }}>
               {answeredCount} / {questions.length}
             </span>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 12, marginBottom: 12 }}>
-            <div style={{ background: "var(--surface-alt)", padding: "8px 10px", borderRadius: 8, textAlign: "center", border: "1px solid var(--border)" }}>
-              <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--success)" }}>{answeredCount}</div>
-              <div style={{ fontSize: "0.72rem", color: "var(--text-faint)", textTransform: "uppercase" }}>Answered</div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 14, marginBottom: 14 }}>
+            <div style={{ background: "var(--surface-alt)", padding: "10px 12px", borderRadius: 8, textAlign: "center", border: "1px solid var(--border)" }}>
+              <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--success)" }}>{answeredCount}</div>
+              <div style={{ fontSize: "0.72rem", fontWeight: 600, color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>Answered</div>
             </div>
-            <div style={{ background: "var(--surface-alt)", padding: "8px 10px", borderRadius: 8, textAlign: "center", border: "1px solid var(--border)" }}>
-              <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-muted)" }}>{questions.length - answeredCount}</div>
-              <div style={{ fontSize: "0.72rem", color: "var(--text-faint)", textTransform: "uppercase" }}>Remaining</div>
+            <div style={{ background: "var(--surface-alt)", padding: "10px 12px", borderRadius: 8, textAlign: "center", border: "1px solid var(--border)" }}>
+              <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--text-muted)" }}>{questions.length - answeredCount}</div>
+              <div style={{ fontSize: "0.72rem", fontWeight: 600, color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 2 }}>Remaining</div>
             </div>
-          </div>
-
-          <div className="progress-track" style={{ marginTop: 4, marginBottom: 14 }}>
-            <div
-              className="progress-fill"
-              style={{ width: `${(answeredCount / questions.length) * 100}%` }}
-            />
           </div>
 
           <div className="palette-grid">
@@ -397,9 +392,9 @@ export function ExamRunner({
             })}
           </div>
 
-          <div className="legend" style={{ borderTop: "1px solid var(--border)", paddingTop: 12, marginTop: 14 }}>
+          <div className="legend" style={{ borderTop: "1px solid var(--border)", paddingTop: 14, marginTop: 16 }}>
             <span className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--success-soft)", borderColor: "var(--success)", boxShadow: "0 0 6px rgba(52,211,153,0.3)" }} />
+              <span className="legend-swatch" style={{ background: "#064e3b", borderColor: "var(--success)", boxShadow: "0 0 6px rgba(52,211,153,0.35)" }} />
               Answered (Shaded)
             </span>
             <span className="legend-item">
@@ -416,7 +411,7 @@ export function ExamRunner({
             </span>
           </div>
 
-          <div className="field-hint" style={{ marginTop: 14, textAlign: "center" }}>
+          <div className="field-hint" style={{ marginTop: 14, textAlign: "center", fontSize: "0.76rem" }}>
             Pass mark: <strong>{passThresholdPercent}%</strong> · Autosaved
           </div>
         </aside>

@@ -32,7 +32,7 @@ export async function NavBar() {
           {user && (
             <>
               <Link href="/exams">Exams</Link>
-              <Link href="/questions">Question Bank</Link>
+              {isStaff && <Link href="/questions">Question Bank</Link>}
               <Link href="/results">Results</Link>
               {isStaff && <Link href="/admin/checkins">Check-Ins</Link>}
               {isStaff && <Link href="/admin/bulk-exam">Bulk Add Exam</Link>}
