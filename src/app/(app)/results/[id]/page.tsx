@@ -19,20 +19,36 @@ export const dynamic = "force-dynamic";
 
 function ReviewCard({ entry }: { entry: AnswerReviewEntry }) {
   const status = !entry.isAnswered ? "Unanswered" : entry.isCorrect ? "Correct" : "Incorrect";
-  const statusClass = !entry.isAnswered ? "" : entry.isCorrect ? "score-pass" : "score-fail";
 
   return (
-    <div className="review-item">
+    <div
+      className="review-item"
+      style={{
+        borderLeft: entry.isCorrect
+          ? "4px solid var(--success)"
+          : entry.isAnswered
+          ? "4px solid var(--danger)"
+          : "4px solid var(--text-faint)",
+      }}
+    >
       <div className="review-head">
         <div>
           <div className="question-number">Question {entry.position + 1}</div>
-          <h3 style={{ fontWeight: 550, fontSize: "1.02rem", margin: 0 }} className="pre-wrap">
+          <h3 style={{ fontWeight: 600, fontSize: "1.05rem", lineHeight: 1.5, margin: "4px 0 12px" }}>
             {entry.questionText}
           </h3>
         </div>
-        <div className="row" style={{ flex: "none" }}>
+        <div className="row" style={{ flex: "none", gap: 6 }}>
           <DifficultyBadge difficulty={entry.difficulty} />
-          <span className={`badge ${entry.isCorrect ? "badge-pass" : entry.isAnswered ? "badge-fail" : ""}`}>
+          <span
+            className={`badge ${
+              entry.isCorrect
+                ? "badge-published"
+                : entry.isAnswered
+                ? "badge-fail"
+                : "badge-draft"
+            }`}
+          >
             {status}
           </span>
           <span className="badge">
@@ -41,23 +57,73 @@ function ReviewCard({ entry }: { entry: AnswerReviewEntry }) {
         </div>
       </div>
 
-      <div>
+      <div style={{ marginTop: 12 }}>
         {entry.options.map((option, index) => {
           const isCorrect = entry.correctIndices.includes(index);
           const wasSelected = entry.selectedIndices.includes(index);
-          const classes = ["review-option"];
-          if (isCorrect) classes.push("option-correct");
-          else if (wasSelected) classes.push("option-wrong");
+
+          let borderColor = "var(--border)";
+          let bg = "var(--surface-alt)";
+          let indicatorBadge = null;
+
+          if (isCorrect && wasSelected) {
+            borderColor = "var(--success)";
+            bg = "rgba(52,211,153,0.12)";
+            indicatorBadge = (
+              <span className="badge badge-published" style={{ fontSize: "0.75rem" }}>
+                ✓ Your Answer (Correct)
+              </span>
+            );
+          } else if (isCorrect && !wasSelected) {
+            borderColor = "var(--success)";
+            bg = "rgba(52,211,153,0.08)";
+            indicatorBadge = (
+              <span className="badge badge-published" style={{ fontSize: "0.75rem" }}>
+                ✓ Correct Answer
+              </span>
+            );
+          } else if (!isCorrect && wasSelected) {
+            borderColor = "var(--danger)";
+            bg = "rgba(248,113,113,0.12)";
+            indicatorBadge = (
+              <span className="badge badge-fail" style={{ fontSize: "0.75rem" }}>
+                ✕ Your Choice (Incorrect)
+              </span>
+            );
+          }
 
           return (
-            <div key={index} className={classes.join(" ")}>
-              <span className="option-key">{OPTION_LETTERS[index] ?? "?"}</span>
-              <span style={{ flex: 1 }}>{option}</span>
-              <span className="small faint nowrap">
-                {isCorrect && wasSelected && "correct · your answer"}
-                {isCorrect && !wasSelected && "correct answer"}
-                {!isCorrect && wasSelected && "your answer"}
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                padding: "12px 16px",
+                borderRadius: 8,
+                border: `1.5px solid ${borderColor}`,
+                background: bg,
+                marginBottom: 8,
+              }}
+            >
+              <span
+                style={{
+                  width: 26,
+                  height: 26,
+                  borderRadius: 6,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 700,
+                  fontSize: "0.82rem",
+                  background: isCorrect ? "var(--success)" : wasSelected ? "var(--danger)" : "var(--surface)",
+                  color: isCorrect || wasSelected ? "#fff" : "var(--text-muted)",
+                }}
+              >
+                {OPTION_LETTERS[index] ?? "?"}
               </span>
+              <span style={{ flex: 1, fontSize: "0.92rem", color: "var(--text)" }}>{option}</span>
+              {indicatorBadge}
             </div>
           );
         })}

@@ -137,14 +137,15 @@ export function ExamRunner({
     if (!question) return;
     const qid = question.questionId;
     const current = responses[qid] ?? [];
+    const isMulti = allowsMultiple(question.questionType);
 
     let next: number[];
-    if (allowsMultiple(question.questionType)) {
+    if (isMulti) {
       next = current.includes(optionIndex)
         ? current.filter((entry) => entry !== optionIndex)
         : [...current, optionIndex].sort((a, b) => a - b);
     } else {
-      next = current.includes(optionIndex) && current.length === 1 ? [] : [optionIndex];
+      next = [optionIndex];
     }
 
     // Update optimistically; the server is the source of truth on reload.
@@ -156,6 +157,13 @@ export function ExamRunner({
     });
 
     void persist(qid, next);
+
+    // In professional mock exam mode: automatically advance to the next question on single-choice!
+    if (!isMulti && index < questions.length - 1) {
+      setTimeout(() => {
+        setIndex((curr) => Math.min(questions.length - 1, curr + 1));
+      }, 240);
+    }
   }
 
   function toggleFlag() {
@@ -339,14 +347,25 @@ export function ExamRunner({
         </div>
 
         <aside className="palette">
-          <div className="row-between">
-            <strong style={{ fontSize: "0.88rem" }}>Questions</strong>
-            <span className="faint small">
-              {answeredCount}/{questions.length}
+          <div className="row-between" style={{ alignItems: "center" }}>
+            <strong style={{ fontSize: "0.92rem", letterSpacing: "-0.01em" }}>Question Matrix</strong>
+            <span className="badge badge-accent" style={{ fontSize: "0.78rem" }}>
+              {answeredCount} / {questions.length}
             </span>
           </div>
 
-          <div className="progress-track" style={{ marginTop: 8 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 12, marginBottom: 12 }}>
+            <div style={{ background: "var(--surface-alt)", padding: "8px 10px", borderRadius: 8, textAlign: "center", border: "1px solid var(--border)" }}>
+              <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--success)" }}>{answeredCount}</div>
+              <div style={{ fontSize: "0.72rem", color: "var(--text-faint)", textTransform: "uppercase" }}>Answered</div>
+            </div>
+            <div style={{ background: "var(--surface-alt)", padding: "8px 10px", borderRadius: 8, textAlign: "center", border: "1px solid var(--border)" }}>
+              <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-muted)" }}>{questions.length - answeredCount}</div>
+              <div style={{ fontSize: "0.72rem", color: "var(--text-faint)", textTransform: "uppercase" }}>Remaining</div>
+            </div>
+          </div>
+
+          <div className="progress-track" style={{ marginTop: 4, marginBottom: 14 }}>
             <div
               className="progress-fill"
               style={{ width: `${(answeredCount / questions.length) * 100}%` }}
@@ -355,19 +374,22 @@ export function ExamRunner({
 
           <div className="palette-grid">
             {questions.map((entry, entryIndex) => {
+              const isAnswered = (responses[entry.questionId]?.length ?? 0) > 0;
+              const isCurrent = entryIndex === index;
+              const isFlagged = flags[entry.questionId];
+
               const classes = ["palette-btn"];
-              if ((responses[entry.questionId]?.length ?? 0) > 0) classes.push("palette-answered");
-              if (entryIndex === index) classes.push("palette-current");
-              if (flags[entry.questionId]) classes.push("palette-flagged");
+              if (isAnswered) classes.push("palette-answered");
+              if (isCurrent) classes.push("palette-current");
+              if (isFlagged) classes.push("palette-flagged");
+
               return (
                 <button
                   key={entry.questionId}
                   type="button"
                   className={classes.join(" ")}
                   onClick={() => setIndex(entryIndex)}
-                  title={
-                    (responses[entry.questionId]?.length ?? 0) > 0 ? "Answered" : "Not answered"
-                  }
+                  title={`Question ${entryIndex + 1}: ${isAnswered ? "Answered" : "Unanswered"}`}
                 >
                   {entryIndex + 1}
                 </button>
@@ -375,26 +397,27 @@ export function ExamRunner({
             })}
           </div>
 
-          <div className="legend">
+          <div className="legend" style={{ borderTop: "1px solid var(--border)", paddingTop: 12, marginTop: 14 }}>
             <span className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--success-soft)", borderColor: "var(--success)" }} />
-              Answered
+              <span className="legend-swatch" style={{ background: "var(--success-soft)", borderColor: "var(--success)", boxShadow: "0 0 6px rgba(52,211,153,0.3)" }} />
+              Answered (Shaded)
             </span>
             <span className="legend-item">
-              <span className="legend-swatch" />
-              Not answered
+              <span className="legend-swatch" style={{ background: "var(--surface-alt)", borderColor: "var(--border)" }} />
+              Unanswered (Not shaded)
             </span>
             <span className="legend-item">
-              <span
-                className="legend-swatch"
-                style={{ background: "var(--warning-soft)", borderColor: "var(--warning)" }}
-              />
+              <span className="legend-swatch" style={{ background: "var(--surface)", borderColor: "var(--accent)", borderWidth: 2 }} />
+              Current Question
+            </span>
+            <span className="legend-item">
+              <span className="legend-swatch" style={{ background: "var(--warning)", borderColor: "var(--warning)" }} />
               Flagged ({flaggedCount})
             </span>
           </div>
 
-          <div className="field-hint" style={{ marginTop: 12 }}>
-            Pass mark: {passThresholdPercent}%. Answers save automatically.
+          <div className="field-hint" style={{ marginTop: 14, textAlign: "center" }}>
+            Pass mark: <strong>{passThresholdPercent}%</strong> · Autosaved
           </div>
         </aside>
       </div>
