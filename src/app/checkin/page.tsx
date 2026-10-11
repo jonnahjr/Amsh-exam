@@ -23,14 +23,17 @@ export default function CheckInPage() {
     return () => clearInterval(interval);
   }, [phase, checkedInAt]);
 
-  // Poll for approval every 3 seconds
+  // Poll for approval every 1.2 seconds for super fast responsiveness
   const poll = useCallback(async (id: string) => {
     try {
-      const res = await fetch(`/api/checkin?id=${id}`);
+      const res = await fetch(`/api/checkin?id=${id}&t=${Date.now()}`);
       if (!res.ok) return;
       const data = await res.json();
-      if (data.status === "APPROVED") setPhase("approved");
-      else if (data.status === "REJECTED") setPhase("rejected");
+      if (data.status === "APPROVED") {
+        setPhase("approved");
+      } else if (data.status === "REJECTED") {
+        setPhase("rejected");
+      }
     } catch {
       // silently ignore network errors during poll
     }
@@ -38,7 +41,7 @@ export default function CheckInPage() {
 
   useEffect(() => {
     if (phase !== "waiting" || !checkInId) return;
-    const interval = setInterval(() => poll(checkInId), 3000);
+    const interval = setInterval(() => poll(checkInId), 1200);
     return () => clearInterval(interval);
   }, [phase, checkInId, poll]);
 
@@ -114,7 +117,7 @@ export default function CheckInPage() {
                 <input
                   id="employee-name"
                   type="text"
-                  placeholder="e.g. Ahmed Al-Rashidi"
+                  placeholder="e.g. Yonas Bogale"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   autoComplete="name"
@@ -169,11 +172,18 @@ export default function CheckInPage() {
             </h1>
             <p className="checkin-desc">
               Welcome, <strong style={{ color: "var(--text)" }}>{name}</strong>!
-              <br />Your session has been approved. You may now proceed with your exam.
+              <br />Your session has been approved by the administrator.
             </p>
-            <div className="checkin-elapsed">
+            <div className="checkin-elapsed" style={{ marginBottom: 20 }}>
               Approved after <strong>{formatTime(elapsed)}</strong>
             </div>
+            <a
+              href="/exams"
+              className="btn btn-primary btn-block"
+              style={{ height: 46, fontSize: "1rem", display: "inline-flex", alignItems: "center", justifyContent: "center" }}
+            >
+              Start Exam Now →
+            </a>
           </div>
         )}
 

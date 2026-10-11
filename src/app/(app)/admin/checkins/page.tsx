@@ -35,7 +35,7 @@ export default function AdminCheckInsPage() {
 
   const load = useCallback(async () => {
     try {
-      const res = await fetch("/api/checkin/list");
+      const res = await fetch(`/api/checkin/list?t=${Date.now()}`);
       if (res.status === 401 || res.status === 403) {
         window.location.href = "/admin/login";
         return;
@@ -53,7 +53,7 @@ export default function AdminCheckInsPage() {
 
   useEffect(() => {
     load();
-    const interval = setInterval(load, 4000); // auto-refresh every 4s
+    const interval = setInterval(load, 1500); // auto-refresh every 1.5s for instant updates
     return () => clearInterval(interval);
   }, [load]);
 
