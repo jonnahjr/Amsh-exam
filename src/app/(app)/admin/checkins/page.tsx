@@ -42,7 +42,8 @@ export default function AdminCheckInsPage() {
       }
       if (res.ok) {
         const data = await res.json();
-        setRows(data.items ?? []);
+        const items = data.items ?? data.data?.items ?? [];
+        setRows(items);
       }
     } catch {
       // ignore

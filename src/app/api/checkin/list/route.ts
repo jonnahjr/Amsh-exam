@@ -24,7 +24,7 @@ export async function GET(): Promise<NextResponse> {
        LIMIT 100`,
     );
 
-    return ok({ items });
+    return NextResponse.json({ items });
   } catch (error) {
     return handleError(error);
   }
