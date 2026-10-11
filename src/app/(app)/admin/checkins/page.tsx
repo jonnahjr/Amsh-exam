@@ -9,6 +9,9 @@ interface CheckIn {
   checkedInAt: string;
   approvedAt: string | null;
   approvedBy: string | null;
+  totalAttempts?: number;
+  totalCompleted?: number;
+  bestScore?: number | null;
 }
 
 function timeAgo(iso: string) {
@@ -87,11 +90,11 @@ export default function AdminCheckInsPage() {
     <div>
       <div className="page-header">
         <div>
-          <h1>Employee Check-Ins</h1>
-          <p>Approve or reject employee session requests in real time. Page refreshes automatically.</p>
+          <h1>Employee Check-Ins & Authorization</h1>
+          <p>Authorize candidate exam sessions in real time. Track how many times each candidate has sat for exams.</p>
         </div>
         <div className="row">
-          <span className="badge" style={{ fontSize: "0.8rem", padding: "4px 12px" }}>
+          <span className="badge" style={{ fontSize: "0.85rem", padding: "6px 14px" }}>
             {pending.length} pending
           </span>
           <button className="btn btn-sm" onClick={load}>↻ Refresh</button>
@@ -102,23 +105,36 @@ export default function AdminCheckInsPage() {
 
       {/* Pending */}
       <section style={{ marginBottom: 32 }}>
-        <p className="section-heading">Pending Approval</p>
+        <p className="section-heading">Pending Authorization</p>
         {loading ? (
           <div className="empty"><span className="muted">Loading…</span></div>
         ) : pending.length === 0 ? (
           <div className="empty">
             <h3>No pending requests</h3>
-            <p className="muted">Check-ins will appear here automatically as employees sign in.</p>
+            <p className="muted">Check-ins will appear here automatically when employees check in.</p>
           </div>
         ) : (
           <div className="stack">
             {pending.map((row) => (
-              <div key={row.id} className="checkin-admin-row">
-                <div className="checkin-admin-pulse" />
-                <div className="checkin-admin-info">
-                  <div className="checkin-admin-name">{row.employeeName}</div>
-                  <div className="checkin-admin-meta">
-                    Checked in <WaitingDuration iso={row.checkedInAt} />
+              <div key={row.id} className="checkin-admin-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 14 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <div className="checkin-admin-pulse" />
+                  <div className="checkin-admin-info">
+                    <div className="checkin-admin-name" style={{ fontSize: "1.05rem", fontWeight: 700 }}>
+                      {row.employeeName}
+                    </div>
+                    <div className="checkin-admin-meta" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 3 }}>
+                      <span>Checked in <WaitingDuration iso={row.checkedInAt} /></span>
+                      <span>·</span>
+                      <span className="badge" style={{ fontSize: "0.75rem", background: (row.totalAttempts ?? 0) > 0 ? "rgba(139,92,246,0.15)" : "var(--surface-alt)" }}>
+                        Taken test: <strong>{row.totalAttempts ?? 0} time{(row.totalAttempts ?? 0) === 1 ? "" : "s"}</strong>
+                      </span>
+                      {row.bestScore !== null && row.bestScore !== undefined && (
+                        <span className="badge badge-accent" style={{ fontSize: "0.75rem" }}>
+                          Best: {row.bestScore}%
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="row" style={{ gap: 8 }}>
@@ -135,7 +151,7 @@ export default function AdminCheckInsPage() {
                     disabled={busyId === row.id}
                     onClick={() => act(row.id, "approve")}
                   >
-                    {busyId === row.id ? "…" : "Approve"}
+                    {busyId === row.id ? "…" : "Approve & Start"}
                   </button>
                 </div>
               </div>
@@ -147,22 +163,36 @@ export default function AdminCheckInsPage() {
       {/* History */}
       {done.length > 0 && (
         <section>
-          <p className="section-heading">Recent History</p>
+          <p className="section-heading">Recent Authorization History</p>
           <div className="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>Employee</th>
+                  <th>Employee Name</th>
+                  <th>Tests Taken</th>
+                  <th>Best Score</th>
                   <th>Status</th>
-                  <th>Checked in</th>
-                  <th>Decided</th>
-                  <th>By</th>
+                  <th>Checked In</th>
+                  <th>Authorized At</th>
+                  <th>Authorized By</th>
                 </tr>
               </thead>
               <tbody>
                 {done.map((row) => (
                   <tr key={row.id}>
-                    <td style={{ fontWeight: 500 }}>{row.employeeName}</td>
+                    <td style={{ fontWeight: 600 }}>{row.employeeName}</td>
+                    <td>
+                      <span className="badge" style={{ fontWeight: 600 }}>
+                        {row.totalAttempts ?? 0} time{(row.totalAttempts ?? 0) === 1 ? "" : "s"}
+                      </span>
+                    </td>
+                    <td>
+                      {row.bestScore !== null && row.bestScore !== undefined ? (
+                        <strong style={{ color: "var(--accent)" }}>{row.bestScore}%</strong>
+                      ) : (
+                        <span className="muted">—</span>
+                      )}
+                    </td>
                     <td>
                       <span className={`badge ${row.status === "APPROVED" ? "badge-published" : "badge-fail"}`}>
                         {row.status}

@@ -16,6 +16,23 @@ import {
 interface QuestionFormProps {
   subjects: SubjectRow[];
   topics: TopicRow[];
+  initialData?: {
+    id: string;
+    questionText: string;
+    questionType: QuestionType;
+    difficulty: Difficulty;
+    options: string[];
+    correctOptionIndices: number[];
+    subjectId?: string | null;
+    topicId?: string | null;
+    marks: number;
+    negativeMarks?: number | null;
+    explanation?: string | null;
+    tags: string[];
+    learningObjectives?: string | null;
+    source?: string | null;
+    status: "DRAFT" | "PUBLISHED" | "ARCHIVED";
+  };
 }
 
 /** Question types that need an option list and a marked answer. */
@@ -31,23 +48,29 @@ const needsOptions = (type: QuestionType) => OPTION_TYPES.includes(type);
 const singleAnswerOnly = (type: QuestionType) =>
   type === "SINGLE_CHOICE" || type === "TRUE_FALSE";
 
-export function QuestionForm({ subjects, topics }: QuestionFormProps) {
+export function QuestionForm({ subjects, topics, initialData }: QuestionFormProps) {
   const router = useRouter();
 
-  const [questionText, setQuestionText] = useState("");
-  const [questionType, setQuestionType] = useState<QuestionType>("SINGLE_CHOICE");
-  const [difficulty, setDifficulty] = useState<Difficulty>("EASY");
-  const [options, setOptions] = useState<string[]>(["", "", "", ""]);
-  const [correct, setCorrect] = useState<number[]>([]);
-  const [subjectId, setSubjectId] = useState("");
-  const [topicId, setTopicId] = useState("");
-  const [marks, setMarks] = useState("1");
-  const [negativeMarks, setNegativeMarks] = useState("");
-  const [explanation, setExplanation] = useState("");
-  const [tags, setTags] = useState("");
-  const [learningObjectives, setLearningObjectives] = useState("");
-  const [source, setSource] = useState("");
-  const [status, setStatus] = useState<"DRAFT" | "PUBLISHED">("PUBLISHED");
+  const [questionText, setQuestionText] = useState(initialData?.questionText ?? "");
+  const [questionType, setQuestionType] = useState<QuestionType>(initialData?.questionType ?? "SINGLE_CHOICE");
+  const [difficulty, setDifficulty] = useState<Difficulty>(initialData?.difficulty ?? "EASY");
+  const [options, setOptions] = useState<string[]>(
+    initialData?.options && initialData.options.length > 0
+      ? initialData.options
+      : ["", "", "", ""]
+  );
+  const [correct, setCorrect] = useState<number[]>(initialData?.correctOptionIndices ?? []);
+  const [subjectId, setSubjectId] = useState(initialData?.subjectId ?? "");
+  const [topicId, setTopicId] = useState(initialData?.topicId ?? "");
+  const [marks, setMarks] = useState(String(initialData?.marks ?? "1"));
+  const [negativeMarks, setNegativeMarks] = useState(initialData?.negativeMarks ? String(initialData.negativeMarks) : "");
+  const [explanation, setExplanation] = useState(initialData?.explanation ?? "");
+  const [tags, setTags] = useState(initialData?.tags ? initialData.tags.join(", ") : "");
+  const [learningObjectives, setLearningObjectives] = useState(initialData?.learningObjectives ?? "");
+  const [source, setSource] = useState(initialData?.source ?? "");
+  const [status, setStatus] = useState<"DRAFT" | "PUBLISHED">(
+    initialData?.status === "DRAFT" ? "DRAFT" : "PUBLISHED"
+  );
 
   const [errors, setErrors] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
@@ -126,7 +149,11 @@ export function QuestionForm({ subjects, topics }: QuestionFormProps) {
     };
 
     try {
-      await apiRequest("/api/questions", { method: "POST", body: payload });
+      if (initialData?.id) {
+        await apiRequest(`/api/questions/${initialData.id}`, { method: "PATCH", body: payload });
+      } else {
+        await apiRequest("/api/questions", { method: "POST", body: payload });
+      }
       router.push("/questions");
       router.refresh();
     } catch (error) {

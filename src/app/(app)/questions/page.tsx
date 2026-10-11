@@ -167,6 +167,7 @@ export default async function QuestionsPage(props: { searchParams: RawSearchPara
                   <th className="num">Marks</th>
                   <th>Author</th>
                   <th>Added</th>
+                  {isStaff && <th>Actions</th>}
                 </tr>
               </thead>
               <tbody>
@@ -195,6 +196,13 @@ export default async function QuestionsPage(props: { searchParams: RawSearchPara
                     <td className="num">{question.marks}</td>
                     <td className="small">{question.authorName ?? "—"}</td>
                     <td className="small nowrap">{formatDateTime(question.createdAt)}</td>
+                    {isStaff && (
+                      <td>
+                        <Link className="btn btn-sm" href={`/questions/${question.id}/edit`}>
+                          Edit
+                        </Link>
+                      </td>
+                    )}
                   </tr>
                 ))}
               </tbody>
