@@ -31,6 +31,10 @@ export default function CheckInPage() {
       const data = await res.json();
       if (data.status === "APPROVED") {
         setPhase("approved");
+        // Automatically open the exam page immediately upon approval!
+        setTimeout(() => {
+          window.location.href = data.redirectUrl || "/exams";
+        }, 1200);
       } else if (data.status === "REJECTED") {
         setPhase("rejected");
       }

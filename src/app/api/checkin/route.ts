@@ -25,11 +25,13 @@ export async function POST(request: Request): Promise<NextResponse> {
       [id, name, "PENDING", now],
     );
 
-    return ok({ id, employeeName: name, status: "PENDING", checkedInAt: now });
+    return NextResponse.json({ id, employeeName: name, status: "PENDING", checkedInAt: now });
   } catch (error) {
     return handleError(error);
   }
 }
+
+import { createSessionToken, SESSION_COOKIE, sessionCookieOptions } from "@/lib/auth";
 
 /** GET /api/checkin?id=xxx — poll status of a check-in */
 export async function GET(request: Request): Promise<NextResponse> {
@@ -51,7 +53,42 @@ export async function GET(request: Request): Promise<NextResponse> {
 
     if (!row) throw new AppError("Check-in not found.", 404, "NOT_FOUND");
 
-    return ok(row);
+    // If approved, ensure employee has a User record and create an authenticated session cookie
+    if (row.status === "APPROVED") {
+      const email = `emp_${row.id.replace(/-/g, "").slice(0, 12)}@amsh.internal`;
+      let user = one<{ id: string; email: string; name: string | null; role: "STUDENT" }>(
+        `SELECT "id", "email", "name", "role" FROM "User" WHERE "email" = ?`,
+        [email],
+      );
+
+      if (!user) {
+        const userId = row.id;
+        const now = new Date().toISOString();
+        run(
+          `INSERT INTO "User" ("id", "email", "password", "name", "role", "createdAt", "updatedAt")
+           VALUES (?, ?, 'NOPASSWORD', ?, 'STUDENT', ?, ?)`,
+          [userId, email, row.employeeName, now, now],
+        );
+        user = { id: userId, email, name: row.employeeName, role: "STUDENT" };
+      }
+
+      const token = await createSessionToken({
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        role: "STUDENT",
+      });
+
+      const response = NextResponse.json({
+        ...row,
+        redirectUrl: "/exams",
+      });
+
+      response.cookies.set(SESSION_COOKIE, token, sessionCookieOptions());
+      return response;
+    }
+
+    return NextResponse.json(row);
   } catch (error) {
     return handleError(error);
   }
