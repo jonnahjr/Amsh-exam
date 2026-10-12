@@ -1,4 +1,4 @@
-﻿import { all, one } from "@/lib/db";
+import { all, one } from "@/lib/db";
 import { parseJson } from "@/lib/json";
 import { ForbiddenError, NotFoundError } from "@/lib/errors";
 import type { AnswerReviewEntry, ExamAttemptRow, ExamTemplateRow, ResultRow } from "@/types";
@@ -108,7 +108,7 @@ export async function statsForUser(userId: string): Promise<UserStats> {
     failed: string;
   }>(
     `SELECT COUNT(*)                                                    AS "attempts",
-            ROUND(AVG("percentage"), 2)                                 AS "average",
+            ROUND(AVG("percentage")::numeric, 2)                        AS "average",
             MAX("percentage")                                           AS "best",
             SUM(CASE WHEN "passStatus" = 'PASS' THEN 1 ELSE 0 END)     AS "passed",
             SUM(CASE WHEN "passStatus" = 'FAIL' THEN 1 ELSE 0 END)     AS "failed"
@@ -150,7 +150,7 @@ export async function platformStats(): Promise<{
       scalar('SELECT COUNT(*) AS "n" FROM "ExamTemplate"'),
       scalar('SELECT COUNT(*) AS "n" FROM "ExamAttempt"'),
       scalar('SELECT COUNT(*) AS "n" FROM "Result"'),
-      one<{ v: string | null }>('SELECT ROUND(AVG("percentage"), 2) AS "v" FROM "Result"'),
+      one<{ v: string | null }>('SELECT ROUND(AVG("percentage")::numeric, 2) AS "v" FROM "Result"'),
     ]);
 
   return {

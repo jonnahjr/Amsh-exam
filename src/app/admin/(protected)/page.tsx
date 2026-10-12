@@ -49,7 +49,7 @@ export default async function AdminDashboardPage() {
         WHERE LOWER(u."name") = LOWER(c."employeeName")
       ) AS "totalCompleted",
       (
-        SELECT ROUND(AVG(r."percentage"), 1)
+        SELECT ROUND(AVG(r."percentage")::numeric, 1)
         FROM "Result" r 
         JOIN "User" u ON u."id" = r."userId" 
         WHERE LOWER(u."name") = LOWER(c."employeeName")
@@ -69,7 +69,7 @@ export default async function AdminDashboardPage() {
         LIMIT 1
       ) AS "latestStatus"
     FROM "CheckIn" c
-    GROUP BY LOWER(c."employeeName")
+    GROUP BY c."employeeName"
     ORDER BY "lastActive" DESC
   `);
 
