@@ -43,7 +43,8 @@ export function handleError(error: unknown): NextResponse {
     return fail(error.message, error.status, error.code, error.details);
   }
   console.error("Unhandled API error:", error);
-  return fail("Something went wrong on the server.", 500, "INTERNAL_ERROR");
+  const msg = error instanceof Error ? error.message : "Something went wrong on the server.";
+  return fail(msg, 500, "INTERNAL_ERROR");
 }
 
 /** Parse a JSON body, treating malformed input as a 400 rather than a crash. */

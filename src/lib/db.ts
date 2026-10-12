@@ -20,11 +20,14 @@ declare global {
 function getPool(): Pool {
   if (globalThis.__examPlatformPgPool) return globalThis.__examPlatformPgPool;
 
-  const connectionString = process.env.DATABASE_URL;
+  const connectionString =
+    process.env.DATABASE_URL ||
+    process.env.POSTGRES_URL ||
+    process.env.POSTGRES_PRISMA_URL ||
+    process.env.POSTGRES_URL_NON_POOLING;
   if (!connectionString) {
     throw new Error(
-      "DATABASE_URL is not set.\n" +
-        "Add it to .env (locally) or to Vercel Environment Variables.",
+      "Database connection string is not set. Neither DATABASE_URL nor POSTGRES_URL found in environment variables.",
     );
   }
 
