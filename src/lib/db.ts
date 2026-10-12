@@ -31,8 +31,13 @@ function getPool(): Pool {
     );
   }
 
+  // Remove sslmode query parameters so pg-connection-string does not override our ssl config
+  const sanitizedUrl = connectionString
+    .replace(/([?&])sslmode=[^&]+(&?)/, (_, p1, p2) => (p1 === "?" && p2 ? "?" : ""))
+    .replace(/\?$/, "");
+
   const pool = new Pool({
-    connectionString,
+    connectionString: sanitizedUrl,
     ssl: { rejectUnauthorized: false },
     max: 5,               // serverless: keep small
     idleTimeoutMillis: 30_000,
