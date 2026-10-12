@@ -1,59 +1,13 @@
-import Link from "next/link";
-import Image from "next/image";
 import { getSessionUser } from "@/lib/auth";
-import { LogoutButton } from "@/components/LogoutButton";
+import { NavBarClient } from "@/components/NavBarClient";
 
 /**
  * Top navigation.
  *
  * Rendered on the server so the session is resolved before the first paint and
- * no loading flicker appears.
+ * no loading flicker appears, then delegates to NavBarClient for responsive mobile interactions.
  */
 export async function NavBar() {
   const user = await getSessionUser();
-  const isStaff = user?.role === "INSTRUCTOR" || user?.role === "ADMINISTRATOR";
-
-  return (
-    <header className="topbar">
-      <div className="topbar-inner">
-        <Link href={isStaff ? "/admin" : "/exams"} className="brand">
-          <Image
-            src="/amsh-logo.jpg"
-            alt="AMSH"
-            width={28}
-            height={28}
-            className="brand-logo-img"
-            priority
-          />
-          AMSH Exam
-        </Link>
-
-        <nav className="nav-links">
-          {user && (
-            <>
-              <Link href="/exams">Exams</Link>
-              {isStaff && <Link href="/questions">Question Bank</Link>}
-              <Link href="/results">Results</Link>
-              {isStaff && <Link href="/admin/checkins">Check-Ins</Link>}
-              {isStaff && <Link href="/admin/bulk-exam">Bulk Add Exam</Link>}
-              {isStaff && <Link href="/admin/import">Import</Link>}
-              {user.role === "ADMINISTRATOR" && <Link href="/admin/audit">Audit Log</Link>}
-            </>
-          )}
-        </nav>
-
-        <div className="nav-right">
-          {user ? (
-            <>
-              <span>
-                {user.name ?? user.email}{" "}
-                <span className="badge badge-accent">{user.role}</span>
-              </span>
-              <LogoutButton />
-            </>
-          ) : null}
-        </div>
-      </div>
-    </header>
-  );
+  return <NavBarClient user={user} />;
 }

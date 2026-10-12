@@ -249,7 +249,7 @@ export function QuestionForm({ subjects, topics, initialData }: QuestionFormProp
 
           <div style={{ marginTop: 14 }}>
             {options.map((option, index) => (
-              <div key={index} className="row" style={{ marginBottom: 8, flexWrap: "nowrap" }}>
+              <div key={index} className="row question-form-option-row" style={{ marginBottom: 8 }}>
                 <label className="checkbox-row" style={{ margin: 0, flex: "none" }}>
                   <input
                     type={singleAnswerOnly(questionType) ? "radio" : "checkbox"}

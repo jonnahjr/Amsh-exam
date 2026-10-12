@@ -123,7 +123,7 @@ export default function AdminCheckInsPage() {
                     <div className="checkin-admin-name" style={{ fontSize: "1.05rem", fontWeight: 700 }}>
                       {row.employeeName}
                     </div>
-                    <div className="checkin-admin-meta" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 3 }}>
+                    <div className="checkin-admin-meta" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 3, flexWrap: "wrap" }}>
                       <span>Checked in <WaitingDuration iso={row.checkedInAt} /></span>
                       <span>·</span>
                       <span className="badge" style={{ fontSize: "0.75rem", background: (row.totalAttempts ?? 0) > 0 ? "rgba(37, 99, 235, 0.1)" : "var(--surface-alt)" }}>
@@ -137,7 +137,7 @@ export default function AdminCheckInsPage() {
                     </div>
                   </div>
                 </div>
-                <div className="row" style={{ gap: 8 }}>
+                <div className="row checkin-admin-actions" style={{ gap: 8 }}>
                   <button
                     className="btn btn-sm"
                     style={{ borderColor: "var(--danger-border)", color: "var(--danger)", background: "var(--danger-soft)" }}

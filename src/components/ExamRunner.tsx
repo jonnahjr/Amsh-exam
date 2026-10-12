@@ -337,10 +337,10 @@ export function ExamRunner({
               </div>
             )}
 
-            <div className="row-between" style={{ marginTop: 26, paddingTop: 16, borderTop: "1px solid var(--border)" }}>
+            <div className="row-between exam-actions-row" style={{ marginTop: 26, paddingTop: 16, borderTop: "1px solid var(--border)" }}>
               <button
                 type="button"
-                className="btn"
+                className="btn exam-nav-btn"
                 onClick={() => setIndex((current) => Math.max(0, current - 1))}
                 disabled={index === 0}
               >
@@ -348,14 +348,14 @@ export function ExamRunner({
               </button>
 
               {selected.length > 0 && !notAutoGradable && (
-                <button type="button" className="btn btn-ghost btn-sm" onClick={() => chooseOption(selected[0])}>
+                <button type="button" className="btn btn-ghost btn-sm exam-clear-btn" onClick={() => chooseOption(selected[0])}>
                   Clear answer
                 </button>
               )}
 
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-primary exam-nav-btn"
                 onClick={() => setIndex((current) => Math.min(questions.length - 1, current + 1))}
                 disabled={index === questions.length - 1}
               >
