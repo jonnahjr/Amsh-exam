@@ -19,11 +19,11 @@ export default async function ResultsPage() {
   if (!user) redirect("/login");
 
   const isStudent = user.role === "STUDENT";
-  const results = isStudent ? listResultsForUser(user.id) : listAllResults();
-  const stats = isStudent ? statsForUser(user.id) : null;
+  const results = await (isStudent ? listResultsForUser(user.id) : listAllResults());
+  const stats = isStudent ? await statsForUser(user.id) : null;
 
   return (
-    <>
+    <div className="results-white-theme">
       <PageHeader
         title={isStudent ? "Your results" : "All student results"}
         description={
@@ -116,6 +116,6 @@ export default async function ResultsPage() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

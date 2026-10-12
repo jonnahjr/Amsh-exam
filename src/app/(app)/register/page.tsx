@@ -24,7 +24,7 @@ export default async function RegisterPage() {
               fontSize: "0.9rem",
               color: "#fff",
               fontWeight: 700,
-              boxShadow: "0 4px 20px rgba(139,92,246,0.3)",
+              boxShadow: "0 4px 16px rgba(37, 99, 235, 0.25)",
               flexShrink: 0,
             }}
           >

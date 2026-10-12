@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { requireUser } from "@/lib/auth";
 import { saveResponseSchema } from "@/lib/validation";
@@ -6,16 +6,12 @@ import { loadAttemptSession, saveResponse } from "@/server/attempts";
 
 export const dynamic = "force-dynamic";
 
-interface Context {
-  params: { token: string };
-}
+interface Context { params: { token: string }; }
 
-/** Load the current state of an in-progress attempt. */
 export async function GET(_request: Request, { params }: Context): Promise<NextResponse> {
   try {
     const user = await requireUser();
-    const session = loadAttemptSession(params.token, user.id);
-
+    const session = await loadAttemptSession(params.token, user.id);
     return ok({
       attemptToken: session.attempt.attemptToken,
       status: session.attempt.status,
@@ -39,14 +35,13 @@ export async function GET(_request: Request, { params }: Context): Promise<NextR
   }
 }
 
-/** Persist one answer (or flag) without leaving the exam. */
 export async function PATCH(request: Request, { params }: Context): Promise<NextResponse> {
   try {
     const user = await requireUser();
     const body = await readJsonBody(request);
     const input = saveResponseSchema.parse(body);
 
-    const state = saveResponse({
+    const state = await saveResponse({
       token: params.token,
       userId: user.id,
       questionId: input.questionId,

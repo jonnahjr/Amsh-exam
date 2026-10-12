@@ -1,115 +1,146 @@
-import fs from "node:fs";
-import path from "node:path";
-import { DatabaseSync, type SQLInputValue } from "node:sqlite";
+import { Pool, type QueryResultRow } from "pg";
 
 /**
- * SQLite access layer built on Node's built-in `node:sqlite`.
+ * PostgreSQL access layer using the `pg` connection pool.
  *
- * There is no ORM in this project. Every query is written explicitly and the
- * helpers below keep the call sites short and fully typed.
+ * Drop-in async replacement for the previous node:sqlite layer.
+ * Every function is async; call sites must `await` them.
+ *
+ * The pool is cached on globalThis so Next.js hot-reloads in dev do not
+ * open a new connection for every module evaluation.
  */
 
-export type Params = SQLInputValue[];
+export type Params = (string | number | boolean | null | undefined)[];
 
-function resolveDatabasePath(): string {
-  const configured = process.env.DATABASE_PATH ?? "./prisma/exam.db";
-  return path.isAbsolute(configured)
-    ? configured
-    : path.resolve(process.cwd(), configured);
-}
-
-// Next.js dev mode re-evaluates modules on every hot reload. Caching the
-// connection on globalThis keeps a single handle (and a single WAL lock)
-// per server process.
 declare global {
   // eslint-disable-next-line no-var
-  var __examPlatformDb: DatabaseSync | undefined;
-  // eslint-disable-next-line no-var
-  var __examPlatformDbPath: string | undefined;
+  var __examPlatformPgPool: Pool | undefined;
 }
 
-export function getDb(): DatabaseSync {
-  const dbPath = resolveDatabasePath();
+function getPool(): Pool {
+  if (globalThis.__examPlatformPgPool) return globalThis.__examPlatformPgPool;
 
-  if (globalThis.__examPlatformDb && globalThis.__examPlatformDbPath === dbPath) {
-    return globalThis.__examPlatformDb;
-  }
-
-  fs.mkdirSync(path.dirname(dbPath), { recursive: true });
-  const db = new DatabaseSync(dbPath);
-  db.exec("PRAGMA foreign_keys = ON;");
-  db.exec("PRAGMA journal_mode = WAL;");
-  db.exec("PRAGMA busy_timeout = 5000;");
-
-  const schemaReady = db
-    .prepare("SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'User'")
-    .get();
-
-  if (!schemaReady) {
-    db.close();
+  const connectionString = process.env.DATABASE_URL;
+  if (!connectionString) {
     throw new Error(
-      `The database at ${dbPath} has no schema.\n` +
-        "Run `npm run db:setup` (or `npm run db:create`) first, then try again.",
+      "DATABASE_URL is not set.\n" +
+        "Add it to .env (locally) or to Vercel Environment Variables.",
     );
   }
 
-  globalThis.__examPlatformDb = db;
-  globalThis.__examPlatformDbPath = dbPath;
-  return db;
-}
+  const pool = new Pool({
+    connectionString,
+    ssl: { rejectUnauthorized: false },
+    max: 5,               // serverless: keep small
+    idleTimeoutMillis: 30_000,
+    connectionTimeoutMillis: 10_000,
+  });
 
-/** Run a query and return every row. */
-export function all<T>(sql: string, params: Params = []): T[] {
-  const rows = getDb().prepare(sql).all(...params);
-  return rows.map((r) => ({ ...(r as Record<string, unknown>) })) as T[];
-}
-
-/** Run a query and return the first row, or undefined. */
-export function one<T>(sql: string, params: Params = []): T | undefined {
-  const row = getDb().prepare(sql).get(...params);
-  if (!row) return undefined;
-  return { ...(row as Record<string, unknown>) } as T;
-}
-
-/** Run a statement and return the number of affected rows. */
-export function run(sql: string, params: Params = []): { changes: number } {
-  const result = getDb().prepare(sql).run(...params);
-  return { changes: Number(result.changes) };
+  globalThis.__examPlatformPgPool = pool;
+  return pool;
 }
 
 /**
- * Run `fn` inside a transaction. Rolled back if `fn` throws.
- *
- * SQLite has no nested transactions, so this is intentionally not composable.
+ * Convert SQLite-style `?` positional placeholders to PostgreSQL `$1, $2, …`.
+ * Also handles the SQLite boolean-as-integer convention by passing values
+ * through unchanged (pg handles JS booleans natively).
  */
-export function transaction<T>(fn: () => T): T {
-  const db = getDb();
-  db.exec("BEGIN");
+function toPgSql(sql: string): string {
+  let i = 0;
+  return sql.replace(/\?/g, () => `$${++i}`);
+}
+
+/** Run a query and return every row. */
+export async function all<T extends QueryResultRow>(
+  sql: string,
+  params: Params = [],
+): Promise<T[]> {
+  const { rows } = await getPool().query<T>(toPgSql(sql), params as unknown[]);
+  return rows;
+}
+
+/** Run a query and return the first row, or undefined. */
+export async function one<T extends QueryResultRow>(
+  sql: string,
+  params: Params = [],
+): Promise<T | undefined> {
+  const { rows } = await getPool().query<T>(toPgSql(sql), params as unknown[]);
+  return rows[0];
+}
+
+/** Run a statement and return the number of affected rows. */
+export async function run(
+  sql: string,
+  params: Params = [],
+): Promise<{ changes: number }> {
+  const result = await getPool().query(toPgSql(sql), params as unknown[]);
+  return { changes: result.rowCount ?? 0 };
+}
+
+/**
+ * Run `fn` inside a single PostgreSQL transaction. Rolled back if `fn` throws.
+ *
+ * The callback receives a `query` helper that routes through the same client
+ * so all statements share the transaction.
+ */
+export async function transaction<T>(
+  fn: (q: {
+    all: <R extends QueryResultRow>(sql: string, params?: Params) => Promise<R[]>;
+    one: <R extends QueryResultRow>(sql: string, params?: Params) => Promise<R | undefined>;
+    run: (sql: string, params?: Params) => Promise<{ changes: number }>;
+  }) => Promise<T>,
+): Promise<T> {
+  const client = await getPool().connect();
   try {
-    const result = fn();
-    db.exec("COMMIT");
+    await client.query("BEGIN");
+    const result = await fn({
+      all: async <R extends QueryResultRow>(sql: string, params: Params = []) => {
+        const r = await client.query<R>(toPgSql(sql), params as unknown[]);
+        return r.rows;
+      },
+      one: async <R extends QueryResultRow>(sql: string, params: Params = []): Promise<R | undefined> => {
+        const r = await client.query<R>(toPgSql(sql), params as unknown[]);
+        return r.rows[0] as R | undefined;
+      },
+      run: async (sql: string, params: Params = []) => {
+        const r = await client.query(toPgSql(sql), params as unknown[]);
+        return { changes: r.rowCount ?? 0 };
+      },
+    });
+    await client.query("COMMIT");
     return result;
   } catch (error) {
-    db.exec("ROLLBACK");
+    await client.query("ROLLBACK");
     throw error;
+  } finally {
+    client.release();
   }
 }
 
-/** SQLite has no boolean type: booleans round-trip as 0/1. */
-export function toBool(value: number | null | undefined): boolean {
+/**
+ * PostgreSQL returns native JS booleans. For backward compatibility with code
+ * that checks `value === 1`, we normalise to boolean.
+ */
+export function toBool(value: number | boolean | null | undefined): boolean {
+  if (typeof value === "boolean") return value;
   return value === 1;
 }
 
-export function fromBool(value: boolean): number {
-  return value ? 1 : 0;
+export function fromBool(value: boolean): boolean {
+  // pg handles JS booleans natively; no need for 0/1 conversion.
+  return value;
 }
 
-/** Numbers stored as REAL can come back as integers; normalise to number. */
-export function toNumber(value: number | bigint | null | undefined): number {
+/** Numbers stored as REAL can come back as strings from pg; normalise. */
+export function toNumber(value: number | bigint | string | null | undefined): number {
   if (value === null || value === undefined) return 0;
-  return typeof value === "bigint" ? Number(value) : value;
+  if (typeof value === "bigint") return Number(value);
+  if (typeof value === "string") return parseFloat(value) || 0;
+  return value;
 }
 
+/** @deprecated Not applicable for PostgreSQL – kept for compatibility. */
 export function databaseFilePath(): string {
-  return resolveDatabasePath();
+  return process.env.DATABASE_URL ?? "(PostgreSQL)";
 }
+

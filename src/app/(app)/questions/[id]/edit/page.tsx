@@ -24,7 +24,7 @@ export default async function EditQuestionPage({ params }: { params: { id: strin
     );
   }
 
-  const question = findQuestionById(params.id);
+  const question = await findQuestionById(params.id);
   if (!question) notFound();
 
   return (
@@ -41,8 +41,8 @@ export default async function EditQuestionPage({ params }: { params: { id: strin
       />
 
       <QuestionForm
-        subjects={listSubjects()}
-        topics={listTopics()}
+        subjects={await listSubjects()}
+        topics={await listTopics()}
         initialData={{
           id: question.id,
           questionText: question.questionText,

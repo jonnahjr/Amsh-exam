@@ -23,16 +23,16 @@ export default async function AdminDashboardPage() {
   if (!user) redirect("/admin/login");
 
   if (user.role !== "ADMINISTRATOR" && user.role !== "INSTRUCTOR") {
-    redirect("/");
+    redirect("/admin/login");
   }
 
-  const overview = platformStats();
+  const overview = await platformStats();
 
   const pendingCheckinsCount =
-    one<{ c: number }>('SELECT COUNT(*) AS "c" FROM "CheckIn" WHERE "status" = \'PENDING\'')?.c ?? 0;
+    (await one<{ c: number }>('SELECT COUNT(*) AS "c" FROM "CheckIn" WHERE "status" = \'PENDING\''))?.c ?? 0;
 
   // Aggregate candidate metrics: How many times each person has taken tests, check-in history, and performance
-  const candidateStats = all<CandidateStat>(`
+  const candidateStats = await all<CandidateStat>(`
     SELECT 
       c."employeeName" AS "candidateName",
       COUNT(c."id") AS "totalCheckIns",
@@ -215,7 +215,7 @@ export default async function AdminDashboardPage() {
                           className="badge"
                           style={{
                             fontWeight: 700,
-                            background: item.totalAttempts > 0 ? "rgba(139,92,246,0.18)" : "var(--surface-alt)",
+                            background: item.totalAttempts > 0 ? "rgba(37, 99, 235, 0.1)" : "var(--surface-alt)",
                             borderColor: item.totalAttempts > 0 ? "var(--accent)" : "var(--border)",
                             color: item.totalAttempts > 0 ? "var(--accent)" : "var(--text-muted)",
                           }}

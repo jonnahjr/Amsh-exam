@@ -24,7 +24,7 @@ export default async function ImportPage() {
     );
   }
 
-  const jobs = all<ImportJobRow>(
+  const jobs = await all<ImportJobRow>(
     'SELECT * FROM "ImportJob" WHERE "userId" = ? ORDER BY "createdAt" DESC LIMIT 10',
     [user.id],
   );

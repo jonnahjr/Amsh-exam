@@ -22,7 +22,7 @@ export default async function AuditLogPage() {
     );
   }
 
-  const entries = listAuditLogs(200);
+  const entries = await listAuditLogs(200);
 
   return (
     <>

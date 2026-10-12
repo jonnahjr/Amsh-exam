@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+﻿import { randomUUID } from "node:crypto";
 import { all, fromBool, one, run, toBool, transaction } from "@/lib/db";
 import { parseJson, stringifyJson } from "@/lib/json";
 import { ConflictError, NotFoundError } from "@/lib/errors";
@@ -29,16 +29,15 @@ export interface TemplateListItem extends ExamTemplate {
   categoryName: string | null;
 }
 
-export function listTemplates(options: { includeUnpublished?: boolean } = {}): TemplateListItem[] {
-  const rows = all<ExamTemplateRow & { subjectName: string | null; categoryName: string | null }>(
+export async function listTemplates(options: { includeUnpublished?: boolean } = {}): Promise<TemplateListItem[]> {
+  const rows = await all<ExamTemplateRow & { subjectName: string | null; categoryName: string | null }>(
     `SELECT t.*, s."name" AS "subjectName", c."name" AS "categoryName"
      FROM "ExamTemplate" t
      LEFT JOIN "Subject"  s ON s."id" = t."subjectId"
      LEFT JOIN "Category" c ON c."id" = t."categoryId"
-     ${options.includeUnpublished ? "" : "WHERE t.\"isPublic\" = 1"}
+     ${options.includeUnpublished ? "" : 'WHERE t."isPublic" = TRUE'}
      ORDER BY t."name"`,
   );
-
   return rows.map((row) => ({
     ...hydrateTemplate(row),
     subjectName: row.subjectName,
@@ -46,22 +45,20 @@ export function listTemplates(options: { includeUnpublished?: boolean } = {}): T
   }));
 }
 
-export function findTemplateBySlug(slug: string): ExamTemplate | null {
-  const row = one<ExamTemplateRow>('SELECT * FROM "ExamTemplate" WHERE "slug" = ?', [slug]);
+export async function findTemplateBySlug(slug: string): Promise<ExamTemplate | null> {
+  const row = await one<ExamTemplateRow>('SELECT * FROM "ExamTemplate" WHERE "slug" = ?', [slug]);
   return row ? hydrateTemplate(row) : null;
 }
 
-export function findTemplateById(id: string): ExamTemplate | null {
-  const row = one<ExamTemplateRow>('SELECT * FROM "ExamTemplate" WHERE "id" = ?', [id]);
+export async function findTemplateById(id: string): Promise<ExamTemplate | null> {
+  const row = await one<ExamTemplateRow>('SELECT * FROM "ExamTemplate" WHERE "id" = ?', [id]);
   return row ? hydrateTemplate(row) : null;
 }
 
-export function findTemplateWithNames(
+export async function findTemplateWithNames(
   slug: string,
-): (ExamTemplate & { subjectName: string | null; categoryName: string | null }) | null {
-  const row = one<
-    ExamTemplateRow & { subjectName: string | null; categoryName: string | null }
-  >(
+): Promise<(ExamTemplate & { subjectName: string | null; categoryName: string | null }) | null> {
+  const row = await one<ExamTemplateRow & { subjectName: string | null; categoryName: string | null }>(
     `SELECT t.*, s."name" AS "subjectName", c."name" AS "categoryName"
      FROM "ExamTemplate" t
      LEFT JOIN "Subject"  s ON s."id" = t."subjectId"
@@ -77,8 +74,9 @@ export function findTemplateWithNames(
   };
 }
 
-export function countTemplates(): number {
-  return one<{ n: number }>('SELECT COUNT(*) AS "n" FROM "ExamTemplate"')?.n ?? 0;
+export async function countTemplates(): Promise<number> {
+  const row = await one<{ n: string }>('SELECT COUNT(*) AS "n" FROM "ExamTemplate"');
+  return Number(row?.n ?? 0);
 }
 
 // ---------------------------------------------------------------- writes ----
@@ -91,12 +89,18 @@ function slugify(value: string): string {
     .slice(0, 120);
 }
 
-function replaceDifficultyRows(templateId: string, distribution: Partial<Record<Difficulty, number>> | null | undefined): void {
-  run('DELETE FROM "DifficultyDistribution" WHERE "templateId" = ?', [templateId]);
+type TxHelper = Parameters<Parameters<typeof transaction>[0]>[0];
+
+async function replaceDifficultyRows(
+  templateId: string,
+  distribution: Partial<Record<Difficulty, number>> | null | undefined,
+  q: TxHelper,
+): Promise<void> {
+  await q.run('DELETE FROM "DifficultyDistribution" WHERE "templateId" = ?', [templateId]);
   let order = 0;
   for (const [difficulty, weight] of Object.entries(distribution ?? {})) {
     if (typeof weight !== "number" || weight <= 0) continue;
-    run(
+    await q.run(
       'INSERT INTO "DifficultyDistribution" ("id","templateId","difficulty","weight","order") VALUES (?,?,?,?,?)',
       [randomUUID(), templateId, difficulty, weight, order],
     );
@@ -104,19 +108,19 @@ function replaceDifficultyRows(templateId: string, distribution: Partial<Record<
   }
 }
 
-export function createTemplate(input: TemplateInput): ExamTemplate {
+export async function createTemplate(input: TemplateInput): Promise<ExamTemplate> {
   const slug = input.slug ?? slugify(input.name);
   if (!slug) throw new ConflictError("Could not derive a slug from that name.");
 
-  if (findTemplateBySlug(slug)) {
+  if (await findTemplateBySlug(slug)) {
     throw new ConflictError(`A template with the slug "${slug}" already exists.`);
   }
 
   const id = randomUUID();
   const timestamp = new Date().toISOString();
 
-  transaction(() => {
-    run(
+  await transaction(async (q) => {
+    await q.run(
       `INSERT INTO "ExamTemplate"
         ("id","slug","name","categoryId","subjectId","topicWeights","totalQuestions","durationMinutes",
          "marksPerQuestion","negativeMarking","difficultyDistribution","randomizeQuestions","randomizeOptions",
@@ -124,46 +128,33 @@ export function createTemplate(input: TemplateInput): ExamTemplate {
          "publishedAt","createdAt","updatedAt")
        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       [
-        id,
-        slug,
-        input.name,
-        input.categoryId ?? null,
-        input.subjectId ?? null,
+        id, slug, input.name, input.categoryId ?? null, input.subjectId ?? null,
         input.topicWeights ? stringifyJson(input.topicWeights) : null,
-        input.totalQuestions,
-        input.durationMinutes,
-        input.marksPerQuestion,
+        input.totalQuestions, input.durationMinutes, input.marksPerQuestion,
         fromBool(input.negativeMarking),
         input.difficultyDistribution ? stringifyJson(input.difficultyDistribution) : null,
-        fromBool(input.randomizeQuestions),
-        fromBool(input.randomizeOptions),
-        fromBool(input.avoidPreviouslySeen),
-        fromBool(input.allowReuse),
-        fromBool(input.autoSubmitOnExpiry),
-        input.passThresholdPercent,
-        input.description ?? null,
-        fromBool(input.isPublic),
-        timestamp,
-        timestamp,
-        timestamp,
+        fromBool(input.randomizeQuestions), fromBool(input.randomizeOptions),
+        fromBool(input.avoidPreviouslySeen), fromBool(input.allowReuse),
+        fromBool(input.autoSubmitOnExpiry), input.passThresholdPercent,
+        input.description ?? null, fromBool(input.isPublic), timestamp, timestamp, timestamp,
       ],
     );
-    replaceDifficultyRows(id, input.difficultyDistribution);
+    await replaceDifficultyRows(id, input.difficultyDistribution, q);
   });
 
-  const created = findTemplateById(id);
+  const created = await findTemplateById(id);
   if (!created) throw new ConflictError("The template was written but could not be read back.");
   return created;
 }
 
-export function updateTemplate(id: string, input: TemplateInput): ExamTemplate {
-  const existing = findTemplateById(id);
+export async function updateTemplate(id: string, input: TemplateInput): Promise<ExamTemplate> {
+  const existing = await findTemplateById(id);
   if (!existing) throw new NotFoundError("That exam template does not exist.");
 
   const timestamp = new Date().toISOString();
 
-  transaction(() => {
-    run(
+  await transaction(async (q) => {
+    await q.run(
       `UPDATE "ExamTemplate" SET
          "name" = ?, "categoryId" = ?, "subjectId" = ?, "topicWeights" = ?,
          "totalQuestions" = ?, "durationMinutes" = ?, "marksPerQuestion" = ?,
@@ -173,48 +164,31 @@ export function updateTemplate(id: string, input: TemplateInput): ExamTemplate {
          "isPublic" = ?, "updatedAt" = ?
        WHERE "id" = ?`,
       [
-        input.name,
-        input.categoryId ?? null,
-        input.subjectId ?? null,
+        input.name, input.categoryId ?? null, input.subjectId ?? null,
         input.topicWeights ? stringifyJson(input.topicWeights) : null,
-        input.totalQuestions,
-        input.durationMinutes,
-        input.marksPerQuestion,
+        input.totalQuestions, input.durationMinutes, input.marksPerQuestion,
         fromBool(input.negativeMarking),
         input.difficultyDistribution ? stringifyJson(input.difficultyDistribution) : null,
-        fromBool(input.randomizeQuestions),
-        fromBool(input.randomizeOptions),
-        fromBool(input.avoidPreviouslySeen),
-        fromBool(input.allowReuse),
-        fromBool(input.autoSubmitOnExpiry),
-        input.passThresholdPercent,
-        input.description ?? null,
-        fromBool(input.isPublic),
-        timestamp,
-        id,
+        fromBool(input.randomizeQuestions), fromBool(input.randomizeOptions),
+        fromBool(input.avoidPreviouslySeen), fromBool(input.allowReuse),
+        fromBool(input.autoSubmitOnExpiry), input.passThresholdPercent,
+        input.description ?? null, fromBool(input.isPublic), timestamp, id,
       ],
     );
-    replaceDifficultyRows(id, input.difficultyDistribution);
+    await replaceDifficultyRows(id, input.difficultyDistribution, q);
   });
 
-  const updated = findTemplateById(id);
+  const updated = await findTemplateById(id);
   if (!updated) throw new NotFoundError("That exam template does not exist.");
   return updated;
 }
 
-/**
- * Delete a template.
- *
- * Attempts cascade, so this refuses once anyone has taken the exam rather than
- * silently destroying their history.
- */
-export function deleteTemplate(id: string): void {
-  const existing = findTemplateById(id);
+export async function deleteTemplate(id: string): Promise<void> {
+  const existing = await findTemplateById(id);
   if (!existing) throw new NotFoundError("That exam template does not exist.");
 
-  const attempts =
-    one<{ n: number }>('SELECT COUNT(*) AS "n" FROM "ExamAttempt" WHERE "templateId" = ?', [id])
-      ?.n ?? 0;
+  const row = await one<{ n: string }>('SELECT COUNT(*) AS "n" FROM "ExamAttempt" WHERE "templateId" = ?', [id]);
+  const attempts = Number(row?.n ?? 0);
 
   if (attempts > 0) {
     throw new ConflictError(
@@ -223,18 +197,17 @@ export function deleteTemplate(id: string): void {
     );
   }
 
-  run('DELETE FROM "ExamTemplate" WHERE "id" = ?', [id]);
+  await run('DELETE FROM "ExamTemplate" WHERE "id" = ?', [id]);
 }
 
-export function setTemplateVisibility(id: string, isPublic: boolean): ExamTemplate {
-  const { changes } = run('UPDATE "ExamTemplate" SET "isPublic" = ?, "updatedAt" = ? WHERE "id" = ?', [
-    fromBool(isPublic),
-    new Date().toISOString(),
-    id,
-  ]);
+export async function setTemplateVisibility(id: string, isPublic: boolean): Promise<ExamTemplate> {
+  const { changes } = await run(
+    'UPDATE "ExamTemplate" SET "isPublic" = ?, "updatedAt" = ? WHERE "id" = ?',
+    [fromBool(isPublic), new Date().toISOString(), id],
+  );
   if (changes === 0) throw new NotFoundError("That exam template does not exist.");
 
-  const updated = findTemplateById(id);
+  const updated = await findTemplateById(id);
   if (!updated) throw new NotFoundError("That exam template does not exist.");
   return updated;
 }

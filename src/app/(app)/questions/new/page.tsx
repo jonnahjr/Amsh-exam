@@ -30,7 +30,7 @@ export default async function NewQuestionPage() {
         description="Published questions immediately become eligible for exams whose scope covers their subject."
       />
 
-      <QuestionForm subjects={listSubjects()} topics={listTopics()} />
+      <QuestionForm subjects={await listSubjects()} topics={await listTopics()} />
     </>
   );
 }

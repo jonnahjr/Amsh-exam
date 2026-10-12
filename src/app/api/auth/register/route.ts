@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
 import { one, run } from "@/lib/db";
 import { handleError, readJsonBody, created } from "@/lib/http";
@@ -15,23 +15,20 @@ import { clientAddress, recordAudit } from "@/server/audit";
 
 export const dynamic = "force-dynamic";
 
-/** Create a STUDENT account and sign the new user in. */
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const body = await readJsonBody(request);
     const input = registerSchema.parse(body);
 
-    const existing = one<{ id: string }>('SELECT "id" FROM "User" WHERE "email" = ?', [input.email]);
-    if (existing) {
-      throw new ConflictError("An account with that email already exists.");
-    }
+    const existing = await one<{ id: string }>('SELECT "id" FROM "User" WHERE "email" = ?', [input.email]);
+    if (existing) throw new ConflictError("An account with that email already exists.");
 
     const id = randomUUID();
     const timestamp = new Date().toISOString();
     const password = await hashPassword(input.password);
     const role: Role = "STUDENT";
 
-    run(
+    await run(
       'INSERT INTO "User" ("id","email","password","name","role","createdAt","updatedAt") VALUES (?,?,?,?,?,?,?)',
       [id, input.email, password, input.name ?? null, role, timestamp, timestamp],
     );

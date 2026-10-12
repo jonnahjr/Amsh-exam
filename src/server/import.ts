@@ -165,7 +165,7 @@ export function csvRowsToObjects(text: string): Record<string, string>[] {
 // ----------------------------------------------------------- row mapping ----
 
 /** Resolve a raw object (from CSV or JSON) into the validated question input. */
-function toQuestionPayload(raw: Record<string, unknown>): Record<string, unknown> {
+async function toQuestionPayload(raw: Record<string, unknown>): Promise<Record<string, unknown>> {
   const asString = (value: unknown): string | undefined => {
     if (value === undefined || value === null) return undefined;
     const text = String(value).trim();
@@ -251,20 +251,20 @@ function toQuestionPayload(raw: Record<string, unknown>): Record<string, unknown
   const topicSlug = asString(raw.topicSlug);
 
   if (categorySlug) {
-    const category = findCategoryBySlug(categorySlug);
+    const category = await findCategoryBySlug(categorySlug);
     if (!category) throw new Error(`Unknown category slug "${categorySlug}".`);
     payload.categoryId = category.id;
   }
 
   if (subjectSlug) {
-    const subject = findSubjectBySlug(subjectSlug);
+    const subject = await findSubjectBySlug(subjectSlug);
     if (!subject) throw new Error(`Unknown subject slug "${subjectSlug}".`);
     payload.subjectId = subject.id;
     payload.categoryId = payload.categoryId ?? subject.categoryId;
   }
 
   if (topicSlug) {
-    const topic = findTopicBySlug(topicSlug);
+    const topic = await findTopicBySlug(topicSlug);
     if (!topic) throw new Error(`Unknown topic slug "${topicSlug}".`);
     payload.topicId = topic.id;
   }
@@ -282,11 +282,11 @@ export interface ImportParams {
   content: string;
 }
 
-export function importQuestions({ userId, fileName, fileType, content }: ImportParams): ImportOutcome {
+export async function importQuestions({ userId, fileName, fileType, content }: ImportParams): Promise<ImportOutcome> {
   const jobId = randomUUID();
   const startedAt = new Date().toISOString();
 
-  run(
+  await run(
     `INSERT INTO "ImportJob"
        ("id","userId","fileName","fileType","status","totalRows","imported","skipped","failedRows",
         "startedAt","completedAt","createdAt","updatedAt")
@@ -313,7 +313,7 @@ export function importQuestions({ userId, fileName, fileType, content }: ImportP
     }
   } catch (error) {
     const message = error instanceof Error ? error.message : "Could not parse the file.";
-    finishJob(jobId, { status: "FAILED", totalRows: 0, imported: 0, skipped: 0, failedRows: [{ row: 0, error: message }] });
+    await finishJob(jobId, { status: "FAILED", totalRows: 0, imported: 0, skipped: 0, failedRows: [{ row: 0, error: message }] });
     throw error instanceof ValidationError ? error : new ValidationError(message);
   }
 
@@ -321,10 +321,11 @@ export function importQuestions({ userId, fileName, fileType, content }: ImportP
   let imported = 0;
   let skipped = 0;
 
-  rawRows.forEach((raw, index) => {
+  for (let index = 0; index < rawRows.length; index += 1) {
+    const raw = rawRows[index];
     const rowNumber = index + 1;
     try {
-      const payload = toQuestionPayload(raw);
+      const payload = await toQuestionPayload(raw);
       const parsed = importRowSchema.safeParse(payload);
       if (!parsed.success) {
         const message = parsed.error.issues
@@ -332,9 +333,9 @@ export function importQuestions({ userId, fileName, fileType, content }: ImportP
           .join("; ");
         failedRows.push({ row: rowNumber, error: message });
         skipped += 1;
-        return;
+        continue;
       }
-      createQuestion(parsed.data, userId);
+      await createQuestion(parsed.data, userId);
       imported += 1;
     } catch (error) {
       failedRows.push({
@@ -343,15 +344,15 @@ export function importQuestions({ userId, fileName, fileType, content }: ImportP
       });
       skipped += 1;
     }
-  });
+  }
 
   const status = failedRows.length > 0 && imported === 0 ? "FAILED" : "COMPLETED";
-  finishJob(jobId, { status, totalRows: rawRows.length, imported, skipped, failedRows });
+  await finishJob(jobId, { status, totalRows: rawRows.length, imported, skipped, failedRows });
 
   return { jobId, totalRows: rawRows.length, imported, skipped, failedRows };
 }
 
-function finishJob(
+async function finishJob(
   jobId: string,
   outcome: {
     status: ImportJobRow["status"];
@@ -360,9 +361,9 @@ function finishJob(
     skipped: number;
     failedRows: RowFailure[];
   },
-): void {
+): Promise<void> {
   const timestamp = new Date().toISOString();
-  run(
+  await run(
     `UPDATE "ImportJob"
      SET "status" = ?, "totalRows" = ?, "imported" = ?, "skipped" = ?, "failedRows" = ?,
          "completedAt" = ?, "updatedAt" = ?

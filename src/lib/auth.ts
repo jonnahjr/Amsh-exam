@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+﻿import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
 import { one } from "@/lib/db";
@@ -112,7 +112,7 @@ export async function getSessionUser(): Promise<SessionUser | null> {
   const claims = await readSessionToken(token);
   if (!claims) return null;
 
-  const row = one<{ id: string; email: string; name: string | null; role: Role }>(
+  const row = await one<{ id: string; email: string; name: string | null; role: Role }>(
     'SELECT "id","email","name","role" FROM "User" WHERE "id" = ?',
     [claims.id],
   );

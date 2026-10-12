@@ -14,18 +14,18 @@ export default async function AttemptPage({ params }: { params: { token: string 
   if (!user) redirect("/login");
 
   // A finished attempt should land on its result, not on a dead exam screen.
-  const existing = findAttemptByToken(params.token);
+  const existing = await findAttemptByToken(params.token);
   if (existing && existing.userId === user.id && existing.status !== "ACTIVE") {
-    const resultId = findResultIdByAttemptToken(params.token);
+    const resultId = await findResultIdByAttemptToken(params.token);
     if (resultId) redirect(`/results/${resultId}`);
   }
 
   let session;
   try {
-    session = loadAttemptSession(params.token, user.id);
+    session = await loadAttemptSession(params.token, user.id);
   } catch (error) {
     if (error instanceof AppError) {
-      const resultId = findResultIdByAttemptToken(params.token);
+      const resultId = await findResultIdByAttemptToken(params.token);
       if (resultId) redirect(`/results/${resultId}`);
 
       return (

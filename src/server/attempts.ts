@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+﻿import { randomUUID } from "node:crypto";
 import { all, fromBool, one, run, transaction } from "@/lib/db";
 import {
   parseFlagMap,
@@ -44,27 +44,27 @@ export interface AttemptSession {
 
 const nowIso = (): string => new Date().toISOString();
 
-export function findAttemptByToken(token: string): ExamAttemptRow | null {
-  return one<ExamAttemptRow>('SELECT * FROM "ExamAttempt" WHERE "attemptToken" = ?', [token]) ?? null;
+export async function findAttemptByToken(token: string): Promise<ExamAttemptRow | null> {
+  return (await one<ExamAttemptRow>('SELECT * FROM "ExamAttempt" WHERE "attemptToken" = ?', [token])) ?? null;
 }
 
 /** The caller's unsubmitted attempt for a template, if there is one. */
-export function findActiveAttempt(userId: string, templateId: string): ExamAttemptRow | null {
+export async function findActiveAttempt(userId: string, templateId: string): Promise<ExamAttemptRow | null> {
   return (
-    one<ExamAttemptRow>(
+    (await one<ExamAttemptRow>(
       `SELECT * FROM "ExamAttempt"
        WHERE "userId" = ? AND "templateId" = ? AND "status" = 'ACTIVE'
        ORDER BY "createdAt" DESC LIMIT 1`,
       [userId, templateId],
-    ) ?? null
+    )) ?? null
   );
 }
 
 /** Load questions by id, preserving the order of `ids`. */
-function loadQuestionsInOrder(ids: string[]): Question[] {
+async function loadQuestionsInOrder(ids: string[]): Promise<Question[]> {
   if (ids.length === 0) return [];
   const placeholders = ids.map(() => "?").join(",");
-  const rows = all<QuestionRow>(
+  const rows = await all<QuestionRow>(
     `SELECT * FROM "Question" WHERE "id" IN (${placeholders})`,
     ids,
   );
@@ -90,7 +90,6 @@ function toAttemptQuestionViews(
   attempt: ExamAttemptRow,
   questions: Question[],
 ): AttemptQuestionView[] {
-  // Order matters here: this maps display position -> canonical option index.
   const mapping = parseOrderedIndexMap(attempt.optionMapping);
   return questions.map((question, position) => ({
     questionId: question.id,
@@ -113,32 +112,24 @@ export interface StartAttemptParams {
   seed?: number;
 }
 
-/**
- * Start an exam, or resume the caller's existing active attempt.
- *
- * Resuming matters because the timer must not restart when a student reloads
- * the page or reopens the exam.
- */
-export function startAttempt({
+export async function startAttempt({
   templateSlug,
   userId,
   allowUnpublished = false,
   seed,
-}: StartAttemptParams): ExamAttemptRow {
-  const template = findTemplateBySlug(templateSlug);
+}: StartAttemptParams): Promise<ExamAttemptRow> {
+  const template = await findTemplateBySlug(templateSlug);
   if (!template) throw new NotFoundError("That exam template does not exist.");
   if (!template.isPublic && !allowUnpublished) {
     throw new ForbiddenError("That exam template is not published yet.");
   }
 
-  const existing = findActiveAttempt(userId, template.id);
+  const existing = await findActiveAttempt(userId, template.id);
 
   if (existing) {
     if (!hasExpired(existing)) return existing;
 
-    // The clock ran out while the student was away. Close it out honestly
-    // rather than silently granting a fresh timer on the old paper.
-    const finished = submitAttempt(existing.attemptToken, userId, { allowExpired: true });
+    const finished = await submitAttempt(existing.attemptToken, userId, { allowExpired: true });
     recordAudit({
       userId,
       action: "ATTEMPT_EXPIRED",
@@ -148,7 +139,7 @@ export function startAttempt({
     });
   }
 
-  const pool = questionPoolForTemplate(template);
+  const pool = await questionPoolForTemplate(template);
   const rng = createRng(seed ?? Date.now());
 
   let selected: Question[];
@@ -156,7 +147,7 @@ export function startAttempt({
     selected = selectQuestions({
       pool,
       template,
-      previouslySeenIds: previouslySeenQuestionIds(userId, template.id),
+      previouslySeenIds: await previouslySeenQuestionIds(userId, template.id),
       rng,
     });
   } catch (error) {
@@ -174,31 +165,24 @@ export function startAttempt({
   const token = randomUUID();
   const startedAt = nowIso();
   const expiresAt = new Date(Date.now() + template.durationMinutes * 60_000).toISOString();
+  const prevSeen = await previouslySeenQuestionIds(userId, template.id);
 
-  transaction(() => {
-    run(
+  await transaction(async (q) => {
+    await q.run(
       `INSERT INTO "ExamAttempt"
         ("id","attemptToken","templateId","userId","selectedQuestionIds","optionMapping","directionState",
          "flags","responses","previouslySeen","startedAt","expiresAt","submittedAt","completedAt","status",
          "startedByUserId","configSnapshot","createdAt","updatedAt")
        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       [
-        id,
-        token,
-        template.id,
-        userId,
-        stringifyJson(selected.map((question) => question.id)),
+        id, token, template.id, userId,
+        stringifyJson(selected.map((q2) => q2.id)),
         stringifyJson(optionMapping),
         "FORWARD",
         stringifyJson({}),
         stringifyJson({}),
-        stringifyJson(previouslySeenQuestionIds(userId, template.id)),
-        startedAt,
-        expiresAt,
-        null,
-        null,
-        "ACTIVE",
-        userId,
+        stringifyJson(prevSeen),
+        startedAt, expiresAt, null, null, "ACTIVE", userId,
         stringifyJson({
           durationMinutes: template.durationMinutes,
           totalQuestions: template.totalQuestions,
@@ -207,19 +191,18 @@ export function startAttempt({
           passThresholdPercent: template.passThresholdPercent,
           randomizeOptions: template.randomizeOptions,
         }),
-        startedAt,
-        startedAt,
+        startedAt, startedAt,
       ],
     );
 
-    selected.forEach((question, position) => {
-      run(
+    for (const [position, question] of selected.entries()) {
+      await q.run(
         `INSERT INTO "AttemptQuestion"
            ("id","attemptId","questionId","optionOrder","response","isFlagged","position","createdAt")
          VALUES (?,?,?,?,?,?,?,?)`,
-        [randomUUID(), id, question.id, position, null, 0, position, startedAt],
+        [randomUUID(), id, question.id, position, null, false, position, startedAt],
       );
-    });
+    }
   });
 
   recordAudit({
@@ -230,14 +213,14 @@ export function startAttempt({
     details: { template: template.slug, questions: selected.length },
   });
 
-  return findAttemptByToken(token) as ExamAttemptRow;
+  return (await findAttemptByToken(token)) as ExamAttemptRow;
 }
 
 // ------------------------------------------------------------- load/save ----
 
 /** Load an attempt for its owner, auto-submitting it if the timer has run out. */
-export function loadAttemptSession(token: string, userId: string): AttemptSession {
-  const attempt = findAttemptByToken(token);
+export async function loadAttemptSession(token: string, userId: string): Promise<AttemptSession> {
+  const attempt = await findAttemptByToken(token);
   if (!attempt) throw new NotFoundError("That exam attempt does not exist.");
   if (attempt.userId !== userId) {
     throw new ForbiddenError("That exam attempt belongs to another user.");
@@ -249,18 +232,18 @@ export function loadAttemptSession(token: string, userId: string): AttemptSessio
     });
   }
 
-  const template = findTemplateById(attempt.templateId);
+  const template = await findTemplateById(attempt.templateId);
   if (!template) throw new NotFoundError("The exam template for this attempt no longer exists.");
 
   if (hasExpired(attempt) && template.autoSubmitOnExpiry) {
-    submitAttempt(token, userId, { allowExpired: true });
+    await submitAttempt(token, userId, { allowExpired: true });
     throw new ConflictError("Time ran out and the exam was submitted automatically.", {
       status: "SUBMITTED",
       resultReady: true,
     });
   }
 
-  const questions = loadQuestionsInOrder(parseStringArray(attempt.selectedQuestionIds));
+  const questions = await loadQuestionsInOrder(parseStringArray(attempt.selectedQuestionIds));
 
   return {
     attempt,
@@ -283,15 +266,15 @@ export interface SaveResponseParams {
   directionState?: "FORWARD" | "BACKWARD";
 }
 
-export function saveResponse({
+export async function saveResponse({
   token,
   userId,
   questionId,
   selectedIndices,
   flagged,
   directionState,
-}: SaveResponseParams): { responses: Record<string, number[]>; flags: Record<string, boolean> } {
-  const attempt = findAttemptByToken(token);
+}: SaveResponseParams): Promise<{ responses: Record<string, number[]>; flags: Record<string, boolean> }> {
+  const attempt = await findAttemptByToken(token);
   if (!attempt) throw new NotFoundError("That exam attempt does not exist.");
   if (attempt.userId !== userId) {
     throw new ForbiddenError("That exam attempt belongs to another user.");
@@ -300,9 +283,9 @@ export function saveResponse({
     throw new ConflictError("This attempt has already been submitted.");
   }
 
-  const template = findTemplateById(attempt.templateId);
+  const template = await findTemplateById(attempt.templateId);
   if (template && hasExpired(attempt) && template.autoSubmitOnExpiry) {
-    submitAttempt(token, userId, { allowExpired: true });
+    await submitAttempt(token, userId, { allowExpired: true });
     throw new ConflictError("Time ran out and the exam was submitted automatically.", {
       status: "SUBMITTED",
       resultReady: true,
@@ -314,7 +297,7 @@ export function saveResponse({
     throw new ConflictError("That question is not part of this attempt.");
   }
 
-  const question = loadQuestionsInOrder([questionId])[0];
+  const [question] = await loadQuestionsInOrder([questionId]);
   if (!question) throw new NotFoundError("That question no longer exists.");
 
   const unique = [...new Set(selectedIndices)].sort((a, b) => a - b);
@@ -343,8 +326,8 @@ export function saveResponse({
 
   const timestamp = nowIso();
 
-  transaction(() => {
-    run(
+  await transaction(async (q) => {
+    await q.run(
       `UPDATE "ExamAttempt"
        SET "responses" = ?, "flags" = ?, "directionState" = ?, "updatedAt" = ?
        WHERE "id" = ?`,
@@ -356,7 +339,7 @@ export function saveResponse({
         attempt.id,
       ],
     );
-    run(
+    await q.run(
       'UPDATE "AttemptQuestion" SET "response" = ?, "isFlagged" = ? WHERE "attemptId" = ? AND "questionId" = ?',
       [
         unique.length ? stringifyJson(unique) : null,
@@ -376,30 +359,24 @@ export interface SubmitOptions {
   allowExpired?: boolean;
 }
 
-/**
- * Grade and close an attempt.
- *
- * Idempotent: submitting twice returns the existing result instead of marking
- * the same paper again.
- */
-export function submitAttempt(
+export async function submitAttempt(
   token: string,
   userId: string,
   options: SubmitOptions = {},
-): ResultRow {
-  const attempt = findAttemptByToken(token);
+): Promise<ResultRow> {
+  const attempt = await findAttemptByToken(token);
   if (!attempt) throw new NotFoundError("That exam attempt does not exist.");
   if (attempt.userId !== userId) {
     throw new ForbiddenError("That exam attempt belongs to another user.");
   }
 
   if (attempt.status === "SUBMITTED" || attempt.status === "EXPIRED") {
-    const existing = one<ResultRow>('SELECT * FROM "Result" WHERE "attemptId" = ?', [attempt.id]);
+    const existing = await one<ResultRow>('SELECT * FROM "Result" WHERE "attemptId" = ?', [attempt.id]);
     if (existing) return existing;
     throw new ConflictError("This attempt has already been submitted.");
   }
 
-  const template = findTemplateById(attempt.templateId);
+  const template = await findTemplateById(attempt.templateId);
   if (!template) throw new NotFoundError("The exam template for this attempt no longer exists.");
 
   const expired = hasExpired(attempt);
@@ -407,13 +384,11 @@ export function submitAttempt(
     throw new ConflictError("Time ran out for this attempt.");
   }
 
-  const questions = loadQuestionsInOrder(parseStringArray(attempt.selectedQuestionIds));
+  const questions = await loadQuestionsInOrder(parseStringArray(attempt.selectedQuestionIds));
   if (questions.length === 0) {
     throw new ConflictError("This attempt has no questions to grade.");
   }
 
-  // Must preserve order, or a shuffled attempt would be marked against the
-  // authored option order and every answer would look wrong.
   const optionMapping = parseOrderedIndexMap(attempt.optionMapping);
   const responses = parseIndexMap(attempt.responses);
 
@@ -434,35 +409,23 @@ export function submitAttempt(
   const status: AttemptStatus = expired ? "EXPIRED" : "SUBMITTED";
   const resultId = randomUUID();
 
-  transaction(() => {
-    run(
+  await transaction(async (q) => {
+    await q.run(
       `INSERT INTO "Result"
         ("id","attemptId","userId","totalQuestions","correctAnswers","incorrectAnswers","unansweredQuestions",
          "earnedMarks","maxMarks","percentage","durationSeconds","status","passStatus","answerReview",
          "submittedAt","createdAt","updatedAt")
        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       [
-        resultId,
-        attempt.id,
-        userId,
-        summary.totalQuestions,
-        summary.correctAnswers,
-        summary.incorrectAnswers,
-        summary.unansweredQuestions,
-        summary.earnedMarks,
-        summary.maxMarks,
-        summary.percentage,
-        durationSeconds,
-        "COMPLETED",
-        summary.passStatus,
+        resultId, attempt.id, userId,
+        summary.totalQuestions, summary.correctAnswers, summary.incorrectAnswers,
+        summary.unansweredQuestions, summary.earnedMarks, summary.maxMarks, summary.percentage,
+        durationSeconds, "COMPLETED", summary.passStatus,
         stringifyJson(review),
-        submittedAt,
-        submittedAt,
-        submittedAt,
+        submittedAt, submittedAt, submittedAt,
       ],
     );
-
-    run(
+    await q.run(
       `UPDATE "ExamAttempt"
        SET "status" = ?, "submittedAt" = ?, "completedAt" = ?, "updatedAt" = ?
        WHERE "id" = ?`,
@@ -483,7 +446,7 @@ export function submitAttempt(
     },
   });
 
-  const result = one<ResultRow>('SELECT * FROM "Result" WHERE "id" = ?', [resultId]);
+  const result = await one<ResultRow>('SELECT * FROM "Result" WHERE "id" = ?', [resultId]);
   if (!result) throw new ConflictError("The attempt was graded but the result could not be read.");
   return result;
 }

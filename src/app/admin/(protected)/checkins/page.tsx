@@ -126,7 +126,7 @@ export default function AdminCheckInsPage() {
                     <div className="checkin-admin-meta" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 3 }}>
                       <span>Checked in <WaitingDuration iso={row.checkedInAt} /></span>
                       <span>·</span>
-                      <span className="badge" style={{ fontSize: "0.75rem", background: (row.totalAttempts ?? 0) > 0 ? "rgba(139,92,246,0.15)" : "var(--surface-alt)" }}>
+                      <span className="badge" style={{ fontSize: "0.75rem", background: (row.totalAttempts ?? 0) > 0 ? "rgba(37, 99, 235, 0.1)" : "var(--surface-alt)" }}>
                         Taken test: <strong>{row.totalAttempts ?? 0} time{(row.totalAttempts ?? 0) === 1 ? "" : "s"}</strong>
                       </span>
                       {row.bestScore !== null && row.bestScore !== undefined && (

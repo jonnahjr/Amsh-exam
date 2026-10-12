@@ -12,7 +12,13 @@ export default async function ExamsPage() {
   if (!user) redirect("/login");
 
   const isStudent = user.role === "STUDENT";
-  const templates = listTemplates({ includeUnpublished: !isStudent });
+  const rawTemplates = await listTemplates({ includeUnpublished: !isStudent });
+  const templates = await Promise.all(
+    rawTemplates.map(async (template) => {
+      const available = await countAvailableQuestions(template);
+      return { ...template, available };
+    }),
+  );
 
   return (
     <>
@@ -37,7 +43,7 @@ export default async function ExamsPage() {
       ) : (
         <div className="grid">
           {templates.map((template) => {
-            const available = countAvailableQuestions(template);
+            const available = template.available;
             const ready = available >= template.totalQuestions;
             return (
               <Link key={template.id} href={`/exams/${template.slug}`} className="card card-link">

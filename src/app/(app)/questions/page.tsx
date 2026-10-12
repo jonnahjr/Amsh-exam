@@ -42,8 +42,8 @@ export default async function QuestionsPage(props: { searchParams: RawSearchPara
     ? (rawDifficulty as Difficulty)
     : undefined;
 
-  const subjects = listSubjects();
-  const result = listQuestions({
+  const subjects = await listSubjects();
+  const result = await listQuestions({
     search: q?.trim() || undefined,
     status,
     difficulty,

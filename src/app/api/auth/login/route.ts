@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { one } from "@/lib/db";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { AppError } from "@/lib/errors";
@@ -22,19 +22,16 @@ interface UserRow {
   role: Role;
 }
 
-/** Verify credentials and issue a session cookie. */
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const body = await readJsonBody(request);
     const input = loginSchema.parse(body);
 
-    const user = one<UserRow>(
+    const user = await one<UserRow>(
       'SELECT "id","email","password","name","role" FROM "User" WHERE "email" = ?',
       [input.email],
     );
 
-    // Compare against a dummy hash when the user is missing so that response
-    // timing does not reveal which email addresses exist.
     const hash = user?.password ?? "$2a$10$invalidinvalidinvalidinvalidinvalidinvalidinvalidinvalidinva";
     const valid = await verifyPassword(input.password, hash);
 
@@ -67,12 +64,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       userAgent: request.headers.get("user-agent"),
     });
 
-    const response = ok({
-      id: user.id,
-      email: user.email,
-      name: user.name,
-      role: user.role,
-    });
+    const response = ok({ id: user.id, email: user.email, name: user.name, role: user.role });
     response.cookies.set(SESSION_COOKIE, token, sessionCookieOptions());
     return response;
   } catch (error) {

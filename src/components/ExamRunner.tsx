@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { apiRequest, errorMessages } from "@/lib/client";
 import { OPTION_LETTERS } from "@/components/review-utils";
+import { ConfirmModal } from "@/components/ConfirmModal";
 import type { AttemptQuestionView } from "@/types";
 
 
@@ -50,6 +51,10 @@ export function ExamRunner({
   const [saveError, setSaveError] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string[]>([]);
+  const [confirmModal, setConfirmModal] = useState<{ open: boolean; message: string }>({
+    open: false,
+    message: "",
+  });
 
   const question = questions[index];
   const answeredCount = useMemo(
@@ -197,6 +202,18 @@ export function ExamRunner({
 
   return (
     <>
+      <ConfirmModal
+        open={confirmModal.open}
+        title="Submit Exam"
+        message={confirmModal.message}
+        confirmLabel="Submit"
+        cancelLabel="Go Back"
+        onConfirm={() => {
+          setConfirmModal({ open: false, message: "" });
+          void submitExam("manual");
+        }}
+        onCancel={() => setConfirmModal({ open: false, message: "" })}
+      />
       <div className="exam-topbar">
         <div className="exam-title">
           {examName}
@@ -219,7 +236,7 @@ export function ExamRunner({
               unanswered > 0
                 ? `You still have ${unanswered} unanswered question${unanswered === 1 ? "" : "s"}. Submit anyway?`
                 : "Submit your exam for marking?";
-            if (window.confirm(message)) void submitExam("manual");
+            setConfirmModal({ open: true, message });
           }}
           disabled={submitting}
         >
@@ -394,15 +411,15 @@ export function ExamRunner({
 
           <div className="legend" style={{ borderTop: "1px solid var(--border)", paddingTop: 14, marginTop: 16 }}>
             <span className="legend-item">
-              <span className="legend-swatch" style={{ background: "#064e3b", borderColor: "var(--success)", boxShadow: "0 0 6px rgba(52,211,153,0.35)" }} />
+              <span className="legend-swatch" style={{ background: "var(--accent)", borderColor: "var(--accent)" }} />
               Answered (Shaded)
             </span>
             <span className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--surface-alt)", borderColor: "var(--border)" }} />
+              <span className="legend-swatch" style={{ background: "#ffffff", borderColor: "var(--border)" }} />
               Unanswered (Not shaded)
             </span>
             <span className="legend-item">
-              <span className="legend-swatch" style={{ background: "var(--surface)", borderColor: "var(--accent)", borderWidth: 2 }} />
+              <span className="legend-swatch" style={{ background: "#ffffff", borderColor: "#000000", borderWidth: 2 }} />
               Current Question
             </span>
             <span className="legend-item">

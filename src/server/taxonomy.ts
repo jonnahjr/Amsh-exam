@@ -1,21 +1,21 @@
-import { all, one } from "@/lib/db";
+﻿import { all, one } from "@/lib/db";
 import type { CategoryRow, SubjectRow, SubjectWithCategory, TopicRow } from "@/types";
 
 /** Taxonomy reads. All rows are small enough to load without pagination. */
 
-export function listCategories(): CategoryRow[] {
+export async function listCategories(): Promise<CategoryRow[]> {
   return all<CategoryRow>('SELECT * FROM "Category" ORDER BY "name"');
 }
 
-export function findCategoryBySlug(slug: string): CategoryRow | null {
-  return one<CategoryRow>('SELECT * FROM "Category" WHERE "slug" = ?', [slug]) ?? null;
+export async function findCategoryBySlug(slug: string): Promise<CategoryRow | null> {
+  return (await one<CategoryRow>('SELECT * FROM "Category" WHERE "slug" = ?', [slug])) ?? null;
 }
 
-export function findCategoryById(id: string): CategoryRow | null {
-  return one<CategoryRow>('SELECT * FROM "Category" WHERE "id" = ?', [id]) ?? null;
+export async function findCategoryById(id: string): Promise<CategoryRow | null> {
+  return (await one<CategoryRow>('SELECT * FROM "Category" WHERE "id" = ?', [id])) ?? null;
 }
 
-export function listSubjects(): SubjectWithCategory[] {
+export async function listSubjects(): Promise<SubjectWithCategory[]> {
   return all<SubjectWithCategory>(`
     SELECT s.*, c."name" AS "categoryName", c."slug" AS "categorySlug"
     FROM "Subject" s
@@ -24,38 +24,36 @@ export function listSubjects(): SubjectWithCategory[] {
   `);
 }
 
-export function listSubjectsByCategory(categoryId: string): SubjectRow[] {
+export async function listSubjectsByCategory(categoryId: string): Promise<SubjectRow[]> {
   return all<SubjectRow>(
     'SELECT * FROM "Subject" WHERE "categoryId" = ? ORDER BY "name"',
     [categoryId],
   );
 }
 
-export function findSubjectBySlug(slug: string): SubjectRow | null {
-  return one<SubjectRow>('SELECT * FROM "Subject" WHERE "slug" = ?', [slug]) ?? null;
+export async function findSubjectBySlug(slug: string): Promise<SubjectRow | null> {
+  return (await one<SubjectRow>('SELECT * FROM "Subject" WHERE "slug" = ?', [slug])) ?? null;
 }
 
-export function findSubjectById(id: string): SubjectRow | null {
-  return one<SubjectRow>('SELECT * FROM "Subject" WHERE "id" = ?', [id]) ?? null;
+export async function findSubjectById(id: string): Promise<SubjectRow | null> {
+  return (await one<SubjectRow>('SELECT * FROM "Subject" WHERE "id" = ?', [id])) ?? null;
 }
 
-export function listTopics(): TopicRow[] {
+export async function listTopics(): Promise<TopicRow[]> {
   return all<TopicRow>('SELECT * FROM "Topic" ORDER BY "name"');
 }
 
-export function findTopicBySlug(slug: string): TopicRow | null {
-  return one<TopicRow>('SELECT * FROM "Topic" WHERE "slug" = ?', [slug]) ?? null;
+export async function findTopicBySlug(slug: string): Promise<TopicRow | null> {
+  return (await one<TopicRow>('SELECT * FROM "Topic" WHERE "slug" = ?', [slug])) ?? null;
 }
 
-export function listTopicsBySubject(subjectId: string): TopicRow[] {
+export async function listTopicsBySubject(subjectId: string): Promise<TopicRow[]> {
   return all<TopicRow>('SELECT * FROM "Topic" WHERE "subjectId" = ? ORDER BY "name"', [subjectId]);
 }
 
-export function countTopicsBySubject(subjectId: string): number {
-  const row = one<{ n: number }>('SELECT COUNT(*) AS "n" FROM "Topic" WHERE "subjectId" = ?', [
-    subjectId,
-  ]);
-  return row?.n ?? 0;
+export async function countTopicsBySubject(subjectId: string): Promise<number> {
+  const row = await one<{ n: string }>('SELECT COUNT(*) AS "n" FROM "Topic" WHERE "subjectId" = ?', [subjectId]);
+  return Number(row?.n ?? 0);
 }
 
 /** Maps for turning ids into display names on list pages. */
@@ -65,10 +63,11 @@ export interface TaxonomyLookup {
   topicNames: Map<string, string>;
 }
 
-export function taxonomyLookup(): TaxonomyLookup {
+export async function taxonomyLookup(): Promise<TaxonomyLookup> {
+  const [cats, subs, tops] = await Promise.all([listCategories(), listSubjects(), listTopics()]);
   return {
-    categoryNames: new Map(listCategories().map((row) => [row.id, row.name])),
-    subjectNames: new Map(listSubjects().map((row) => [row.id, row.name])),
-    topicNames: new Map(listTopics().map((row) => [row.id, row.name])),
+    categoryNames: new Map(cats.map((row) => [row.id, row.name])),
+    subjectNames: new Map(subs.map((row) => [row.id, row.name])),
+    topicNames: new Map(tops.map((row) => [row.id, row.name])),
   };
 }

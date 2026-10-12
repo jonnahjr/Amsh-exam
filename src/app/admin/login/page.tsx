@@ -3,16 +3,17 @@ import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/LoginForm";
 import { getSessionUser } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Admin Sign In · AMSH Exam" };
 
 export default async function AdminLoginPage() {
   const user = await getSessionUser();
-  if (user) {
-    if (user.role === "ADMINISTRATOR" || user.role === "INSTRUCTOR") {
-      redirect("/admin/checkins");
-    }
-    redirect("/");
+  // Already signed in as admin → go straight to dashboard
+  if (user && (user.role === "ADMINISTRATOR" || user.role === "INSTRUCTOR")) {
+    redirect("/admin");
   }
+  // Non-admin session: just show the login form.
+  // Submitting admin credentials via LoginForm will overwrite the session cookie.
 
   return (
     <div className="auth-shell">

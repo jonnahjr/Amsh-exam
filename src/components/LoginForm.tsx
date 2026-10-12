@@ -17,7 +17,7 @@ export function LoginForm() {
     setErrors([]);
     try {
       await apiRequest("/api/auth/login", { method: "POST", body: { email, password } });
-      router.replace("/admin/checkins");
+      router.replace("/admin");
       // Refresh so server components re-render with the new session cookie.
       router.refresh();
     } catch (error) {

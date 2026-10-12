@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { created, handleError, ok, readJsonBody } from "@/lib/http";
 import { requireRole } from "@/lib/auth";
 import { templateInputSchema } from "@/lib/validation";
@@ -8,37 +8,33 @@ import { clientAddress, recordAudit } from "@/server/audit";
 
 export const dynamic = "force-dynamic";
 
-/** List exam templates. Students only see published ones. */
 export async function GET(): Promise<NextResponse> {
   try {
     const user = await requireRole("STUDENT");
     const includeUnpublished = user.role !== "STUDENT";
-
-    const templates = listTemplates({ includeUnpublished }).map((template) => ({
-      ...template,
-      availableQuestions: countAvailableQuestions(template),
-    }));
-
-    return ok({ items: templates });
+    const templates = await listTemplates({ includeUnpublished });
+    const withCounts = await Promise.all(
+      templates.map(async (template) => ({
+        ...template,
+        availableQuestions: await countAvailableQuestions(template),
+      })),
+    );
+    return ok({ items: withCounts });
   } catch (error) {
     return handleError(error);
   }
 }
 
-/** Create an exam template. Requires at least the INSTRUCTOR role. */
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     const user = await requireRole("INSTRUCTOR");
     const body = await readJsonBody(request);
     const input = templateInputSchema.parse(body);
-
-    const template = createTemplate(input);
+    const template = await createTemplate(input);
 
     recordAudit({
-      userId: user.id,
-      action: "TEMPLATE_CREATED",
-      entity: "ExamTemplate",
-      entityId: template.id,
+      userId: user.id, action: "TEMPLATE_CREATED",
+      entity: "ExamTemplate", entityId: template.id,
       details: { slug: template.slug, totalQuestions: template.totalQuestions },
       ipAddress: clientAddress(request.headers),
       userAgent: request.headers.get("user-agent"),
