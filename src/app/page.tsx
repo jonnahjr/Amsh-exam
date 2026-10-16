@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { Footer } from "@/components/Footer";
 
 type Phase = "form" | "waiting" | "approved" | "rejected";
 
@@ -212,6 +213,7 @@ export default function RootCheckInPage() {
           </div>
         )}
       </div>
+      <Footer variant="compact" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/LoginForm";
+import { Footer } from "@/components/Footer";
 import { getSessionUser } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -34,6 +35,7 @@ export default async function AdminLoginPage() {
 
         <LoginForm />
       </div>
+      <Footer variant="compact" />
     </div>
   );
 }

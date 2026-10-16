@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { Footer } from "@/components/Footer";
 
 interface AdminSidebarProps {
   collapsed: boolean;
@@ -167,6 +168,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <main className="admin-main">
           {children}
         </main>
+        <Footer variant="admin" />
       </div>
     </div>
   );

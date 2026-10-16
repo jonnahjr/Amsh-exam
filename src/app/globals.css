@@ -616,9 +616,10 @@ tbody tr:hover { background: #f8fafc; }
 .auth-shell {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
+  justify-content: space-between;
+  padding: 32px 20px 24px;
   background: var(--bg-secondary);
   background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.08), transparent);
 }
@@ -631,6 +632,7 @@ tbody tr:hover { background: #f8fafc; }
   border-radius: var(--radius-lg);
   padding: 36px;
   box-shadow: var(--shadow-lg);
+  margin: auto 0;
 }
 
 .auth-card h1 { font-size: 1.4rem; margin-bottom: 0.2em; }
@@ -942,9 +944,10 @@ tbody tr:hover { background: #f8fafc; }
 .checkin-shell {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
+  justify-content: space-between;
+  padding: 32px 20px 24px;
   background: #f8fafc;
   background-image: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(37, 99, 235, 0.08), transparent);
 }
@@ -957,6 +960,7 @@ tbody tr:hover { background: #f8fafc; }
   border-radius: 20px;
   padding: 40px;
   box-shadow: var(--shadow);
+  margin: auto 0;
 }
 
 .checkin-logo {
@@ -2780,6 +2784,662 @@ body:has(.results-white-theme) .page {
     align-items: center;
   }
 }
+
+/* ==========================================================================
+   AMSH Enterprise Footer System
+   Features: Leveling Line, Developer Attribution, Live Telemetry & Badges
+   ========================================================================== */
+
+/* App Shell Flex wrapper to push footer to bottom */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.app-shell .page {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/* --- Leveling Line Component --- */
+.footer-leveling-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.footer-leveling-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(37, 99, 235, 0.15) 15%,
+    rgba(37, 99, 235, 0.75) 50%,
+    rgba(37, 99, 235, 0.15) 85%,
+    transparent 100%
+  );
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.3);
+  transform: translateY(-50%);
+}
+
+.footer-leveling-badge {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  padding: 5px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.footer-leveling-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Pulse animation dot */
+.footer-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--success);
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.footer-pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background-color: var(--success);
+  opacity: 0.75;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.85; }
+  50% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0.85; }
+}
+
+/* --- Full Site Footer --- */
+.site-footer {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  position: relative;
+  padding-top: 0;
+}
+
+.site-footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 36px;
+}
+
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr 1fr;
+  gap: 28px;
+  align-items: stretch;
+  margin-bottom: 28px;
+}
+
+/* Brand Column */
+.footer-col-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.footer-logo-img {
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.footer-logo-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.footer-logo-sub {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.footer-brand-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.footer-trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.footer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* Developer & ICT Department Spotlight Card */
+.footer-col-dev {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-dev-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.footer-dev-card:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
+}
+.footer-dev-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #38bdf8);
+}
+
+.footer-dev-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.footer-dev-icon {
+  font-size: 1.35rem;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 6px 8px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.footer-dev-eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.footer-dev-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.footer-dev-dept {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.footer-dev-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.footer-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: var(--text);
+}
+
+/* Operations & Telemetry Column */
+.footer-col-ops {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 10px;
+}
+
+.footer-status-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.footer-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.footer-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.uptime-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--success);
+  background: var(--success-soft);
+  border: 1px solid var(--success-border);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.footer-time-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+}
+
+.time-icon {
+  font-size: 0.95rem;
+}
+
+.time-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-val {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.time-sub {
+  font-size: 0.67rem;
+  color: var(--text-faint);
+}
+
+.footer-support-box {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-support-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.support-icon {
+  font-size: 0.9rem;
+}
+
+.support-label {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  display: block;
+  line-height: 1.1;
+}
+
+.support-val {
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Bottom Bar */
+.footer-sub-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 18px;
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-pipe {
+  color: var(--border-strong);
+}
+
+.footer-ict-tag {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.footer-quick-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.footer-pill-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* --- Compact Footer Variant (For Check-in & Login) --- */
+.footer-compact {
+  width: 100%;
+  max-width: 600px;
+  margin: 32px auto 0;
+  text-align: center;
+  position: relative;
+}
+
+.footer-compact .footer-leveling-container {
+  margin-bottom: 20px;
+}
+
+.footer-compact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-compact-dev {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.footer-dev-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--accent);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.footer-compact-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.footer-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.footer-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--success);
+  display: inline-block;
+}
+
+.footer-meta-sep {
+  color: var(--border-strong);
+}
+
+.footer-meta-item.clock-item {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.footer-compact-copy {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+/* --- Admin Footer Variant --- */
+.footer-admin {
+  width: 100%;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+  position: relative;
+}
+
+.footer-admin .footer-leveling-container {
+  margin-bottom: 0;
+}
+
+.footer-admin-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 36px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-admin-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-admin-name {
+  font-weight: 700;
+}
+
+.footer-admin-role-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--accent);
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-admin-dev {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-admin-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.footer-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.footer-clock-badge {
+  font-size: 0.74rem;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.footer-admin-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.footer-admin-badges {
+  display: flex;
+  gap: 6px;
+}
+
+.footer-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text-faint);
+}
+
+.footer-admin-copy {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
+
+/* --- Responsive Layout for Footers --- */
+@media (max-width: 900px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer-admin-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 20px 20px;
+    gap: 14px;
+  }
+  .footer-admin-right {
+    align-items: flex-start;
+  }
+}
+
 
 
 
