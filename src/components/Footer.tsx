@@ -16,9 +16,7 @@ export function Footer({ variant: _variant = "default" }: FooterProps) {
 
       <div className="footer-compact-content">
         <div className="footer-compact-dev">
-          <span className="footer-dev-text">
-            Developed by <strong>Yonas Bogale</strong> · ICT Department
-          </span>
+          <span className="footer-dev-text">ICT Department</span>
         </div>
 
         <div className="footer-compact-meta">
