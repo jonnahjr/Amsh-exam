@@ -27,6 +27,10 @@ module.exports = {
   transformIgnorePatterns: ["node_modules/(?!jose)"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    // App-router code imports `cache` from react, which plain React 18.3 does
+    // not export in CJS. Next.js ships (and runs) its own compiled React that
+    // does, so mirror that here for Jest.
+    "^react$": "next/dist/compiled/react",
   },
   clearMocks: true,
   collectCoverageFrom: ["src/lib/**/*.ts", "src/server/**/*.ts"],

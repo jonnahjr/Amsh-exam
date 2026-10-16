@@ -16,9 +16,11 @@ export default async function ExamDetailPage({ params }: { params: { slug: strin
   if (!template) notFound();
   if (!template.isPublic && user.role === "STUDENT") notFound();
 
-  const available = await countAvailableQuestions(template);
+  const [available, activeAttempt] = await Promise.all([
+    countAvailableQuestions(template),
+    findActiveAttempt(user.id, template.id),
+  ]);
   const ready = available >= template.totalQuestions;
-  const activeAttempt = await findActiveAttempt(user.id, template.id);
 
   return (
     <div className="stack" style={{ maxWidth: 1180, margin: "0 auto", width: "100%" }}>

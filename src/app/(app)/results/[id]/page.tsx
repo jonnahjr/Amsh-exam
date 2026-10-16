@@ -8,7 +8,13 @@ import { ResultReviewView } from "@/components/ResultReviewView";
 
 export const dynamic = "force-dynamic";
 
-export default async function ResultDetailPage({ params }: { params: { id: string } }) {
+export default async function ResultDetailPage({
+  params,
+  searchParams,
+}: {
+  params: { id: string };
+  searchParams: { return?: string };
+}) {
   const user = await getSessionUser();
   if (!user) redirect("/login");
 
@@ -43,6 +49,11 @@ export default async function ResultDetailPage({ params }: { params: { id: strin
       review={review}
       submittedAtFormatted={formatDateTime(result.submittedAt)}
       durationFormatted={formatDurationSeconds(result.durationSeconds)}
+      // Fresh submissions ask the result view to send the candidate back to
+      // check-in after one minute.
+      autoReturnSeconds={searchParams.return ? 60 : undefined}
+      // Students must pass the check-in desk again before retaking an exam.
+      retakeHref={user.role === "STUDENT" ? "/checkin" : undefined}
     />
   );
 }

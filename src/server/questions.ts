@@ -143,6 +143,38 @@ export async function countAvailableQuestions(template: ExamTemplate): Promise<n
   return Number(row?.n ?? 0);
 }
 
+/**
+ * Published-question availability for many templates in a fixed number of
+ * round trips (3 parallel grouped queries) instead of one COUNT per template.
+ */
+export async function availableQuestionCounts(): Promise<{
+  total: number;
+  bySubject: Record<string, number>;
+  byCategory: Record<string, number>;
+}> {
+  const [totalRow, subjectRows, categoryRows] = await Promise.all([
+    one<{ n: string }>(
+      'SELECT COUNT(*) AS "n" FROM "Question" WHERE "status" = ?',
+      ["PUBLISHED"],
+    ),
+    all<{ subjectId: string; n: string }>(
+      'SELECT "subjectId", COUNT(*) AS "n" FROM "Question" WHERE "status" = ? AND "subjectId" IS NOT NULL GROUP BY "subjectId"',
+      ["PUBLISHED"],
+    ),
+    all<{ categoryId: string; n: string }>(
+      'SELECT "categoryId", COUNT(*) AS "n" FROM "Question" WHERE "status" = ? AND "categoryId" IS NOT NULL GROUP BY "categoryId"',
+      ["PUBLISHED"],
+    ),
+  ]);
+
+  const bySubject: Record<string, number> = {};
+  for (const row of subjectRows) bySubject[row.subjectId] = Number(row.n);
+  const byCategory: Record<string, number> = {};
+  for (const row of categoryRows) byCategory[row.categoryId] = Number(row.n);
+
+  return { total: Number(totalRow?.n ?? 0), bySubject, byCategory };
+}
+
 /** Question ids this user has already been shown for a given template. */
 export async function previouslySeenQuestionIds(userId: string, templateId: string): Promise<string[]> {
   const rows = await all<{ selectedQuestionIds: string }>(

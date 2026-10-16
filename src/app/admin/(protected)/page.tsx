@@ -26,13 +26,10 @@ export default async function AdminDashboardPage() {
     redirect("/admin/login");
   }
 
-  const overview = await platformStats();
-
-  const pendingCheckinsCount =
-    (await one<{ c: number }>('SELECT COUNT(*) AS "c" FROM "CheckIn" WHERE "status" = \'PENDING\''))?.c ?? 0;
-
-  // Aggregate candidate metrics: How many times each person has taken tests, check-in history, and performance
-  const candidateStats = await all<CandidateStat>(`
+  const [overview, pendingCheckinsRow, candidateStats] = await Promise.all([
+    platformStats(),
+    one<{ c: number }>('SELECT COUNT(*) AS "c" FROM "CheckIn" WHERE "status" = \'PENDING\''),
+    all<CandidateStat>(`
     SELECT 
       c."employeeName" AS "candidateName",
       COUNT(c."id") AS "totalCheckIns",
@@ -71,7 +68,9 @@ export default async function AdminDashboardPage() {
     FROM "CheckIn" c
     GROUP BY c."employeeName"
     ORDER BY "lastActive" DESC
-  `);
+  `),
+  ]);
+  const pendingCheckinsCount = pendingCheckinsRow?.c ?? 0;
 
   return (
     <>

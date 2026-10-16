@@ -40,8 +40,9 @@ function getPool(): Pool {
     connectionString: sanitizedUrl,
     ssl: { rejectUnauthorized: false },
     max: 5,               // serverless: keep small
-    idleTimeoutMillis: 30_000,
+    idleTimeoutMillis: 300_000, // keep warm connections so we avoid an SSL+TCP handshake on the first query after a short idle
     connectionTimeoutMillis: 10_000,
+    keepAlive: true,
   });
 
   globalThis.__examPlatformPgPool = pool;

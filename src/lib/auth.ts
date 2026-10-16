@@ -1,4 +1,6 @@
-﻿import { cookies } from "next/headers";
+
+import { cache } from "react";
+import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
 import { one } from "@/lib/db";
@@ -104,8 +106,12 @@ export function sessionCookieOptions() {
  *
  * The token is verified and then re-checked against the database so that a
  * deleted or downgraded account cannot keep a stale session alive.
+ *
+ * Wrapped in React `cache()` so multiple callers in one request (navbar,
+ * page, etc.) share a single JWT verification and DB lookup instead of
+ * paying a duplicate remote-DB round trip per caller.
  */
-export async function getSessionUser(): Promise<SessionUser | null> {
+export const getSessionUser = cache(async function getSessionUser(): Promise<SessionUser | null> {
   const token = cookies().get(SESSION_COOKIE)?.value;
   if (!token) return null;
 
@@ -119,7 +125,7 @@ export async function getSessionUser(): Promise<SessionUser | null> {
   if (!row) return null;
 
   return { id: row.id, email: row.email, name: row.name, role: row.role };
-}
+});
 
 export async function requireUser(): Promise<SessionUser> {
   const user = await getSessionUser();

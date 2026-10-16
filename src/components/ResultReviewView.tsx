@@ -11,6 +11,10 @@ interface ResultReviewViewProps {
   review: AnswerReviewEntry[];
   submittedAtFormatted: string;
   durationFormatted: string;
+  /** When set, the viewer is returned to check-in this many seconds after landing. */
+  autoReturnSeconds?: number;
+  /** Overrides the Retake destination (e.g. students must re-check-in first). */
+  retakeHref?: string;
 }
 
 type FilterType = "all" | "incorrect" | "correct" | "unanswered";
@@ -21,10 +25,27 @@ export function ResultReviewView({
   review,
   submittedAtFormatted,
   durationFormatted,
+  autoReturnSeconds,
+  retakeHref,
 }: ResultReviewViewProps) {
   const [filter, setFilter] = useState<FilterType>("all");
   const [search, setSearch] = useState("");
   const [showMatrix, setShowMatrix] = useState(true);
+  const [returnIn, setReturnIn] = useState(autoReturnSeconds ?? 0);
+
+  // Auto-return to check-in: count down once on landing, then redirect.
+  useEffect(() => {
+    if (!autoReturnSeconds) return;
+    const interval = window.setInterval(() => {
+      setReturnIn((current) => Math.max(0, current - 1));
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, [autoReturnSeconds]);
+
+  useEffect(() => {
+    if (!autoReturnSeconds || returnIn > 0) return;
+    window.location.href = "/checkin";
+  }, [autoReturnSeconds, returnIn]);
 
   // Apply white theme class to body while on this page
   useEffect(() => {
@@ -83,11 +104,27 @@ export function ResultReviewView({
           >
             <span>🖨</span> Print / PDF
           </button>
-          <Link href={`/exams/${template.slug}`} className="res-btn-primary">
+          <Link href={retakeHref ?? `/exams/${template.slug}`} className="res-btn-primary">
             Retake Exam →
           </Link>
         </div>
       </div>
+
+      {/* Auto-return banner: send candidates back to check-in 60s after submitting */}
+      {autoReturnSeconds !== undefined && (
+        <div className="res-return-banner" role="status">
+          <strong>
+            {returnIn > 0
+              ? `Back to check-in in ${returnIn}s`
+              : "Returning to check-in…"}
+          </strong>
+          {returnIn > 0 && (
+            <button type="button" className="res-btn-ghost-sm" onClick={() => setReturnIn(0)}>
+              Return now →
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Main Header */}
       <div className="res-header">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth";
-import { countAvailableQuestions } from "@/server/questions";
+import { availableQuestionCounts } from "@/server/questions";
 import { listTemplates } from "@/server/templates";
 import { EmptyState, PageHeader } from "@/components/ui";
 
@@ -12,13 +12,18 @@ export default async function ExamsPage() {
   if (!user) redirect("/login");
 
   const isStudent = user.role === "STUDENT";
-  const rawTemplates = await listTemplates({ includeUnpublished: !isStudent });
-  const templates = await Promise.all(
-    rawTemplates.map(async (template) => {
-      const available = await countAvailableQuestions(template);
-      return { ...template, available };
-    }),
-  );
+  const [rawTemplates, counts] = await Promise.all([
+    listTemplates({ includeUnpublished: !isStudent }),
+    availableQuestionCounts(),
+  ]);
+  const templates = rawTemplates.map((template) => {
+    const available = template.subjectId
+      ? counts.bySubject[template.subjectId]
+      : template.categoryId
+        ? counts.byCategory[template.categoryId]
+        : counts.total;
+    return { ...template, available: available ?? 0 };
+  });
 
   return (
     <>

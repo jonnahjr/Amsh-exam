@@ -139,7 +139,10 @@ export async function startAttempt({
     });
   }
 
-  const pool = await questionPoolForTemplate(template);
+  const [pool, seenIds] = await Promise.all([
+    questionPoolForTemplate(template),
+    previouslySeenQuestionIds(userId, template.id),
+  ]);
   const rng = createRng(seed ?? Date.now());
 
   let selected: Question[];
@@ -147,7 +150,7 @@ export async function startAttempt({
     selected = selectQuestions({
       pool,
       template,
-      previouslySeenIds: await previouslySeenQuestionIds(userId, template.id),
+      previouslySeenIds: seenIds,
       rng,
     });
   } catch (error) {
@@ -165,7 +168,7 @@ export async function startAttempt({
   const token = randomUUID();
   const startedAt = nowIso();
   const expiresAt = new Date(Date.now() + template.durationMinutes * 60_000).toISOString();
-  const prevSeen = await previouslySeenQuestionIds(userId, template.id);
+  const prevSeen = seenIds;
 
   await transaction(async (q) => {
     await q.run(
@@ -195,12 +198,21 @@ export async function startAttempt({
       ],
     );
 
+    // Single multi-row INSERT instead of one round trip per question.
+    const values: string[] = [];
+    const params: (string | number | boolean | null)[] = [];
     for (const [position, question] of selected.entries()) {
+      values.push(`(?, ?, ?, ?, ?, ?, ?, ?)`);
+      params.push(
+        randomUUID(), id, question.id, position, null, false, position, startedAt,
+      );
+    }
+    if (values.length > 0) {
       await q.run(
         `INSERT INTO "AttemptQuestion"
            ("id","attemptId","questionId","optionOrder","response","isFlagged","position","createdAt")
-         VALUES (?,?,?,?,?,?,?,?)`,
-        [randomUUID(), id, question.id, position, null, false, position, startedAt],
+         VALUES ${values.join(", ")}`,
+        params,
       );
     }
   });
@@ -232,7 +244,10 @@ export async function loadAttemptSession(token: string, userId: string): Promise
     });
   }
 
-  const template = await findTemplateById(attempt.templateId);
+  const [template, questions] = await Promise.all([
+    findTemplateById(attempt.templateId),
+    loadQuestionsInOrder(parseStringArray(attempt.selectedQuestionIds)),
+  ]);
   if (!template) throw new NotFoundError("The exam template for this attempt no longer exists.");
 
   if (hasExpired(attempt) && template.autoSubmitOnExpiry) {
@@ -242,8 +257,6 @@ export async function loadAttemptSession(token: string, userId: string): Promise
       resultReady: true,
     });
   }
-
-  const questions = await loadQuestionsInOrder(parseStringArray(attempt.selectedQuestionIds));
 
   return {
     attempt,

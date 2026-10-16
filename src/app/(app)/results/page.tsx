@@ -19,8 +19,10 @@ export default async function ResultsPage() {
   if (!user) redirect("/login");
 
   const isStudent = user.role === "STUDENT";
-  const results = await (isStudent ? listResultsForUser(user.id) : listAllResults());
-  const stats = isStudent ? await statsForUser(user.id) : null;
+  const [results, stats] = await Promise.all([
+    isStudent ? listResultsForUser(user.id) : listAllResults(),
+    isStudent ? statsForUser(user.id) : Promise.resolve(null),
+  ]);
 
   return (
     <div className="results-white-theme">

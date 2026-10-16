@@ -76,7 +76,9 @@ export function ExamRunner({
           `/api/attempts/${token}/submit`,
           { method: "POST" },
         );
-        router.push(`/results/${result.resultId}`);
+        // `return=1` tells the result page this is a fresh submission so it
+        // can send the candidate back to check-in one minute later.
+        router.push(`/results/${result.resultId}?return=1`);
       } catch (error) {
         // A failure here is surfaced with a retry button rather than leaving
         // the candidate staring at a frozen timer.
