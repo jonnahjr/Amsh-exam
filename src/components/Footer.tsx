@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface FooterProps {
@@ -8,25 +7,7 @@ interface FooterProps {
 }
 
 export function Footer({ variant = "default" }: FooterProps) {
-  const [timeStr, setTimeStr] = useState<string>("");
   const currentYear = new Date().getFullYear();
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTimeStr(
-        now.toLocaleTimeString("en-US", {
-          hour12: true,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        })
-      );
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   if (variant === "compact") {
     return (
@@ -34,38 +15,21 @@ export function Footer({ variant = "default" }: FooterProps) {
         {/* Leveling Line */}
         <div className="footer-leveling-container">
           <div className="footer-leveling-line" />
-          <div className="footer-leveling-badge">
-            <span className="footer-pulse-dot" />
-            <span className="footer-leveling-text">AMSH ICT SECURE ENVIRONMENT</span>
-          </div>
         </div>
 
         <div className="footer-compact-content">
           <div className="footer-compact-dev">
-            <span className="footer-dev-tag">SYSTEM</span>
             <span className="footer-dev-text">
               Developed by <strong>Yonas Bogale</strong> · ICT Department
             </span>
           </div>
 
           <div className="footer-compact-meta">
-            <span className="footer-meta-pill">
-              <span className="footer-status-dot" /> All Systems Operational
-            </span>
-            <span className="footer-meta-sep">•</span>
-            <span className="footer-meta-item">🔒 256-Bit Encrypted</span>
-            <span className="footer-meta-sep">•</span>
             <span className="footer-meta-item">v2.4.0 (Enterprise)</span>
-            {timeStr && (
-              <>
-                <span className="footer-meta-sep">•</span>
-                <span className="footer-meta-item clock-item">🕒 {timeStr}</span>
-              </>
-            )}
           </div>
 
           <div className="footer-compact-copy">
-            © {currentYear} AMSH (Allied Medical & Surgical Hospital) · All rights reserved.
+            © {currentYear} AMSH · All rights reserved.
           </div>
         </div>
       </footer>
@@ -78,10 +42,6 @@ export function Footer({ variant = "default" }: FooterProps) {
         {/* Leveling Line */}
         <div className="footer-leveling-container">
           <div className="footer-leveling-line" />
-          <div className="footer-leveling-badge">
-            <span className="footer-pulse-dot" />
-            <span className="footer-leveling-text">AMSH ICT CORE MANAGEMENT CONSOLE</span>
-          </div>
         </div>
 
         <div className="footer-admin-content">
@@ -93,14 +53,6 @@ export function Footer({ variant = "default" }: FooterProps) {
             <div className="footer-admin-dev">
               Developed by <strong>Yonas Bogale</strong> — ICT Department
             </div>
-          </div>
-
-          <div className="footer-admin-center">
-            <div className="footer-status-badge">
-              <span className="footer-status-dot" />
-              <span>Real-time Candidate Monitor Active</span>
-            </div>
-            {timeStr && <div className="footer-clock-badge">🕒 Server Sync: {timeStr}</div>}
           </div>
 
           <div className="footer-admin-right">
@@ -120,13 +72,9 @@ export function Footer({ variant = "default" }: FooterProps) {
   // Default rich footer
   return (
     <footer className="site-footer" role="contentinfo">
-      {/* Leveling Line with Accent Badge */}
+      {/* Leveling Line */}
       <div className="footer-leveling-container">
         <div className="footer-leveling-line" />
-        <div className="footer-leveling-badge">
-          <span className="footer-pulse-dot" />
-          <span className="footer-leveling-text">AMSH ICT ENTERPRISE INFRASTRUCTURE</span>
-        </div>
       </div>
 
       <div className="site-footer-inner">
@@ -144,7 +92,7 @@ export function Footer({ variant = "default" }: FooterProps) {
               />
               <div>
                 <div className="footer-logo-title">AMSH Exam Platform</div>
-                <div className="footer-logo-sub">Employee Assessment & Evaluation System</div>
+                <div className="footer-logo-sub">Employee Assessment &amp; Evaluation System</div>
               </div>
             </div>
             <p className="footer-brand-desc">
@@ -163,7 +111,6 @@ export function Footer({ variant = "default" }: FooterProps) {
               <div className="footer-dev-card-header">
                 <span className="footer-dev-icon">💻</span>
                 <div>
-                  <span className="footer-dev-eyebrow">SYSTEM ARCHITECTURE</span>
                   <div className="footer-dev-name">Developed by Yonas Bogale</div>
                   <div className="footer-dev-dept">ICT Department · Software Engineering</div>
                 </div>
@@ -181,29 +128,9 @@ export function Footer({ variant = "default" }: FooterProps) {
             </div>
           </div>
 
-          {/* Col 3: Little Professional Things: System status, live clock, helpdesk */}
+          {/* Col 3: Support & Contact */}
           <div className="footer-col footer-col-ops">
-            <div className="footer-section-title">System & Operational Telemetry</div>
-
-            <div className="footer-status-card">
-              <div className="footer-status-row">
-                <div className="footer-status-indicator">
-                  <span className="footer-pulse-dot" />
-                  <span className="status-label">All Systems Operational</span>
-                </div>
-                <span className="uptime-pill">99.98% SLA</span>
-              </div>
-
-              {timeStr && (
-                <div className="footer-time-row">
-                  <span className="time-icon">🕒</span>
-                  <div className="time-details">
-                    <span className="time-val">{timeStr}</span>
-                    <span className="time-sub">NTP Synchronized (Addis Ababa / EAT)</span>
-                  </div>
-                </div>
-              )}
-            </div>
+            <div className="footer-section-title">ICT Support</div>
 
             <div className="footer-support-box">
               <div className="footer-support-row">
@@ -227,19 +154,19 @@ export function Footer({ variant = "default" }: FooterProps) {
         {/* Sub Divider */}
         <div className="footer-sub-divider" />
 
-        {/* Bottom Bar: Copyright & Quick Integrity Tags */}
+        {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <div className="footer-copy">
-            © {currentYear} <strong>AMSH (Allied Medical & Surgical Hospital)</strong>. All rights reserved.
+            © {currentYear} <strong>AMSH</strong>. All rights reserved.
             <span className="footer-pipe">·</span>
-            <span className="footer-ict-tag">Designed & Built by AMSH ICT Department</span>
+            <span className="footer-ict-tag">Designed &amp; Built by AMSH ICT Department</span>
           </div>
 
           <div className="footer-quick-links">
             <span className="footer-pill-link">
               <span className="footer-pill-dot" /> Official Enterprise Platform
             </span>
-            <span className="footer-pill-link">Confidential & Proprietary</span>
+            <span className="footer-pill-link">Confidential &amp; Proprietary</span>
             <span className="footer-pill-link">Audited Session</span>
           </div>
         </div>
