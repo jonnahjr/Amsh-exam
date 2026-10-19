@@ -62,7 +62,7 @@ export function NavBarClient({ user }: NavBarClientProps) {
             className="brand-logo-img"
             priority
           />
-          <span>AMSH Exam</span>
+          <span>MOCK EXAM</span>
         </Link>
 
         {/* Desktop Navigation Links */}

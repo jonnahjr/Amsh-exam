@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AMSH Exam",
+  title: "MOCK EXAM",
   description:
-    "AMSH Employee Exam Platform — check in and sit your exam once approved by an administrator.",
+    "MOCK EXAM Platform — check in and sit your exam once approved by an administrator.",
 };
 
 export const viewport: Viewport = {

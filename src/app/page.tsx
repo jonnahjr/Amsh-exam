@@ -101,9 +101,9 @@ export default function RootCheckInPage() {
       <div className="checkin-card">
         {/* Logo */}
         <div className="checkin-logo">
-          <Image src="/amsh-logo.jpg" alt="AMSH Exam" width={56} height={56} className="checkin-logo-img" priority />
+          <Image src="/amsh-logo.jpg" alt="MOCK EXAM" width={56} height={56} className="checkin-logo-img" priority />
           <div>
-            <div className="checkin-logo-name">AMSH Exam</div>
+            <div className="checkin-logo-name">MOCK EXAM</div>
             <div className="checkin-logo-sub">Employee Check-In</div>
           </div>
         </div>

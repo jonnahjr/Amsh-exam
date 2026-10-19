@@ -194,7 +194,7 @@ export default function BulkExamPage() {
   }
 
   function loadSample() {
-    setExamName("AMSH General Knowledge & Technical Exam");
+    setExamName("MOCK EXAM - General Knowledge & Technical Exam");
     setDescription("Evaluation test assessing general technical competencies and best practices.");
     setDurationMinutes(30);
     setPassThresholdPercent(75);

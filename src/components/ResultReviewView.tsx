@@ -15,6 +15,8 @@ interface ResultReviewViewProps {
   autoReturnSeconds?: number;
   /** Overrides the Retake destination (e.g. students must re-check-in first). */
   retakeHref?: string;
+  /** Hides the Retake action entirely (e.g. on the result of a fresh submission). */
+  retakeHidden?: boolean;
 }
 
 type FilterType = "all" | "incorrect" | "correct" | "unanswered";
@@ -27,6 +29,7 @@ export function ResultReviewView({
   durationFormatted,
   autoReturnSeconds,
   retakeHref,
+  retakeHidden = false,
 }: ResultReviewViewProps) {
   const [filter, setFilter] = useState<FilterType>("all");
   const [search, setSearch] = useState("");
@@ -104,9 +107,13 @@ export function ResultReviewView({
           >
             <span>🖨</span> Print / PDF
           </button>
-          <Link href={retakeHref ?? `/exams/${template.slug}`} className="res-btn-primary">
-            Retake Exam →
-          </Link>
+          {/* No retake offer on the result of a fresh submission: the candidate
+              must go back to check-in and be re-approved by the desk. */}
+          {!retakeHidden && (
+            <Link href={retakeHref ?? `/exams/${template.slug}`} className="res-btn-primary">
+              Retake Exam →
+            </Link>
+          )}
         </div>
       </div>
 
