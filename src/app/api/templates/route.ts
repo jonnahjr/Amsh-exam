@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { created, handleError, ok, readJsonBody } from "@/lib/http";
 import { requireRole } from "@/lib/auth";
 import { templateInputSchema } from "@/lib/validation";
@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export async function GET(): Promise<NextResponse> {
   try {
     const user = await requireRole("STUDENT");
-    const includeUnpublished = user.role !== "STUDENT";
+    const includeUnpublished = user.role !== "STUDENT" && user.role !== "EMPLOYEE";
     const templates = await listTemplates({ includeUnpublished });
     const withCounts = await Promise.all(
       templates.map(async (template) => ({

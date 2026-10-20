@@ -11,7 +11,7 @@ export default async function ExamsPage() {
   const user = await getSessionUser();
   if (!user) redirect("/login");
 
-  const isStudent = user.role === "STUDENT";
+  const isStudent = user.role === "STUDENT" || user.role === "EMPLOYEE";
   const [rawTemplates, counts] = await Promise.all([
     listTemplates({ includeUnpublished: !isStudent }),
     availableQuestionCounts(),

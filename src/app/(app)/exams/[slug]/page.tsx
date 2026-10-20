@@ -14,7 +14,7 @@ export default async function ExamDetailPage({ params }: { params: { slug: strin
 
   const template = await findTemplateWithNames(params.slug);
   if (!template) notFound();
-  if (!template.isPublic && user.role === "STUDENT") notFound();
+  if (!template.isPublic && (user.role === "STUDENT" || user.role === "EMPLOYEE")) notFound();
 
   const [available, activeAttempt] = await Promise.all([
     countAvailableQuestions(template),

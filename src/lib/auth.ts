@@ -6,11 +6,12 @@ import { SignJWT, jwtVerify } from "jose";
 import { one } from "@/lib/db";
 import { ForbiddenError, UnauthorizedError } from "@/lib/errors";
 
-export type Role = "STUDENT" | "INSTRUCTOR" | "ADMINISTRATOR";
+export type Role = "STUDENT" | "EMPLOYEE" | "INSTRUCTOR" | "ADMINISTRATOR";
 
 /** Higher number means more privilege. Used by `requireRole`. */
 const ROLE_RANK: Record<Role, number> = {
   STUDENT: 1,
+  EMPLOYEE: 1,
   INSTRUCTOR: 2,
   ADMINISTRATOR: 3,
 };
@@ -152,7 +153,13 @@ export function hasRole(user: SessionUser | null, ...roles: Role[]): boolean {
   return roles.includes(user.role);
 }
 
+/** True for student or employee roles sitting exams. */
+export function isCandidateRole(role: Role): boolean {
+  return role === "STUDENT" || role === "EMPLOYEE";
+}
+
 /** True for roles allowed to author and publish questions. */
 export function canAuthorContent(user: SessionUser | null): boolean {
   return hasRole(user, "INSTRUCTOR", "ADMINISTRATOR");
 }
+

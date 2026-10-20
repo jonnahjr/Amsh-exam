@@ -18,7 +18,7 @@ export default async function ResultsPage() {
   const user = await getSessionUser();
   if (!user) redirect("/login");
 
-  const isStudent = user.role === "STUDENT";
+  const isStudent = user.role === "STUDENT" || user.role === "EMPLOYEE";
   const [results, stats] = await Promise.all([
     isStudent ? listResultsForUser(user.id) : listAllResults(),
     isStudent ? statsForUser(user.id) : Promise.resolve(null),

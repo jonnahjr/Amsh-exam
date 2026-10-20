@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { all, one, run } from "@/lib/db";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { AppError } from "@/lib/errors";
@@ -36,7 +36,7 @@ export async function GET(request: Request): Promise<NextResponse> {
 
     if (row.status === "APPROVED") {
       const email = `emp_${row.id.replace(/-/g, "").slice(0, 12)}@amsh.internal`;
-      let user = await one<{ id: string; email: string; name: string | null; role: "STUDENT" }>(
+      let user = await one<{ id: string; email: string; name: string | null; role: "STUDENT" | "EMPLOYEE" }>(
         `SELECT "id", "email", "name", "role" FROM "User" WHERE "email" = ?`,
         [email],
       );
@@ -44,12 +44,12 @@ export async function GET(request: Request): Promise<NextResponse> {
         const userId = row.id;
         const now = new Date().toISOString();
         await run(
-          `INSERT INTO "User" ("id", "email", "password", "name", "role", "createdAt", "updatedAt") VALUES (?, ?, 'NOPASSWORD', ?, 'STUDENT', ?, ?)`,
+          `INSERT INTO "User" ("id", "email", "password", "name", "role", "createdAt", "updatedAt") VALUES (?, ?, 'NOPASSWORD', ?, 'EMPLOYEE', ?, ?)`,
           [userId, email, row.employeeName, now, now],
         );
-        user = { id: userId, email, name: row.employeeName, role: "STUDENT" };
+        user = { id: userId, email, name: row.employeeName, role: "EMPLOYEE" };
       }
-      const token = await createSessionToken({ id: user.id, email: user.email, name: user.name, role: "STUDENT" });
+      const token = await createSessionToken({ id: user.id, email: user.email, name: user.name, role: user.role });
       const response = NextResponse.json({ ...row, redirectUrl: "/exams" });
       response.cookies.set(SESSION_COOKIE, token, sessionCookieOptions());
       return response;

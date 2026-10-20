@@ -1,4 +1,4 @@
-﻿-- ============================================================================
+-- ============================================================================
 -- Mock Examination Platform - PostgreSQL schema for Supabase
 -- Run this once in the Supabase SQL Editor:
 --   https://supabase.com/dashboard/project/izbexcmclhchqbzchxkz/sql/new
@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS "User" (
   "email"      TEXT NOT NULL UNIQUE,
   "password"   TEXT NOT NULL,
   "name"       TEXT,
-  "role"       TEXT NOT NULL DEFAULT 'STUDENT'
-                 CHECK ("role" IN ('STUDENT','INSTRUCTOR','ADMINISTRATOR')),
+  "role"       TEXT NOT NULL DEFAULT 'EMPLOYEE'
+                 CHECK ("role" IN ('STUDENT','EMPLOYEE','INSTRUCTOR','ADMINISTRATOR')),
   "createdAt"  TEXT NOT NULL,
   "updatedAt"  TEXT NOT NULL
 );

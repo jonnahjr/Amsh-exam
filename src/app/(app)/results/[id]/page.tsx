@@ -53,7 +53,7 @@ export default async function ResultDetailPage({
       // check-in after one minute.
       autoReturnSeconds={searchParams.return ? 60 : undefined}
       // Students must pass the check-in desk again before retaking an exam.
-      retakeHref={user.role === "STUDENT" ? "/checkin" : undefined}
+      retakeHref={user.role === "STUDENT" || user.role === "EMPLOYEE" ? "/checkin" : undefined}
       // A fresh submission cannot be retaken from here at all.
       retakeHidden={Boolean(searchParams.return)}
     />

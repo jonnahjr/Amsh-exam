@@ -36,7 +36,7 @@ model User {
   email     String   @unique
   password  String
   name      String?
-  role      String   @default("STUDENT") // STUDENT | INSTRUCTOR | ADMINISTRATOR
+  role      String   @default("EMPLOYEE") // STUDENT | EMPLOYEE | INSTRUCTOR | ADMINISTRATOR
   createdAt String
   updatedAt String
 

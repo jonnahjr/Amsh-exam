@@ -5,7 +5,7 @@
  * The plain types are the hydrated versions the UI works with.
  */
 
-export type Role = "STUDENT" | "INSTRUCTOR" | "ADMINISTRATOR";
+export type Role = "STUDENT" | "EMPLOYEE" | "INSTRUCTOR" | "ADMINISTRATOR";
 export type Difficulty = "EASY" | "INTERMEDIATE" | "HARD" | "EXPERT";
 export type QuestionType =
   | "SINGLE_CHOICE"

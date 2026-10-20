@@ -144,7 +144,7 @@ export async function platformStats(): Promise<{
   const [users, students, questions, publishedQuestions, templates, attempts, results, avgRow] =
     await Promise.all([
       scalar('SELECT COUNT(*) AS "n" FROM "User"'),
-      scalar(`SELECT COUNT(*) AS "n" FROM "User" WHERE "role" = 'STUDENT'`),
+      scalar(`SELECT COUNT(*) AS "n" FROM "User" WHERE "role" = 'STUDENT' OR "role" = 'EMPLOYEE'`),
       scalar('SELECT COUNT(*) AS "n" FROM "Question"'),
       scalar(`SELECT COUNT(*) AS "n" FROM "Question" WHERE "status" = 'PUBLISHED'`),
       scalar('SELECT COUNT(*) AS "n" FROM "ExamTemplate"'),

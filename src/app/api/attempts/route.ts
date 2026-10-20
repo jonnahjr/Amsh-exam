@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { created, handleError, readJsonBody } from "@/lib/http";
 import { parseStringArray } from "@/lib/json";
 import { requireUser } from "@/lib/auth";
@@ -17,7 +17,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     const attempt = await startAttempt({
       templateSlug: input.templateSlug,
       userId: user.id,
-      allowUnpublished: user.role !== "STUDENT",
+      allowUnpublished: user.role !== "STUDENT" && user.role !== "EMPLOYEE",
     });
 
     recordAudit({
