@@ -1,8 +1,8 @@
 ﻿import { NextResponse } from "next/server";
 import { handleError, created, ok, readJsonBody } from "@/lib/http";
-import { requireRole } from "@/lib/auth";
+import { canAuthorContent, requireRole } from "@/lib/auth";
 import { listQuerySchema, questionInputSchema } from "@/lib/validation";
-import { createQuestion, listQuestions } from "@/server/questions";
+import { createQuestion, listQuestions, toPublicQuestion } from "@/server/questions";
 import { clientAddress, recordAudit } from "@/server/audit";
 import { DIFFICULTIES, PUBLICATION_STATUSES, type Difficulty, type PublicationStatus } from "@/types";
 
@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request): Promise<NextResponse> {
   try {
-    await requireRole("STUDENT");
+    const user = await requireRole("STUDENT");
     const url = new URL(request.url);
     const filters = listQuerySchema.parse(Object.fromEntries(url.searchParams));
 
@@ -26,7 +26,8 @@ export async function GET(request: Request): Promise<NextResponse> {
     });
 
     return ok({
-      items: result.items, total: result.total,
+      items: canAuthorContent(user) ? result.items : result.items.map(toPublicQuestion),
+      total: result.total,
       page: result.page, pageSize: result.pageSize,
       pageCount: Math.max(1, Math.ceil(result.total / result.pageSize)),
     });

@@ -1,9 +1,9 @@
 ﻿import { NextResponse } from "next/server";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { NotFoundError } from "@/lib/errors";
-import { requireRole } from "@/lib/auth";
+import { canAuthorContent, requireRole } from "@/lib/auth";
 import { questionUpdateSchema } from "@/lib/validation";
-import { deleteQuestion, findQuestionById, updateQuestion } from "@/server/questions";
+import { deleteQuestion, findQuestionById, toPublicQuestion, updateQuestion } from "@/server/questions";
 import { clientAddress, recordAudit } from "@/server/audit";
 
 export const dynamic = "force-dynamic";
@@ -12,10 +12,10 @@ interface Context { params: { id: string }; }
 
 export async function GET(_request: Request, { params }: Context): Promise<NextResponse> {
   try {
-    await requireRole("STUDENT");
+    const user = await requireRole("STUDENT");
     const question = await findQuestionById(params.id);
     if (!question) throw new NotFoundError("That question does not exist.");
-    return ok(question);
+    return ok(canAuthorContent(user) ? question : toPublicQuestion(question));
   } catch (error) {
     return handleError(error);
   }

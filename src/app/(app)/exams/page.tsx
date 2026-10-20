@@ -16,14 +16,17 @@ export default async function ExamsPage() {
     listTemplates({ includeUnpublished: !isStudent }),
     availableQuestionCounts(),
   ]);
-  const templates = rawTemplates.map((template) => {
-    const available = template.subjectId
-      ? counts.bySubject[template.subjectId]
-      : template.categoryId
-        ? counts.byCategory[template.categoryId]
-        : counts.total;
-    return { ...template, available: available ?? 0 };
-  });
+  const templates = rawTemplates
+    .map((template) => {
+      const available = template.subjectId
+        ? counts.bySubject[template.subjectId]
+        : template.categoryId
+          ? counts.byCategory[template.categoryId]
+          : counts.total;
+      return { ...template, available: available ?? 0 };
+    })
+    // Pin Mock Exam 1 as the first card; everything else keeps its order.
+    .sort((a, b) => Number(b.slug === "mock-exam-1") - Number(a.slug === "mock-exam-1"));
 
   return (
     <>
@@ -57,9 +60,11 @@ export default async function ExamsPage() {
                   {!template.isPublic && <span className="badge">Draft</span>}
                 </div>
 
-                <p className="small muted" style={{ marginBottom: 10 }}>
-                  {template.description ?? "No description provided."}
-                </p>
+                {template.description && (
+                  <p className="small muted" style={{ marginBottom: 10 }}>
+                    {template.description}
+                  </p>
+                )}
 
                 <div className="card-meta">
                   {template.totalQuestions} questions · {template.durationMinutes} min

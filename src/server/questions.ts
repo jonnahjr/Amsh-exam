@@ -21,6 +21,22 @@ export async function findQuestionById(id: string): Promise<Question | null> {
   return row ? hydrateQuestion(row) : null;
 }
 
+/**
+ * Remove the marking key before a question leaves the server for a candidate.
+ *
+ * Instructors and administrators still receive the full record so they can
+ * author and review questions; candidates only receive the material they are
+ * allowed to see before an attempt is submitted.
+ */
+export function toPublicQuestion<T extends Question>(
+  question: T,
+): Omit<T, "correctOptionIndices" | "explanation"> {
+  const copy = { ...question } as unknown as Record<string, unknown>;
+  delete copy.correctOptionIndices;
+  delete copy.explanation;
+  return copy as unknown as Omit<T, "correctOptionIndices" | "explanation">;
+}
+
 export interface QuestionListFilters {
   search?: string;
   status?: PublicationStatus;

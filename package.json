@@ -18,6 +18,8 @@
     "db:seed": "node prisma/seed.cjs",
     "db:reset": "node prisma/reset.cjs",
     "db:setup": "npm run db:create && npm run db:seed",
+    "db:migrate:randomized": "node --env-file=.env scripts/migrate-randomized-exam.cjs",
+    "db:seed:bc1000": "node --env-file=.env scripts/seed-behavioral-1000.cjs",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

@@ -92,6 +92,7 @@ CREATE INDEX IF NOT EXISTS "Question_subjectId_idx"    ON "Question"("subjectId"
 CREATE INDEX IF NOT EXISTS "Question_topicId_idx"      ON "Question"("topicId");
 CREATE INDEX IF NOT EXISTS "Question_difficulty_idx"   ON "Question"("difficulty");
 CREATE INDEX IF NOT EXISTS "Question_authorId_idx"     ON "Question"("authorId");
+CREATE INDEX IF NOT EXISTS "Question_status_subjectId_idx" ON "Question"("status","subjectId");
 
 CREATE TABLE IF NOT EXISTS "QuestionTag" (
   "questionId" TEXT NOT NULL REFERENCES "Question"("id") ON DELETE CASCADE,
@@ -176,6 +177,7 @@ CREATE TABLE IF NOT EXISTS "ExamAttempt" (
 CREATE INDEX IF NOT EXISTS "ExamAttempt_userId_idx"     ON "ExamAttempt"("userId");
 CREATE INDEX IF NOT EXISTS "ExamAttempt_templateId_idx" ON "ExamAttempt"("templateId");
 CREATE INDEX IF NOT EXISTS "ExamAttempt_status_idx"     ON "ExamAttempt"("status");
+CREATE INDEX IF NOT EXISTS "ExamAttempt_user_template_status_idx" ON "ExamAttempt"("userId","templateId","status");
 
 CREATE TABLE IF NOT EXISTS "AttemptQuestion" (
   "id"          TEXT PRIMARY KEY,

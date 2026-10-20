@@ -106,6 +106,8 @@ CREATE INDEX IF NOT EXISTS "Question_subjectId_idx"    ON "Question"("subjectId"
 CREATE INDEX IF NOT EXISTS "Question_topicId_idx"      ON "Question"("topicId");
 CREATE INDEX IF NOT EXISTS "Question_difficulty_idx"   ON "Question"("difficulty");
 CREATE INDEX IF NOT EXISTS "Question_authorId_idx"     ON "Question"("authorId");
+-- Randomized papers fetch one subject's published pool at attempt start.
+CREATE INDEX IF NOT EXISTS "Question_status_subjectId_idx" ON "Question"("status","subjectId");
 
 -- Explicit join table for the Question <-> Tag many-to-many.
 CREATE TABLE IF NOT EXISTS "QuestionTag" (
@@ -199,6 +201,8 @@ CREATE TABLE IF NOT EXISTS "ExamAttempt" (
 CREATE INDEX IF NOT EXISTS "ExamAttempt_userId_idx"     ON "ExamAttempt"("userId");
 CREATE INDEX IF NOT EXISTS "ExamAttempt_templateId_idx" ON "ExamAttempt"("templateId");
 CREATE INDEX IF NOT EXISTS "ExamAttempt_status_idx"     ON "ExamAttempt"("status");
+-- Resume lookup: one active attempt per user/template.
+CREATE INDEX IF NOT EXISTS "ExamAttempt_user_template_status_idx" ON "ExamAttempt"("userId","templateId","status");
 
 CREATE TABLE IF NOT EXISTS "AttemptQuestion" (
   "id"         TEXT PRIMARY KEY,

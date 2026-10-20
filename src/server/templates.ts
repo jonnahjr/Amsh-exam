@@ -1,4 +1,4 @@
-﻿import { randomUUID } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { all, fromBool, one, run, toBool, transaction } from "@/lib/db";
 import { parseJson, stringifyJson } from "@/lib/json";
 import { ConflictError, NotFoundError } from "@/lib/errors";
@@ -36,7 +36,7 @@ export async function listTemplates(options: { includeUnpublished?: boolean } = 
      LEFT JOIN "Subject"  s ON s."id" = t."subjectId"
      LEFT JOIN "Category" c ON c."id" = t."categoryId"
      ${options.includeUnpublished ? "" : 'WHERE t."isPublic" = TRUE'}
-     ORDER BY t."name"`,
+     ORDER BY CASE WHEN t."slug" = 'mock-exam-1' THEN 0 ELSE 1 END, t."name"`,
   );
   return rows.map((row) => ({
     ...hydrateTemplate(row),

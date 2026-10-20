@@ -104,6 +104,98 @@ export function targetCountsByDifficulty(
   return counts;
 }
 
+/**
+ * Split `total` across arbitrary weighted keys using largest-remainder rounding.
+ *
+ * This is what makes a template's `topicWeights` enforceable: every configured
+ * topic gets a predictable share of the paper while the parts still sum to the
+ * requested total. Zero or negative weights are ignored.
+ */
+export function targetCountsByWeights(
+  total: number,
+  weights: Record<string, number> | null | undefined,
+): Record<string, number> {
+  const entries = Object.entries(weights ?? {})
+    .filter(([, weight]) => Number.isFinite(weight) && weight > 0)
+    .sort(([a], [b]) => a.localeCompare(b));
+
+  if (entries.length === 0 || total <= 0) return {};
+
+  const totalWeight = entries.reduce((sum, [, weight]) => sum + weight, 0);
+  const exact = entries.map(([key, weight]) => ({
+    key,
+    value: (weight / totalWeight) * total,
+  }));
+
+  const counts: Record<string, number> = {};
+  let assigned = 0;
+  for (const entry of exact) {
+    const floored = Math.floor(entry.value);
+    counts[entry.key] = floored;
+    assigned += floored;
+  }
+
+  const byRemainder = [...exact].sort(
+    (a, b) => (b.value % 1) - (a.value % 1) || a.key.localeCompare(b.key),
+  );
+  let index = 0;
+  while (assigned < total) {
+    const entry = byRemainder[index % byRemainder.length];
+    counts[entry.key] += 1;
+    assigned += 1;
+    index += 1;
+  }
+
+  for (const key of Object.keys(counts)) {
+    if (counts[key] <= 0) delete counts[key];
+  }
+  return counts;
+}
+
+/**
+ * Pick `total` questions from one pool, preferring the configured difficulty
+ * mix and topping up from the same pool when a difficulty bucket is short.
+ */
+function pickByDifficulty(
+  pool: Question[],
+  total: number,
+  distribution: Partial<Record<Difficulty, number>> | null | undefined,
+  rng: Rng,
+): Question[] {
+  const buckets = new Map<Difficulty, Question[]>();
+  for (const question of pool) {
+    const bucket = buckets.get(question.difficulty) ?? [];
+    bucket.push(question);
+    buckets.set(question.difficulty, bucket);
+  }
+
+  const counts = targetCountsByDifficulty(total, distribution);
+  const chosen: Question[] = [];
+  const chosenIds = new Set<string>();
+
+  for (const [difficulty, count] of Object.entries(counts) as [Difficulty, number][]) {
+    const bucket = shuffle(buckets.get(difficulty) ?? [], rng);
+    for (const question of bucket.slice(0, count)) {
+      chosen.push(question);
+      chosenIds.add(question.id);
+    }
+  }
+
+  if (chosen.length < total) {
+    const leftovers = shuffle(
+      pool.filter((question) => !chosenIds.has(question.id)),
+      rng,
+    );
+    for (const question of leftovers) {
+      if (chosen.length >= total) break;
+      chosen.push(question);
+      chosenIds.add(question.id);
+    }
+  }
+
+  return chosen;
+}
+
 export interface SelectQuestionsParams {
   /** Every published question the template is allowed to draw from. */
   pool: Question[];
@@ -134,26 +226,49 @@ export function selectQuestions({
     eligible = pool;
   }
 
-  const buckets = new Map<Difficulty, Question[]>();
-  for (const question of eligible) {
-    const bucket = buckets.get(question.difficulty) ?? [];
-    bucket.push(question);
-    buckets.set(question.difficulty, bucket);
-  }
-
-  const counts = targetCountsByDifficulty(template.totalQuestions, template.difficultyDistribution);
   const chosen: Question[] = [];
   const chosenIds = new Set<string>();
 
-  for (const [difficulty, count] of Object.entries(counts) as [Difficulty, number][]) {
-    const bucket = shuffle(buckets.get(difficulty) ?? [], rng);
-    for (const question of bucket.slice(0, count)) {
-      chosen.push(question);
-      chosenIds.add(question.id);
+  const topicWeights = Object.fromEntries(
+    Object.entries(template.topicWeights ?? {}).filter(([, weight]) => weight > 0),
+  );
+  const useTopicBalance = Object.keys(topicWeights).length > 0;
+
+  if (useTopicBalance) {
+    // When a template configures topic weights, allocate the paper by topic
+    // first, then honour the difficulty mix inside each topic. This keeps a
+    // chapter/section balanced even when the bank does not contain every
+    // difficulty for every topic.
+    const byTopic = new Map<string, Question[]>();
+    for (const question of eligible) {
+      if (!question.topicId) continue;
+      const bucket = byTopic.get(question.topicId) ?? [];
+      bucket.push(question);
+      byTopic.set(question.topicId, bucket);
     }
+
+    const topicTargets = targetCountsByWeights(template.totalQuestions, topicWeights);
+    for (const [topicId, count] of Object.entries(topicTargets)) {
+      const picked = pickByDifficulty(
+        byTopic.get(topicId) ?? [],
+        count,
+        template.difficultyDistribution,
+        rng,
+      );
+      for (const question of picked) {
+        if (chosenIds.has(question.id)) continue;
+        chosen.push(question);
+        chosenIds.add(question.id);
+      }
+    }
+  } else {
+    chosen.push(
+      ...pickByDifficulty(eligible, template.totalQuestions, template.difficultyDistribution, rng),
+    );
+    for (const question of chosen) chosenIds.add(question.id);
   }
 
-  // Top up from anything left over when a difficulty bucket ran short.
+  // Top up from anything left over when a topic or difficulty bucket ran short.
   if (chosen.length < template.totalQuestions) {
     const leftovers = shuffle(
       eligible.filter((question) => !chosenIds.has(question.id)),
@@ -179,9 +294,18 @@ export function selectQuestions({
     );
   }
 
+  const uniqueChosen = [...new Map(chosen.map((question) => [question.id, question])).values()];
+  if (uniqueChosen.length !== template.totalQuestions) {
+    throw new InsufficientQuestionsError(
+      template.totalQuestions,
+      uniqueChosen.length,
+      template.subjectId ? "this subject" : template.categoryId ? "this category" : "the whole question bank",
+    );
+  }
+
   return template.randomizeQuestions
-    ? shuffle(chosen, rng)
-    : chosen.sort((a, b) => a.id.localeCompare(b.id));
+    ? shuffle(uniqueChosen, rng)
+    : uniqueChosen.sort((a, b) => a.id.localeCompare(b.id));
 }
 
 // --------------------------------------------------------------- options ----

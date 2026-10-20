@@ -74,6 +74,8 @@ Students can also self-register from `/register`; new accounts always get the `S
 | `npm run db:seed -- --force` | Wipe all rows and re-seed. |
 | `npm run db:reset` | **Destructive.** Delete the database file, recreate it, and re-seed. Needs `-- --force`. |
 | `npm run db:setup` | `db:create` then `db:seed`. The normal first-time command. |
+| `npm run db:seed:bc1000` | Load the 1,000-question Behavioral Competency bank and the 100-question randomized exam. |
+| `npm run db:migrate:randomized` | Add the composite indexes used by randomized paper selection and attempt resume. |
 | `npm test` | Run the Jest suite. |
 | `npm run test:coverage` | Run tests with coverage for `src/lib` and `src/server`. |
 | `npm run smoke` | End-to-end smoke test against a **running** dev server. Signs in, sits a whole exam, and checks the result. |
@@ -135,8 +137,10 @@ tests/                Jest suite (pure unit tests + one DB integration test)
 
 1. Questions are drawn from every **published** question matching the template's scope (a subject, or a category, or the whole bank).
 2. If the template sets `avoidPreviouslySeen`, questions this student has already been shown for that template are excluded. If that leaves too few, `allowReuse` decides whether they come back in or the attempt is refused.
-3. The `difficultyDistribution` weights are turned into whole question counts using **largest-remainder rounding**, so the parts always sum to exactly `totalQuestions`. A short difficulty bucket is topped up from whatever is left over.
-4. If the bank genuinely cannot fill the exam, it throws a descriptive error rather than quietly handing out a shorter exam. The exam page shows "needs N more questions" before you ever click start.
+3. If the template has `topicWeights`, those weights are turned into whole question counts first, so a chapter/section-balanced paper is produced. Within each topic the `difficultyDistribution` (when configured) is applied, then the topic is topped up from its own remaining questions.
+4. Without `topicWeights`, the `difficultyDistribution` weights are turned into whole question counts using **largest-remainder rounding**, so the parts always sum to exactly `totalQuestions`. A short difficulty bucket is topped up from whatever is left over.
+5. The selected ids are de-duplicated and the result is refused unless it contains exactly `totalQuestions` distinct questions. If the bank genuinely cannot fill the exam, it throws a descriptive error rather than quietly handing out a shorter exam. The exam page shows "needs N more questions" before you ever click start.
+6. The chosen ids and their per-attempt option mapping are stored on `ExamAttempt`, so a refresh resumes the same paper.
 
 ### Option shuffling
 
@@ -159,6 +163,26 @@ The template configuration is snapshotted onto the attempt at start time, so edi
 ### Timing
 
 `expiresAt` is set when the attempt starts. Reopening the exam **resumes** the existing attempt rather than restarting the clock. When the timer runs out, the attempt auto-submits with whatever answers were saved. Submitting is idempotent: a repeat call returns the same result instead of marking the paper twice.
+
+### Behavioral Competency 1,000-question bank
+
+The repository ships `behavioral-1000/behavioral-1000.json` with 1,000 authored MCQs across 16 chapters. The seed script creates the chapter topics and a public exam template:
+
+```bash
+npm run db:migrate:randomized   # indexes for pool lookup and resume
+npm run db:seed:bc1000          # questions + template (SQLite and PostgreSQL when DATABASE_URL is set)
+```
+
+| Setting | Value |
+|---|---|
+| Exam slug | `mock-exam-1` |
+| Exam name | Mock Exam 1 |
+| Questions | 100 drawn from the 1,000-question bank |
+| Composition | equal topic weight across all 16 chapters (6–7 questions each) |
+| Difficulty | `INTERMEDIATE` for the whole bank, with `{"INTERMEDIATE":1}` configured |
+| Duration / pass | 120 minutes / 70% |
+
+The script rebuilds only this bank's questions and refuses to re-seed once the template has recorded attempts unless `--force` is passed.
 
 ---
 
@@ -217,7 +241,8 @@ npm test
 ```
 
 - **Pure unit tests** cover the exam engine (allocation, selection, shuffling, marking, review building), the zod rules, the CSV parser, and password/JWT handling.
-- **Integration tests** (`tests/attempt-flow.test.ts`) exercise the whole lifecycle — start, answer, flag, submit, grade, review, re-submit — against a real SQLite database built from the production `prisma/schema.sql`. They use a throwaway temp file, so they never touch your dev database.
+- **Integration tests** (`tests/attempt-flow.test.ts`) exercise the whole lifecycle — start, resume, answer, flag, submit, grade, review, re-submit — against a real SQLite database built from the production `prisma/schema.sql`. They use a throwaway temp file, so they never touch your dev database. They also verify that a 100-question paper contains 100 distinct ids, that different students receive different sets, and that answers are not present in the pre-submission payload.
+- **Bank tests** (`tests/behavioral-1000.test.ts`) validate the imported 1,000-question artifact: unique numbering, four options, valid answers, explanations, and all 16 topics.
 
 Two things there are worth knowing about:
 

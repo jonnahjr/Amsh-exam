@@ -9,7 +9,9 @@ import {
   selectQuestions,
   shuffle,
   targetCountsByDifficulty,
+  targetCountsByWeights,
 } from "@/server/exam-engine";
+import { DIFFICULTIES } from "@/types";
 import type { Difficulty, ExamTemplate, Question } from "@/types";
 
 /** Minimal builders so each test states only what it cares about. */
@@ -147,6 +149,30 @@ describe("targetCountsByDifficulty", () => {
   });
 });
 
+describe("targetCountsByWeights", () => {
+  it("always sums to the requested total", () => {
+    for (const total of [1, 3, 7, 10, 100]) {
+      const counts = targetCountsByWeights(total, { a: 1, b: 1, c: 1, d: 1, e: 1 });
+      const sum = Object.values(counts).reduce((acc, value) => acc + value, 0);
+      expect(sum).toBe(total);
+    }
+  });
+
+  it("proportions the paper across configured topics", () => {
+    expect(targetCountsByWeights(100, { a: 1, b: 1, c: 2 })).toEqual({
+      a: 25,
+      b: 25,
+      c: 50,
+    });
+  });
+
+  it("ignores zero weights and handles an empty configuration", () => {
+    expect(targetCountsByWeights(10, { a: 1, b: 0 })).toEqual({ a: 10 });
+    expect(targetCountsByWeights(10, {})).toEqual({});
+    expect(targetCountsByWeights(10, null)).toEqual({});
+  });
+});
+
 describe("selectQuestions", () => {
   it("returns exactly the number of questions the template asks for", () => {
     const pool = poolByDifficulty({ EASY: 10, INTERMEDIATE: 10, HARD: 10 });
@@ -264,6 +290,123 @@ describe("selectQuestions", () => {
     const second = selectQuestions({ pool, template, rng: createRng(99) });
 
     expect(first.map((q) => q.id)).toEqual(second.map((q) => q.id));
+  });
+
+  it("selects exactly 100 distinct questions from a 1,000-question bank", () => {
+    const pool = Array.from({ length: 1000 }, (_, index) =>
+      makeQuestion({ id: `bank-${index}`, difficulty: DIFFICULTIES[index % 4] }),
+    );
+    const selected = selectQuestions({
+      pool,
+      template: makeTemplate({ totalQuestions: 100 }),
+      rng: createRng(2026),
+    });
+
+    expect(selected).toHaveLength(100);
+    expect(new Set(selected.map((question) => question.id)).size).toBe(100);
+  });
+
+  it("gives different attempts different sets from the same bank", () => {
+    const pool = Array.from({ length: 1000 }, (_, index) =>
+      makeQuestion({ id: `bank-${index}`, difficulty: DIFFICULTIES[index % 4] }),
+    );
+    const template = makeTemplate({ totalQuestions: 100 });
+
+    const first = selectQuestions({ pool, template, rng: createRng(1) });
+    const second = selectQuestions({ pool, template, rng: createRng(2) });
+
+    expect(first.map((question) => question.id)).not.toEqual(
+      second.map((question) => question.id),
+    );
+  });
+
+  it("keeps the 100-question topic balance with a single-difficulty bank", () => {
+    const topicIds = Array.from({ length: 16 }, (_, index) => `topic-${index}`);
+    const topicWeights = Object.fromEntries(topicIds.map((topicId) => [topicId, 1]));
+    const pool = topicIds.flatMap((topicId) =>
+      Array.from({ length: 40 }, (_, index) =>
+        makeQuestion({ id: `${topicId}-${index}`, topicId, difficulty: "INTERMEDIATE" }),
+      ),
+    );
+
+    const selected = selectQuestions({
+      pool,
+      template: makeTemplate({
+        totalQuestions: 100,
+        topicWeights,
+        difficultyDistribution: { INTERMEDIATE: 1 },
+      }),
+      rng: createRng(11),
+    });
+
+    expect(selected).toHaveLength(100);
+    expect(new Set(selected.map((question) => question.id)).size).toBe(100);
+    expect(selected.every((question) => question.difficulty === "INTERMEDIATE")).toBe(true);
+
+    const perTopic: Record<string, number> = {};
+    for (const question of selected) {
+      perTopic[question.topicId!] = (perTopic[question.topicId!] ?? 0) + 1;
+    }
+    for (const topicId of topicIds) {
+      expect(perTopic[topicId]).toBeGreaterThanOrEqual(6);
+      expect(perTopic[topicId]).toBeLessThanOrEqual(7);
+    }
+  });
+
+  it("balances all configured topics across a 100-question paper", () => {
+    const topicIds = Array.from({ length: 16 }, (_, index) => `topic-${index}`);
+    const topicWeights = Object.fromEntries(topicIds.map((topicId) => [topicId, 1]));
+    const pool = topicIds.flatMap((topicId) =>
+      Array.from({ length: 60 }, (_, index) =>
+        makeQuestion({
+          id: `${topicId}-${index}`,
+          topicId,
+          difficulty: DIFFICULTIES[index % 4],
+        }),
+      ),
+    );
+
+    const selected = selectQuestions({
+      pool,
+      template: makeTemplate({ totalQuestions: 100, topicWeights }),
+      rng: createRng(7),
+    });
+
+    expect(selected).toHaveLength(100);
+    expect(new Set(selected.map((question) => question.id)).size).toBe(100);
+
+    const perTopic: Record<string, number> = {};
+    for (const question of selected) {
+      perTopic[question.topicId!] = (perTopic[question.topicId!] ?? 0) + 1;
+    }
+    expect(Object.keys(perTopic)).toHaveLength(16);
+    for (const topicId of topicIds) {
+      expect(perTopic[topicId]).toBeGreaterThanOrEqual(6);
+      expect(perTopic[topicId]).toBeLessThanOrEqual(7);
+    }
+  });
+
+  it("honours relative topic weights when the pool allows it", () => {
+    const pool = ["a", "b", "c"].flatMap((topicId) =>
+      Array.from({ length: 40 }, (_, index) =>
+        makeQuestion({ id: `${topicId}-${index}`, topicId }),
+      ),
+    );
+
+    const selected = selectQuestions({
+      pool,
+      template: makeTemplate({
+        totalQuestions: 40,
+        topicWeights: { a: 1, b: 1, c: 2 },
+      }),
+      rng: createRng(3),
+    });
+
+    const perTopic: Record<string, number> = {};
+    for (const question of selected) {
+      perTopic[question.topicId!] = (perTopic[question.topicId!] ?? 0) + 1;
+    }
+    expect(perTopic).toEqual({ a: 10, b: 10, c: 20 });
   });
 });
 
