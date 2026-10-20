@@ -1,0 +1,1076 @@
+const { Pool } = require('pg');
+const { DatabaseSync } = require('node:sqlite');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const fs = require('node:fs');
+
+const SECTION_A = "Section A — Questions 1–20";
+const SECTION_B = "Section B — Questions 21–40";
+const SECTION_C = "Section C — Questions 41–60";
+
+const rawQuestionsAndKeys = [
+  {
+    num: 1,
+    section: SECTION_A,
+    text: "A public institution introduces a new procedure intended to reduce service delays. After implementation, the waiting time decreases, but the number of complaints increases. What should management do first?",
+    options: [
+      "Suspend the procedure immediately and restore the previous service arrangement until further notice.",
+      "Investigate the complaints, examine service data, and identify unintended effects before adjusting the procedure.",
+      "Continue the procedure unchanged because the reduction in waiting time demonstrates improved institutional performance.",
+      "Transfer responsibility for the complaints to the customer service department and maintain the current procedure."
+    ],
+    ans: "B",
+    exp: "Faster processing alongside more complaints suggests a trade-off or unintended side effect, so the causes must be diagnosed before the procedure is changed."
+  },
+  {
+    num: 2,
+    section: SECTION_A,
+    text: "An employee discovers that a colleague has been giving preferential treatment to applicants who have personal connections with senior officials. What is the most appropriate response?",
+    options: [
+      "Ignore the behavior unless a formal complaint is submitted by an affected applicant.",
+      "Discuss the matter privately with other colleagues before deciding whether the conduct should be reported.",
+      "Publicly accuse the colleague during a staff meeting to discourage similar behavior throughout the institution.",
+      "Document the observed facts and report the suspected misconduct through the appropriate institutional channel."
+    ],
+    ans: "D",
+    exp: "Documenting facts and using the authorized reporting channel protects the integrity of any investigation and the rights of everyone involved."
+  },
+  {
+    num: 3,
+    section: SECTION_A,
+    text: "A manager has limited resources but must complete several activities before the end of the reporting period. Which approach is most appropriate?",
+    options: [
+      "Rank activities according to urgency, expected impact, legal obligations, available resources, and institutional priorities.",
+      "Allocate resources equally across all activities so that every department receives an identical level of support.",
+      "Complete the activities requested most frequently by employees, regardless of their relationship to strategic objectives.",
+      "Prioritize activities that are easiest to complete so the institution can demonstrate a high number of completed tasks."
+    ],
+    ans: "A",
+    exp: "Prioritization should be based on explicit criteria such as urgency, impact, legal obligations, resources, and institutional priorities."
+  },
+  {
+    num: 4,
+    section: SECTION_A,
+    text: "A team consistently misses deadlines because members misunderstand their responsibilities and duplicate one another's work. Which intervention is most likely to address the underlying problem?",
+    options: [
+      "Introduce stricter penalties for late submission while retaining the existing allocation of responsibilities.",
+      "Require every employee to submit individual progress reports without changing the team's working arrangements.",
+      "Clarify roles, deliverables, decision authority, dependencies, and deadlines, then review responsibilities with the team.",
+      "Increase the number of meetings and ask the team leader to approve every minor operational decision."
+    ],
+    ans: "C",
+    exp: "The root cause is role ambiguity and duplicated work; clarifying roles, deliverables, authority, dependencies, and deadlines addresses it directly."
+  },
+  {
+    num: 5,
+    section: SECTION_A,
+    text: "Which statement best distinguishes accountability from responsibility in public-sector management?",
+    options: [
+      "Responsibility concerns reporting results, while accountability concerns completing tasks assigned by immediate supervisors.",
+      "Responsibility concerns assigned duties, while accountability includes explaining results and answering for decisions or performance.",
+      "Responsibility applies to individual employees, while accountability applies exclusively to institutional leaders and external auditors.",
+      "Responsibility concerns compliance with procedures, while accountability concerns achieving results regardless of established rules."
+    ],
+    ans: "B",
+    exp: "Responsibility is about assigned duties; accountability is the obligation to answer for decisions, results, and performance."
+  },
+  {
+    num: 6,
+    section: SECTION_A,
+    text: "A public institution receives repeated complaints that its service procedures are difficult for citizens to understand. What is the best long-term response?",
+    options: [
+      "Publish the existing procedures in additional locations without reviewing their clarity or practical requirements.",
+      "Instruct front-desk employees to explain the procedures verbally whenever citizens encounter difficulties.",
+      "Introduce additional approval requirements to ensure that every application receives more detailed administrative review.",
+      "Review the citizen journey, simplify unclear requirements where permitted, and communicate the revised process in accessible language."
+    ],
+    ans: "D",
+    exp: "A durable fix requires redesigning the citizen journey and simplifying and communicating requirements, not just adding explanations or approvals."
+  },
+  {
+    num: 7,
+    section: SECTION_A,
+    text: "A supervisor learns that an employee made an honest mistake while following an unclear procedure. The error caused a limited delay but was reported voluntarily. What should the supervisor do?",
+    options: [
+      "Examine the circumstances, correct the error, clarify the procedure, and apply proportionate accountability where necessary.",
+      "Issue the maximum disciplinary penalty to establish that procedural errors will never be tolerated by management.",
+      "Avoid documenting the incident because voluntary disclosure should automatically exempt employees from accountability.",
+      "Transfer the employee to another unit before investigating whether the procedure contributed to the mistake."
+    ],
+    ans: "A",
+    exp: "The response should correct the error, fix the unclear procedure, and apply proportionate accountability after examining the circumstances."
+  },
+  {
+    num: 8,
+    section: SECTION_A,
+    text: "Which approach provides the strongest basis for evaluating whether a public program has achieved its intended objectives?",
+    options: [
+      "Count the number of meetings conducted and reports distributed during the implementation period.",
+      "Compare the program's expenditure with the original budget and treat underspending as evidence of success.",
+      "Compare defined outcome indicators with baseline data and targets, while considering evidence about implementation and external factors.",
+      "Ask the implementing department to provide a narrative confirming that planned activities were completed on schedule."
+    ],
+    ans: "C",
+    exp: "Outcome indicators compared with baselines and targets, interpreted alongside implementation and external factors, provide the strongest evidence of achievement."
+  },
+  {
+    num: 9,
+    section: SECTION_A,
+    text: "An employee receives an instruction from a senior official that appears inconsistent with an established procurement rule. What should the employee do?",
+    options: [
+      "Follow the instruction because senior officials have authority to determine how institutional procedures are applied.",
+      "Politely identify the apparent conflict, verify the applicable rule, and seek clarification through the authorized channel before proceeding.",
+      "Reject every instruction from the official until the entire procurement process has been reviewed by an external authority.",
+      "Carry out the instruction but avoid recording the decision so the employee does not become involved in a dispute."
+    ],
+    ans: "B",
+    exp: "The employee should raise the conflict, verify the rule, and use the authorized clarification channel rather than complying silently or refusing everything."
+  },
+  {
+    num: 10,
+    section: SECTION_A,
+    text: "Two departments disagree about which one should complete a task that affects both of their performance targets. What is the most effective management response?",
+    options: [
+      "Assign the entire task to the department with the larger budget, regardless of its technical capacity or mandate.",
+      "Allow both departments to continue independently and compare their results at the end of the reporting period.",
+      "Ask the departments to negotiate privately without defining how unresolved disagreements will be handled.",
+      "Establish shared objectives, clarify decision rights and contributions, and agree on a common deadline and escalation process."
+    ],
+    ans: "D",
+    exp: "Shared objectives, clear decision rights, and an agreed escalation route resolve cross-departmental disputes over ownership."
+  },
+  {
+    num: 11,
+    section: SECTION_A,
+    text: "Which situation best demonstrates continuous improvement through the Kaizen approach?",
+    options: [
+      "Employees regularly identify small process weaknesses, test practical improvements, measure results, and standardize successful changes.",
+      "Management postpones operational improvements until a major restructuring can replace the existing organizational procedures.",
+      "Supervisors introduce new procedures periodically without collecting employee feedback or measuring the resulting performance.",
+      "Departments compete to introduce the largest changes, even when the proposed changes have not been tested."
+    ],
+    ans: "A",
+    exp: "Kaizen is incremental, evidence-based improvement: identify small weaknesses, test changes, measure results, and standardize what works."
+  },
+  {
+    num: 12,
+    section: SECTION_A,
+    text: "A manager wants to improve employee motivation without increasing salaries or providing additional financial incentives. Which action is most appropriate?",
+    options: [
+      "Increase supervision and require employees to obtain approval before making routine decisions within their roles.",
+      "Distribute identical assignments to all employees regardless of their competencies, interests, and existing workloads.",
+      "Recognize meaningful contributions, provide development opportunities, clarify expectations, and give appropriate decision-making autonomy.",
+      "Publicly compare individual performance rankings so employees feel greater pressure to outperform their colleagues."
+    ],
+    ans: "C",
+    exp: "Recognition, development, clear expectations, and appropriate autonomy are well-established non-financial motivators."
+  },
+  {
+    num: 13,
+    section: SECTION_A,
+    text: "A department meets its annual activity target but fails to improve the public service outcome that the target was intended to support. What does this most strongly suggest?",
+    options: [
+      "The department should increase its activity target because higher output generally produces better public outcomes.",
+      "The activity indicator may measure output rather than outcome, requiring review of the program logic and performance measures.",
+      "The department has demonstrated effectiveness because completing planned activities is sufficient evidence of intended impact.",
+      "The institution should discontinue performance measurement because outcome indicators are affected by external circumstances."
+    ],
+    ans: "B",
+    exp: "Meeting an activity target without improving the intended outcome indicates a likely output/outcome mismatch in the performance framework."
+  },
+  {
+    num: 14,
+    section: SECTION_A,
+    text: "A public employee is asked to participate in a decision involving a company owned by a close relative. What is the most appropriate action?",
+    options: [
+      "Participate in the decision but avoid discussing the family relationship unless another employee raises the issue.",
+      "Withdraw informally from the final meeting while continuing to influence the evaluation through earlier discussions.",
+      "Ask the relative to submit the proposal through a different representative so the relationship is less visible.",
+      "Disclose the potential conflict of interest and follow the applicable rules on recusal, reassignment, and documentation."
+    ],
+    ans: "D",
+    exp: "Disclosure followed by the applicable recusal and documentation rules is the required response to a conflict of interest."
+  },
+  {
+    num: 15,
+    section: SECTION_A,
+    text: "Which practice most effectively supports evidence-based decision-making in a public institution?",
+    options: [
+      "Define the decision problem, evaluate credible data and alternatives, consider constraints, and document the rationale for the chosen action.",
+      "Select the option preferred by the most senior official and use performance data afterward to explain the decision.",
+      "Rely mainly on previous practice because familiar administrative arrangements generally involve fewer implementation risks.",
+      "Delay the decision until every possible data point is available, even when the delay creates significant operational consequences."
+    ],
+    ans: "A",
+    exp: "Defining the problem, weighing credible evidence and alternatives, considering constraints, and documenting the rationale is evidence-based practice."
+  },
+  {
+    num: 16,
+    section: SECTION_A,
+    text: "A team member repeatedly disagrees with a proposed organizational change and raises concerns about implementation risks. How should the team leader respond?",
+    options: [
+      "Exclude the employee from future planning meetings to prevent continued resistance from delaying implementation.",
+      "Require the employee to support the decision publicly before any concerns can be considered by management.",
+      "Examine the concerns objectively, distinguish evidence-based risks from assumptions, and incorporate useful feedback into implementation planning.",
+      "Abandon the change immediately because disagreement indicates that the proposed approach lacks organizational support."
+    ],
+    ans: "C",
+    exp: "Concerns should be assessed objectively and useful evidence incorporated; neither suppressing dissent nor abandoning the change is appropriate."
+  },
+  {
+    num: 17,
+    section: SECTION_A,
+    text: "Which option best describes the purpose of a RACI responsibility matrix?",
+    options: [
+      "It establishes the financial limits, procurement thresholds, and approval stages applicable to organizational expenditure.",
+      "It identifies who is Responsible, Accountable, Consulted, and Informed for specific activities or decisions.",
+      "It measures employee competence, ranks individual performance, and determines eligibility for promotion.",
+      "It identifies operational risks, estimates their financial impact, and assigns controls to reduce their probability."
+    ],
+    ans: "B",
+    exp: "RACI maps the Responsible, Accountable, Consulted, and Informed roles for each activity or decision."
+  },
+  {
+    num: 18,
+    section: SECTION_A,
+    text: "An institution has introduced a digital service, but many citizens continue to use the manual process because they find the digital system difficult. What should management prioritize?",
+    options: [
+      "Discontinue the manual service immediately to force users to become familiar with the digital platform.",
+      "Increase the number of digital transactions required before applications can be accepted by the institution.",
+      "Measure adoption only by the number of registered accounts and assume that registration demonstrates effective use.",
+      "Investigate usability barriers, provide appropriate assistance, improve accessibility, and monitor successful completion of transactions."
+    ],
+    ans: "D",
+    exp: "Adoption improves when usability barriers are diagnosed and addressed and successful transaction completion is monitored."
+  },
+  {
+    num: 19,
+    section: SECTION_A,
+    text: "Which action best demonstrates ethical leadership when a senior manager makes an error that affects an institutional report?",
+    options: [
+      "Acknowledge the error, correct the report transparently, explain the implications, and strengthen controls to prevent recurrence.",
+      "Ask a subordinate to correct the report without identifying the original error or informing affected decision-makers.",
+      "Wait until an auditor identifies the error before making corrections so the institution can preserve the reporting timetable.",
+      "Remove the affected information from the report and avoid further discussion unless stakeholders request clarification."
+    ],
+    ans: "A",
+    exp: "Ethical leadership means acknowledging and transparently correcting the error and strengthening controls to prevent recurrence."
+  },
+  {
+    num: 20,
+    section: SECTION_A,
+    text: "A public organization wants to determine whether its employees understand and consistently apply a new code of conduct. Which method provides the strongest evidence?",
+    options: [
+      "Count the number of printed copies distributed and treat distribution as proof of employee understanding.",
+      "Ask supervisors whether employees appear to behave professionally during ordinary working hours.",
+      "Assess employee understanding through relevant scenarios and examine workplace practices, reporting patterns, and compliance evidence.",
+      "Require employees to sign an attendance sheet confirming that a presentation about the code was conducted."
+    ],
+    ans: "C",
+    exp: "Scenario-based assessment plus evidence of actual workplace practice and compliance is far stronger than distribution or attendance records."
+  },
+  {
+    num: 21,
+    section: SECTION_B,
+    text: "A department has many performance indicators, but managers struggle to identify which results matter most to institutional success. Which improvement is most appropriate?",
+    options: [
+      "Retain all indicators and increase reporting frequency so managers have a more complete view of every activity.",
+      "Prioritize a balanced set of relevant indicators linked to strategic objectives, measurable outcomes, and management decisions.",
+      "Replace numerical indicators with descriptive reports so managers can explain operational achievements in greater detail.",
+      "Allow each employee to select individual indicators without requiring alignment with departmental or institutional objectives."
+    ],
+    ans: "B",
+    exp: "A smaller, balanced set of indicators tied to strategy, outcomes, and decisions is more useful than exhaustive reporting."
+  },
+  {
+    num: 22,
+    section: SECTION_B,
+    text: "An employee notices that a service target can be achieved by processing simple applications first while leaving complex applications unresolved indefinitely. What is the main performance-management risk?",
+    options: [
+      "The target may encourage employees to process applications efficiently without considering the complexity of individual cases.",
+      "The target may improve service consistency by allowing employees to focus on cases that require fewer resources.",
+      "The target may reduce administrative costs because complex applications generally require more time and specialized expertise.",
+      "The target may create a misleading incentive that improves measured throughput while undermining fairness and overall service outcomes."
+    ],
+    ans: "D",
+    exp: "The measure rewards easy throughput and can hide unresolved complex cases, creating a perverse incentive that harms fairness and outcomes."
+  },
+  {
+    num: 23,
+    section: SECTION_B,
+    text: "A manager is planning a change that will affect employees, citizens, suppliers, and several regulatory bodies. Which approach is most appropriate for stakeholder management?",
+    options: [
+      "Identify stakeholders, assess their interests and influence, plan appropriate engagement, and review concerns throughout implementation.",
+      "Consult only senior managers because they are responsible for approving institutional changes and allocating resources.",
+      "Communicate the final decision after implementation so stakeholder disagreement cannot interrupt operational activities.",
+      "Provide identical information to all stakeholders regardless of their responsibilities, concerns, or influence over the change."
+    ],
+    ans: "A",
+    exp: "Effective stakeholder management identifies interests and influence, plans engagement, and keeps reviewing concerns during implementation."
+  },
+  {
+    num: 24,
+    section: SECTION_B,
+    text: "A department's monthly expenditure is lower than budgeted, but essential services have also been delayed. How should management interpret the result?",
+    options: [
+      "The department has demonstrated efficiency because it delivered its services while spending less than the approved budget.",
+      "The department should immediately return the unspent amount without investigating the causes of service delays.",
+      "Financial performance and service outcomes should be assessed together to determine whether underspending reflects efficiency or under-delivery.",
+      "The department should increase spending in the next month to ensure that the original budget is fully utilized."
+    ],
+    ans: "C",
+    exp: "Underspending may reflect efficiency or delayed delivery, so financial and service performance must be assessed together."
+  },
+  {
+    num: 25,
+    section: SECTION_B,
+    text: "Which situation best illustrates psychological safety within a work team?",
+    options: [
+      "Employees avoid questioning decisions in public because disagreements may affect their future performance evaluations.",
+      "Team members can raise concerns, admit mistakes, and propose ideas without fear of humiliation or unfair retaliation.",
+      "Managers allow employees to make all decisions independently without reviewing risks, performance, or compliance obligations.",
+      "Employees receive equal praise regardless of their contributions so that no individual feels uncomfortable during team discussions."
+    ],
+    ans: "B",
+    exp: "Psychological safety is the shared belief that raising concerns, admitting mistakes, and proposing ideas will not bring humiliation or retaliation."
+  },
+  {
+    num: 26,
+    section: SECTION_B,
+    text: "A project is behind schedule, and the project manager discovers that several tasks depend on an approval that has not been completed. What should happen next?",
+    options: [
+      "Increase the working hours of all project members without changing the approval process or task dependencies.",
+      "Remove the delayed tasks from the schedule so the project can be reported as progressing according to plan.",
+      "Assign additional employees to every activity even though the outstanding approval remains a prerequisite for further work.",
+      "Analyze the critical dependencies, escalate the approval appropriately, revise the schedule, and communicate the impact on milestones."
+    ],
+    ans: "D",
+    exp: "The approval is a critical dependency; it should be escalated, the schedule revised, and the milestone impact communicated."
+  },
+  {
+    num: 27,
+    section: SECTION_B,
+    text: "Which approach is most appropriate when evaluating competing policy options under conditions of uncertainty?",
+    options: [
+      "Compare plausible scenarios, expected benefits, costs, risks, assumptions, and reversibility before selecting and monitoring an option.",
+      "Select the option with the highest estimated benefit and exclude uncertain costs because they cannot be predicted precisely.",
+      "Choose the policy that resembles previous practice because historical familiarity provides the most reliable basis for decisions.",
+      "Postpone the policy decision until uncertainty disappears, even when immediate action is required to prevent harm."
+    ],
+    ans: "A",
+    exp: "Scenario comparison across benefits, costs, risks, assumptions, and reversibility supports decisions under uncertainty."
+  },
+  {
+    num: 28,
+    section: SECTION_B,
+    text: "A public institution introduces a new performance appraisal system. Employees complain that ratings depend heavily on personal relationships with supervisors. What should management do?",
+    options: [
+      "Allow supervisors to retain complete discretion because individual performance cannot be assessed through consistent criteria.",
+      "Replace all supervisor assessments with self-assessments so employees can determine their own performance ratings.",
+      "Use transparent criteria, documented evidence, reviewer calibration, employee feedback, and a fair process for challenging ratings.",
+      "Reduce the number of rating categories without changing how supervisors gather evidence or justify their evaluations."
+    ],
+    ans: "C",
+    exp: "Transparent criteria, documented evidence, calibration, feedback, and a fair challenge process reduce relationship-based bias."
+  },
+  {
+    num: 29,
+    section: SECTION_B,
+    text: "A team leader receives conflicting information from two units about the cause of a service failure. What is the best next step?",
+    options: [
+      "Accept the account provided by the unit with the stronger performance record and begin implementing corrective action.",
+      "Establish the sequence of events, validate relevant records, interview appropriate participants, and test competing explanations.",
+      "Ask both units to agree on a common explanation before management reviews any underlying evidence.",
+      "Assign responsibility to the unit that handled the final stage of the service because it had the last opportunity to prevent failure."
+    ],
+    ans: "B",
+    exp: "Resolving conflicting accounts requires establishing the facts, validating records, and testing competing explanations."
+  },
+  {
+    num: 30,
+    section: SECTION_B,
+    text: "Which statement best explains the purpose of a Balanced Scorecard?",
+    options: [
+      "It replaces financial controls with employee satisfaction measures so that public institutions can prioritize workplace well-being.",
+      "It ranks departments according to their expenditure levels and identifies which units should receive additional resources.",
+      "It measures operational activity in detail while excluding non-financial indicators that cannot be expressed in monetary terms.",
+      "It links strategy to a balanced set of financial or resource, citizen, internal-process, and learning-and-growth measures."
+    ],
+    ans: "D",
+    exp: "The Balanced Scorecard translates strategy into a balanced set of financial/resource, citizen, internal-process, and learning-and-growth measures."
+  },
+  {
+    num: 31,
+    section: SECTION_B,
+    text: "A public institution must introduce a new procedure while maintaining uninterrupted service to citizens. Which implementation strategy is most appropriate?",
+    options: [
+      "Pilot the procedure where feasible, assess risks, train affected employees, maintain continuity arrangements, and monitor early results.",
+      "Introduce the procedure across every unit simultaneously so all employees adopt the same process at the same time.",
+      "Delay staff training until after implementation so employees can learn directly from operational experience and actual cases.",
+      "Allow each unit to develop its own version of the procedure to minimize disruption to established working practices."
+    ],
+    ans: "A",
+    exp: "Piloting, risk assessment, training, continuity arrangements, and early monitoring manage implementation risk while protecting service."
+  },
+  {
+    num: 32,
+    section: SECTION_B,
+    text: "An employee reports that a supervisor has altered performance data to make the department appear more successful. Which principle should guide the institution's response?",
+    options: [
+      "Organizational loyalty should take priority when disclosure could damage the institution's reputation among external stakeholders.",
+      "The matter should be resolved informally because correcting the figures is more important than examining how they were changed.",
+      "The institution should preserve relevant evidence, review the allegation impartially, protect appropriate reporting channels, and correct verified inaccuracies.",
+      "The allegation should be accepted immediately as proven because performance-data manipulation is incompatible with public service values."
+    ],
+    ans: "C",
+    exp: "The response should preserve evidence, investigate impartially, protect reporting channels, and correct verified inaccuracies."
+  },
+  {
+    num: 33,
+    section: SECTION_B,
+    text: "Which approach best distinguishes a symptom from the root cause of an organizational problem?",
+    options: [
+      "Treat the most visible operational failure as the root cause because it is the point where the problem affects service delivery.",
+      "Examine contributing processes and conditions, test causal explanations, and verify which underlying factors generate the recurring problem.",
+      "Address every possible contributing factor simultaneously so management does not need to determine which factors matter most.",
+      "Assign the problem to the employee closest to the failed process because individual responsibility is easier to establish than systemic causes."
+    ],
+    ans: "B",
+    exp: "Root-cause analysis examines contributing processes, tests causal explanations, and verifies the factors that generate the recurring problem."
+  },
+  {
+    num: 34,
+    section: SECTION_B,
+    text: "A manager is delegating a complex assignment to an experienced employee. Which arrangement best supports effective delegation?",
+    options: [
+      "Transfer the task informally while retaining all relevant information and decision authority with the manager.",
+      "Assign the final deadline but leave the expected deliverable, available resources, and reporting requirements open to interpretation.",
+      "Delegate the assignment and remove all supervision so the employee can demonstrate complete independence from management.",
+      "Define the expected result, authority, resources, constraints, checkpoints, and escalation conditions while retaining appropriate oversight."
+    ],
+    ans: "D",
+    exp: "Effective delegation defines the result, authority, resources, constraints, checkpoints, and escalation conditions with appropriate oversight."
+  },
+  {
+    num: 35,
+    section: SECTION_B,
+    text: "A citizen complains that an application was rejected without an explanation. The employee handling the complaint believes the rejection was correct. What should the employee do?",
+    options: [
+      "Review the decision and applicable requirements, provide a clear explanation, and identify any available review or appeal procedure.",
+      "Repeat the original rejection because a technically correct decision does not require further explanation to the applicant.",
+      "Reverse the rejection immediately to restore the citizen's confidence, even if the application does not meet required conditions.",
+      "Direct the citizen to another department without checking whether the decision or its communication complied with procedure."
+    ],
+    ans: "A",
+    exp: "The employee should verify the decision, explain it clearly, and point the citizen to any available review or appeal route."
+  },
+  {
+    num: 36,
+    section: SECTION_B,
+    text: "An institution's strategic plan contains ambitious objectives, but departments have not translated them into operational activities. What is the most important next step?",
+    options: [
+      "Rewrite the institutional vision using more specific language before departments begin planning their annual activities.",
+      "Require each department to produce a separate strategic plan without linking its priorities to institutional objectives.",
+      "Translate strategic objectives into assigned initiatives, measurable targets, timelines, resource plans, and review responsibilities.",
+      "Increase the frequency of institutional reporting while allowing departments to determine their own priorities independently."
+    ],
+    ans: "C",
+    exp: "Strategy must be operationalized through initiatives, measurable targets, timelines, resources, and clear review responsibilities."
+  },
+  {
+    num: 37,
+    section: SECTION_B,
+    text: "A procurement team faces pressure to favor a supplier because the supplier has supported the institution in the past. Which response best protects procurement integrity?",
+    options: [
+      "Give the supplier additional consideration if its previous support reduced costs or strengthened the institution's public reputation.",
+      "Apply the established evaluation criteria consistently, document decisions, disclose relevant conflicts, and follow applicable procurement rules.",
+      "Allow the procurement team to select the supplier privately provided that the final contract price remains within the approved budget.",
+      "Exclude the supplier automatically because any previous relationship with a public institution creates an unavoidable conflict of interest."
+    ],
+    ans: "B",
+    exp: "Consistent criteria, documentation, conflict disclosure, and compliance with procurement rules protect integrity without arbitrary exclusion."
+  },
+  {
+    num: 38,
+    section: SECTION_B,
+    text: "A manager observes that employees are meeting individual targets but departments are failing to achieve shared institutional goals. Which intervention is most appropriate?",
+    options: [
+      "Increase individual targets so each employee contributes a larger amount of measurable output to the institution.",
+      "Replace departmental objectives with individual performance measures to make responsibility for results easier to assign.",
+      "Introduce more detailed individual reporting while leaving existing incentives and departmental priorities unchanged.",
+      "Align departmental targets and incentives with shared outcomes, clarify interdepartmental dependencies, and review collective performance."
+    ],
+    ans: "D",
+    exp: "Individual targets that do not align with shared outcomes create goal conflict; alignment, dependency clarity, and collective review are needed."
+  },
+  {
+    num: 39,
+    section: SECTION_B,
+    text: "A change initiative is technically successful but employees continue using the old process several months after implementation. What does this indicate?",
+    options: [
+      "The initiative may have delivered the technical change without achieving sustained behavioral adoption and integration into routine work.",
+      "The technical implementation should be considered unsuccessful because employee adoption is unrelated to change-management activities.",
+      "The old process should be prohibited immediately without examining why employees continue to rely on it.",
+      "The initiative requires additional technical features before management evaluates employee behavior or operational integration."
+    ],
+    ans: "A",
+    exp: "Technical delivery without sustained behavioral adoption shows the change was not integrated into routine work."
+  },
+  {
+    num: 40,
+    section: SECTION_B,
+    text: "Which action most effectively strengthens institutional learning after a major operational failure?",
+    options: [
+      "Identify the individual responsible, apply disciplinary measures, and close the review once the immediate service disruption has ended.",
+      "Produce a detailed report for senior management while restricting access to lessons learned to prevent reputational damage.",
+      "Conduct a structured review of causes, decisions, controls, and consequences, then assign and monitor corrective actions.",
+      "Focus the review on financial losses because operational failures are best understood through their direct monetary consequences."
+    ],
+    ans: "C",
+    exp: "Structured review of causes, decisions, controls, and consequences with assigned and monitored corrective actions drives institutional learning."
+  },
+  {
+    num: 41,
+    section: SECTION_C,
+    text: "A department introduces a new reporting requirement, but employees spend more time completing forms than analyzing performance. What is the best response?",
+    options: [
+      "Retain every field because comprehensive data collection is more important than the time required to produce reports.",
+      "Review the information requirements, remove low-value duplication, automate suitable tasks, and preserve data needed for decisions and accountability.",
+      "Reduce the reporting frequency without assessing whether critical information is still available when management needs it.",
+      "Require employees to complete reports outside normal working hours so analytical activities are not interrupted during the day."
+    ],
+    ans: "B",
+    exp: "Reviewing requirements, removing duplication, and automating low-value tasks protects decision-relevant data while reducing reporting burden."
+  },
+  {
+    num: 42,
+    section: SECTION_C,
+    text: "Which situation most clearly demonstrates the difference between efficiency and effectiveness?",
+    options: [
+      "A unit completes its tasks within the approved budget but does not achieve the service outcomes specified in its objectives.",
+      "A unit achieves its service objectives but uses more resources than planned because of preventable process inefficiencies.",
+      "A unit follows established procedures and submits all required reports before the official reporting deadline.",
+      "A unit reduces processing time while maintaining the quality and completeness of its required outputs."
+    ],
+    ans: "A",
+    exp: "Staying within budget (efficiency) while missing the specified service outcomes (effectiveness) contrasts the two concepts."
+  },
+  {
+    num: 43,
+    section: SECTION_C,
+    text: "A manager wants to improve inclusion in a public institution's recruitment and promotion processes. Which approach is most appropriate?",
+    options: [
+      "Apply identical communication methods to every applicant and employee regardless of accessibility requirements or relevant barriers.",
+      "Select candidates according to informal recommendations when conventional assessment methods appear unable to identify potential.",
+      "Establish transparent criteria, accessible procedures, consistent assessments, documented decisions, and monitoring for unjustified disparities.",
+      "Remove all minimum qualification requirements so applicants from different backgrounds have equal opportunities to compete."
+    ],
+    ans: "C",
+    exp: "Inclusion is supported by transparent criteria, accessible procedures, consistent assessment, documentation, and disparity monitoring."
+  },
+  {
+    num: 44,
+    section: SECTION_C,
+    text: "A high-performing employee repeatedly behaves disrespectfully toward colleagues and undermines cooperation. How should the supervisor respond?",
+    options: [
+      "Ignore the behavior because technical performance is the most reliable indicator of an employee's contribution to the institution.",
+      "Reduce the employee's technical responsibilities immediately without explaining which behaviors must change or why.",
+      "Transfer the affected colleagues to other units so the employee can continue producing strong individual results.",
+      "Address the conduct directly, explain its impact and expected standards, document concerns, and apply proportionate follow-up measures."
+    ],
+    ans: "D",
+    exp: "Conduct must be addressed directly and documented, with clear standards and proportionate follow-up regardless of technical performance."
+  },
+  {
+    num: 45,
+    section: SECTION_C,
+    text: "A public institution has introduced an online complaint system. Which measure best evaluates whether the system is improving complaint handling?",
+    options: [
+      "Track complaint-resolution time, resolution quality, repeat complaints, user experience, and whether corrective actions address recurring causes.",
+      "Count the number of complaints submitted online and treat increased digital usage as proof that service quality has improved.",
+      "Measure the number of employees assigned to the system and compare it with the number assigned before implementation.",
+      "Assess the number of complaints closed each month without distinguishing between resolved cases and cases closed administratively."
+    ],
+    ans: "A",
+    exp: "Resolution time and quality, repeat complaints, user experience, and corrective action on recurring causes measure actual handling improvement."
+  },
+  {
+    num: 46,
+    section: SECTION_C,
+    text: "A senior official requests a performance report before the underlying data has been verified. The report will inform an important resource-allocation decision. What should the analyst do?",
+    options: [
+      "Submit the report as final because senior officials are responsible for deciding whether the available evidence is sufficient.",
+      "Present clearly labeled preliminary findings, explain verification limitations, and identify what must be confirmed before final conclusions are drawn.",
+      "Delay all communication until verification is complete, even if the official needs timely information to make a provisional decision.",
+      "Use the figures supplied by the department head because senior managers are presumed to have reviewed their accuracy."
+    ],
+    ans: "B",
+    exp: "Preliminary findings should be labelled as such, with limitations and outstanding verification clearly identified."
+  },
+  {
+    num: 47,
+    section: SECTION_C,
+    text: "A department faces a sudden increase in demand while staffing levels remain unchanged. Which approach is most likely to preserve service quality?",
+    options: [
+      "Process cases strictly in order of arrival without considering urgency, statutory deadlines, or differences in case complexity.",
+      "Reduce quality checks temporarily across all cases so the department can increase throughput during the period of high demand.",
+      "Analyze demand and capacity, prioritize cases using transparent criteria, redeploy resources where possible, and communicate expected delays.",
+      "Suspend new applications until the existing workload returns to its normal level, regardless of the institution's service obligations."
+    ],
+    ans: "C",
+    exp: "Demand-and-capacity analysis, transparent prioritization, resource redeployment, and communication preserve quality under pressure."
+  },
+  {
+    num: 48,
+    section: SECTION_C,
+    text: "A manager suspects that an employee's poor performance results from unclear instructions rather than a lack of competence. Which response is most appropriate?",
+    options: [
+      "Begin formal disciplinary proceedings immediately because employees are expected to clarify any uncertainty independently.",
+      "Transfer the employee to a less demanding role before assessing whether the original assignment was properly explained.",
+      "Reduce the employee's performance rating based on missed targets and provide guidance only during the next appraisal cycle.",
+      "Clarify expected standards, examine available support and training, agree on measurable improvement steps, and review progress fairly."
+    ],
+    ans: "D",
+    exp: "When instructions may be the cause, clarify standards, assess support and training needs, agree improvement steps, and review fairly."
+  },
+  {
+    num: 49,
+    section: SECTION_C,
+    text: "Which statement best describes the role of risk management in strategic planning?",
+    options: [
+      "It identifies uncertainties that could affect objectives, evaluates their likelihood and consequences, and guides proportionate responses and monitoring.",
+      "It guarantees that planned activities will avoid unexpected problems by requiring approval for every operational decision.",
+      "It transfers responsibility for negative outcomes to the staff assigned to maintain the institutional risk register.",
+      "It focuses primarily on financial losses after they occur rather than anticipating threats to institutional objectives."
+    ],
+    ans: "A",
+    exp: "Risk management identifies uncertainties, assesses likelihood and consequences, and guides proportionate response and monitoring."
+  },
+  {
+    num: 50,
+    section: SECTION_C,
+    text: "A department achieves its annual target, but employees report that the target encouraged them to prioritize quantity over quality. What should management do?",
+    options: [
+      "Increase the target to encourage employees to improve both their speed and their attention to quality.",
+      "Examine the incentive effects, balance quantity measures with quality and outcome indicators, and revise the target where appropriate.",
+      "Remove all numerical targets so employees can determine their own definitions of acceptable performance.",
+      "Retain the target unchanged because achieving the approved figure demonstrates that the performance system is functioning properly."
+    ],
+    ans: "B",
+    exp: "The incentive effect should be examined and quantity measures balanced with quality and outcome indicators."
+  },
+  {
+    num: 51,
+    section: SECTION_C,
+    text: "A public institution must choose between a fast service improvement that benefits many citizens and a slower option that provides a larger benefit to a smaller group with significant needs. Which approach is most appropriate?",
+    options: [
+      "Select the faster option automatically because public institutions should maximize the number of completed services within a fixed period.",
+      "Select the option with the lowest direct cost because financial efficiency provides the most objective basis for public-sector decisions.",
+      "Evaluate expected benefits, equity, legal obligations, urgency, opportunity costs, and stakeholder needs against transparent decision criteria.",
+      "Choose the option supported by the largest group of employees because internal consensus is the strongest indicator of public value."
+    ],
+    ans: "C",
+    exp: "Trade-offs between reach and need require transparent criteria covering benefits, equity, legal obligations, urgency, and opportunity cost."
+  },
+  {
+    num: 52,
+    section: SECTION_C,
+    text: "During a team meeting, an employee identifies a serious risk that contradicts the manager's preferred approach. The meeting is close to its deadline. What should the manager do?",
+    options: [
+      "Defer the concern until after implementation because changing the plan at the final stage would create additional work.",
+      "Ask the employee to submit the concern privately so the meeting can finish without discussing disagreement in front of the team.",
+      "Proceed with the preferred approach unless the employee can prove that the risk will definitely occur.",
+      "Assess the potential impact and evidence promptly, determine whether the risk requires mitigation or escalation, and document the decision."
+    ],
+    ans: "D",
+    exp: "A serious risk should be assessed promptly on impact and evidence, with mitigation or escalation decided and documented."
+  },
+  {
+    num: 53,
+    section: SECTION_C,
+    text: "A performance-monitoring system shows that one district has much lower service completion rates than others. Which interpretation is most defensible?",
+    options: [
+      "The district's management is necessarily less competent because comparable districts have achieved stronger results.",
+      "The difference warrants investigation of data quality, demand, resources, operating conditions, and practices before causal conclusions are drawn.",
+      "The institution should immediately transfer resources away from the district because low completion rates indicate poor resource utilization.",
+      "The district should be excluded from institutional comparisons because differences in local conditions make performance indicators unreliable."
+    ],
+    ans: "B",
+    exp: "A performance difference is a signal to investigate data quality, demand, resources, conditions, and practice before inferring causation."
+  },
+  {
+    num: 54,
+    section: SECTION_C,
+    text: "A manager discovers that a process has multiple approvals that rarely identify errors but routinely delay services. What is the most appropriate action?",
+    options: [
+      "Map the process, evaluate each control's purpose and risk coverage, and remove or redesign redundant approvals with proper authorization.",
+      "Eliminate every approval step immediately because reducing administrative delay should take priority over procedural control.",
+      "Retain the existing approvals and introduce additional checks to ensure that no decision is completed without extensive review.",
+      "Allow employees to bypass approvals informally when workloads are high, while maintaining the existing procedure for ordinary cases."
+    ],
+    ans: "A",
+    exp: "Controls should be mapped and assessed for purpose and risk coverage; redundant approvals can then be redesigned with proper authorization."
+  },
+  {
+    num: 55,
+    section: SECTION_C,
+    text: "An employee receives confidential information while carrying out an official assignment. A friend asks for the information to help prepare a commercial proposal. What should the employee do?",
+    options: [
+      "Share only the parts considered harmless because limited disclosure does not create the same risk as releasing the complete information.",
+      "Provide the information if the friend agrees not to identify the employee as the source or disclose the institutional relationship.",
+      "Protect the information, decline unauthorized disclosure, and follow the applicable rules for access, use, and reporting of confidentiality concerns.",
+      "Share the information after the proposal is submitted because commercial competition is no longer affected by the original disclosure."
+    ],
+    ans: "C",
+    exp: "Confidential information must be protected against any unauthorized disclosure, regardless of the amount or timing."
+  },
+  {
+    num: 56,
+    section: SECTION_C,
+    text: "Which approach is most appropriate when an institution's strategic priorities change during the annual planning period?",
+    options: [
+      "Continue implementing the original plan without modification because changing priorities undermines consistency in institutional performance.",
+      "Suspend all existing activities until a completely new strategic plan has been developed and approved.",
+      "Allow each department to reinterpret its objectives independently so that the institution can respond quickly to changing conditions.",
+      "Assess the change's implications, reprioritize activities and resources through authorized governance, and communicate revised targets and responsibilities."
+    ],
+    ans: "D",
+    exp: "Changed priorities require assessed implications, governed reprioritization of activities and resources, and clear communication of revised targets."
+  },
+  {
+    num: 57,
+    section: SECTION_C,
+    text: "A supervisor wants to determine whether staff training has improved workplace performance rather than simply increased employee knowledge. Which evaluation approach is strongest?",
+    options: [
+      "Compare pre-training and post-training attendance figures and use increased participation as the principal measure of success.",
+      "Assess learning, observe workplace application, compare relevant performance indicators, and consider other factors that may explain changes.",
+      "Ask participants whether they enjoyed the training and use satisfaction scores to determine whether operational outcomes improved.",
+      "Count the training materials distributed and the hours delivered to establish the program's contribution to institutional productivity."
+    ],
+    ans: "B",
+    exp: "Assessing learning, on-the-job application, relevant performance indicators, and confounding factors provides the strongest evidence of improved performance."
+  },
+  {
+    num: 58,
+    section: SECTION_C,
+    text: "A project manager receives a request to add a new feature that was not included in the approved project scope. What should happen before the team begins the additional work?",
+    options: [
+      "Assess the request's benefits, costs, schedule, resource, and risk implications, then obtain the required change approval.",
+      "Accept the request if the feature appears useful, and revise the project budget only after the feature is completed.",
+      "Reject the request automatically because approved project scope must never change after implementation has started.",
+      "Ask the development team to implement the feature using available time without changing project documentation or milestones."
+    ],
+    ans: "A",
+    exp: "Scope changes require impact assessment across benefits, costs, schedule, resources, and risk, followed by formal change approval."
+  },
+  {
+    num: 59,
+    section: SECTION_C,
+    text: "A public institution's leadership wants to build a stronger culture of accountability without discouraging employees from reporting problems. Which approach is most appropriate?",
+    options: [
+      "Apply punitive measures whenever targets are missed so employees understand that institutional results take precedence over explanations.",
+      "Avoid assigning individual responsibilities because personal accountability may discourage teamwork and voluntary reporting of mistakes.",
+      "Establish clear expectations, evidence-based reviews, fair consequences, learning from errors, and safe channels for raising legitimate concerns.",
+      "Evaluate accountability mainly through the number of disciplinary cases completed and the number of employees formally warned."
+    ],
+    ans: "C",
+    exp: "A healthy accountability culture combines clear expectations, fair evidence-based review, learning from error, and safe reporting channels."
+  },
+  {
+    num: 60,
+    section: SECTION_C,
+    text: "An institution has improved its internal efficiency, but citizens continue to report poor service and limited trust. Which strategic response is most likely to create sustainable improvement?",
+    options: [
+      "Focus on further reducing internal costs until efficiency reaches the highest achievable level before reviewing citizen feedback.",
+      "Expand public communication campaigns to improve the institution's image without changing its existing service processes.",
+      "Increase employee performance targets and reporting requirements so that managers have more detailed information about internal activities.",
+      "Combine citizen feedback, service-outcome evidence, process analysis, staff capability development, and accountable implementation of corrective actions."
+    ],
+    ans: "D",
+    exp: "Sustainable improvement requires combining citizen feedback, outcome evidence, process analysis, staff capability, and accountable corrective action."
+  }
+];
+
+const letterToIndex = { A: 0, B: 1, C: 2, D: 3 };
+
+const EXAM_NAME = "Hard B1";
+const EXAM_SLUG = "hard-b1";
+const SUBJECT_SLUG = "hard-b1";
+const SUBJECT_NAME = "Hard B1";
+const CATEGORY_ID = "ad842eb6-4202-4a57-ae73-007ede7ea79f"; // Behavioral Competency
+const AUTHOR_ID = "e6a0cc7f-1d9c-45ed-8139-457031b71f3c"; // Admin
+const TOTAL_QUESTIONS = 60;
+const DURATION_MINUTES = 90;
+const PASS_THRESHOLD = 70;
+const EXAM_DESC =
+  "Sixty-question hard-level examination covering public-sector governance, performance management, accountability, service delivery, and professional judgment (Sections A–C).";
+
+async function run() {
+  console.log(`Starting seed for ${EXAM_NAME} (${rawQuestionsAndKeys.length} questions)...`);
+
+  if (rawQuestionsAndKeys.length !== TOTAL_QUESTIONS) {
+    throw new Error(`Expected ${TOTAL_QUESTIONS} questions, got ${rawQuestionsAndKeys.length}`);
+  }
+
+  const seen = new Set();
+  for (const q of rawQuestionsAndKeys) {
+    if (!q.ans || letterToIndex[q.ans] === undefined) {
+      throw new Error(`Invalid answer key for Q${q.num}: ${q.ans}`);
+    }
+    if (q.options.length !== 4) {
+      throw new Error(`Question ${q.num} does not have 4 options`);
+    }
+    if (!q.text || !q.text.trim()) {
+      throw new Error(`Question ${q.num} has no text`);
+    }
+    if (seen.has(q.num)) {
+      throw new Error(`Duplicate question number ${q.num}`);
+    }
+    seen.add(q.num);
+  }
+
+  const now = new Date().toISOString();
+
+  // ------------------------------------------------------------------ SQLite
+  const sqliteDb = new DatabaseSync(path.resolve(__dirname, '../prisma/exam.db'));
+
+  let subRow = sqliteDb.prepare('SELECT id FROM Subject WHERE slug = ?').get(SUBJECT_SLUG);
+  let subjectId;
+  if (!subRow) {
+    subjectId = crypto.randomUUID();
+    sqliteDb.prepare(`
+      INSERT INTO Subject (id, slug, name, categoryId, createdAt, updatedAt)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `).run(subjectId, SUBJECT_SLUG, SUBJECT_NAME, CATEGORY_ID, now, now);
+    console.log(`Created Subject '${SUBJECT_NAME}' in SQLite with id ${subjectId}`);
+  } else {
+    subjectId = subRow.id;
+    sqliteDb.prepare('UPDATE Subject SET categoryId = ?, name = ?, updatedAt = ? WHERE id = ?')
+      .run(CATEGORY_ID, SUBJECT_NAME, now, subjectId);
+    console.log(`Subject '${SUBJECT_NAME}' already exists in SQLite with id ${subjectId}`);
+  }
+
+  let examRow = sqliteDb.prepare('SELECT id FROM ExamTemplate WHERE slug = ?').get(EXAM_SLUG);
+  let examTemplateId;
+  if (!examRow) {
+    examTemplateId = crypto.randomUUID();
+    sqliteDb.prepare(`
+      INSERT INTO ExamTemplate (
+        id, slug, name, categoryId, subjectId, topicWeights, totalQuestions, durationMinutes,
+        marksPerQuestion, negativeMarking, difficultyDistribution, randomizeQuestions,
+        randomizeOptions, avoidPreviouslySeen, allowReuse, autoSubmitOnExpiry,
+        passThresholdPercent, description, isPublic, publishedAt, createdAt, updatedAt
+      ) VALUES (
+        ?, ?, ?, ?, ?, NULL, ?, ?,
+        1, 0, NULL, 1,
+        1, 0, 0, 1,
+        ?, ?, 1, ?, ?, ?
+      )
+    `).run(
+      examTemplateId, EXAM_SLUG, EXAM_NAME, CATEGORY_ID, subjectId,
+      TOTAL_QUESTIONS, DURATION_MINUTES, PASS_THRESHOLD, EXAM_DESC, now, now, now,
+    );
+    console.log(`Created ExamTemplate '${EXAM_NAME}' in SQLite with id ${examTemplateId}`);
+  } else {
+    examTemplateId = examRow.id;
+    sqliteDb.prepare(`
+      UPDATE ExamTemplate SET
+        name = ?, categoryId = ?, subjectId = ?, totalQuestions = ?,
+        durationMinutes = ?, description = ?, isPublic = 1, updatedAt = ?
+      WHERE id = ?
+    `).run(EXAM_NAME, CATEGORY_ID, subjectId, TOTAL_QUESTIONS, DURATION_MINUTES, EXAM_DESC, now, examTemplateId);
+    console.log(`Updated ExamTemplate '${EXAM_NAME}' in SQLite with id ${examTemplateId}`);
+  }
+
+  sqliteDb.prepare('DELETE FROM Question WHERE subjectId = ?').run(subjectId);
+
+  const insertQStmt = sqliteDb.prepare(`
+    INSERT INTO Question (
+      id, questionId, questionText, categoryId, subjectId, topicId, difficulty, questionType,
+      options, correctOptionIndices, explanation, marks, negativeMarks, tags,
+      learningObjectives, source, authorId, status, publishedAt, archivedAt,
+      importId, canonicalIndices, createdAt, updatedAt
+    ) VALUES (
+      ?, ?, ?, ?, ?, NULL, 'HARD', 'SINGLE_CHOICE',
+      ?, ?, ?, 1, NULL, ?,
+      NULL, ?, ?, 'PUBLISHED', ?, NULL,
+      NULL, '[0,1,2,3]', ?, ?
+    )
+  `);
+
+  const preparedQuestions = [];
+  for (const q of rawQuestionsAndKeys) {
+    const qId = crypto.randomUUID();
+    const optJson = JSON.stringify(q.options);
+    const correctIdx = letterToIndex[q.ans];
+    const ansJson = JSON.stringify([correctIdx]);
+    const tagsJson = JSON.stringify([q.section, EXAM_NAME, "hard"]);
+    const explanation = q.exp ? `${q.exp} (Correct: ${q.ans})` : `Correct answer: ${q.ans}`;
+
+    insertQStmt.run(
+      qId, qId, q.text, CATEGORY_ID, subjectId,
+      optJson, ansJson, explanation, tagsJson,
+      EXAM_NAME, AUTHOR_ID, now, now, now,
+    );
+
+    preparedQuestions.push({
+      id: qId,
+      num: q.num,
+      section: q.section,
+      text: q.text,
+      options: optJson,
+      correct: ansJson,
+      correctLetter: q.ans,
+      explanation,
+      tags: tagsJson,
+    });
+  }
+  sqliteDb.close();
+  console.log(`Inserted ${preparedQuestions.length} questions into SQLite.`);
+
+  // -------------------------------------------------------------- PostgreSQL
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+  });
+
+  try {
+    const pgSubRes = await pool.query('SELECT id FROM "Subject" WHERE slug = $1', [SUBJECT_SLUG]);
+    let pgSubjectId;
+    if (pgSubRes.rows.length === 0) {
+      pgSubjectId = subjectId;
+      await pool.query(`
+        INSERT INTO "Subject" (id, slug, name, "categoryId", "createdAt", "updatedAt")
+        VALUES ($1, $2, $3, $4, $5, $6)
+      `, [pgSubjectId, SUBJECT_SLUG, SUBJECT_NAME, CATEGORY_ID, now, now]);
+      console.log(`Created Subject '${SUBJECT_NAME}' in PostgreSQL`);
+    } else {
+      pgSubjectId = pgSubRes.rows[0].id;
+      await pool.query(
+        'UPDATE "Subject" SET "categoryId" = $1, name = $2, "updatedAt" = $3 WHERE id = $4',
+        [CATEGORY_ID, SUBJECT_NAME, now, pgSubjectId],
+      );
+      console.log(`Updated Subject '${SUBJECT_NAME}' in PostgreSQL`);
+    }
+
+    const pgExamRes = await pool.query('SELECT id FROM "ExamTemplate" WHERE slug = $1', [EXAM_SLUG]);
+    let pgExamId;
+    if (pgExamRes.rows.length === 0) {
+      pgExamId = examTemplateId;
+      await pool.query(`
+        INSERT INTO "ExamTemplate" (
+          id, slug, name, "categoryId", "subjectId", "topicWeights", "totalQuestions", "durationMinutes",
+          "marksPerQuestion", "negativeMarking", "difficultyDistribution", "randomizeQuestions",
+          "randomizeOptions", "avoidPreviouslySeen", "allowReuse", "autoSubmitOnExpiry",
+          "passThresholdPercent", description, "isPublic", "publishedAt", "createdAt", "updatedAt"
+        ) VALUES (
+          $1, $2, $3, $4, $5, NULL, $6, $7,
+          1, false, NULL, true,
+          true, false, false, true,
+          $8, $9, true, $10, $11, $12
+        )
+      `, [
+        pgExamId, EXAM_SLUG, EXAM_NAME, CATEGORY_ID, pgSubjectId,
+        TOTAL_QUESTIONS, DURATION_MINUTES, PASS_THRESHOLD, EXAM_DESC, now, now, now,
+      ]);
+      console.log(`Created ExamTemplate '${EXAM_NAME}' in PostgreSQL`);
+    } else {
+      pgExamId = pgExamRes.rows[0].id;
+      await pool.query(`
+        UPDATE "ExamTemplate" SET
+          name = $1, "categoryId" = $2, "subjectId" = $3, "totalQuestions" = $4,
+          "durationMinutes" = $5, description = $6, "isPublic" = true, "updatedAt" = $7
+        WHERE id = $8
+      `, [EXAM_NAME, CATEGORY_ID, pgSubjectId, TOTAL_QUESTIONS, DURATION_MINUTES, EXAM_DESC, now, pgExamId]);
+      console.log(`Updated ExamTemplate '${EXAM_NAME}' in PostgreSQL`);
+    }
+
+    await pool.query('DELETE FROM "Question" WHERE "subjectId" = $1', [pgSubjectId]);
+
+    for (const q of preparedQuestions) {
+      await pool.query(`
+        INSERT INTO "Question" (
+          id, "questionId", "questionText", "categoryId", "subjectId", "topicId", difficulty, "questionType",
+          options, "correctOptionIndices", explanation, marks, "negativeMarks", tags,
+          "learningObjectives", source, "authorId", status, "publishedAt", "archivedAt",
+          "importId", "canonicalIndices", "createdAt", "updatedAt"
+        ) VALUES (
+          $1, $2, $3, $4, $5, NULL, 'HARD', 'SINGLE_CHOICE',
+          $6, $7, $8, 1, NULL, $9,
+          NULL, $10, $11, 'PUBLISHED', $12, NULL,
+          NULL, '[0,1,2,3]', $13, $14
+        )
+      `, [
+        q.id, q.id, q.text, CATEGORY_ID, pgSubjectId,
+        q.options, q.correct, q.explanation, q.tags,
+        EXAM_NAME, AUTHOR_ID, now, now, now,
+      ]);
+    }
+    console.log(`Inserted ${preparedQuestions.length} questions into PostgreSQL.`);
+  } finally {
+    await pool.end();
+  }
+
+  // ----------------------------------------------------------- export files
+  const outDir = path.resolve(__dirname, `../${EXAM_SLUG}`);
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir, { recursive: true });
+  }
+
+  let md = `# ${EXAM_NAME} — Examination\n\n`;
+  md += `**Exam Name:** ${EXAM_NAME}\n`;
+  md += `**Subject:** ${SUBJECT_NAME}\n`;
+  md += `**Total Questions:** ${TOTAL_QUESTIONS}\n`;
+  md += `**Duration:** ${DURATION_MINUTES} minutes\n`;
+  md += `**Pass Mark:** ${PASS_THRESHOLD}%\n\n`;
+  md += `---\n\n`;
+
+  let currSection = "";
+  for (const q of rawQuestionsAndKeys) {
+    if (q.section !== currSection) {
+      currSection = q.section;
+      md += `\n## ${currSection}\n\n`;
+    }
+    md += `### ${q.num}. ${q.text}\n\n`;
+    ['A', 'B', 'C', 'D'].forEach((l, i) => {
+      md += `${l}. ${q.options[i]}\n`;
+    });
+    md += `\n`;
+  }
+
+  md += `\n---\n\n## Complete Answer Key with Explanations\n\n`;
+  for (const q of rawQuestionsAndKeys) {
+    md += `- **Q${q.num}:** **${q.ans}** — ${q.exp}\n`;
+  }
+
+  const mdPath = path.join(outDir, `${EXAM_SLUG}.md`);
+  fs.writeFileSync(mdPath, md, 'utf8');
+  console.log(`Written ${mdPath}`);
+
+  const jsonExport = {
+    examName: EXAM_NAME,
+    totalQuestions: TOTAL_QUESTIONS,
+    durationMinutes: DURATION_MINUTES,
+    passThresholdPercent: PASS_THRESHOLD,
+    questions: rawQuestionsAndKeys.map((q) => ({
+      num: q.num,
+      section: q.section,
+      text: q.text,
+      options: q.options,
+      correctAnswer: q.ans,
+      correctIndex: letterToIndex[q.ans],
+      explanation: q.exp,
+    })),
+  };
+
+  const jsonPath = path.join(outDir, `${EXAM_SLUG}.json`);
+  fs.writeFileSync(jsonPath, JSON.stringify(jsonExport, null, 2), 'utf8');
+  console.log(`Written ${jsonPath}`);
+
+  console.log(`\nAll operations for ${EXAM_NAME} completed successfully.`);
+}
+
+run().catch((err) => {
+  console.error(`Error during seeding ${EXAM_NAME}:`, err);
+  process.exit(1);
+});
