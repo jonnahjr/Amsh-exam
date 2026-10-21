@@ -4,7 +4,7 @@ import { one, run } from "@/lib/db";
 import { handleError, readJsonBody, created } from "@/lib/http";
 import { ConflictError, AppError } from "@/lib/errors";
 import { registerSchema } from "@/lib/validation";
-import { validateM100Code, claimM100Code, ensureApprovedCheckInForM100 } from "@/server/m100";
+import { validateM100Code, claimM100Code, ensureApprovedCheckInForM100, findActivePause } from "@/server/m100";
 import {
   createSessionToken,
   hashPassword,
@@ -28,6 +28,16 @@ export async function POST(request: Request): Promise<NextResponse> {
     const timestamp = new Date().toISOString();
     const password = await hashPassword(input.password);
 
+    const ipAddress = clientAddress(request.headers);
+    const pause = await findActivePause(input.name ?? input.email, ipAddress);
+    if (pause) {
+      throw new AppError(
+        "This candidate or device is paused by an administrator. Please contact the exam desk.",
+        403,
+        "FORBIDDEN",
+      );
+    }
+
     let role: Role = "STUDENT";
     let validatedM100Code: string | null = null;
 
@@ -47,7 +57,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     if (validatedM100Code) {
       await claimM100Code(validatedM100Code, id, input.name ?? undefined);
-      await ensureApprovedCheckInForM100(id, input.name ?? input.email, validatedM100Code);
+      await ensureApprovedCheckInForM100(id, input.name ?? input.email, validatedM100Code, ipAddress);
     }
 
     recordAudit({

@@ -37,7 +37,12 @@ export async function POST(request: Request): Promise<NextResponse> {
         if (userRow?.m100Code) {
           const m100Val = await validateM100Code(userRow.m100Code, user.id);
           if (m100Val.valid) {
-            await ensureApprovedCheckInForM100(user.id, user.name ?? user.email, userRow.m100Code);
+            await ensureApprovedCheckInForM100(
+              user.id,
+              user.name ?? user.email,
+              userRow.m100Code,
+              clientAddress(request.headers),
+            );
             activeCheckin = { id: user.id };
           }
         }

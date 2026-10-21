@@ -4,7 +4,8 @@ import { handleError, ok, readJsonBody } from "@/lib/http";
 import { AppError } from "@/lib/errors";
 import { createSessionToken, SESSION_COOKIE, sessionCookieOptions } from "@/lib/auth";
 
-import { validateM100Code, claimM100Code } from "@/server/m100";
+import { validateM100Code, claimM100Code, findActivePause } from "@/server/m100";
+import { clientAddress } from "@/server/audit";
 
 export const dynamic = "force-dynamic";
 
@@ -19,6 +20,18 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     const id = crypto.randomUUID();
     const now = new Date().toISOString();
+    const ipAddress = clientAddress(request.headers);
+
+    // A paused candidate (by name, device address, or account) may not check in
+    // again until an administrator resumes them.
+    const pause = await findActivePause(name, ipAddress);
+    if (pause) {
+      throw new AppError(
+        "This candidate or device is paused by an administrator. Please contact the exam desk.",
+        403,
+        "FORBIDDEN",
+      );
+    }
 
     // If an M100 code is provided, validate and automatically authorize the employee immediately
     if (rawM100Code) {
@@ -37,9 +50,9 @@ export async function POST(request: Request): Promise<NextResponse> {
       await claimM100Code(validation.code!, id, name);
 
       await run(
-        `INSERT INTO "CheckIn" ("id", "employeeName", "status", "checkedInAt", "approvedAt", "approvedBy", "m100Code", "notes")
-         VALUES (?, ?, 'APPROVED', ?, ?, 'Auto-Approved (M100 Code)', ?, 'Automatic authorization via valid M100 code')`,
-        [id, name, now, now, validation.code!],
+        `INSERT INTO "CheckIn" ("id", "employeeName", "status", "checkedInAt", "approvedAt", "approvedBy", "m100Code", "ipAddress", "notes")
+         VALUES (?, ?, 'APPROVED', ?, ?, 'Auto-Approved (M100 Code)', ?, ?, 'Automatic authorization via valid M100 code')`,
+        [id, name, now, now, validation.code!, ipAddress],
       );
 
       const token = await createSessionToken({ id, email, name, role: "EMPLOYEE" });
@@ -59,7 +72,10 @@ export async function POST(request: Request): Promise<NextResponse> {
     }
 
     // Standard manual approval queue (when no M100 code is provided)
-    await run(`INSERT INTO "CheckIn" ("id","employeeName","status","checkedInAt") VALUES (?,?,?,?)`, [id, name, "PENDING", now]);
+    await run(
+      `INSERT INTO "CheckIn" ("id","employeeName","status","checkedInAt","ipAddress") VALUES (?,?,?,?,?)`,
+      [id, name, "PENDING", now, ipAddress],
+    );
     return NextResponse.json({ id, employeeName: name, status: "PENDING", checkedInAt: now });
   } catch (error) {
     return handleError(error);

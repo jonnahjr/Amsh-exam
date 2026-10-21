@@ -136,7 +136,8 @@ export const getSessionUser = cache(async function getSessionUser(): Promise<Ses
     [claims.id],
   );
   if (!row) return null;
-  if (row.checkInStatus === "TERMINATED") return null;
+  // Terminated sessions stay dead; paused ones come back on resume.
+  if (row.checkInStatus === "TERMINATED" || row.checkInStatus === "PAUSED") return null;
 
   return { id: row.id, email: row.email, name: row.name, role: row.role };
 });

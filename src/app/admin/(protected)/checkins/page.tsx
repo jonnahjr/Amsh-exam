@@ -6,11 +6,12 @@ import { ConfirmModal } from "@/components/ConfirmModal";
 interface CheckIn {
   id: string;
   employeeName: string;
-  status: "PENDING" | "APPROVED" | "REJECTED" | "TERMINATED";
+  status: "PENDING" | "APPROVED" | "REJECTED" | "TERMINATED" | "PAUSED";
   checkedInAt: string;
   approvedAt: string | null;
   approvedBy: string | null;
   m100Code?: string | null;
+  ipAddress?: string | null;
   totalAttempts?: number;
   totalCompleted?: number;
   bestScore?: number | null;
@@ -37,7 +38,7 @@ export default function AdminCheckInsPage() {
   const [loading, setLoading] = useState(true);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [error, setError] = useState("");
-  const [confirmId, setConfirmId] = useState<string | null>(null);
+  const [confirm, setConfirm] = useState<{ id: string; action: "pause" | "terminate" } | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -64,7 +65,7 @@ export default function AdminCheckInsPage() {
     return () => clearInterval(interval);
   }, [load]);
 
-  async function act(id: string, action: "approve" | "reject" | "terminate") {
+  async function act(id: string, action: "approve" | "reject" | "terminate" | "pause" | "resume") {
     setBusyId(id);
     setError("");
     try {
@@ -193,6 +194,11 @@ export default function AdminCheckInsPage() {
                           </span>
                         )}
                       </div>
+                      {row.ipAddress && (
+                        <div className="muted small" style={{ fontFamily: "monospace", fontWeight: 400 }}>
+                          IP {row.ipAddress}
+                        </div>
+                      )}
                     </td>
                     <td>
                       <span className="badge" style={{ fontWeight: 600 }}>
@@ -227,15 +233,32 @@ export default function AdminCheckInsPage() {
                     <td>
                       {row.status === "TERMINATED" ? (
                         <span className="muted small">Terminated</span>
-                      ) : row.status === "APPROVED" && row.approvedBy?.includes("M100") ? (
+                      ) : row.status === "PAUSED" ? (
                         <button
-                          className="btn btn-sm"
-                          style={{ borderColor: "var(--danger-border)", color: "var(--danger)", background: "var(--danger-soft)" }}
+                          className="btn btn-primary btn-sm"
                           disabled={busyId === row.id}
-                          onClick={() => setConfirmId(row.id)}
+                          onClick={() => void act(row.id, "resume")}
                         >
-                          {busyId === row.id ? "…" : "Terminate"}
+                          {busyId === row.id ? "…" : "Resume"}
                         </button>
+                      ) : row.status === "APPROVED" && row.approvedBy?.includes("M100") ? (
+                        <div className="row" style={{ gap: 8 }}>
+                          <button
+                            className="btn btn-sm"
+                            disabled={busyId === row.id}
+                            onClick={() => setConfirm({ id: row.id, action: "pause" })}
+                          >
+                            Pause
+                          </button>
+                          <button
+                            className="btn btn-sm"
+                            style={{ borderColor: "var(--danger-border)", color: "var(--danger)", background: "var(--danger-soft)" }}
+                            disabled={busyId === row.id}
+                            onClick={() => setConfirm({ id: row.id, action: "terminate" })}
+                          >
+                            Terminate
+                          </button>
+                        </div>
                       ) : (
                         <span className="muted">—</span>
                       )}
@@ -249,17 +272,21 @@ export default function AdminCheckInsPage() {
       )}
 
       <ConfirmModal
-        open={confirmId !== null}
-        title="Terminate M100 session?"
-        message="This immediately revokes the candidate's exam access. Their results are kept, and the M100 code stays locked to their account so it cannot be used to check back in."
-        confirmLabel="Terminate"
-        variant="danger"
+        open={confirm !== null}
+        title={confirm?.action === "pause" ? "Pause this session?" : "Terminate M100 session?"}
+        message={
+          confirm?.action === "pause"
+            ? "This freezes the candidate's name, device address, and account until you resume them. Results are kept and nothing is deleted."
+            : "This immediately revokes the candidate's exam access. Their results are kept, and the M100 code stays locked to their account so it cannot be used to check back in."
+        }
+        confirmLabel={confirm?.action === "pause" ? "Pause" : "Terminate"}
+        variant={confirm?.action === "pause" ? "primary" : "danger"}
         onConfirm={() => {
-          const id = confirmId;
-          setConfirmId(null);
-          if (id) void act(id, "terminate");
+          const target = confirm;
+          setConfirm(null);
+          if (target) void act(target.id, target.action);
         }}
-        onCancel={() => setConfirmId(null)}
+        onCancel={() => setConfirm(null)}
       />
     </div>
   );

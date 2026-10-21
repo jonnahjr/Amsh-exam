@@ -3,7 +3,7 @@ import { one, run } from "@/lib/db";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { AppError } from "@/lib/errors";
 import { requireRole } from "@/lib/auth";
-import { terminateM100CheckIn } from "@/server/m100";
+import { pauseM100CheckIn, resumeM100CheckIn, terminateM100CheckIn } from "@/server/m100";
 
 export const dynamic = "force-dynamic";
 
@@ -15,14 +15,29 @@ export async function POST(request: Request): Promise<NextResponse> {
     const action = (body?.action ?? "approve").toString();
 
     if (!id) throw new AppError("Missing check-in id.", 400, "VALIDATION");
-    if (!["approve", "reject", "terminate"].includes(action)) {
-      throw new AppError("Action must be 'approve', 'reject', or 'terminate'.", 400, "VALIDATION");
+    if (!["approve", "reject", "terminate", "pause", "resume"].includes(action)) {
+      throw new AppError(
+        "Action must be 'approve', 'reject', 'terminate', 'pause', or 'resume'.",
+        400,
+        "VALIDATION",
+      );
     }
+
+    const actor = admin.name ?? admin.email;
 
     // Terminating an M100 auto-approved session revokes access immediately.
     if (action === "terminate") {
-      const terminated = await terminateM100CheckIn(id, admin.name ?? admin.email);
-      return ok(terminated);
+      return ok(await terminateM100CheckIn(id, actor));
+    }
+
+    // Pausing freezes the candidate's name, device address, and account until
+    // an administrator resumes them.
+    if (action === "pause") {
+      return ok(await pauseM100CheckIn(id, actor));
+    }
+
+    if (action === "resume") {
+      return ok(await resumeM100CheckIn(id, actor));
     }
 
     const row = await one<{ id: string; status: string }>(`SELECT "id","status" FROM "CheckIn" WHERE "id" = ?`, [id]);

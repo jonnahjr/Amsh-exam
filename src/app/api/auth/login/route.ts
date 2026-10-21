@@ -12,7 +12,7 @@ import {
 } from "@/lib/auth";
 import { clientAddress, recordAudit } from "@/server/audit";
 
-import { validateM100Code, claimM100Code, ensureApprovedCheckInForM100 } from "@/server/m100";
+import { validateM100Code, claimM100Code, ensureApprovedCheckInForM100, findActivePause } from "@/server/m100";
 
 export const dynamic = "force-dynamic";
 
@@ -51,6 +51,19 @@ export async function POST(request: Request): Promise<NextResponse> {
       throw new AppError("Email or password is incorrect.", 401, "INVALID_CREDENTIALS");
     }
 
+    const ipAddress = clientAddress(request.headers);
+
+    // Paused candidates (name, device, or account) cannot sign back in until an
+    // administrator resumes them.
+    const pause = await findActivePause(user.name ?? user.email, ipAddress);
+    if (pause) {
+      throw new AppError(
+        "Your exam access is paused by an administrator. Please contact the exam desk.",
+        403,
+        "FORBIDDEN",
+      );
+    }
+
     let activeM100 = user.m100Code ?? null;
     let autoApproved = false;
 
@@ -74,7 +87,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     // Auto-approve exam sitting for valid M100 employee
     if (autoApproved && activeM100) {
-      await ensureApprovedCheckInForM100(user.id, user.name ?? user.email, activeM100);
+      await ensureApprovedCheckInForM100(user.id, user.name ?? user.email, activeM100, ipAddress);
     }
 
     const token = await createSessionToken({

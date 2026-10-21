@@ -7,6 +7,9 @@ import {
   createAuthorizedM100Code,
   listAuthorizedM100Codes,
   terminateM100CheckIn,
+  pauseM100CheckIn,
+  resumeM100CheckIn,
+  findActivePause,
 } from "@/server/m100";
 import { one, run } from "@/lib/db";
 import { startAttempt } from "@/server/attempts";
@@ -170,6 +173,80 @@ describe("M100 Automatic Exam Access & Validation", () => {
 
     it("reports a conflict when the session is already terminated", async () => {
       await expect(terminateM100CheckIn(checkInId, "Admin Jane")).rejects.toThrow(/already terminated/i);
+    });
+  });
+
+  describe("Pausing and Resuming M100 Sessions", () => {
+    const userId = "user-m100-pause-" + randomUUID().slice(0, 8);
+    const deviceIp = "203.0.113.9";
+    let checkInId = "";
+
+    beforeAll(async () => {
+      await run(
+        `INSERT OR IGNORE INTO "User" ("id", "email", "password", "name", "role", "createdAt", "updatedAt")
+         VALUES (?, 'paused@example.com', 'NOPASSWORD', 'Paused Candidate', 'EMPLOYEE', ?, ?)`,
+        [userId, now, now],
+      );
+      checkInId = await ensureApprovedCheckInForM100(
+        userId,
+        "Paused Candidate",
+        "M100-PAUSE-01",
+        deviceIp,
+      );
+    });
+
+    it("records the candidate's device address on the check-in", async () => {
+      const row = await one<{ ipAddress: string | null }>(
+        'SELECT "ipAddress" FROM "CheckIn" WHERE "id" = ?',
+        [checkInId],
+      );
+      expect(row?.ipAddress).toBe(deviceIp);
+    });
+
+    it("pauses an approved session and records the admin", async () => {
+      const res = await pauseM100CheckIn(checkInId, "Admin Jane");
+      expect(res.status).toBe("PAUSED");
+
+      const row = await one<{ status: string; notes: string }>(
+        'SELECT "status", "notes" FROM "CheckIn" WHERE "id" = ?',
+        [checkInId],
+      );
+      expect(row?.status).toBe("PAUSED");
+      expect(row?.notes).toContain("Paused by Admin Jane");
+    });
+
+    it("blocks the paused candidate's own check-in until resumed", async () => {
+      await expect(
+        ensureApprovedCheckInForM100(userId, "Paused Candidate", "M100-PAUSE-01"),
+      ).rejects.toThrow(/paused by an administrator/i);
+    });
+
+    it("blocks a new check-in from the paused device even under another name", async () => {
+      const byName = await findActivePause("paused candidate", null);
+      expect(byName?.id).toBe(checkInId);
+
+      const byIp = await findActivePause("Someone Else", deviceIp);
+      expect(byIp?.id).toBe(checkInId);
+
+      expect(await findActivePause("Someone Else", "198.51.100.7")).toBeNull();
+    });
+
+    it("refuses to pause a session that is already paused", async () => {
+      await expect(pauseM100CheckIn(checkInId, "Admin Jane")).rejects.toThrow(/already paused/i);
+    });
+
+    it("resumes the session and restores exam access", async () => {
+      const res = await resumeM100CheckIn(checkInId, "Admin Jane");
+      expect(res.status).toBe("APPROVED");
+
+      await expect(
+        ensureApprovedCheckInForM100(userId, "Paused Candidate", "M100-PAUSE-01"),
+      ).resolves.toBe(checkInId);
+      expect(await findActivePause("Paused Candidate", deviceIp)).toBeNull();
+    });
+
+    it("refuses to resume a session that is not paused", async () => {
+      await expect(resumeM100CheckIn(checkInId, "Admin Jane")).rejects.toThrow(/not paused/i);
     });
   });
 

@@ -287,11 +287,13 @@ CREATE TABLE IF NOT EXISTS "CheckIn" (
   "approvedBy"   TEXT,
   "m100Code"     TEXT,
   "sessionToken" TEXT,
+  "ipAddress"    TEXT,
   "notes"        TEXT
 );
 
 CREATE INDEX IF NOT EXISTS "idx_checkin_status" ON "CheckIn"("status");
 CREATE INDEX IF NOT EXISTS "idx_checkin_employee" ON "CheckIn"("employeeName");
+CREATE INDEX IF NOT EXISTS "idx_checkin_ip" ON "CheckIn"("ipAddress");
 
 -- ------------------------------------------------------------- m100 ---------
 CREATE TABLE IF NOT EXISTS "AuthorizedM100Code" (

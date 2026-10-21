@@ -129,14 +129,15 @@ export async function ensureApprovedCheckInForM100(
   userId: string,
   employeeName: string,
   m100Code: string,
+  ipAddress?: string | null,
 ): Promise<string> {
   const normalizedCode = m100Code.trim().toUpperCase();
   const now = new Date().toISOString();
 
   // A check-in whose id matches the user belongs to this account. If an
-  // administrator terminated it, the employee must not be let back in.
-  const ownRow = await one<{ id: string; status: string }>(
-    `SELECT "id", "status" FROM "CheckIn" WHERE "id" = ?`,
+  // administrator terminated or paused it, the employee must not be let in.
+  const ownRow = await one<{ id: string; status: string; ipAddress: string | null }>(
+    `SELECT "id", "status", "ipAddress" FROM "CheckIn" WHERE "id" = ?`,
     [userId],
   );
 
@@ -148,12 +149,22 @@ export async function ensureApprovedCheckInForM100(
     );
   }
 
+  if (ownRow?.status === "PAUSED") {
+    throw new AppError(
+      "Your exam access is paused by an administrator. Please contact the exam desk.",
+      403,
+      "FORBIDDEN",
+    );
+  }
+
+  const ip = ipAddress ?? ownRow?.ipAddress ?? null;
+
   if (ownRow) {
     await run(
       `UPDATE "CheckIn"
-       SET "status" = 'APPROVED', "m100Code" = ?, "approvedBy" = 'Auto-Approved (M100 Code)'
+       SET "status" = 'APPROVED', "m100Code" = ?, "approvedBy" = 'Auto-Approved (M100 Code)', "ipAddress" = ?
        WHERE "id" = ?`,
-      [normalizedCode, ownRow.id],
+      [normalizedCode, ip, ownRow.id],
     );
     return ownRow.id;
   }
@@ -171,9 +182,9 @@ export async function ensureApprovedCheckInForM100(
   if (existing) {
     await run(
       `UPDATE "CheckIn"
-       SET "m100Code" = ?, "approvedBy" = 'Auto-Approved (M100 Code)'
+       SET "m100Code" = ?, "approvedBy" = 'Auto-Approved (M100 Code)', "ipAddress" = COALESCE(?, "ipAddress")
        WHERE "id" = ?`,
-      [normalizedCode, existing.id],
+      [normalizedCode, ip, existing.id],
     );
     return existing.id;
   }
@@ -182,9 +193,9 @@ export async function ensureApprovedCheckInForM100(
   const checkInId = userId.length > 20 ? userId : randomUUID();
   await run(
     `INSERT INTO "CheckIn"
-       ("id", "employeeName", "status", "checkedInAt", "approvedAt", "approvedBy", "m100Code", "notes")
-     VALUES (?, ?, 'APPROVED', ?, ?, 'Auto-Approved (M100 Code)', ?, 'Automatic authorization via valid M100 code')`,
-    [checkInId, employeeName, now, now, normalizedCode],
+       ("id", "employeeName", "status", "checkedInAt", "approvedAt", "approvedBy", "m100Code", "ipAddress", "notes")
+     VALUES (?, ?, 'APPROVED', ?, ?, 'Auto-Approved (M100 Code)', ?, ?, 'Automatic authorization via valid M100 code')`,
+    [checkInId, employeeName, now, now, normalizedCode, ip],
   );
 
   return checkInId;
@@ -229,6 +240,102 @@ export async function terminateM100CheckIn(
   );
 
   return { id: checkInId, status: "TERMINATED" };
+}
+
+/**
+ * Find an active pause that covers this employee name or device address.
+ *
+ * Administrators pause a candidate to freeze their access temporarily; the
+ * pause follows both the name and the IP the candidate checked in from, so a
+ * fresh check-in from the same device under a different name is still blocked
+ * until the administrator resumes.
+ */
+export async function findActivePause(
+  employeeName: string,
+  ipAddress?: string | null,
+): Promise<{ id: string; employeeName: string; ipAddress: string | null } | null> {
+  const row = await one<{ id: string; employeeName: string; ipAddress: string | null }>(
+    `SELECT "id", "employeeName", "ipAddress" FROM "CheckIn"
+     WHERE "status" = 'PAUSED'
+       AND (LOWER("employeeName") = LOWER(?) OR ("ipAddress" IS NOT NULL AND "ipAddress" = ?))
+     ORDER BY "checkedInAt" DESC
+     LIMIT 1`,
+    [employeeName, ipAddress ?? null],
+  );
+  return row ?? null;
+}
+
+/**
+ * Pause an M100 auto-approved session from the admin console.
+ *
+ * Pausing freezes access (name, device address, and account) without losing
+ * anything: results stay, the code stays claimed, and `resumeM100CheckIn`
+ * restores the session exactly as it was.
+ */
+export async function pauseM100CheckIn(
+  checkInId: string,
+  pausedBy: string,
+): Promise<{ id: string; status: "PAUSED" }> {
+  const row = await one<{ id: string; status: string; approvedBy: string | null; notes: string | null }>(
+    `SELECT "id", "status", "approvedBy", "notes" FROM "CheckIn" WHERE "id" = ?`,
+    [checkInId],
+  );
+
+  if (!row) throw new AppError("Check-in not found.", 404, "NOT_FOUND");
+
+  if (!(row.approvedBy ?? "").toUpperCase().includes("M100")) {
+    throw new AppError(
+      "Only sessions authorised with an M100 employee code can be paused.",
+      400,
+      "VALIDATION",
+    );
+  }
+
+  if (row.status === "TERMINATED") {
+    throw new AppError("Terminated sessions cannot be paused.", 409, "CONFLICT");
+  }
+  if (row.status === "PAUSED") {
+    throw new AppError("This session is already paused.", 409, "CONFLICT");
+  }
+  if (row.status !== "APPROVED") {
+    throw new AppError("Only approved sessions can be paused.", 400, "VALIDATION");
+  }
+
+  const now = new Date().toISOString();
+  const note = `Paused by ${pausedBy} on ${now}`;
+  await run(
+    `UPDATE "CheckIn" SET "status" = 'PAUSED', "notes" = ? WHERE "id" = ?`,
+    [row.notes ? `${row.notes} | ${note}` : note, checkInId],
+  );
+
+  return { id: checkInId, status: "PAUSED" };
+}
+
+/**
+ * Resume a paused session, restoring exam access for that candidate and device.
+ */
+export async function resumeM100CheckIn(
+  checkInId: string,
+  resumedBy: string,
+): Promise<{ id: string; status: "APPROVED" }> {
+  const row = await one<{ id: string; status: string; notes: string | null }>(
+    `SELECT "id", "status", "notes" FROM "CheckIn" WHERE "id" = ?`,
+    [checkInId],
+  );
+
+  if (!row) throw new AppError("Check-in not found.", 404, "NOT_FOUND");
+  if (row.status !== "PAUSED") {
+    throw new AppError("This session is not paused.", 409, "CONFLICT");
+  }
+
+  const now = new Date().toISOString();
+  const note = `Resumed by ${resumedBy} on ${now}`;
+  await run(
+    `UPDATE "CheckIn" SET "status" = 'APPROVED', "approvedAt" = ?, "notes" = ? WHERE "id" = ?`,
+    [now, row.notes ? `${row.notes} | ${note}` : note, checkInId],
+  );
+
+  return { id: checkInId, status: "APPROVED" };
 }
 
 /**

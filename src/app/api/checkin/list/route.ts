@@ -11,11 +11,11 @@ export async function GET(): Promise<NextResponse> {
     const items = await all<{
       id: string; employeeName: string; status: string;
       checkedInAt: string; approvedAt: string | null; approvedBy: string | null;
-      m100Code: string | null;
+      m100Code: string | null; ipAddress: string | null;
       totalAttempts: number; totalCompleted: number; bestScore: number | null;
     }>(
       `SELECT
-         c."id", c."employeeName", c."status", c."checkedInAt", c."approvedAt", c."approvedBy", c."m100Code",
+         c."id", c."employeeName", c."status", c."checkedInAt", c."approvedAt", c."approvedBy", c."m100Code", c."ipAddress",
          (SELECT COUNT(*) FROM "ExamAttempt" ea JOIN "User" u ON u."id" = ea."userId" WHERE LOWER(u."name") = LOWER(c."employeeName")) AS "totalAttempts",
          (SELECT COUNT(*) FROM "Result" r JOIN "User" u ON u."id" = r."userId" WHERE LOWER(u."name") = LOWER(c."employeeName")) AS "totalCompleted",
          (SELECT MAX(r."percentage") FROM "Result" r JOIN "User" u ON u."id" = r."userId" WHERE LOWER(u."name") = LOWER(c."employeeName")) AS "bestScore"
