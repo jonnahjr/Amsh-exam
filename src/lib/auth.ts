@@ -119,11 +119,24 @@ export const getSessionUser = cache(async function getSessionUser(): Promise<Ses
   const claims = await readSessionToken(token);
   if (!claims) return null;
 
-  const row = await one<{ id: string; email: string; name: string | null; role: Role }>(
-    'SELECT "id","email","name","role" FROM "User" WHERE "id" = ?',
+  const row = await one<{
+    id: string;
+    email: string;
+    name: string | null;
+    role: Role;
+    checkInStatus: string | null;
+  }>(
+    // Check-in rows whose id matches the user belong to that account (M100
+    // auto-approvals). A terminated session must lose access immediately,
+    // even though its signed token is still valid.
+    `SELECT u."id", u."email", u."name", u."role", c."status" AS "checkInStatus"
+       FROM "User" u
+       LEFT JOIN "CheckIn" c ON c."id" = u."id"
+      WHERE u."id" = ?`,
     [claims.id],
   );
   if (!row) return null;
+  if (row.checkInStatus === "TERMINATED") return null;
 
   return { id: row.id, email: row.email, name: row.name, role: row.role };
 });

@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { ConfirmModal } from "@/components/ConfirmModal";
 
 interface CheckIn {
   id: string;
   employeeName: string;
-  status: "PENDING" | "APPROVED" | "REJECTED";
+  status: "PENDING" | "APPROVED" | "REJECTED" | "TERMINATED";
   checkedInAt: string;
   approvedAt: string | null;
   approvedBy: string | null;
@@ -36,6 +37,7 @@ export default function AdminCheckInsPage() {
   const [loading, setLoading] = useState(true);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [error, setError] = useState("");
+  const [confirmId, setConfirmId] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -62,7 +64,7 @@ export default function AdminCheckInsPage() {
     return () => clearInterval(interval);
   }, [load]);
 
-  async function act(id: string, action: "approve" | "reject") {
+  async function act(id: string, action: "approve" | "reject" | "terminate") {
     setBusyId(id);
     setError("");
     try {
@@ -176,6 +178,7 @@ export default function AdminCheckInsPage() {
                   <th>Checked In</th>
                   <th>Authorized At</th>
                   <th>Authorized By</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -221,6 +224,22 @@ export default function AdminCheckInsPage() {
                         <span className="muted">{row.approvedBy ?? "—"}</span>
                       )}
                     </td>
+                    <td>
+                      {row.status === "TERMINATED" ? (
+                        <span className="muted small">Terminated</span>
+                      ) : row.status === "APPROVED" && row.approvedBy?.includes("M100") ? (
+                        <button
+                          className="btn btn-sm"
+                          style={{ borderColor: "var(--danger-border)", color: "var(--danger)", background: "var(--danger-soft)" }}
+                          disabled={busyId === row.id}
+                          onClick={() => setConfirmId(row.id)}
+                        >
+                          {busyId === row.id ? "…" : "Terminate"}
+                        </button>
+                      ) : (
+                        <span className="muted">—</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -228,6 +247,20 @@ export default function AdminCheckInsPage() {
           </div>
         </section>
       )}
+
+      <ConfirmModal
+        open={confirmId !== null}
+        title="Terminate M100 session?"
+        message="This immediately revokes the candidate's exam access. Their results are kept, and the M100 code stays locked to their account so it cannot be used to check back in."
+        confirmLabel="Terminate"
+        variant="danger"
+        onConfirm={() => {
+          const id = confirmId;
+          setConfirmId(null);
+          if (id) void act(id, "terminate");
+        }}
+        onCancel={() => setConfirmId(null)}
+      />
     </div>
   );
 }

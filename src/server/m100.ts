@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { all, one, run, fromBool } from "@/lib/db";
+import { AppError } from "@/lib/errors";
 
 export interface AuthorizedM100Row {
   id: string;
@@ -132,14 +133,39 @@ export async function ensureApprovedCheckInForM100(
   const normalizedCode = m100Code.trim().toUpperCase();
   const now = new Date().toISOString();
 
-  // Check if there is already an active APPROVED checkin
+  // A check-in whose id matches the user belongs to this account. If an
+  // administrator terminated it, the employee must not be let back in.
+  const ownRow = await one<{ id: string; status: string }>(
+    `SELECT "id", "status" FROM "CheckIn" WHERE "id" = ?`,
+    [userId],
+  );
+
+  if (ownRow?.status === "TERMINATED") {
+    throw new AppError(
+      "Your exam session was terminated by an administrator. Please contact the exam desk.",
+      403,
+      "FORBIDDEN",
+    );
+  }
+
+  if (ownRow) {
+    await run(
+      `UPDATE "CheckIn"
+       SET "status" = 'APPROVED', "m100Code" = ?, "approvedBy" = 'Auto-Approved (M100 Code)'
+       WHERE "id" = ?`,
+      [normalizedCode, ownRow.id],
+    );
+    return ownRow.id;
+  }
+
+  // Otherwise reuse a still-approved session recorded under the same name.
   const existing = await one<{ id: string }>(
     `SELECT "id" FROM "CheckIn"
-     WHERE ("id" = ? OR LOWER("employeeName") = LOWER(?))
+     WHERE LOWER("employeeName") = LOWER(?)
        AND "status" = 'APPROVED'
      ORDER BY "checkedInAt" DESC
      LIMIT 1`,
-    [userId, employeeName],
+    [employeeName],
   );
 
   if (existing) {
@@ -162,6 +188,47 @@ export async function ensureApprovedCheckInForM100(
   );
 
   return checkInId;
+}
+
+/**
+ * Terminate an M100 auto-approved session from the admin console.
+ *
+ * The candidate's access is re-checked against this row on every request, so
+ * marking it TERMINATED revokes the session immediately while keeping their
+ * attempts and results for reporting. The claimed code stays attached to the
+ * account, so it cannot be used to check back in.
+ */
+export async function terminateM100CheckIn(
+  checkInId: string,
+  terminatedBy: string,
+): Promise<{ id: string; status: "TERMINATED" }> {
+  const row = await one<{ id: string; status: string; approvedBy: string | null; notes: string | null }>(
+    `SELECT "id", "status", "approvedBy", "notes" FROM "CheckIn" WHERE "id" = ?`,
+    [checkInId],
+  );
+
+  if (!row) throw new AppError("Check-in not found.", 404, "NOT_FOUND");
+
+  if (!(row.approvedBy ?? "").toUpperCase().includes("M100")) {
+    throw new AppError(
+      "Only sessions authorised with an M100 employee code can be terminated.",
+      400,
+      "VALIDATION",
+    );
+  }
+
+  if (row.status === "TERMINATED") {
+    throw new AppError("This session is already terminated.", 409, "CONFLICT");
+  }
+
+  const now = new Date().toISOString();
+  const note = `Terminated by ${terminatedBy} on ${now}`;
+  await run(
+    `UPDATE "CheckIn" SET "status" = 'TERMINATED', "notes" = ? WHERE "id" = ?`,
+    [row.notes ? `${row.notes} | ${note}` : note, checkInId],
+  );
+
+  return { id: checkInId, status: "TERMINATED" };
 }
 
 /**

@@ -3,6 +3,7 @@ import { one, run } from "@/lib/db";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { AppError } from "@/lib/errors";
 import { requireRole } from "@/lib/auth";
+import { terminateM100CheckIn } from "@/server/m100";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +15,15 @@ export async function POST(request: Request): Promise<NextResponse> {
     const action = (body?.action ?? "approve").toString();
 
     if (!id) throw new AppError("Missing check-in id.", 400, "VALIDATION");
-    if (!["approve", "reject"].includes(action)) throw new AppError("Action must be 'approve' or 'reject'.", 400, "VALIDATION");
+    if (!["approve", "reject", "terminate"].includes(action)) {
+      throw new AppError("Action must be 'approve', 'reject', or 'terminate'.", 400, "VALIDATION");
+    }
+
+    // Terminating an M100 auto-approved session revokes access immediately.
+    if (action === "terminate") {
+      const terminated = await terminateM100CheckIn(id, admin.name ?? admin.email);
+      return ok(terminated);
+    }
 
     const row = await one<{ id: string; status: string }>(`SELECT "id","status" FROM "CheckIn" WHERE "id" = ?`, [id]);
     if (!row) throw new AppError("Check-in not found.", 404, "NOT_FOUND");

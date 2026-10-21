@@ -6,6 +6,7 @@ import {
   ensureApprovedCheckInForM100,
   createAuthorizedM100Code,
   listAuthorizedM100Codes,
+  terminateM100CheckIn,
 } from "@/server/m100";
 import { one, run } from "@/lib/db";
 import { startAttempt } from "@/server/attempts";
@@ -122,6 +123,53 @@ describe("M100 Automatic Exam Access & Validation", () => {
       expect(checkIn?.status).toBe("APPROVED");
       expect(checkIn?.approvedBy).toContain("M100");
       expect(checkIn?.m100Code).toBe("M100-VALID-01");
+    });
+  });
+
+  describe("Terminating M100 Sessions", () => {
+    const sessionUserId = "user-m100-term-" + randomUUID().slice(0, 8);
+    let checkInId = "";
+
+    beforeAll(async () => {
+      await run(
+        `INSERT OR IGNORE INTO "User" ("id", "email", "password", "name", "role", "createdAt", "updatedAt")
+         VALUES (?, 'terminated@example.com', 'NOPASSWORD', 'Terminated Candidate', 'EMPLOYEE', ?, ?)`,
+        [sessionUserId, now, now],
+      );
+      checkInId = await ensureApprovedCheckInForM100(sessionUserId, "Terminated Candidate", "M100-TERM-01");
+    });
+
+    it("marks an M100 auto-approved session as TERMINATED and records the admin", async () => {
+      const res = await terminateM100CheckIn(checkInId, "Admin Jane");
+      expect(res.status).toBe("TERMINATED");
+
+      const row = await one<{ status: string; notes: string; approvedBy: string }>(
+        'SELECT "status", "notes", "approvedBy" FROM "CheckIn" WHERE "id" = ?',
+        [checkInId],
+      );
+      expect(row?.status).toBe("TERMINATED");
+      expect(row?.notes).toContain("Terminated by Admin Jane");
+      expect(row?.approvedBy).toContain("M100");
+    });
+
+    it("refuses to resurrect a terminated session when the employee checks in again", async () => {
+      await expect(
+        ensureApprovedCheckInForM100(sessionUserId, "Terminated Candidate", "M100-TERM-01"),
+      ).rejects.toThrow(/terminated by an administrator/i);
+    });
+
+    it("rejects termination of sessions that were not authorised by an M100 code", async () => {
+      const id = randomUUID();
+      await run(
+        `INSERT INTO "CheckIn" ("id", "employeeName", "status", "checkedInAt", "approvedAt", "approvedBy")
+         VALUES (?, 'Manual Candidate', 'APPROVED', ?, ?, 'Admin Jane')`,
+        [id, now, now],
+      );
+      await expect(terminateM100CheckIn(id, "Admin Jane")).rejects.toThrow(/M100/);
+    });
+
+    it("reports a conflict when the session is already terminated", async () => {
+      await expect(terminateM100CheckIn(checkInId, "Admin Jane")).rejects.toThrow(/already terminated/i);
     });
   });
 
