@@ -1,3 +1,5 @@
+import { SessionWatcher } from "@/components/SessionWatcher";
+
 // Attempt state is per-user and time-sensitive: never prerender it.
 export const dynamic = "force-dynamic";
 
@@ -8,5 +10,11 @@ export const dynamic = "force-dynamic";
  * screen should be the ones the candidate actually needs.
  */
 export default function ExamLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      {/* Signs the candidate out mid-exam if an admin pauses or terminates them. */}
+      <SessionWatcher />
+      {children}
+    </>
+  );
 }
