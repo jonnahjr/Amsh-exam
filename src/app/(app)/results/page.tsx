@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getSessionUser } from "@/lib/auth";
-import { listAllResults, listResultsForUser, statsForUser } from "@/server/results";
+import { listAllResults } from "@/server/results";
 import {
   EmptyState,
   PageHeader,
@@ -18,55 +18,46 @@ export default async function ResultsPage() {
   const user = await getSessionUser();
   if (!user) redirect("/login");
 
-  const isStudent = user.role === "STUDENT" || user.role === "EMPLOYEE";
-  const [results, stats] = await Promise.all([
-    isStudent ? listResultsForUser(user.id) : listAllResults(),
-    isStudent ? statsForUser(user.id) : Promise.resolve(null),
-  ]);
+  const isStaff = user.role === "INSTRUCTOR" || user.role === "ADMINISTRATOR";
+  if (!isStaff) {
+    redirect("/exams");
+  }
+
+  const results = await listAllResults();
+  const totalAttempts = results.length;
+  const passedCount = results.filter((r) => r.passStatus === "PASS").length;
+  const avgScore = totalAttempts > 0 ? Math.round(results.reduce((acc, r) => acc + r.percentage, 0) / totalAttempts) : 0;
+  const bestScore = totalAttempts > 0 ? Math.max(...results.map((r) => r.percentage)) : 0;
 
   return (
     <div className="results-white-theme">
       <PageHeader
-        title={isStudent ? "Your results" : "All student results"}
-        description={
-          isStudent
-            ? "Every attempt you have submitted, newest first. Open one to see the full answer review."
-            : `Showing the ${results.length} most recent submitted attempts across all students.`
-        }
+        title="All student results"
+        description={`Showing the ${results.length} most recent submitted attempts across all candidates.`}
       />
 
       <div className="stack">
-        {stats && (
+        {totalAttempts > 0 && (
           <div className="grid">
-            <Stat label="Attempts" value={stats.attempts} />
-            <Stat
-              label="Average"
-              value={stats.attempts === 0 ? "—" : `${stats.averagePercentage}%`}
-            />
-            <Stat label="Best" value={stats.attempts === 0 ? "—" : `${stats.bestPercentage}%`} />
-            <Stat label="Passed" value={`${stats.passed} / ${stats.attempts}`} />
+            <Stat label="Total Submissions" value={totalAttempts} />
+            <Stat label="Average Score" value={`${avgScore}%`} />
+            <Stat label="Highest Score" value={`${bestScore}%`} />
+            <Stat label="Passed" value={`${passedCount} / ${totalAttempts}`} />
           </div>
         )}
 
         {results.length === 0 ? (
           <EmptyState title="No results yet">
             <p className="muted">
-              {isStudent
-                ? "Sit an exam and your marked result will appear here."
-                : "No student has submitted an exam yet."}
+              No student has submitted an exam yet.
             </p>
-            {isStudent && (
-              <Link className="btn btn-primary" href="/exams">
-                Browse exams
-              </Link>
-            )}
           </EmptyState>
         ) : (
           <div className="table-wrap">
             <table>
               <thead>
                 <tr>
-                  {!isStudent && <th>Student</th>}
+                  <th>Student</th>
                   <th>Exam</th>
                   <th className="num">Score</th>
                   <th className="num">Marks</th>
@@ -85,11 +76,9 @@ export default async function ResultsPage() {
                   };
                   return (
                     <tr key={result.id}>
-                      {!isStudent && (
-                        <td>
-                          {withStudent.studentName ?? withStudent.studentEmail ?? "Unknown"}
-                        </td>
-                      )}
+                      <td>
+                        {withStudent.studentName ?? withStudent.studentEmail ?? "Unknown"}
+                      </td>
                       <td>{result.templateName}</td>
                       <td className="num">
                         <strong>{result.percentage}%</strong>

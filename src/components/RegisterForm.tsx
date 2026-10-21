@@ -109,24 +109,19 @@ export function RegisterForm() {
         </div>
 
         <div className="field">
-          <div className="row-between" style={{ alignItems: "center", marginBottom: 4 }}>
-            <label htmlFor="m100Code" style={{ margin: 0 }}>
-              M100 Employee Code
-            </label>
-            <span className="badge badge-accent" style={{ fontSize: "0.72rem" }}>
-              Instant Access
-            </span>
-          </div>
+          <label htmlFor="m100Code">
+            Employee Code
+          </label>
           <input
             id="m100Code"
             type="text"
             value={m100Code}
             onChange={(event) => setM100Code(event.target.value.toUpperCase())}
-            placeholder="e.g. M100-AMSH-001"
+            placeholder=""
             style={{ fontFamily: "monospace", letterSpacing: "0.05em", fontWeight: 600 }}
           />
           <div className="field-hint">
-            Employees with a valid M100 code skip administrator approval and start taking exams immediately.
+            Employees with a valid code skip administrator approval and start taking exams immediately.
           </div>
         </div>
 

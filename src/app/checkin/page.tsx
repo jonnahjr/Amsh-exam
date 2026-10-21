@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Footer } from "@/components/Footer";
 
 type Phase = "form" | "waiting" | "approved" | "rejected";
@@ -136,9 +135,6 @@ export default function CheckInPage() {
         {phase === "form" && (
           <div className="checkin-body">
             <h1 className="checkin-title">Employee Exam Portal</h1>
-            <p className="checkin-desc">
-              Enter your full name and M100 code for <strong>instant automatic exam access</strong> without waiting for administrator approval.
-            </p>
 
             {error && (
               <div className="alert alert-error" style={{ marginBottom: 20 }}>
@@ -162,25 +158,20 @@ export default function CheckInPage() {
               </div>
 
               <div className="field">
-                <div className="row-between" style={{ alignItems: "center", marginBottom: 4 }}>
-                  <label htmlFor="m100-code" style={{ margin: 0 }}>
-                    M100 Employee Code
-                  </label>
-                  <span className="badge badge-accent" style={{ fontSize: "0.72rem" }}>
-                    Instant Activation
-                  </span>
-                </div>
+                <label htmlFor="m100-code">
+                  Employee Code
+                </label>
                 <input
                   id="m100-code"
                   type="text"
-                  placeholder="e.g. M100-AMSH-001 (Optional)"
+                  placeholder=""
                   value={m100Code}
                   onChange={(e) => setM100Code(e.target.value.toUpperCase())}
                   autoComplete="off"
                   style={{ fontFamily: "monospace", letterSpacing: "0.05em", fontWeight: 600 }}
                 />
                 <div className="field-hint">
-                  Have an M100 code? Enter it above to bypass the waiting queue. Leave blank to request manual administrator approval.
+                  Have an employee code? Enter it above to bypass the waiting queue. Leave blank to request manual administrator approval.
                 </div>
               </div>
 
@@ -197,10 +188,6 @@ export default function CheckInPage() {
                   : "Request Check-In →"}
               </button>
             </form>
-
-            <div style={{ marginTop: 20, textAlign: "center", fontSize: "0.85rem", color: "var(--text-muted)" }}>
-              Need an account with password? <Link href="/register" style={{ color: "var(--accent)", fontWeight: 600 }}>Register with M100 code</Link>
-            </div>
           </div>
         )}
 
@@ -218,7 +205,7 @@ export default function CheckInPage() {
               <span className="checkin-timer-value">{formatTime(elapsed)}</span>
             </div>
             <p className="faint small" style={{ marginTop: 16 }}>
-              Tip: If you have an M100 code, you can start over and enter it for instant access.
+              Tip: If you have an employee code, you can start over and enter it for instant access.
             </p>
             <button
               type="button"
@@ -226,28 +213,28 @@ export default function CheckInPage() {
               style={{ marginTop: 20 }}
               onClick={reset}
             >
-              ← Enter M100 Code instead
+              ← Enter Employee Code instead
             </button>
           </div>
         )}
 
-        {/* Approved phase (instant for M100, or after manual approval) */}
+        {/* Approved phase (instant for code, or after manual approval) */}
         {phase === "approved" && (
           <div className="checkin-body" style={{ textAlign: "center" }}>
             <div className="checkin-result-icon checkin-result-ok">✓</div>
             <h1 className="checkin-title" style={{ color: "var(--success)", marginTop: 20 }}>
-              {isM100Approved ? "M100 Code Verified!" : "Session Approved!"}
+              {isM100Approved ? "Employee Code Verified!" : "Session Approved!"}
             </h1>
             <p className="checkin-desc">
               Welcome, <strong style={{ color: "var(--text)" }}>{name}</strong>!
               <br />
               {isM100Approved
-                ? "Your M100 employee code has been validated. Exam access is active immediately."
+                ? "Your employee code has been validated. Exam access is active immediately."
                 : "Your session has been approved by the administrator."}
             </p>
             {isM100Approved ? (
               <div className="badge badge-accent" style={{ padding: "6px 14px", fontSize: "0.85rem", marginBottom: 20 }}>
-                Automatic M100 Authorization Active
+                Automatic Authorization Active
               </div>
             ) : (
               <div className="checkin-elapsed" style={{ marginBottom: 20 }}>
@@ -272,7 +259,7 @@ export default function CheckInPage() {
               Request Declined
             </h1>
             <p className="checkin-desc">
-              Your check-in was not approved. Please contact an administrator or provide a valid M100 employee code.
+              Your check-in was not approved. Please contact an administrator or provide a valid employee code.
             </p>
             <button
               type="button"

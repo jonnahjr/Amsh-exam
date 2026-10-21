@@ -12,15 +12,7 @@ export default async function NewQuestionPage() {
   if (!user) redirect("/login");
 
   if (!canAuthorContent(user)) {
-    return (
-      <div className="empty">
-        <h3>Instructors only</h3>
-        <p className="muted">Your account does not have permission to author questions.</p>
-        <Link className="btn" href="/questions">
-          Back to the question bank
-        </Link>
-      </div>
-    );
+    redirect("/exams");
   }
 
   return (

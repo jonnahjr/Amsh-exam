@@ -13,15 +13,7 @@ export default async function EditQuestionPage({ params }: { params: { id: strin
   if (!user) redirect("/admin/login");
 
   if (!canAuthorContent(user)) {
-    return (
-      <div className="empty">
-        <h3>Instructors & Admins only</h3>
-        <p className="muted">Your account does not have permission to edit questions.</p>
-        <Link className="btn" href="/questions">
-          Back to question bank
-        </Link>
-      </div>
-    );
+    redirect("/exams");
   }
 
   const question = await findQuestionById(params.id);
