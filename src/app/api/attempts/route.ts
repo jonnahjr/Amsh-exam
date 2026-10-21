@@ -7,6 +7,7 @@ import { startAttempt } from "@/server/attempts";
 import { clientAddress, recordAudit } from "@/server/audit";
 import { one } from "@/lib/db";
 import { ForbiddenError } from "@/lib/errors";
+import { validateM100Code, ensureApprovedCheckInForM100 } from "@/server/m100";
 
 export const dynamic = "force-dynamic";
 
@@ -16,9 +17,9 @@ export async function POST(request: Request): Promise<NextResponse> {
     const body = await readJsonBody(request);
     const input = startAttemptSchema.parse(body);
 
-    // Candidates (EMPLOYEE / STUDENT) must have an active APPROVED check-in to start an exam
+    // Candidates (EMPLOYEE / STUDENT) must have an active APPROVED check-in or valid M100 code to start an exam
     if (user.role === "EMPLOYEE" || user.role === "STUDENT") {
-      const activeCheckin = await one<{ id: string }>(
+      let activeCheckin = await one<{ id: string }>(
         `SELECT "id" FROM "CheckIn"
          WHERE ("id" = ? OR LOWER("employeeName") = LOWER(?))
            AND "status" = 'APPROVED'
@@ -26,9 +27,25 @@ export async function POST(request: Request): Promise<NextResponse> {
          LIMIT 1`,
         [user.id, user.name ?? ""],
       );
+
+      // Check if user has a valid M100 code attached to their account
+      if (!activeCheckin) {
+        const userRow = await one<{ m100Code: string | null }>(
+          `SELECT "m100Code" FROM "User" WHERE "id" = ?`,
+          [user.id],
+        );
+        if (userRow?.m100Code) {
+          const m100Val = await validateM100Code(userRow.m100Code, user.id);
+          if (m100Val.valid) {
+            await ensureApprovedCheckInForM100(user.id, user.name ?? user.email, userRow.m100Code);
+            activeCheckin = { id: user.id };
+          }
+        }
+      }
+
       if (!activeCheckin) {
         throw new ForbiddenError(
-          "Your check-in session has ended or been completed. Please check in at the desk to receive authorization for an exam.",
+          "Your exam session is not authorized. Please check in with a valid M100 code or obtain administrator approval to begin.",
         );
       }
     }

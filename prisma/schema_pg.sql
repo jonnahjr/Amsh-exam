@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS "User" (
   "name"       TEXT,
   "role"       TEXT NOT NULL DEFAULT 'EMPLOYEE'
                  CHECK ("role" IN ('STUDENT','EMPLOYEE','INSTRUCTOR','ADMINISTRATOR')),
+  "m100Code"   TEXT,
   "createdAt"  TEXT NOT NULL,
   "updatedAt"  TEXT NOT NULL
 );
@@ -257,9 +258,27 @@ CREATE TABLE IF NOT EXISTS "CheckIn" (
   "checkedInAt"  TEXT NOT NULL,
   "approvedAt"   TEXT,
   "approvedBy"   TEXT,
+  "m100Code"     TEXT,
   "sessionToken" TEXT,
   "notes"        TEXT
 );
 
 CREATE INDEX IF NOT EXISTS "idx_checkin_status" ON "CheckIn"("status");
 CREATE INDEX IF NOT EXISTS "idx_checkin_employee" ON "CheckIn"("employeeName");
+
+-- ------------------------------------------------------------- m100 ---------
+CREATE TABLE IF NOT EXISTS "AuthorizedM100Code" (
+  "id"           TEXT PRIMARY KEY,
+  "code"         TEXT UNIQUE NOT NULL,
+  "employeeName" TEXT,
+  "department"   TEXT,
+  "isActive"     BOOLEAN NOT NULL DEFAULT true,
+  "isUsed"       BOOLEAN NOT NULL DEFAULT false,
+  "usedByUserId" TEXT,
+  "usedAt"       TEXT,
+  "createdAt"    TEXT NOT NULL,
+  "updatedAt"    TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS "idx_m100_code" ON "AuthorizedM100Code"("code");
+

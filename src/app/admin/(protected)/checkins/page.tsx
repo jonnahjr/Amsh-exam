@@ -9,6 +9,7 @@ interface CheckIn {
   checkedInAt: string;
   approvedAt: string | null;
   approvedBy: string | null;
+  m100Code?: string | null;
   totalAttempts?: number;
   totalCompleted?: number;
   bestScore?: number | null;
@@ -180,7 +181,16 @@ export default function AdminCheckInsPage() {
               <tbody>
                 {done.map((row) => (
                   <tr key={row.id}>
-                    <td style={{ fontWeight: 600 }}>{row.employeeName}</td>
+                    <td style={{ fontWeight: 600 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span>{row.employeeName}</span>
+                        {row.m100Code && (
+                          <span className="badge badge-accent" style={{ fontSize: "0.72rem", padding: "2px 6px" }}>
+                            {row.m100Code}
+                          </span>
+                        )}
+                      </div>
+                    </td>
                     <td>
                       <span className="badge" style={{ fontWeight: 600 }}>
                         {row.totalAttempts ?? 0} time{(row.totalAttempts ?? 0) === 1 ? "" : "s"}
@@ -202,7 +212,15 @@ export default function AdminCheckInsPage() {
                     <td className="muted small">
                       {row.approvedAt ? new Date(row.approvedAt).toLocaleTimeString() : "—"}
                     </td>
-                    <td className="muted small">{row.approvedBy ?? "—"}</td>
+                    <td className="small">
+                      {row.approvedBy?.includes("M100") ? (
+                        <span style={{ color: "var(--success)", fontWeight: 600 }}>
+                          ⚡ M100 Auto
+                        </span>
+                      ) : (
+                        <span className="muted">{row.approvedBy ?? "—"}</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>

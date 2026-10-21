@@ -6,6 +6,7 @@ import { findTemplateWithNames } from "@/server/templates";
 import { findActiveAttempt } from "@/server/attempts";
 import { StartExamButton } from "@/components/StartExamButton";
 import { one } from "@/lib/db";
+import { validateM100Code } from "@/server/m100";
 
 export const dynamic = "force-dynamic";
 
@@ -33,7 +34,20 @@ export default async function ExamDetailPage({ params }: { params: { slug: strin
        LIMIT 1`,
       [user.id, user.name ?? ""],
     );
-    hasApprovedCheckin = Boolean(checkin);
+    if (checkin) {
+      hasApprovedCheckin = true;
+    } else {
+      const userRow = await one<{ m100Code: string | null }>(
+        `SELECT "m100Code" FROM "User" WHERE "id" = ?`,
+        [user.id],
+      );
+      if (userRow?.m100Code) {
+        const m100Val = await validateM100Code(userRow.m100Code, user.id);
+        hasApprovedCheckin = m100Val.valid;
+      } else {
+        hasApprovedCheckin = false;
+      }
+    }
   }
 
   return (

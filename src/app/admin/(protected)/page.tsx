@@ -9,6 +9,7 @@ export const dynamic = "force-dynamic";
 
 interface CandidateStat {
   candidateName: string;
+  m100Code?: string | null;
   totalCheckIns: number;
   totalAttempts: number;
   totalCompleted: number;
@@ -32,6 +33,12 @@ export default async function AdminDashboardPage() {
     all<CandidateStat>(`
     SELECT 
       c."employeeName" AS "candidateName",
+      (
+        SELECT u2."m100Code" 
+        FROM "User" u2 
+        WHERE LOWER(u2."name") = LOWER(c."employeeName") AND u2."m100Code" IS NOT NULL
+        LIMIT 1
+      ) AS "m100Code",
       COUNT(c."id") AS "totalCheckIns",
       (
         SELECT COUNT(DISTINCT ea."id") 
@@ -207,7 +214,14 @@ export default async function AdminDashboardPage() {
                   {candidateStats.map((item) => (
                     <tr key={item.candidateName}>
                       <td style={{ fontWeight: 600, color: "var(--text)" }}>
-                        {item.candidateName}
+                        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                          <span>{item.candidateName}</span>
+                          {item.m100Code && (
+                            <span className="badge badge-accent" style={{ fontSize: "0.72rem", padding: "2px 6px" }}>
+                              {item.m100Code}
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td>
                         <span
