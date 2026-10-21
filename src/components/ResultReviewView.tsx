@@ -195,29 +195,6 @@ export function ResultReviewView({
             </div>
           </div>
         </div>
-
-        {/* 4 Stats Metric Tiles */}
-        <div className="res-stats-grid">
-          <div className="res-stat-card res-stat-correct">
-            <div className="res-stat-num">{result.correctAnswers}</div>
-            <div className="res-stat-text">Correct</div>
-          </div>
-
-          <div className="res-stat-card res-stat-incorrect">
-            <div className="res-stat-num">{result.incorrectAnswers}</div>
-            <div className="res-stat-text">Incorrect</div>
-          </div>
-
-          <div className="res-stat-card res-stat-unanswered">
-            <div className="res-stat-num">{result.unansweredQuestions}</div>
-            <div className="res-stat-text">Unanswered</div>
-          </div>
-
-          <div className="res-stat-card res-stat-total">
-            <div className="res-stat-num">{result.totalQuestions}</div>
-            <div className="res-stat-text">Questions</div>
-          </div>
-        </div>
       </div>
 
       {/* Question Matrix Drawer / Navigator */}
