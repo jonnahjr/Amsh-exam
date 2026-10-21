@@ -26,3 +26,27 @@ export async function POST(): Promise<NextResponse> {
     return handleError(error);
   }
 }
+
+/** Clear session and redirect (e.g. returning candidate to check-in). */
+export async function GET(request: Request): Promise<NextResponse> {
+  try {
+    const user = await getSessionUser();
+    if (user) {
+      recordAudit({
+        userId: user.id,
+        action: "LOGOUT",
+        entity: "User",
+        entityId: user.id,
+      });
+    }
+
+    const { searchParams } = new URL(request.url);
+    const next = searchParams.get("next") || "/checkin";
+    const redirectUrl = new URL(next, request.url);
+    const response = NextResponse.redirect(redirectUrl);
+    response.cookies.set(SESSION_COOKIE, "", { ...sessionCookieOptions(), maxAge: 0 });
+    return response;
+  } catch (error) {
+    return handleError(error);
+  }
+}

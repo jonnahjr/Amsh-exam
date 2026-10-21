@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { handleError, created, ok, readJsonBody } from "@/lib/http";
 import { canAuthorContent, requireRole } from "@/lib/auth";
 import { listQuerySchema, questionInputSchema } from "@/lib/validation";
@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request): Promise<NextResponse> {
   try {
-    const user = await requireRole("STUDENT");
+    const user = await requireRole("INSTRUCTOR", "ADMINISTRATOR");
     const url = new URL(request.url);
     const filters = listQuerySchema.parse(Object.fromEntries(url.searchParams));
 

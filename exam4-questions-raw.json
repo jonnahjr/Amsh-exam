@@ -1,0 +1,802 @@
+[
+  {
+    "id": "1cc89dbe-6107-4d35-981c-5297eff23df1",
+    "questionId": "1cc89dbe-6107-4d35-981c-5297eff23df1",
+    "questionText": "What do behavioral competency units integrate to drive operational excellence in public sector operations?",
+    "options": "[\"Knowledge, skills, and cognitive perspective\",\"Political affiliations and personal connections\",\"Financial budgets and equipment assets\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "5e26dd6f-76dd-4bc0-976f-73240771fe96",
+    "questionId": "5e26dd6f-76dd-4bc0-976f-73240771fe96",
+    "questionText": "External consulting reports and software licenses What type of mindset does the Work pillar foster in civil servants regarding daily responsibilities?",
+    "options": "[\"Aligning them directly with institutional policies, strategies, and plans\",\"Treating them as temporary administrative chores\",\"Delegating all tasks to external contractors\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "731c93af-cc66-45dc-bc39-e862e85c37a1",
+    "questionId": "731c93af-cc66-45dc-bc39-e862e85c37a1",
+    "questionText": "Ignoring institutional strategies completely What cognitive discipline enables professionals to see the broader systemic horizon and connect daily tasks to national development outcomes?",
+    "options": "[\"Strategic Thinking\",\"Short-term firefighting\",\"Reactive data entry\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "8f3d2db9-828f-4b2d-ac92-7c06ed7fdcf8",
+    "questionId": "8f3d2db9-828f-4b2d-ac92-7c06ed7fdcf8",
+    "questionText": "Tactical compliance How does the document describe the relationship between strategic leadership and government policy?",
+    "options": "[\"As a bridge between high-level government policy and grassroots execution\",\"As an entirely separate political division\",\"As a barrier that blocks policy implementation\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e463009d-53c7-4524-959a-cfbfd741e386",
+    "questionId": "e463009d-53c7-4524-959a-cfbfd741e386",
+    "questionText": "s a mechanism for avoiding state laws What is the effect of prioritizing high-impact initiatives during resource allocation?",
+    "options": "[\"Maximizing public investment returns and eliminating wasteful redundancy\",\"Increasing administrative costs across all departments\",\"Slowing down public service delivery\",\"C\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e66ddc91-5244-43de-a20f-f40d17ad8dc1",
+    "questionId": "e66ddc91-5244-43de-a20f-f40d17ad8dc1",
+    "questionText": "reating duplicated spending units What does weak strategic capability manifest as in daily work patterns?",
+    "options": "[\"Reactive decision-making, isolated silos, and ignoring macro-environmental shifts\",\"Advanced future foresight and data-driven analysis\",\"Seamless cross-sectoral coordination\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "f30c1f5d-09ec-4bba-8464-48fca74c9019",
+    "questionId": "f30c1f5d-09ec-4bba-8464-48fca74c9019",
+    "questionText": "Proactive risk mitigation What competency level represents a \"Visionary / Systems Thinker\" on the 3-tier behavioral scale?",
+    "options": "[\"Level 1\",\"Level 2\",\"Level 3\",\"\"]",
+    "correctOptionIndices": "[2]",
+    "explanation": null
+  },
+  {
+    "id": "0e36a132-7e54-4961-8438-7d3b66585f43",
+    "questionId": "0e36a132-7e54-4961-8438-7d3b66585f43",
+    "questionText": "Level 0 What tool requires candidates to take a broad national proclamation and translate it into a structured institutional strategy with KPIs?",
+    "options": "[\"Policy-Drafting Simulations\",\"The Eisenhower Matrix\",\"PESTEL Analysis\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "d4eaab52-7029-4753-8d7b-0f18053fd17c",
+    "questionId": "d4eaab52-7029-4753-8d7b-0f18053fd17c",
+    "questionText": "Passive clock-watching logs What official civil service description defines innovation regarding operational systems?",
+    "options": "[\"Transforming mindsets, generating/contextualizing new ideas into practical applications, and evaluating events from multiple angles\",\"Strictly enforcing historical administrative precedents without change\",\"Banning all digital tools in favor of manual record-keeping\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "5f13c689-1dc8-4055-9ce4-88ea401c3ff1",
+    "questionId": "5f13c689-1dc8-4055-9ce4-88ea401c3ff1",
+    "questionText": "Replacing all legislation with personal opinions What is the role of prototyping and pilot testing under the innovation competency?",
+    "options": "[\"To test small-scale models or draft workflows before agency-wide rollout\",\"To guarantee immediate project failure across all units\",\"To increase processing times and red tape\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "5b10268b-5f74-4138-8a2f-bcb424735996",
+    "questionId": "5b10268b-5f74-4138-8a2f-bcb424735996",
+    "questionText": "To punish employees who make minor errors How does market building define the economic role of public administrators?",
+    "options": "[\"As economic enablers who design, facilitate, and nurture environments where commerce and investment thrive\",\"As restrictive gatekeepers who police compliance with suspicion\",\"As private business owners competing against startups\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "aa25b585-24b0-4f51-9872-ce731626224c",
+    "questionId": "aa25b585-24b0-4f51-9872-ce731626224c",
+    "questionText": "s passive observers of market fluctuations What does value chain mapping systematically break down in an industry?",
+    "options": "[\"The lifecycle from raw material sourcing to final consumer delivery to pinpoint cost inflations and bottlenecks\",\"The personal bank accounts of corporate executives\",\"The political affiliations of chamber of commerce members\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e6b71c3f-41d3-4219-a7f7-04cb7bc6d25d",
+    "questionId": "e6b71c3f-41d3-4219-a7f7-04cb7bc6d25d",
+    "questionText": "The ideal parking layouts for government offices What is the purpose of establishing Regulatory Impact Assessments (RIAs)?",
+    "options": "[\"To measure the potential financial, operational, and compliance burden of new rules on businesses before enactment\",\"To delay administrative approvals indefinitely\",\"To increase tax collection quotas by 300%\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b6e3dccc-589e-4072-a8a7-476f9beb6130",
+    "questionId": "b6e3dccc-589e-4072-a8a7-476f9beb6130",
+    "questionText": "To eliminate all consumer protection standards What operational function does role-modeling leadership serve within civil service structures?",
+    "options": "[\"Serving as the operational bridge between high-level policy guidelines and everyday public service delivery\",\"Acting as a strict punitive police force\",\"Replacing all legal proclamations with personal discretion\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "8d14b6f0-92df-4bf1-9987-0a9035298f70",
+    "questionId": "8d14b6f0-92df-4bf1-9987-0a9035298f70",
+    "questionText": "Eliminating the need for any performance appraisals What sub-competency under role-modeling leadership involves remaining calm and solution-oriented during crises?",
+    "options": "[\"Resilience, Composure, and Steadfastness Under Pressure\",\"Authoritarian Command and Control\",\"Reactive Operational Firefighting\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "ea371d43-fb6e-4923-8f8a-fe6f7dfcb97f",
+    "questionId": "ea371d43-fb6e-4923-8f8a-fe6f7dfcb97f",
+    "questionText": "ureaucratic Arrogance What is the functional difference between functional information-sharing and strategic influencing?",
+    "options": "[\"Information-sharing is neutral data transmission, whereas strategic influencing shapes attitudes, aligns interests, and mobilizes action\",\"Information-sharing is illegal, while influencing is mandatory\",\"Strategic influencing involves sending blank emails\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "32246a47-6599-49e9-a685-2b91617781a1",
+    "questionId": "32246a47-6599-49e9-a685-2b91617781a1",
+    "questionText": "There is no practical difference What does empathic listening involve during professional interactions?",
+    "options": "[\"Tuning into underlying emotions, frustrations, and anxieties of the speaker\",\"Planning your next interruption while the other person speaks\",\"Ignoring the speaker's emotional state entirely\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b7f569a7-88d8-4f29-a1f7-009b382ad342",
+    "questionId": "b7f569a7-88d8-4f29-a1f7-009b382ad342",
+    "questionText": "Enforcing strict administrative compliance through intimidation What core outcome does active collaborative synergy produce in teamwork?",
+    "options": "[\"Outcomes far greater than the sum of individual efforts (1+1 equals more than 2)\",\"Increased departmental isolation and turf wars\",\"Slower project delivery and duplicated administrative efforts\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "8bdfb792-ac16-4176-8e16-6d4e0e77ed75",
+    "questionId": "8bdfb792-ac16-4176-8e16-6d4e0e77ed75",
+    "questionText": "Zero communication between cross-functional units What is emotional self-control defined as under emotional intelligence?",
+    "options": "[\"The ability to keep impulsive feelings and disruptive emotions in check, preventing reactive outbursts during high-pressure meetings\",\"The technical skill to program artificial intelligence databases\",\"The authority to command obedience through fear\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "d0f74e92-0fb0-4e04-b341-da87f77c6aa0",
+    "questionId": "d0f74e92-0fb0-4e04-b341-da87f77c6aa0",
+    "questionText": "The habit of suppressing all human thoughts How does emotional intelligence assist in ethical governance?",
+    "options": "[\"By providing the personal courage and self-confidence to withstand undue political, peer, or hierarchical pressure to bend rules\",\"By replacing all anti-corruption laws with personal feelings\",\"By allowing employees to ignore compliance audits\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "7e4c8578-9c4f-42f4-b849-a7dcc359f4d5",
+    "questionId": "7e4c8578-9c4f-42f4-b849-a7dcc359f4d5",
+    "questionText": "Emotional intelligence has no link to ethics What dimension of ethics focuses on an internalized, personal commitment to public service values and national growth objectives?",
+    "options": "[\"Compliance-based ethics\",\"Value-based ethics\",\"Relational ethics\",\"A\"]",
+    "correctOptionIndices": "[1]",
+    "explanation": null
+  },
+  {
+    "id": "8ba3e40b-ee7a-4670-abc6-b3dfa6ab6ffa",
+    "questionId": "8ba3e40b-ee7a-4670-abc6-b3dfa6ab6ffa",
+    "questionText": "uthoritarian ethics What does relational ethics center on in everyday workplace interactions?",
+    "options": "[\"Mutual respect for diversity, human dignity, and strict professional boundaries\",\"Strict adherence to formal rules and anti-corruption laws\",\"Financial gain and commercial lobbying\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "1c2b31ca-e069-4320-a690-a62c429be06e",
+    "questionId": "1c2b31ca-e069-4320-a690-a62c429be06e",
+    "questionText": "Personal favoritism and nepotism What is the difference between demographic diversity and behavioral inclusivity?",
+    "options": "[\"Demographic diversity is quantitative (who is in the room), while behavioral inclusivity is qualitative (whether everyone's voice is leveraged and respected)\",\"Demographic diversity is illegal, while inclusivity is optional\",\"There is no structural distinction\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "5ce63872-95d7-4ef7-a469-0cf6cb1e461b",
+    "questionId": "5ce63872-95d7-4ef7-a469-0cf6cb1e461b",
+    "questionText": "ehavioral inclusivity only applies to executive directors How does behavioral inclusivity impact marginalized staff members?",
+    "options": "[\"It ensures they feel genuinely welcomed, heard, valued, and empowered to contribute\",\"It isolates them in separate departmental offices\",\"It forces them to abandon their cultural background\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "f1e8b74f-078a-4982-b47c-e21faab449b1",
+    "questionId": "f1e8b74f-078a-4982-b47c-e21faab449b1",
+    "questionText": "It has zero impact on staff morale What competency element combines technical functional mastery with an active, passionate drive and task ownership?",
+    "options": "[\"Proficiency and Engagement\",\"Passive Clock-Watching\",\"Bureaucratic Indifference\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "f3f37d22-c19c-4fcb-8051-c698ce2bd92c",
+    "questionId": "f3f37d22-c19c-4fcb-8051-c698ce2bd92c",
+    "questionText": "uthoritarian Command What does servanthood represent as a foundational public service competency?",
+    "options": "[\"The professional mindset and moral commitment of putting citizens first, viewing public office as a sacred duty\",\"The administrative right to demand unnecessary delays\",\"The process of collecting government taxes through intimidation\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e892313e-50b6-4f42-b971-9257d3ff82bd",
+    "questionId": "e892313e-50b6-4f42-b971-9257d3ff82bd",
+    "questionText": "The maintenance of state office security What is the purpose of establishing Citizen Charter frameworks?",
+    "options": "[\"To publish explicit, easily accessible commitments detailing service requirements, processing times, fees, and citizen rights\",\"To hide processing delays from oversight bodies\",\"To punish employees who take leave\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "18c0b568-f742-42ad-a8ff-14208f70f6ef",
+    "questionId": "18c0b568-f742-42ad-a8ff-14208f70f6ef",
+    "questionText": "To decorate office walls How does active priority management differ from passive clock-watching?",
+    "options": "[\"Active priority management focuses on value generation, strategic sequencing, and output velocity rather than mere temporal compliance\",\"Clock-watching is much more efficient for complex projects\",\"Priority management requires no scheduling tools\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "21c80b81-4e5d-4e4b-a876-ddb63928ddd9",
+    "questionId": "21c80b81-4e5d-4e4b-a876-ddb63928ddd9",
+    "questionText": "There is no distinction What category of activity is legally necessary for compliance or reporting but does not directly change the citizen's service experience?",
+    "options": "[\"Value-Adding activities\",\"Business-Non-Value-Adding activities\",\"Non-Value-Adding / Wasteful activities\",\"\"]",
+    "correctOptionIndices": "[1]",
+    "explanation": null
+  },
+  {
+    "id": "53f8fd4b-42e5-470f-b878-eb0a0334c954",
+    "questionId": "53f8fd4b-42e5-470f-b878-eb0a0334c954",
+    "questionText": "Strategic milestone execution What does carrying out responsibility represent as a foundational competency?",
+    "options": "[\"The unwavering commitment of a public servant to fulfill assigned duties accurately, on schedule, and in alignment with targets\",\"Doing the bare minimum required only when watched\",\"Passing difficult files to adjacent directorates\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "d6d46197-45de-4e57-b793-105f2d56841f",
+    "questionId": "d6d46197-45de-4e57-b793-105f2d56841f",
+    "questionText": "Memorizing regulatory rulebooks verbatim How does leadership extend beyond hierarchical rank?",
+    "options": "[\"It is an action-oriented mindset defined by personal accountability, initiative, and lifting team capability regardless of formal title\",\"It requires holding an executive office to function\",\"It means refusing all supervisory instructions\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "632acedf-6a3b-448b-8fa2-65446d337421",
+    "questionId": "632acedf-6a3b-448b-8fa2-65446d337421",
+    "questionText": "It only applies to external consultants What is the fundamental difference between authoritarian command-and-control and visionary leadership?",
+    "options": "[\"Command-and-control relies on hierarchy, fear, and rigid oversight, while visionary leadership relies on shared purpose, trust, and autonomy\",\"Command-and-control fosters extreme workplace innovation\",\"Visionary leadership punishes all mistakes severely\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "0449b891-23b6-46c2-a871-e5152b2a77bc",
+    "questionId": "0449b891-23b6-46c2-a871-e5152b2a77bc",
+    "questionText": "There is no difference What does situational leadership require managers to do?",
+    "options": "[\"Tailor management styles and behavioral support to match the specific readiness, maturity, and developmental needs of staff\",\"Enforce a rigid one-size-fits-all rule across all bureaus\",\"Eliminate the need for any supervisory guidance\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "263be905-df30-4f4c-aace-1dc6e886de4d",
+    "questionId": "263be905-df30-4f4c-aace-1dc6e886de4d",
+    "questionText": "utomate all executive decision-making What is the primary purpose of 360-degree feedback loops?",
+    "options": "[\"To gather structured performance evaluations from supervisors, peers, and direct reports to eliminate blind spots and foster growth\",\"To allow anonymous attacks on colleagues\",\"To prove that leaders are infallible\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "430a0858-3a1e-4163-a068-35cabd7f2263",
+    "questionId": "430a0858-3a1e-4163-a068-35cabd7f2263",
+    "questionText": "To replace formal performance appraisals What three pillars organize the 15 core behavioral competency elements?",
+    "options": "[\"Work, Human, and Result\",\"Strategic, Tactical, and Operational\",\"Individual, Team, and Organizational\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "604c9192-b326-42b1-9fb2-e3d6da60ff11",
+    "questionId": "604c9192-b326-42b1-9fb2-e3d6da60ff11",
+    "questionText": "Ethics, Execution, and Leadership What is the primary focus of the Human pillar?",
+    "options": "[\"Cognitive maturity, enhanced communication, robust collaboration, uncompromising ethics, and diversity\",\"Aligning daily responsibilities with institutional strategies\",\"Establishing systems that deliver high-impact services to citizens\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "6fdbbc6a-78f2-46ae-917f-7c5bcd0c0a45",
+    "questionId": "6fdbbc6a-78f2-46ae-917f-7c5bcd0c0a45",
+    "questionText": "Managing physical office infrastructure What does the Result pillar center on within public service administration?",
+    "options": "[\"Public servanthood, effective time management, rigorous discharge of responsibilities, and leadership artistry\",\"Fostering creative ideation and digital transformation\",\"Conducting PESTEL and SWOT market analyses\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "1daa9aa2-e812-4d99-a46b-c6d7614ee11d",
+    "questionId": "1daa9aa2-e812-4d99-a46b-c6d7614ee11d",
+    "questionText": "Increasing internal departmental meetings How does environmental scanning assist strategic professionals?",
+    "options": "[\"By actively monitoring the external macro-environment (demographics, technology, economics) to anticipate shifts before they become crises\",\"By ignoring external market trends entirely\",\"By focusing exclusively on daily administrative memos\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "99a87ac5-4114-48b5-8101-f75edf167b61",
+    "questionId": "99a87ac5-4114-48b5-8101-f75edf167b61",
+    "questionText": "y hiding regulatory risks from executive leadership What is the function of strategic planning and resource alignment?",
+    "options": "[\"Translating multi-year national strategies into phased institutional milestones and optimized resource allocation\",\"Distributing budgets equally without cost-benefit analysis\",\"Creating administrative bottlenecks and redundant spending\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "fad493d5-4630-4ce6-ab2a-5fd59fa3ac7e",
+    "questionId": "fad493d5-4630-4ce6-ab2a-5fd59fa3ac7e",
+    "questionText": "Eliminating the need for key performance indicators What behavioral indicator demonstrates high strategic thinking?",
+    "options": "[\"Regularly framing daily duties within the context of institutional strategic plans and relying on data-driven analysis\",\"Constantly putting out fires and handling issues purely as they land on the desk\",\"Working in isolated silos while ignoring adjacent units\",\"D\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "0ad78a15-5f47-49e6-9840-2059ccaf12d5",
+    "questionId": "0ad78a15-5f47-49e6-9840-2059ccaf12d5",
+    "questionText": "ismissing emerging technological trends What is the purpose of scenario planning and horizon scanning?",
+    "options": "[\"Building multiple plausible future operating scenarios to test policy resilience against diverse socio-economic futures\",\"Predicting exact future events with 100% supernatural certainty\",\"Halting all institutional operations until certainty is achieved\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "77be566e-5dd9-4164-b8d2-61eaaaeba6fb",
+    "questionId": "77be566e-5dd9-4164-b8d2-61eaaaeba6fb",
+    "questionText": "Replacing evidence-based research with intuition What does Level 2 (Meets Expectations) represent on the strategic thinking behavioral anchor scale?",
+    "options": "[\"Connects daily responsibilities to goals, utilizes basic tools like SWOT, and plans projects with clear milestones\",\"Focuses solely on immediate daily firefighting and ignores vision\",\"Demonstrates advanced future foresight and builds long-term roadmaps\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "d177f8e4-feae-44db-a85f-17b9f6b5bb35",
+    "questionId": "d177f8e4-feae-44db-a85f-17b9f6b5bb35",
+    "questionText": "Relies purely on guesswork rather than data How does innovation overcome bureaucratic inertia in public institutions?",
+    "options": "[\"By empowering civil servants to critically evaluate redundant sign-off layers and legacy administrative routines\",\"By encouraging employees to break all laws secretly\",\"By eliminating standard operating procedures entirely\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "a422b7b9-4b89-4d38-b01c-cf4ba0dd9fb0",
+    "questionId": "a422b7b9-4b89-4d38-b01c-cf4ba0dd9fb0",
+    "questionText": "y increasing the number of physical approval tiers What is the impact of high innovation competency on individual professional growth?",
+    "options": "[\"Enhanced problem-solving autonomy and standing out to executive leadership for promotions\",\"Forced demotion and loss of decision-making authority\",\"Increased risk of administrative penalties for creativity\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "189b266a-e15c-40d3-9336-2e3cc95e61d8",
+    "questionId": "189b266a-e15c-40d3-9336-2e3cc95e61d8",
+    "questionText": "Zero impact on career trajectory What does low innovation competency manifest as in the workplace?",
+    "options": "[\"Rigid adherence to outdated routines, resistance to technological change, and fear of experimentation\",\"Proactive digital workflow design and process re-engineering\",\"Safe-to-fail experimentation and continuous improvement\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "41f798c7-ad1c-40ae-98f7-cb08cb90add4",
+    "questionId": "41f798c7-ad1c-40ae-98f7-cb08cb90add4",
+    "questionText": "Successful pilot project incubation What is the purpose of enterprise support hubs and innovation grants?",
+    "options": "[\"To help local startups and small-and-medium enterprises scale high-value products and services\",\"To impose heavy compliance taxes on commercial operators\",\"To shut down academic and public research institutions\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "f3f18b46-12bd-4887-ad38-5e331dbb3ac6",
+    "questionId": "f3f18b46-12bd-4887-ad38-5e331dbb3ac6",
+    "questionText": "To eliminate financial market liquidity What does market building require public institutions to prioritize regarding national economic development?",
+    "options": "[\"Generating widespread employment opportunities and supporting high-impact private sectors\",\"Creating state monopolies that eliminate private enterprise\",\"Increasing administrative red tape for business registrations\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e2ff7a7a-7787-405d-83e5-78ae85ba8026",
+    "questionId": "e2ff7a7a-7787-405d-83e5-78ae85ba8026",
+    "questionText": "Restricting foreign direct investment completely How do public-private dialogue (PPD) forums support market building?",
+    "options": "[\"By establishing regular consultative platforms where regulators and entrepreneurs co-create solutions and review draft policies\",\"By giving corporations total control over government legislation\",\"By eliminating all consumer protection safeguards\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "036b246c-76ee-4fdc-9746-ea141f537231",
+    "questionId": "036b246c-76ee-4fdc-9746-ea141f537231",
+    "questionText": "y increasing regulatory friction and licensing costs What is the impact of role-modeling leadership on employee retention?",
+    "options": "[\"Lowering workplace friction, enhancing job satisfaction, and reducing costly employee turnover\",\"Forcing skilled professionals to resign immediately\",\"Increasing inter-office conflict and absenteeism\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b019097a-9715-410b-8921-7fc7753ec4c3",
+    "questionId": "b019097a-9715-410b-8921-7fc7753ec4c3",
+    "questionText": "Zero impact on staff retention How does a role-model leader ensure regulatory compliance?",
+    "options": "[\"By operating strictly within civil service laws, institutional guidelines, and anti-corruption frameworks\",\"By granting exemptions to personal acquaintances\",\"By ignoring statutory rules to speed up task delivery\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "7a6467df-bc92-4c83-8f4d-9348bd8ed019",
+    "questionId": "7a6467df-bc92-4c83-8f4d-9348bd8ed019",
+    "questionText": "y hiding administrative procedures from oversight bodies What sub-competency under communication involves designing well-organized official letters and operational reports?",
+    "options": "[\"Structured Reporting\",\"Monologic Broadcasting\",\"Authoritarian Coercion\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "74e22e68-b0d2-4598-83a9-3f8d6bccf637",
+    "questionId": "74e22e68-b0d2-4598-83a9-3f8d6bccf637",
+    "questionText": "mbiguous Messaging What is the effect of transparent communication on public trust?",
+    "options": "[\"Clarifying processes, eliminating suspicions of corruption, and strengthening institutional legitimacy\",\"Increasing public frustration and confusion\",\"Creating hidden administrative hurdles\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b6f5092a-744d-4e6a-a5ea-e26b2fb57ebd",
+    "questionId": "b6f5092a-744d-4e6a-a5ea-e26b2fb57ebd",
+    "questionText": "Zero impact on public perception What does low influencing skill manifest as during meetings?",
+    "options": "[\"Monopolizing discussions, interrupting peers, using ambiguous jargon, and relying on authoritative coercion\",\"Active listening, empathic validation, and win-win negotiation\",\"Encouraging junior staff to share unique viewpoints\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "dd889a2d-121e-4d54-bdd0-e32d6b3caa90",
+    "questionId": "dd889a2d-121e-4d54-bdd0-e32d6b3caa90",
+    "questionText": "Structuring logical arguments around shared goals How does emotional intelligence support crisis management?",
+    "options": "[\"High-EI leaders maintain composure, preventing panic and projecting stability across the workforce\",\"By broadcasting panic and shifting blame downward\",\"By locking office doors and ignoring operational emergencies\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "f33f8acf-c2fd-437f-a19a-59f3f9fadcee",
+    "questionId": "f33f8acf-c2fd-437f-a19a-59f3f9fadcee",
+    "questionText": "Emotional intelligence hinders crisis response What does emotional self-awareness involve as a sub-competency of EI?",
+    "options": "[\"Accurately recognizing one's emotions and understanding how they influence behavior before acting\",\"Hiding all emotional reactions from colleagues and clients\",\"Asserting social dominance over departmental peers\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "2f871ee8-9fca-4d4a-99d6-cc1efd3eb75b",
+    "questionId": "2f871ee8-9fca-4d4a-99d6-cc1efd3eb75b",
+    "questionText": "Relying entirely on intuition during audits What is the purpose of compliance-based ethics?",
+    "options": "[\"Ensuring civil servants execute duties squarely within formal rules, anti-corruption laws, and regulatory guidelines\",\"Allowing employees to invent new compliance rules daily\",\"Replacing legal statutes with personal opinions\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "afa40c8d-b01a-4f57-a0a4-68b3bfa7aaca",
+    "questionId": "afa40c8d-b01a-4f57-a0a4-68b3bfa7aaca",
+    "questionText": "Negotiating commercial contracts with private vendors What does cultural humility require professionals to examine?",
+    "options": "[\"Their own unconscious stereotypes, historical assumptions, and cultural blind spots\",\"The personal bank accounts of minority staff\",\"The political affiliations of public service recipients\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "588fee24-29bc-4730-a4d6-43ef6259c7fd",
+    "questionId": "588fee24-29bc-4730-a4d6-43ef6259c7fd",
+    "questionText": "Technical software programming codes What is the purpose of blind recruitment and meritocratic hiring?",
+    "options": "[\"Standardizing hiring to focus purely on professional competency and objective metrics, minimizing subjective bias\",\"Selecting candidates based on personal friendships and regional ties\",\"Eliminating all professional examinations\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "a5384daa-893e-4e68-b6ae-dd49bcb23278",
+    "questionId": "a5384daa-893e-4e68-b6ae-dd49bcb23278",
+    "questionText": "Promoting staff based strictly on seniority What does proficiency and engagement require in terms of capability and motivation?",
+    "options": "[\"Bridging functional qualifications and problem-solving capacity with the zeal, initiative, and drive to deliver results\",\"Separating technical skills completely from work enthusiasm\",\"Prioritizing personal career advancement over institutional goals\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "f3ab5e96-1076-4800-bf93-2972d8136e29",
+    "questionId": "f3ab5e96-1076-4800-bf93-2972d8136e29",
+    "questionText": "Relying on top-down administrative compulsion How does public stewardship eliminate bureaucratic arrogance?",
+    "options": "[\"By replacing elitism with profound humility, respect, and treating public office as a sacred duty to serve citizens\",\"By granting administrative staff special status symbols\",\"By increasing the number of physical approval sign-offs\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "ce92b615-f7a9-4cf2-a3ab-39e3af4d7b72",
+    "questionId": "ce92b615-f7a9-4cf2-a3ab-39e3af4d7b72",
+    "questionText": "ureaucratic arrogance cannot be eliminated What is the purpose of real-time SLA tracking dashboards?",
+    "options": "[\"Allowing agency leadership to instantly identify processing bottlenecks and ensure requests are resolved within promised timeframes\",\"Hiding processing delays from oversight bodies\",\"Punishing employees who take lunch breaks\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "5aa04bd2-3fbe-4c0b-8a1c-974c47175edf",
+    "questionId": "5aa04bd2-3fbe-4c0b-8a1c-974c47175edf",
+    "questionText": "Tracking personal internet usage of staff What does time-blocking involve as a scheduling strategy?",
+    "options": "[\"Reserving dedicated, uninterrupted blocks of the workday exclusively for deep cognitive tasks\",\"Scheduling continuous meetings that prevent deep concentration\",\"Eliminating all digital calendars and deadlines\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "315082d3-4047-4a92-b5ba-59b7cae091e0",
+    "questionId": "315082d3-4047-4a92-b5ba-59b7cae091e0",
+    "questionText": "Encouraging multi-tasking across overlapping projects What is the benefit of task-batching in daily administration?",
+    "options": "[\"Grouping similar low-cognitive duties into specific time windows to prevent constant context-switching\",\"Spreading routine tasks randomly throughout the entire day\",\"Delegating all administrative duties to external interns\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "c79a5425-410a-46db-b21a-c84f3a6e8334",
+    "questionId": "c79a5425-410a-46db-b21a-c84f3a6e8334",
+    "questionText": "Ignoring low-cognitive tasks completely What is the core difference between value-adding and non-value-adding activities?",
+    "options": "[\"Value-adding activities transform inputs into outcomes citizens value, while non-value-adding activities create waste and delay\",\"Value-adding activities are illegal, while non-value-adding tasks are mandatory\",\"Non-value-adding tasks require high cognitive skill\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "cb228de8-a899-4f24-bad5-c3e56822b864",
+    "questionId": "cb228de8-a899-4f24-bad5-c3e56822b864",
+    "questionText": "There is no structural difference What does AS-IS vs. TO-BE process analysis evaluate?",
+    "options": "[\"Existing workflows (AS-IS) versus streamlined operational models (TO-BE) to strip away administrative clutter\",\"Office physical space dimensions and furniture layout\",\"Employee salary scales against private sector rates\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e41f3899-743a-481b-9306-ba082da5dc40",
+    "questionId": "e41f3899-743a-481b-9306-ba082da5dc40",
+    "questionText": "nnual budgetary allocations across regional bureaus What is the role of individual performance plans (IPPs)?",
+    "options": "[\"Breaking down annual institutional targets into quarterly, monthly, and weekly personal milestones for clear execution line-of-sight\",\"Hiding organizational objectives from frontline staff\",\"Setting impossible quotas designed to cause failure\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "4be26479-9b5a-4409-addf-999115c70137",
+    "questionId": "4be26479-9b5a-4409-addf-999115c70137",
+    "questionText": "Replacing institutional strategic master plans What does high personal responsibility drive in organizational performance?",
+    "options": "[\"The achievement of institutional strategic plans, ensuring annual goals are met or exceeded\",\"Widespread project delays and administrative backlogs\",\"Increased need for micro-management and constant supervision\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b8a7ace5-84db-48cc-b323-d7a5d2b73373",
+    "questionId": "b8a7ace5-84db-48cc-b323-d7a5d2b73373",
+    "questionText": "Zero impact on organizational productivity How does visionary leadership handle team accountability?",
+    "options": "[\"By protecting staff when honest mistakes happen while holding the unit accountable for overall performance and integrity\",\"By blaming subordinates publicly for any project setback\",\"By eliminating all performance metrics and evaluations\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "1e1c8027-dbc5-427d-9f22-82d9648f8018",
+    "questionId": "1e1c8027-dbc5-427d-9f22-82d9648f8018",
+    "questionText": "y relying on fear of reprisal to drive compliance What is the purpose of strategic delegation matrices (like RACI charts)?",
+    "options": "[\"Empowering lower tiers of management, freeing up executive bandwidth, and accelerating day-to-day approvals\",\"Confusing employees regarding their reporting lines\",\"Restricting all decision-making authority to the top executive\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "0cacf6ad-a703-419c-bc4e-541a265754d0",
+    "questionId": "0cacf6ad-a703-419c-bc4e-541a265754d0",
+    "questionText": "Tracking employee attendance hours How do the three pillars (Work, Human, Result) integrate to form behavioral competencies?",
+    "options": "[\"Work aligns daily tasks with strategy, Human empowers collaboration and ethics, and Result ensures citizen-centric value and accountability\",\"They operate as entirely independent, disconnected theories\",\"Work replaces the need for Human and Result pillars\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "8f1ff864-3abf-4ef7-9721-2d15294c7c3f",
+    "questionId": "8f1ff864-3abf-4ef7-9721-2d15294c7c3f",
+    "questionText": "Result is the sole pillar governing public administration What does environmental scanning prevent in public administration?",
+    "options": "[\"Being blindsided by emerging regulatory, political, or operational crises\",\"Implementing digital government tools and automation\",\"Aligning regional plans with national development agendas\",\"A\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "57432269-6501-44e9-a513-8bea2219e047",
+    "questionId": "57432269-6501-44e9-a513-8bea2219e047",
+    "questionText": "chieving institutional transparency What is the purpose of conducting cost-benefit analyses during resource allocation?",
+    "options": "[\"Directing scarce public funds where they yield the greatest societal return and eliminating wasteful redundancy\",\"Distributing budgets equally without evaluating project impact\",\"Increasing administrative overhead across all directorates\",\"D\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "48ff9668-641e-43a3-aa8b-c495f06ea735",
+    "questionId": "48ff9668-641e-43a3-aa8b-c495f06ea735",
+    "questionText": "elaying project approvals indefinitely How does cross-sectoral coordination improve governance?",
+    "options": "[\"By encouraging ministries to view themselves as part of a single national machinery rather than competing fiefdoms\",\"By creating departmental silos that isolate information\",\"By doubling the number of government bureaus required\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b7ef36e0-7ce7-4974-bab7-e869d9bcb3e5",
+    "questionId": "b7ef36e0-7ce7-4974-bab7-e869d9bcb3e5",
+    "questionText": "y eliminating federal oversight of regional units What is the role of design thinking in modern public service?",
+    "options": "[\"Applying human-centered problem-solving steps (Empathize, Define, Ideate, Prototype, Test) to engineer tailored solutions\",\"Forcing citizens to navigate complex paper-based forms\",\"Eliminating all citizen feedback mechanisms\",\"D\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "c92af527-7f71-4701-a300-41374b964941",
+    "questionId": "c92af527-7f71-4701-a300-41374b964941",
+    "questionText": "esign thinking only applies to private manufacturing What does constructive failure teach an innovative team?",
+    "options": "[\"Unsuccessful experiments provide vital data points and learning opportunities to refine future approaches\",\"Failure proves that innovation is illegal and should be abandoned\",\"Employees who experience failure must be demoted\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "63111c3b-1c5e-467a-b948-2e7a30e24e61",
+    "questionId": "63111c3b-1c5e-467a-b948-2e7a30e24e61",
+    "questionText": "Trials should never be conducted under any circumstances What is the outcome of robust public-private dialogue (PPD)?",
+    "options": "[\"Co-creating solutions, reviewing draft policies, and ensuring regulations foster growth rather than stifle commerce\",\"Giving private corporations absolute control over state laws\",\"Eliminating all labor and environmental standards\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "af4c80eb-2c77-40fc-aa5d-06ef05236a90",
+    "questionId": "af4c80eb-2c77-40fc-aa5d-06ef05236a90",
+    "questionText": "Increasing regulatory friction for startups How does a role-model leader handle underperformance?",
+    "options": "[\"By executing necessary corrective actions while maintaining transparency and fair evaluations\",\"By ignoring underperformance and pretending targets are met\",\"By terminating staff instantly without feedback\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "49acc995-38a4-400d-8c16-39d7b614dc9b",
+    "questionId": "49acc995-38a4-400d-8c16-39d7b614dc9b",
+    "questionText": "y blaming adjacent directorates for the failure What does structured reporting achieve in official communications?",
+    "options": "[\"Logically presenting background information, findings, and actionable recommendations in official briefs\",\"Hiding critical data behind dense bureaucratic jargon\",\"Replacing formal policy documents with casual notes\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "29f23b67-1a67-4d6e-9c33-ce5bc0b71556",
+    "questionId": "29f23b67-1a67-4d6e-9c33-ce5bc0b71556",
+    "questionText": "Eliminating the need for written records Why is psychological safety critical for innovation?",
+    "options": "[\"It allows staff to voice unorthodox ideas, point out flaws, and experiment without fear of social penalty\",\"It enforces strict obedience to historical administrative routines\",\"It punishes employees who propose alternative methods\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "dca55b56-7282-4e3f-a982-1158b12a54b2",
+    "questionId": "dca55b56-7282-4e3f-a982-1158b12a54b2",
+    "questionText": "Psychological safety has no link to innovation What is the impact of emotional self-regulation during institutional change?",
+    "options": "[\"Maintaining composure when procedures change, viewing transitions as opportunities for evolution rather than personal threats\",\"Panicking and resisting all technological upgrades\",\"Blaming upper management for structural re-engineering\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "1dd0ab55-743a-4040-adff-1062ea77d1fc",
+    "questionId": "1dd0ab55-743a-4040-adff-1062ea77d1fc",
+    "questionText": "Emotional self-regulation is impossible during change What does compliance-based ethics rely on for enforcement?",
+    "options": "[\"Formal rules, anti-corruption laws, institutional proclamations, and regulatory guidelines\",\"Internalized personal values and moral intuition\",\"Informal peer pressure and office gossip\",\"C\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "a3cfa741-917e-4104-bce7-e02335cc1f71",
+    "questionId": "a3cfa741-917e-4104-bce7-e02335cc1f71",
+    "questionText": "omplete absence of supervisory oversight How do employee resource groups support diversity and inclusion?",
+    "options": "[\"By providing community support, open feedback channels, and targeted professional growth structures\",\"By segregating offices by ethnic or regional background\",\"By replacing formal performance appraisals entirely\",\"B\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "abb2963a-ab67-4896-ac99-440890c38cbf",
+    "questionId": "abb2963a-ab67-4896-ac99-440890c38cbf",
+    "questionText": "y reducing overall workforce productivity What is the effect of continuous self-improvement on technical proficiency?",
+    "options": "[\"Updating competencies to match changing national service standards and eliminating professional obsolescence\",\"Ensuring that skills remain frozen at entry-level standards\",\"Eliminating the need for any teamwork or communication\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "329a217b-91ee-43b8-910e-9d7d2d3ed783",
+    "questionId": "329a217b-91ee-43b8-910e-9d7d2d3ed783",
+    "questionText": "Technical proficiency never requires updating How does servanthood transform public perception of state institutions?",
+    "options": "[\"By healing the citizen-state divide, proving that public servants are honest, accessible, and committed to public welfare\",\"By increasing public fear of administrative authority\",\"By hiding government operations from citizen scrutiny\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "03223abb-7207-4fa6-bbc0-3dfc30c424c3",
+    "questionId": "03223abb-7207-4fa6-bbc0-3dfc30c424c3",
+    "questionText": "Servanthood has no impact on public trust What is the purpose of the Eisenhower Matrix in time management?",
+    "options": "[\"Categorizing daily tasks based on urgency and importance to prioritize vital long-term projects\",\"Tracking physical office attendance hours\",\"Distributing workloads equally across all staff without priority criteria\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "25c265a8-15c5-49a6-8f2e-801392be3572",
+    "questionId": "25c265a8-15c5-49a6-8f2e-801392be3572",
+    "questionText": "Eliminating the need for digital calendars What is the impact of eliminating non-value-adding waste (Muda)?",
+    "options": "[\"Drastically reduced cycle times, lower operational costs, and maximized value for taxpayers\",\"Increased administrative delays and higher public frustration\",\"Slower institutional throughput and budget deficits\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "0b6ef597-0eee-4921-8b4f-29ccab8c1b91",
+    "questionId": "0b6ef597-0eee-4921-8b4f-29ccab8c1b91",
+    "questionText": "Zero impact on service delivery speed What does reliable autonomous execution demonstrate in carrying out responsibility?",
+    "options": "[\"Taking complete charge of a task and delivering quality results without micro-management\",\"Waiting for constant supervisory reminders before starting work\",\"Abandoning projects midway through execution\",\"D\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "4ae98def-34ef-4509-9e8f-c867bc82bed5",
+    "questionId": "4ae98def-34ef-4509-9e8f-c867bc82bed5",
+    "questionText": "eflecting accountability when targets are missed How do peer-accountability check-ins support task execution?",
+    "options": "[\"Reviewing weekly progress, sharing workload tips, and keeping each other accountable for upcoming project deadlines\",\"Enforcing strict authoritarian command and control\",\"Replacing formal supervisory evaluations entirely\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "91cd46ed-1b11-4550-a174-669eec840473",
+    "questionId": "91cd46ed-1b11-4550-a174-669eec840473",
+    "questionText": "Increasing interpersonal friction and office politics What is the role of situational leadership during operational crises?",
+    "options": "[\"Shifting fluidly between directive crisis-response modes and participatory planning depending on urgency\",\"Applying a rigid, unyielding management style regardless of situation\",\"Abandoning all leadership responsibilities during emergencies\",\"D\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "662fb7cb-fb30-4c96-8f67-998a5703990a",
+    "questionId": "662fb7cb-fb30-4c96-8f67-998a5703990a",
+    "questionText": "elegating all crisis decisions to junior interns How does transparent communication impact organizational change?",
+    "options": "[\"Reducing employee resistance, fear of the unknown, and turnover by keeping staff informed across all tiers\",\"Increasing employee panic and widespread resistance\",\"Hiding structural reforms from affected departments\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "23f61835-4764-491b-8e82-28fbf3ddd577",
+    "questionId": "23f61835-4764-491b-8e82-28fbf3ddd577",
+    "questionText": "Transparent communication slows down change initiatives What is the definition of behavioral competency units in public administration?",
+    "options": "[\"Competencies linked to psychology, mindset, and behavioral patterns required within public sector operations\",\"Purely technical software coding standards\",\"Temporary political campaign slogans\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "24d36e57-702c-48cf-85f5-8cd6fb079149",
+    "questionId": "24d36e57-702c-48cf-85f5-8cd6fb079149",
+    "questionText": "Financial auditing checklists What is the purpose of strategic milestone tracking dashboards?",
+    "options": "[\"Displaying real-time progress toward long-term goals and alerting leadership immediately if execution drifts off course\",\"Tracking employee coffee breaks and lunch hours\",\"Hiding project delays from oversight bodies\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "08d874ae-3885-4450-aa6a-b89393b8a551",
+    "questionId": "08d874ae-3885-4450-aa6a-b89393b8a551",
+    "questionText": "Replacing annual performance appraisals What is the effect of bureaucratic red tape on public institutions?",
+    "options": "[\"Entrenching inefficiency, creating sluggish procedural steps, and frustrating citizens\",\"Accelerating public service delivery and digital transformation\",\"Enhancing cross-sectoral coordination and transparency\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "219e057a-f1a8-4685-87ad-15d55e6d1b87",
+    "questionId": "219e057a-f1a8-4685-87ad-15d55e6d1b87",
+    "questionText": "Eliminating administrative bottlenecks automatically How does market building address monopolies in the economy?",
+    "options": "[\"By introducing fair competition, fixing supply chain bottlenecks, and ensuring market liquidity\",\"By creating absolute state monopolies across all sectors\",\"By banning private enterprise entirely\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "196f04c3-e6c2-4f22-9bd0-e1c6419f1baa",
+    "questionId": "196f04c3-e6c2-4f22-9bd0-e1c6419f1baa",
+    "questionText": "Monopolies are never addressed by market building What does active listening prevent in professional communications?",
+    "options": "[\"Miscommunication, misunderstandings, and unnecessary interpersonal friction\",\"Thorough data analysis and strategic planning\",\"Constructive feedback reception\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "53a3e601-7b72-4bd4-b62e-353cc01a53bd",
+    "questionId": "53a3e601-7b72-4bd4-b62e-353cc01a53bd",
+    "questionText": "Structured official reporting What is the role of empathy in customer service recovery?",
+    "options": "[\"De-escalating frustrated clients and transforming potential grievances into cooperative resolutions\",\"Escalating minor disputes into formal legal battles\",\"Ignoring citizen complaints until they disappear\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b0e01823-9343-4ddb-849f-e07555ca6056",
+    "questionId": "b0e01823-9343-4ddb-849f-e07555ca6056",
+    "questionText": "Enforcing strict administrative penalties What is the core principle of value-based ethics regarding supervision?",
+    "options": "[\"Doing the right thing because it aligns with professional ethos even when direct supervision is absent\",\"Doing the right thing only when a supervisor is actively watching\",\"Bending rules whenever supervision is lax\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "b1b66c2b-6239-4fdb-b426-7f42983d7b17",
+    "questionId": "b1b66c2b-6239-4fdb-b426-7f42983d7b17",
+    "questionText": "Ignoring ethical codes in the absence of police oversight What is the impact of proactive problem-solving in public servanthood?",
+    "options": "[\"Going the extra mile, taking personal ownership of citizen hurdles, and finding lawful ways to help clients\",\"Passing difficult files to adjacent departments without helping\",\"Hiding behind rigid bureaucratic red tape\",\"D\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "e9b4b5de-0a05-4a99-b9b5-fe3f442f4e33",
+    "questionId": "e9b4b5de-0a05-4a99-b9b5-fe3f442f4e33",
+    "questionText": "emanding unnecessary administrative delays What does structural delegation achieve in executive leadership?",
+    "options": "[\"Empowering lower management tiers, freeing executive bandwidth, and accelerating daily service approvals\",\"Confusing staff regarding their reporting hierarchy\",\"Restricting all decision-making to the highest director\",\"\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  },
+  {
+    "id": "6c515ada-1ea1-499b-a75c-b0712041d94c",
+    "questionId": "6c515ada-1ea1-499b-a75c-b0712041d94c",
+    "questionText": "Eliminating accountability across departments How does the integration of strategic thinking, innovation, and market building drive public sector excellence?",
+    "options": "[\"By aligning daily actions with national vision, overcoming inertia, and building vibrant economic environments\",\"By increasing administrative paperwork and bureaucracy\",\"By centralizing all power in a single bureaucratic desk\",\"By eliminating all laws governing public administration\"]",
+    "correctOptionIndices": "[0]",
+    "explanation": null
+  }
+]

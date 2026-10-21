@@ -1,4 +1,4 @@
-﻿import { randomUUID } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { all, fromBool, one, run, transaction } from "@/lib/db";
 import {
   parseFlagMap,
@@ -444,6 +444,18 @@ export async function submitAttempt(
        WHERE "id" = ?`,
       [status, submittedAt, submittedAt, submittedAt, attempt.id],
     );
+    // Mark candidate check-in as COMPLETED so their authorization cannot be reused to start more exams
+    try {
+      await q.run(
+        `UPDATE "CheckIn"
+         SET "status" = 'COMPLETED'
+         WHERE ("id" = ? OR LOWER("employeeName") = (SELECT LOWER("name") FROM "User" WHERE "id" = ?))
+           AND "status" = 'APPROVED'`,
+        [userId, userId],
+      );
+    } catch {
+      // CheckIn table may not exist in minimal mock test databases
+    }
   });
 
   recordAudit({

@@ -47,7 +47,7 @@ export function ResultReviewView({
 
   useEffect(() => {
     if (!autoReturnSeconds || returnIn > 0) return;
-    window.location.href = "/checkin";
+    window.location.href = "/api/auth/logout?next=/checkin";
   }, [autoReturnSeconds, returnIn]);
 
   // Apply white theme class to body while on this page
@@ -93,10 +93,16 @@ export function ResultReviewView({
     <div className="results-white-theme">
       {/* Top breadcrumb & Actions */}
       <div className="res-topbar">
-        <Link href="/results" className="res-back-link">
-          <span style={{ fontSize: "1.1rem" }}>←</span>
-          <span>All results</span>
-        </Link>
+        {retakeHidden ? (
+          <span className="res-back-link" style={{ opacity: 0.85, cursor: "default", fontWeight: 600 }}>
+            <span style={{ color: "var(--success)" }}>✓</span> Assessment Submitted
+          </span>
+        ) : (
+          <Link href="/results" className="res-back-link">
+            <span style={{ fontSize: "1.1rem" }}>←</span>
+            <span>All results</span>
+          </Link>
+        )}
 
         <div className="res-top-actions">
           <button
@@ -122,12 +128,18 @@ export function ResultReviewView({
         <div className="res-return-banner" role="status">
           <strong>
             {returnIn > 0
-              ? `Back to check-in in ${returnIn}s`
-              : "Returning to check-in…"}
+              ? `Session closing in ${returnIn}s`
+              : "Closing session and returning to desk…"}
           </strong>
           {returnIn > 0 && (
-            <button type="button" className="res-btn-ghost-sm" onClick={() => setReturnIn(0)}>
-              Return now →
+            <button
+              type="button"
+              className="res-btn-ghost-sm"
+              onClick={() => {
+                window.location.href = "/api/auth/logout?next=/checkin";
+              }}
+            >
+              Finish & Return to Desk →
             </button>
           )}
         </div>

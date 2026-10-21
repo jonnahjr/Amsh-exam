@@ -5,6 +5,8 @@ import { requireUser } from "@/lib/auth";
 import { startAttemptSchema } from "@/lib/validation";
 import { startAttempt } from "@/server/attempts";
 import { clientAddress, recordAudit } from "@/server/audit";
+import { one } from "@/lib/db";
+import { ForbiddenError } from "@/lib/errors";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +15,23 @@ export async function POST(request: Request): Promise<NextResponse> {
     const user = await requireUser();
     const body = await readJsonBody(request);
     const input = startAttemptSchema.parse(body);
+
+    // Candidates (EMPLOYEE / STUDENT) must have an active APPROVED check-in to start an exam
+    if (user.role === "EMPLOYEE" || user.role === "STUDENT") {
+      const activeCheckin = await one<{ id: string }>(
+        `SELECT "id" FROM "CheckIn"
+         WHERE ("id" = ? OR LOWER("employeeName") = LOWER(?))
+           AND "status" = 'APPROVED'
+         ORDER BY "checkedInAt" DESC
+         LIMIT 1`,
+        [user.id, user.name ?? ""],
+      );
+      if (!activeCheckin) {
+        throw new ForbiddenError(
+          "Your check-in session has ended or been completed. Please check in at the desk to receive authorization for an exam.",
+        );
+      }
+    }
 
     const attempt = await startAttempt({
       templateSlug: input.templateSlug,

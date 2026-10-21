@@ -5,6 +5,7 @@ import { countAvailableQuestions } from "@/server/questions";
 import { findTemplateWithNames } from "@/server/templates";
 import { findActiveAttempt } from "@/server/attempts";
 import { StartExamButton } from "@/components/StartExamButton";
+import { one } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,19 @@ export default async function ExamDetailPage({ params }: { params: { slug: strin
     findActiveAttempt(user.id, template.id),
   ]);
   const ready = available >= template.totalQuestions;
+
+  let hasApprovedCheckin = true;
+  if (user.role === "STUDENT" || user.role === "EMPLOYEE") {
+    const checkin = await one<{ id: string }>(
+      `SELECT "id" FROM "CheckIn"
+       WHERE ("id" = ? OR LOWER("employeeName") = LOWER(?))
+         AND "status" = 'APPROVED'
+       ORDER BY "checkedInAt" DESC
+       LIMIT 1`,
+      [user.id, user.name ?? ""],
+    );
+    hasApprovedCheckin = Boolean(checkin);
+  }
 
   return (
     <div className="stack" style={{ maxWidth: 1180, margin: "0 auto", width: "100%" }}>
@@ -128,6 +142,12 @@ export default async function ExamDetailPage({ params }: { params: { slug: strin
           </div>
         )}
 
+        {!hasApprovedCheckin && !activeAttempt && (
+          <div className="alert alert-warning" style={{ marginTop: 20 }}>
+            <strong>Check-in required:</strong> Your previous session has ended. Please check in at the front desk to receive administrator authorization before beginning this exam.
+          </div>
+        )}
+
         <div style={{ marginTop: 28, display: "flex", gap: 12 }}>
           {activeAttempt ? (
             <Link
@@ -136,6 +156,14 @@ export default async function ExamDetailPage({ params }: { params: { slug: strin
               style={{ padding: "12px 28px", fontSize: "1rem", height: 46 }}
             >
               Resume attempt →
+            </Link>
+          ) : !hasApprovedCheckin ? (
+            <Link
+              className="btn btn-primary"
+              href="/checkin"
+              style={{ padding: "12px 28px", fontSize: "1rem", height: 46, display: "inline-flex", alignItems: "center" }}
+            >
+              Go to Check-In Desk →
             </Link>
           ) : (
             <StartExamButton slug={template.slug} disabled={!ready} />

@@ -33,6 +33,9 @@ export default async function QuestionsPage(props: { searchParams: RawSearchPara
   const rawPage = first(searchParams.page);
 
   const isStaff = user.role === "INSTRUCTOR" || user.role === "ADMINISTRATOR";
+  if (!isStaff) {
+    redirect("/exams");
+  }
   const page = Math.max(1, Number(rawPage ?? 1) || 1);
 
   const status = PUBLICATION_STATUSES.includes(rawStatus as PublicationStatus)

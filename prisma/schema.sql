@@ -275,3 +275,19 @@ CREATE TABLE IF NOT EXISTS "AuditLog" (
 );
 CREATE INDEX IF NOT EXISTS "AuditLog_userId_idx"    ON "AuditLog"("userId");
 CREATE INDEX IF NOT EXISTS "AuditLog_createdAt_idx" ON "AuditLog"("createdAt");
+
+-- ------------------------------------------------------------- checkin ------
+CREATE TABLE IF NOT EXISTS "CheckIn" (
+  "id"           TEXT PRIMARY KEY,
+  "employeeName" TEXT NOT NULL,
+  "status"       TEXT NOT NULL DEFAULT 'PENDING',
+  "checkedInAt"  TEXT NOT NULL,
+  "approvedAt"   TEXT,
+  "approvedBy"   TEXT,
+  "sessionToken" TEXT,
+  "notes"        TEXT
+);
+
+CREATE INDEX IF NOT EXISTS "idx_checkin_status" ON "CheckIn"("status");
+CREATE INDEX IF NOT EXISTS "idx_checkin_employee" ON "CheckIn"("employeeName");
+

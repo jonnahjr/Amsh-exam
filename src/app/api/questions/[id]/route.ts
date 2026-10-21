@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { handleError, ok, readJsonBody } from "@/lib/http";
 import { NotFoundError } from "@/lib/errors";
 import { canAuthorContent, requireRole } from "@/lib/auth";
@@ -12,7 +12,7 @@ interface Context { params: { id: string }; }
 
 export async function GET(_request: Request, { params }: Context): Promise<NextResponse> {
   try {
-    const user = await requireRole("STUDENT");
+    const user = await requireRole("INSTRUCTOR", "ADMINISTRATOR");
     const question = await findQuestionById(params.id);
     if (!question) throw new NotFoundError("That question does not exist.");
     return ok(canAuthorContent(user) ? question : toPublicQuestion(question));
