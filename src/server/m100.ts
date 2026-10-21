@@ -38,18 +38,18 @@ export async function validateM100Code(
   if (!rawCode || typeof rawCode !== "string") {
     return {
       valid: false,
-      error: "Please enter your M100 employee code.",
+      error: "Please enter your employee code.",
       reason: "INVALID_FORMAT",
     };
   }
 
   const code = rawCode.trim().toUpperCase();
 
-  // Must begin with M100
-  if (!code.startsWith("M100")) {
+  // Must begin with AMSH or M100
+  if (!code.startsWith("AMSH") && !code.startsWith("M100")) {
     return {
       valid: false,
-      error: "Invalid code format. An M100 code must start with 'M100' (e.g. M100-AMSH-001).",
+      error: "Invalid code format. Employee code must start with 'AMSH' or 'M100' (e.g. AMSH-M1).",
       reason: "INVALID_FORMAT",
     };
   }
@@ -64,7 +64,7 @@ export async function validateM100Code(
   if (!row) {
     return {
       valid: false,
-      error: "M100 code not recognized or unauthorized. Please verify your employee code.",
+      error: "Employee code not recognized or unauthorized. Please verify your employee code.",
       reason: "NOT_FOUND",
     };
   }
@@ -73,7 +73,7 @@ export async function validateM100Code(
   if (!isActive) {
     return {
       valid: false,
-      error: "This M100 employee code is currently inactive. Please contact your administrator.",
+      error: "This employee code is currently inactive. Please contact your administrator.",
       reason: "INACTIVE",
     };
   }
@@ -82,7 +82,7 @@ export async function validateM100Code(
   if (isUsed && currentUserId && row.usedByUserId && row.usedByUserId !== currentUserId) {
     return {
       valid: false,
-      error: "This M100 code has already been registered to another account.",
+      error: "This employee code has already been registered to another account.",
       reason: "ALREADY_USED",
     };
   }

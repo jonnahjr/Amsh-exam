@@ -43,11 +43,22 @@ describe("M100 Automatic Exam Access & Validation", () => {
       expect(res.record?.employeeName).toBe("Valid Candidate");
     });
 
-    it("2. denies access for code not starting with M100", async () => {
+    it("2. denies access for code not starting with AMSH or M100", async () => {
       const res = await validateM100Code("INVALID-1234");
       expect(res.valid).toBe(false);
       expect(res.reason).toBe("INVALID_FORMAT");
-      expect(res.error).toContain("must start with 'M100'");
+      expect(res.error).toContain("must start with 'AMSH' or 'M100'");
+    });
+
+    it("2b. validates an AMSH- prefix code like AMSH-M1", async () => {
+      await createAuthorizedM100Code({
+        code: "AMSH-M1",
+        employeeName: "Yonas Bogale",
+        department: "Engineering",
+      });
+      const res = await validateM100Code("amsh-m1");
+      expect(res.valid).toBe(true);
+      expect(res.code).toBe("AMSH-M1");
     });
 
     it("3. denies access for unrecognized/nonexistent M100 code", async () => {

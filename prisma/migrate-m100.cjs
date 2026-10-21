@@ -46,9 +46,16 @@ try {
     `);
     console.log('[SQLite] AuthorizedM100Code table ready.');
 
-    // Seed default M100 test codes
+    // Update existing M100-AMSH-001 code to AMSH-M1
+    db.exec(`
+      UPDATE "AuthorizedM100Code" SET "code" = 'AMSH-M1' WHERE "code" = 'M100-AMSH-001';
+      UPDATE "User" SET "m100Code" = 'AMSH-M1' WHERE "m100Code" = 'M100-AMSH-001';
+      UPDATE "CheckIn" SET "m100Code" = 'AMSH-M1' WHERE "m100Code" = 'M100-AMSH-001';
+    `);
+
+    // Seed default employee test codes
     const seedCodes = [
-      { id: 'm100-seed-001', code: 'M100-AMSH-001', name: 'Yonas Bogale', dept: 'Engineering', active: 1, used: 0 },
+      { id: 'm100-seed-001', code: 'AMSH-M1', name: 'Yonas Bogale', dept: 'Engineering', active: 1, used: 0 },
       { id: 'm100-seed-002', code: 'M100-AMSH-002', name: 'Bethelhem Tadesse', dept: 'Finance', active: 1, used: 0 },
       { id: 'm100-seed-003', code: 'M100-AMSH-003', name: 'Dawit Mengistu', dept: 'Operations', active: 1, used: 0 },
       { id: 'm100-seed-004', code: 'M100-DEMO-2026', name: 'Demo Candidate', dept: 'General', active: 1, used: 0 },
@@ -71,7 +78,7 @@ try {
         c.usedBy || null, c.used ? now : null, now, now
       );
     }
-    console.log('[SQLite] Seeded M100 authorized codes.');
+    console.log('[SQLite] Seeded authorized codes (AMSH-M1 active).');
   }
 } catch (err) {
   console.error('[SQLite] Error applying migration:', err.message);
@@ -119,9 +126,16 @@ async function migratePg() {
       CREATE INDEX IF NOT EXISTS "idx_m100_code" ON "AuthorizedM100Code"("code");
     `);
 
+    // Update existing M100-AMSH-001 to AMSH-M1 in PostgreSQL
+    await pool.query(`
+      UPDATE "AuthorizedM100Code" SET "code" = 'AMSH-M1' WHERE "code" = 'M100-AMSH-001';
+      UPDATE "User" SET "m100Code" = 'AMSH-M1' WHERE "m100Code" = 'M100-AMSH-001';
+      UPDATE "CheckIn" SET "m100Code" = 'AMSH-M1' WHERE "m100Code" = 'M100-AMSH-001';
+    `);
+
     const now = new Date().toISOString();
     const seedCodes = [
-      ['m100-seed-001', 'M100-AMSH-001', 'Yonas Bogale', 'Engineering', true, false, null, null, now, now],
+      ['m100-seed-001', 'AMSH-M1', 'Yonas Bogale', 'Engineering', true, false, null, null, now, now],
       ['m100-seed-002', 'M100-AMSH-002', 'Bethelhem Tadesse', 'Finance', true, false, null, null, now, now],
       ['m100-seed-003', 'M100-AMSH-003', 'Dawit Mengistu', 'Operations', true, false, null, null, now, now],
       ['m100-seed-004', 'M100-DEMO-2026', 'Demo Candidate', 'General', true, false, null, null, now, now],
