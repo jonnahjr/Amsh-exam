@@ -1,0 +1,3047 @@
+{
+  "examName": "Cyber Security Professional IV - 200 Challenging MCQs",
+  "source": "cyber-security-professional-IV-200-MCQ.pdf (Cyber Security Professional IV position description)",
+  "bankName": "Cyber Security Professional IV Bank",
+  "totalQuestions": 200,
+  "bankSize": 200,
+  "topics": [
+    {
+      "code": "SEC-A",
+      "slug": "cyber-security-professional-iv-purpose",
+      "name": "Position Purpose & Foundations",
+      "section": "Position Purpose & Foundations"
+    },
+    {
+      "code": "SEC-B",
+      "slug": "cyber-security-professional-iv-security-management",
+      "name": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)"
+    },
+    {
+      "code": "SEC-C",
+      "slug": "cyber-security-professional-iv-awareness",
+      "name": "Result 2: Security Awareness & Culture",
+      "section": "Result 2: Security Awareness & Culture"
+    },
+    {
+      "code": "SEC-D",
+      "slug": "cyber-security-professional-iv-audit-risk",
+      "name": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation"
+    },
+    {
+      "code": "SEC-E",
+      "slug": "cyber-security-professional-iv-monitoring-strategy",
+      "name": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios"
+    },
+    {
+      "code": "SEC-F",
+      "slug": "cyber-security-professional-iv-hardening",
+      "name": "Advanced Integrated & Hardening Scenarios",
+      "section": "Advanced Integrated & Hardening Scenarios"
+    }
+  ],
+  "questions": [
+    {
+      "num": 1,
+      "section": "Position Purpose & Foundations",
+      "topicSlug": "cyber-security-professional-iv-purpose",
+      "text": "According to the position document, the PRIMARY purpose of the Cyber Security Professional IV role is to:",
+      "options": [
+        "Prevent security threats to IT infrastructure through 24/7 monitoring, audits, evaluations, corrective solutions, and continuous improvement",
+        "Develop financial accounting software for public finance management",
+        "Manage human-resource recruitment for the IT department",
+        "Respond to IT helpdesk tickets and repair office computers"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Prevent security threats to IT infrastructure through 24/7 monitoring, audits, evaluations, corrective solutions, and continuous improvement"
+    },
+    {
+      "num": 2,
+      "section": "Position Purpose & Foundations",
+      "topicSlug": "cyber-security-professional-iv-purpose",
+      "text": "The phrase “perform their planned prevention work 24/7” in the purpose statement most directly implies that the Professional must ensure:",
+      "options": [
+        "All systems are shut down every night for 7 hours",
+        "Security controls operate continuously with monitoring, alerting, and response coverage at all hours",
+        "Staff work 24 hours per day without rest",
+        "Audits are conducted only once every 24 months"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Security controls operate continuously with monitoring, alerting, and response coverage at all hours"
+    },
+    {
+      "num": 3,
+      "section": "Position Purpose & Foundations",
+      "topicSlug": "cyber-security-professional-iv-purpose",
+      "text": "Which of the following BEST summarizes the four Results expected from the position?",
+      "options": [
+        "Budgeting, auditing of finances, taxation, and revenue collection",
+        "Software coding, hardware repair, networking, and database design",
+        "Security management; awareness building; audit/vulnerability mitigation; monitoring current cybersecurity situations",
+        "Procurement, payroll, recruitment, and inventory management"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Security management; awareness building; audit/vulnerability mitigation; monitoring current cybersecurity situations"
+    },
+    {
+      "num": 4,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Under Result 1, the Professional is expected to make a plan that is “feasible” to meet cybersecurity needs. A feasible plan is one that is:",
+      "options": [
+        "Focused only on purchasing the most expensive tools",
+        "Ambitious regardless of resources, so that goals look impressive on paper",
+        "Achievable with available resources, capacity, time, and institutional constraints",
+        "Copied unchanged from another country without adaptation"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Achievable with available resources, capacity, time, and institutional constraints"
+    },
+    {
+      "num": 5,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "The document requires alignment among stakeholders and the “national and institutional sectors.” This means the Professional should:",
+      "options": [
+        "Work in isolation without consulting any stakeholder",
+        "Limit communication to external vendors only",
+        "Identify stakeholders, analyze their roles, and ensure consistency between institutional practices and national cybersecurity requirements",
+        "Replace all national policies with personal preferences"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Identify stakeholders, analyze their roles, and ensure consistency between institutional practices and national cybersecurity requirements"
+    },
+    {
+      "num": 6,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "When the document says to “identify security services that can meet the security needs of the institution,” security services MOST likely refers to:",
+      "options": [
+        "Protective capabilities such as authentication, access control, encryption, monitoring, and incident response",
+        "Cleaning services for the server room",
+        "Catering and transport services for IT staff",
+        "Internet subscription packages from ISPs"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Protective capabilities such as authentication, access control, encryption, monitoring, and incident response"
+    },
+    {
+      "num": 7,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "After identifying needed security services, the Professional must next identify:",
+      "options": [
+        "A company logo and slogan",
+        "The mechanisms and appropriate technologies that can implement those services",
+        "The cheapest possible office furniture",
+        "New employees to hire without defined roles"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: The mechanisms and appropriate technologies that can implement those services"
+    },
+    {
+      "num": 8,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "The “defense-in-depth principle” mentioned in Result 1 means:",
+      "options": [
+        "Physically defending the server room with armed guards only",
+        "Deploying multiple layered controls (people, process, technology) so that if one layer fails, others still protect the asset",
+        "Relying on a single firewall as the only protection",
+        "Installing antivirus on one computer and sharing the license"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Deploying multiple layered controls (people, process, technology) so that if one layer fails, others still protect the asset"
+    },
+    {
+      "num": 9,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which combination BEST represents defense-in-depth for a public finance management system?",
+      "options": [
+        "A strong password used by everyone in the department",
+        "Firewall + IDS/IPS + endpoint protection + access control + encryption + monitoring + backup + awareness",
+        "One antivirus product installed on the file server",
+        "Disconnecting all computers from the network permanently"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Firewall + IDS/IPS + endpoint protection + access control + encryption + monitoring + backup + awareness"
+    },
+    {
+      "num": 10,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "The Professional “selects models and frameworks” for institutional security. Which of the following is a globally recognized cybersecurity framework suitable for this task?",
+      "options": [
+        "NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover)",
+        "A football league fixture framework",
+        "A cooking recipe framework for office meals",
+        "A fashion-design color framework"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover)"
+    },
+    {
+      "num": 11,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which international standard provides requirements for establishing, implementing, and continually improving an Information Security Management System (ISMS)?",
+      "options": [
+        "HTML version 9",
+        "ISO 9000 for toasters",
+        "ISO/IEC 27001",
+        "IEEE 754 for floating-point cooking"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: ISO/IEC 27001"
+    },
+    {
+      "num": 12,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "“Prepares specifications for selected technologies” means the Professional must:",
+      "options": [
+        "Write poems about the technology",
+        "Guess prices without documenting requirements",
+        "Write clear technical requirements (features, performance, compatibility, security, warranty, support) used for fair procurement",
+        "Buy whatever the vendor recommends without review"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Write clear technical requirements (features, performance, compatibility, security, warranty, support) used for fair procurement"
+    },
+    {
+      "num": 13,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Ensuring financial management systems are “properly functional, 24/7 monitoring” requires which operational capability?",
+      "options": [
+        "A security operations capability with logging, alerting, shift coverage or automation, and escalation procedures",
+        "Asking users to report problems only during holidays",
+        "Turning off all logs to save disk space",
+        "Checking the systems once per year"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: A security operations capability with logging, alerting, shift coverage or automation, and escalation procedures"
+    },
+    {
+      "num": 14,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "“Regularly adding and implementing updates to the systems” refers to:",
+      "options": [
+        "Patch management: testing and applying OS, application, and security updates to close vulnerabilities",
+        "Changing the institution’s name regularly",
+        "Updating staff profile pictures on social media",
+        "Adding more chairs to the office each month"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Patch management: testing and applying OS, application, and security updates to close vulnerabilities"
+    },
+    {
+      "num": 15,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "In the document, “ensure their confidentiality and accessibility” maps MOST closely to which two elements of the CIA triad?",
+      "options": [
+        "Cabling and Air-conditioning",
+        "Cost and Advertising",
+        "Confidentiality and Availability (with integrity implied for proper functioning)",
+        "Confusion and Ambiguity"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Confidentiality and Availability (with integrity implied for proper functioning)"
+    },
+    {
+      "num": 16,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Evaluating “system network and application design” for safety level means conducting:",
+      "options": [
+        "A marketing evaluation of the institution’s logo",
+        "A security architecture/design review assessing segmentation, authentication, encryption, error handling, and attack surface before or after deployment",
+        "A review of staff handwriting",
+        "An interior-decoration review of the office"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: A security architecture/design review assessing segmentation, authentication, encryption, error handling, and attack surface before or after deployment"
+    },
+    {
+      "num": 17,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A network design review for a public finance system should verify all of the following EXCEPT:",
+      "options": [
+        "Default vendor passwords kept unchanged for convenience",
+        "Network segmentation separating finance servers from guest networks",
+        "Least-privilege access and centralized logging",
+        "Encrypted management and data-in-transit channels"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Default vendor passwords kept unchanged for convenience"
+    },
+    {
+      "num": 18,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "An application design review should verify all of the following EXCEPT:",
+      "options": [
+        "Secure error handling that does not leak sensitive data",
+        "Hard-coded administrator credentials in source code for easy access",
+        "Input validation and protection against injection flaws",
+        "Secure authentication and session management"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Hard-coded administrator credentials in source code for easy access"
+    },
+    {
+      "num": 19,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "For “technology procurement, developments” meeting “safety standards,” the BEST control is to:",
+      "options": [
+        "Let each department buy independently with no standards",
+        "Skip testing to save time",
+        "Buy first and think about security years later",
+        "Embed security requirements and acceptance testing into procurement and development from the start"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Embed security requirements and acceptance testing into procurement and development from the start"
+    },
+    {
+      "num": 20,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "“Confirming technologies are provided in accordance with specifications” is BEST achieved by:",
+      "options": [
+        "Accepting the vendor’s word without verification",
+        "Storing equipment unopened in a warehouse",
+        "Paying the invoice before delivery",
+        "Delivery inspection, functional and security acceptance testing, and documented sign-off against the specification"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Delivery inspection, functional and security acceptance testing, and documented sign-off against the specification"
+    },
+    {
+      "num": 21,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "The document states access requests to institutional systems are “governed” (by rules/constitution). This implies access must be:",
+      "options": [
+        "Permanent and never reviewed",
+        "Shared using one common username",
+        "Granted to anyone who asks verbally",
+        "Granted based on formal policy, authorization, least privilege, and accountability — not informally"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Granted based on formal policy, authorization, least privilege, and accountability — not informally"
+    },
+    {
+      "num": 22,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which access-control model assigns permissions based on a person’s job function, fitting a finance institution with defined roles (accountant, auditor, administrator)?",
+      "options": [
+        "First-come-first-served access",
+        "No access control at all",
+        "Role-Based Access Control (RBAC)",
+        "Access by office seating position"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Role-Based Access Control (RBAC)"
+    },
+    {
+      "num": 23,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "“Assessing risk and addressing specific vulnerabilities using tools and methods” describes:",
+      "options": [
+        "Vulnerability assessment: scanning, testing, and analyzing weaknesses to prioritize remediation",
+        "Deleting all files to remove risk",
+        "Blaming users for all problems",
+        "Ignoring scanners and guessing"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Vulnerability assessment: scanning, testing, and analyzing weaknesses to prioritize remediation"
+    },
+    {
+      "num": 24,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which tool is MOST appropriate for automated network vulnerability scanning of institutional systems?",
+      "options": [
+        "A music streaming application",
+        "A spreadsheet calculator",
+        "A video-editing application",
+        "A vulnerability scanner such as Nessus, OpenVAS/Greenbone, or Qualys"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: A vulnerability scanner such as Nessus, OpenVAS/Greenbone, or Qualys"
+    },
+    {
+      "num": 25,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A risk assessment differs from a vulnerability scan in that risk assessment ALSO considers:",
+      "options": [
+        "Threats, likelihood, business impact, and existing controls — not just the technical weakness",
+        "Nothing else; they are identical",
+        "Only the color of the server racks",
+        "Only the brand of keyboards"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Threats, likelihood, business impact, and existing controls — not just the technical weakness"
+    },
+    {
+      "num": 26,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Risk is commonly expressed as:",
+      "options": [
+        "Risk = Price of antivirus software",
+        "Risk = Length of the policy document",
+        "Risk = Number of employees + number of chairs",
+        "Risk = Likelihood × Impact (considering threats, vulnerabilities, and controls)"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Risk = Likelihood × Impact (considering threats, vulnerabilities, and controls)"
+    },
+    {
+      "num": 27,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A critical vulnerability on an internet-facing public finance portal with active exploits should be rated:",
+      "options": [
+        "Informational only",
+        "High/Critical risk, requiring urgent remediation due to high likelihood and high impact",
+        "Low risk, because the system is important so we assume it is safe",
+        "No risk, because firewalls make exploitation impossible"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: High/Critical risk, requiring urgent remediation due to high likelihood and high impact"
+    },
+    {
+      "num": 28,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which activity BEST demonstrates “24/7 monitoring” of security systems performing “planned prevention work”?",
+      "options": [
+        "Monitoring only during lunch breaks",
+        "Glancing at the firewall once a month",
+        "Continuously collecting and triaging SIEM alerts with defined escalation, including after-hours coverage",
+        "Disabling alerts to reduce noise"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Continuously collecting and triaging SIEM alerts with defined escalation, including after-hours coverage"
+    },
+    {
+      "num": 29,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A SIEM (Security Information and Event Management) system primarily helps the Professional to:",
+      "options": [
+        "Play background music in the operations center",
+        "Print payroll slips faster",
+        "Design website banners",
+        "Centralize logs, correlate events, detect incidents, and support response"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Centralize logs, correlate events, detect incidents, and support response"
+    },
+    {
+      "num": 30,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "An IDS/IPS deployed in the institution’s network is intended to:",
+      "options": [
+        "Replace all firewalls and backups",
+        "Manage staff leave schedules",
+        "Increase internet speed for video streaming",
+        "Detect (IDS) and optionally block (IPS) malicious traffic based on signatures and anomalies"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Detect (IDS) and optionally block (IPS) malicious traffic based on signatures and anomalies"
+    },
+    {
+      "num": 31,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Endpoint protection on institutional workstations should include all of the following EXCEPT:",
+      "options": [
+        "Antimalware with centralized management and updates",
+        "Employees disabling protection to install games",
+        "Host firewall and device control",
+        "Application control and behavioral detection"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Employees disabling protection to install games"
+    },
+    {
+      "num": 32,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Email is a major attack vector against finance staff. Which control BEST reduces phishing compromise?",
+      "options": [
+        "Asking staff to open all attachments quickly",
+        "Disabling all spam filters to receive mail faster",
+        "Email filtering + authentication (SPF/DKIM/DMARC) + user awareness + multifactor authentication",
+        "Publishing all passwords in the staff newsletter"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Email filtering + authentication (SPF/DKIM/DMARC) + user awareness + multifactor authentication"
+    },
+    {
+      "num": 33,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Multifactor authentication (MFA) is required for finance system administrators PRIMARILY because:",
+      "options": [
+        "It speeds up typing",
+        "It eliminates the need for any passwords or policies",
+        "It makes logins look modern",
+        "Stolen passwords alone are then insufficient; an additional factor blocks most account-takeover attacks"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Stolen passwords alone are then insufficient; an additional factor blocks most account-takeover attacks"
+    },
+    {
+      "num": 34,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Encryption of sensitive finance data at rest and in transit primarily protects:",
+      "options": [
+        "Confidentiality (and integrity with proper modes/signing) even if media or traffic is intercepted or stolen",
+        "The data from ever being accessed by authorized users",
+        "Printers from paper jams",
+        "The network from power failures"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Confidentiality (and integrity with proper modes/signing) even if media or traffic is intercepted or stolen"
+    },
+    {
+      "num": 35,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A sound backup strategy for public finance management systems should follow:",
+      "options": [
+        "No backups, to save storage costs",
+        "One copy on the same disk as the original",
+        "The 3-2-1 rule: 3 copies, 2 different media/types, 1 offsite/offline, with tested restores",
+        "Backups that are never tested"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: The 3-2-1 rule: 3 copies, 2 different media/types, 1 offsite/offline, with tested restores"
+    },
+    {
+      "num": 36,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Network segmentation (e.g., separating core finance servers, user LAN, DMZ, and guest Wi-Fi) PRINCIPALLY limits:",
+      "options": [
+        "Lateral movement of attackers and the blast radius of a compromise",
+        "Electricity consumption of switches",
+        "The speed of legitimate users to zero",
+        "The need for any passwords"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Lateral movement of attackers and the blast radius of a compromise"
+    },
+    {
+      "num": 37,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Applying the principle of least privilege to finance staff means:",
+      "options": [
+        "Each user receives only the minimum access needed for their duties, reviewed periodically",
+        "Permissions are never reviewed after hiring",
+        "Every user receives administrator rights for convenience",
+        "Passwords are shared within each team"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Each user receives only the minimum access needed for their duties, reviewed periodically"
+    },
+    {
+      "num": 38,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Privileged accounts (domain/system administrators) require special control because:",
+      "options": [
+        "They cannot cause any damage",
+        "They are used only for printing",
+        "They are immune to phishing",
+        "Their compromise gives attackers the highest level of control over systems and data"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Their compromise gives attackers the highest level of control over systems and data"
+    },
+    {
+      "num": 39,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which measure BEST protects privileged accounts in the institution?",
+      "options": [
+        "Writing admin passwords on sticky notes",
+        "Allowing remote admin login without MFA from any network",
+        "PAM: vaulting, just-in-time elevation, session recording, MFA, and regular rotation of privileged credentials",
+        "One shared admin password that never changes"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: PAM: vaulting, just-in-time elevation, session recording, MFA, and regular rotation of privileged credentials"
+    },
+    {
+      "num": 40,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Security baselines/hardening guides (e.g., CIS Benchmarks) are used to:",
+      "options": [
+        "Configure systems securely by disabling unneeded services, setting secure defaults, and enforcing policy",
+        "Remove all security controls",
+        "Make computers run slower for security theater",
+        "Install games on servers"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Configure systems securely by disabling unneeded services, setting secure defaults, and enforcing policy"
+    },
+    {
+      "num": 41,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Change management for security updates in a finance environment is important because:",
+      "options": [
+        "Uncontrolled changes can cause outages or open vulnerabilities; testing, approval, and rollback plans protect availability and integrity",
+        "Documentation of changes is a waste of time",
+        "All staff should have production change rights",
+        "Changes should always be made directly in production on Fridays"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Uncontrolled changes can cause outages or open vulnerabilities; testing, approval, and rollback plans protect availability and integrity"
+    },
+    {
+      "num": 42,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Logging and time synchronization (NTP) matter for 24/7 monitoring because:",
+      "options": [
+        "Correlated, accurate timestamps allow correct sequencing and investigation of events across systems",
+        "Logs look nicer with random times",
+        "Clocks have no role in forensics",
+        "Time zones prevent all attacks"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Correlated, accurate timestamps allow correct sequencing and investigation of events across systems"
+    },
+    {
+      "num": 43,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "When procuring a firewall, which specification item is MOST security-relevant?",
+      "options": [
+        "Throughput with security features enabled, IPS/AV throughput, HA support, logging/SIEM integration, and vulnerability handling",
+        "The weight of the packaging box",
+        "The vendor’s free calendar gift",
+        "The color of the chassis"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Throughput with security features enabled, IPS/AV throughput, HA support, logging/SIEM integration, and vulnerability handling"
+    },
+    {
+      "num": 44,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Acceptance testing of a newly delivered security system should include:",
+      "options": [
+        "Verification against specifications, functional tests, negative/security tests, and documented sign-off before production",
+        "Immediate production deployment without tests",
+        "Skipping documentation to save paper",
+        "Testing only the power button"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Verification against specifications, functional tests, negative/security tests, and documented sign-off before production"
+    },
+    {
+      "num": 45,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A web application firewall (WAF) in front of a public finance portal primarily protects against:",
+      "options": [
+        "Lost passwords of all users automatically",
+        "Power outages in the data center",
+        "Web attacks such as SQL injection and cross-site scripting (as a compensating layer), complementing secure code",
+        "Paper jams in the finance printer"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Web attacks such as SQL injection and cross-site scripting (as a compensating layer), complementing secure code"
+    },
+    {
+      "num": 46,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Data classification (e.g., public, internal, confidential, restricted) helps the institution because it:",
+      "options": [
+        "Drives proportional protection: handling, encryption, sharing, and retention rules matched to sensitivity",
+        "Allows all data to be posted publicly",
+        "Replaces the need for backups",
+        "Eliminates the need for access control"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Drives proportional protection: handling, encryption, sharing, and retention rules matched to sensitivity"
+    },
+    {
+      "num": 47,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "The Professional finds finance reports stored on personal USB sticks and emailed to private accounts. The FIRST governance step is to:",
+      "options": [
+        "Enforce data-handling policy: prohibit unauthorized storage/transmission, provide secure alternatives, and monitor compliance",
+        "Publish the reports to prove transparency",
+        "Confiscate all computers immediately without procedure",
+        "Ignore it, since staff mean well"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Enforce data-handling policy: prohibit unauthorized storage/transmission, provide secure alternatives, and monitor compliance"
+    },
+    {
+      "num": 48,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "An employee’s workstation in the finance department is infected with malware that contacts an external server. Under 24/7 monitoring duties, the FIRST containment step is to:",
+      "options": [
+        "Delete everything and reinstall before noting any details",
+        "Email the malware sample to all staff as a warning",
+        "Isolate the host from the network (keeping evidence where possible) and escalate per the incident procedure",
+        "Continue using the machine for payments while investigating"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Isolate the host from the network (keeping evidence where possible) and escalate per the incident procedure"
+    },
+    {
+      "num": 49,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "After containing the infected host, the NEXT appropriate actions are to:",
+      "options": [
+        "Collect/preserve logs and evidence, eradicate, recover from clean sources, verify, and document lessons learned",
+        "Hide the incident from management",
+        "Reconnect the host immediately without checks",
+        "Blame the employee publicly"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Collect/preserve logs and evidence, eradicate, recover from clean sources, verify, and document lessons learned"
+    },
+    {
+      "num": 50,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A zero-day vulnerability is announced in the institution’s VPN appliance with active exploitation. The BEST immediate posture is to:",
+      "options": [
+        "Disable all logging to improve performance",
+        "Wait a year to see if attackers lose interest",
+        "Follow vendor/advisory mitigations (patch, workaround, restrict exposure), heighten monitoring, and expedite patching per risk",
+        "Expose more services to the internet for testing"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Follow vendor/advisory mitigations (patch, workaround, restrict exposure), heighten monitoring, and expedite patching per risk"
+    },
+    {
+      "num": 51,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Patching priority should be determined by:",
+      "options": [
+        "Risk: exploitability, exposure, asset criticality, and business impact — not merely patch size or convenience",
+        "Alphabetical order of server names",
+        "The color of the vendor’s advisory",
+        "Staff preference for reboot times only"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Risk: exploitability, exposure, asset criticality, and business impact — not merely patch size or convenience"
+    },
+    {
+      "num": 52,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A penetration test differs from a vulnerability scan in that penetration testing:",
+      "options": [
+        "Guarantees no disruption under any circumstances",
+        "Is the same automated list with a different name",
+        "Actively attempts to exploit weaknesses to demonstrate impact and attack paths, under strict authorization and scope",
+        "Requires no permission or rules of engagement"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Actively attempts to exploit weaknesses to demonstrate impact and attack paths, under strict authorization and scope"
+    },
+    {
+      "num": 53,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Before any penetration test of the finance systems, the Professional MUST ensure:",
+      "options": [
+        "No documentation afterward",
+        "Testing production payment systems at peak hours without notice",
+        "Written authorization, defined scope, rules of engagement, communication plan, and rollback/contingency measures",
+        "That nobody knows about it, including management"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Written authorization, defined scope, rules of engagement, communication plan, and rollback/contingency measures"
+    },
+    {
+      "num": 54,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Segmentation testing (e.g., can a guest Wi-Fi user reach finance servers) validates:",
+      "options": [
+        "That network isolation and firewall rules actually enforce the intended separation",
+        "That guests enjoy fast streaming",
+        "That passwords are unnecessary",
+        "That all networks are fully merged"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: That network isolation and firewall rules actually enforce the intended separation"
+    },
+    {
+      "num": 55,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Strong password policy supplemented by MFA and lockout/throttling primarily counters:",
+      "options": [
+        "Dust on keyboards",
+        "Credential guessing, stuffing, and brute-force attacks",
+        "Heavy traffic on highways",
+        "Floods in the server room"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Credential guessing, stuffing, and brute-force attacks"
+    },
+    {
+      "num": 56,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "An uninterruptible power supply (UPS) and generator for the data center primarily support which security objective?",
+      "options": [
+        "Availability: keeping critical systems running through power disturbances",
+        "Better office lighting",
+        "Confidentiality of printed documents",
+        "Faster typing speeds"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Availability: keeping critical systems running through power disturbances"
+    },
+    {
+      "num": 57,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Environmental controls (cooling, humidity, fire suppression) in the server room are a security concern because:",
+      "options": [
+        "Cooling increases hacking speed",
+        "Environmental failure can destroy availability and integrity of systems and data",
+        "Servers enjoy tropical climates",
+        "Fire extinguishers decorate the room"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Environmental failure can destroy availability and integrity of systems and data"
+    },
+    {
+      "num": 58,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Physical access control to the server room (badges, logs, visitors escorted) enforces:",
+      "options": [
+        "Removal of all locks for convenience",
+        "Faster lunch breaks",
+        "Free access for all contractors at night",
+        "The physical layer of defense-in-depth, preventing direct tampering or theft"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: The physical layer of defense-in-depth, preventing direct tampering or theft"
+    },
+    {
+      "num": 59,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A vendor requests remote access to maintain the finance system. The secure approach is to:",
+      "options": [
+        "Allow access without any record",
+        "Open RDP to the whole internet",
+        "Share the domain admin password permanently",
+        "Grant time-limited, approved, least-privilege access via a monitored channel with MFA, logging, and revocation afterward"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Grant time-limited, approved, least-privilege access via a monitored channel with MFA, logging, and revocation afterward"
+    },
+    {
+      "num": 60,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Remote work access to institutional finance systems shouldpreferably use:",
+      "options": [
+        "Passwords sent by SMS to shared phones",
+        "Open Wi-Fi without VPN",
+        "Managed devices, VPN/ZTA with MFA, endpoint compliance checks, and session monitoring",
+        "Unknown personal devices with no controls"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Managed devices, VPN/ZTA with MFA, endpoint compliance checks, and session monitoring"
+    },
+    {
+      "num": 61,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Security metrics for Result 1 (e.g., mean time to detect/respond, patch latency, coverage) are valuable because they:",
+      "options": [
+        "Look impressive in slides with no decisions attached",
+        "Are only for punishing staff",
+        "Replace the need for audits",
+        "Measure whether 24/7 prevention and monitoring objectives are actually being met and guide improvement"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Measure whether 24/7 prevention and monitoring objectives are actually being met and guide improvement"
+    },
+    {
+      "num": 62,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "If monitoring shows repeated after-hours login failures on finance servers, the Professional should:",
+      "options": [
+        "Disable the accounts of the investigators",
+        "Ignore it until morning meetings end",
+        "Publish the logs on social media",
+        "Treat it as a potential brute-force attack: block/throttle, investigate, alert, and strengthen authentication"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Treat it as a potential brute-force attack: block/throttle, investigate, alert, and strengthen authentication"
+    },
+    {
+      "num": 63,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A sudden outbound traffic spike from a finance database server to an unknown foreign host MOST suggests:",
+      "options": [
+        "A scheduled backup to an undocumented server, so no verification is needed",
+        "Possible data exfiltration or compromise requiring immediate investigation and containment",
+        "Proof the firewall is working perfectly",
+        "Normal behavior that should be ignored"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Possible data exfiltration or compromise requiring immediate investigation and containment"
+    },
+    {
+      "num": 64,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "DNS logs showing finance workstations querying known malicious domains indicate:",
+      "options": [
+        "Likely malware/command-and-control activity needing isolation, DNS blocking, and forensic review",
+        "A reason to disable DNS logging",
+        "That antivirus alone has solved everything",
+        "Healthy browsing habits"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Likely malware/command-and-control activity needing isolation, DNS blocking, and forensic review"
+    },
+    {
+      "num": 65,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Disabling unneeded USB ports or enforcing controlled removable-media use in finance areas primarily reduces:",
+      "options": [
+        "Monitor brightness",
+        "Typing speed",
+        "Data theft and malware introduction via removable media",
+        "The cost of office stationery"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Data theft and malware introduction via removable media"
+    },
+    {
+      "num": 66,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Full-disk encryption on finance laptops primarily protects data when a device is:",
+      "options": [
+        "Turned on and logged in",
+        "Lost or stolen, since contents remain unreadable without the key/credentials",
+        "Connected to the corporate LAN only",
+        "In use by its owner with the screen unlocked"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Lost or stolen, since contents remain unreadable without the key/credentials"
+    },
+    {
+      "num": 67,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "A secure configuration that forces screens to lock after inactivity addresses:",
+      "options": [
+        "Longer battery life only",
+        "Faster logins for visitors",
+        "Printer efficiency",
+        "Unauthorized use of unattended sessions in busy offices"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Unauthorized use of unattended sessions in busy offices"
+    },
+    {
+      "num": 68,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Under Result 2, the FIRST step in building an awareness program is to:",
+      "options": [
+        "Immediately punish staff who fail phishing tests",
+        "Buy posters without assessing needs",
+        "Collect data needed for training, including surveys to identify knowledge gaps and needs",
+        "Cancel all training to save budget"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Collect data needed for training, including surveys to identify knowledge gaps and needs"
+    },
+    {
+      "num": 69,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Survey data for a training and awareness program system is used to:",
+      "options": [
+        "Decide staff salaries",
+        "Replace technical controls",
+        "Spy on employees' private lives",
+        "Baseline current knowledge, attitudes, and behaviors so training can be targeted and later measured"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Baseline current knowledge, attitudes, and behaviors so training can be targeted and later measured"
+    },
+    {
+      "num": 70,
+      "section": "Result 1: Cyber Security Management (24/7, Defense-in-Depth, Updates, Design Review, Access, Risk)",
+      "topicSlug": "cyber-security-professional-iv-security-management",
+      "text": "Which audience should be PRIORITIZED for tailored finance-system security awareness?",
+      "options": [
+        "All users of the institution's information system, with role-specific content for finance, executives, IT, and vendors",
+        "No one; awareness is unnecessary",
+        "Only the IT department",
+        "Only external hackers"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: All users of the institution's information system, with role-specific content for finance, executives, IT, and vendors"
+    },
+    {
+      "num": 71,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Collecting information on “current international, continental, regional, and national cybersecurity events” helps the Professional to:",
+      "options": [
+        "Avoid updating any training content",
+        "Copy other countries' laws word-for-word without analysis",
+        "Gossip about foreign news",
+        "Keep training and controls relevant to real, evolving threats and align with broader requirements"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Keep training and controls relevant to real, evolving threats and align with broader requirements"
+    },
+    {
+      "num": 72,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "An example of a continental/regional source relevant to an African institution would be:",
+      "options": [
+        "African Union cybersecurity frameworks and regional CERT advisories, alongside global sources",
+        "Fashion magazines",
+        "Cooking shows",
+        "Only local sports news"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: African Union cybersecurity frameworks and regional CERT advisories, alongside global sources"
+    },
+    {
+      "num": 73,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Testing “awareness-raising and cultural building programs” means the Professional should:",
+      "options": [
+        "Measure behavior change (e.g., phishing click rates, reporting rates, policy compliance) — not just attendance",
+        "Count chairs in the training room",
+        "Ask whether participants enjoyed the snacks",
+        "Assume training worked without evidence"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Measure behavior change (e.g., phishing click rates, reporting rates, policy compliance) — not just attendance"
+    },
+    {
+      "num": 74,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "A phishing simulation in the finance department shows a 35% click rate. The BEST response is to:",
+      "options": [
+        "Immediately dismiss all who clicked",
+        "Publish the names of clickers externally",
+        "Stop all simulations to hide the problem",
+        "Provide targeted coaching, reinforce reporting procedures, repeat simulations, and track improvement — not public shaming"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Provide targeted coaching, reinforce reporting procedures, repeat simulations, and track improvement — not public shaming"
+    },
+    {
+      "num": 75,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "“Monitors and explains security guidelines” implies the Professional must:",
+      "options": [
+        "Write guidelines and lock them in a drawer",
+        "Use jargon that no one understands",
+        "Change guidelines daily without notice",
+        "Ensure guidelines are understood, accessible, and followed — clarifying, communicating updates, and checking compliance"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Ensure guidelines are understood, accessible, and followed — clarifying, communicating updates, and checking compliance"
+    },
+    {
+      "num": 76,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "An effective security guideline for USB use in finance areas should state:",
+      "options": [
+        "Use any USB found in the parking lot",
+        "USB devices need no rules",
+        "Share USB sticks freely between departments",
+        "Do not use unapproved USB devices; scan approved media, handle securely, and report loss — with rationale and enforcement"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Do not use unapproved USB devices; scan approved media, handle securely, and report loss — with rationale and enforcement"
+    },
+    {
+      "num": 77,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "To assess “construction of consciousness and culture,” the BEST metric set is:",
+      "options": [
+        "Number of coffee cups consumed",
+        "Length of the policy PDF",
+        "Training completion + phishing resilience + incident reporting rate + policy violations trend + audit findings",
+        "Office decoration quality"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Training completion + phishing resilience + incident reporting rate + policy violations trend + audit findings"
+    },
+    {
+      "num": 78,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Security culture differs from one-time training in that culture reflects:",
+      "options": [
+        "Sustained shared values and everyday behaviors (e.g., routinely verifying, reporting, locking screens) reinforced by leadership",
+        "Fear of punishment only",
+        "Memorizing one password",
+        "A single poster on the wall"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Sustained shared values and everyday behaviors (e.g., routinely verifying, reporting, locking screens) reinforced by leadership"
+    },
+    {
+      "num": 79,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Leadership support is critical for awareness because:",
+      "options": [
+        "Awareness works without any example",
+        "Staff mirror management behavior; funded, visible commitment drives participation and accountability",
+        "Only junior staff need training",
+        "Managers are exempt from all rules"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Staff mirror management behavior; funded, visible commitment drives participation and accountability"
+    },
+    {
+      "num": 80,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "A clear-desk policy in finance offices primarily protects:",
+      "options": [
+        "Sensitive printouts and media from unauthorized viewing or theft",
+        "Printers from running out of paper",
+        "Staff from doing paperwork",
+        "Desks from dust only"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Sensitive printouts and media from unauthorized viewing or theft"
+    },
+    {
+      "num": 81,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Tailoring awareness for executives should emphasize:",
+      "options": [
+        "Their high-value targeting, approval authority risks (e.g., BEC/whaling), and governance responsibilities",
+        "How to bypass controls for convenience",
+        "Ignoring incident reports",
+        "Video games during meetings"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Their high-value targeting, approval authority risks (e.g., BEC/whaling), and governance responsibilities"
+    },
+    {
+      "num": 82,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Business Email Compromise (BEC) targeting finance staff typically involves:",
+      "options": [
+        "Harmless greetings",
+        "Legitimate invoices only",
+        "Selling office furniture by email",
+        "Impersonating executives/vendors to trick urgent wire transfers or credential disclosure"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Impersonating executives/vendors to trick urgent wire transfers or credential disclosure"
+    },
+    {
+      "num": 83,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "The BEST defense against BEC/whaling in a finance workflow is to:",
+      "options": [
+        "Require out-of-band verification for payment changes, dual authorization, and email authentication + awareness",
+        "Disable all verification to be faster",
+        "Share signing authority by email",
+        "Process all urgent payment emails immediately"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Require out-of-band verification for payment changes, dual authorization, and email authentication + awareness"
+    },
+    {
+      "num": 84,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "Result 3 requires identifying “inseparable gaps” / false negatives and automatic vs manual assessment. A false negative in vulnerability scanning means:",
+      "options": [
+        "There are no vulnerabilities at all",
+        "The scanner correctly found everything",
+        "The scanner reported a vulnerability that does not exist",
+        "A real vulnerability exists but the scanner failed to report it — hence manual assessment and configuration review are also needed"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: A real vulnerability exists but the scanner failed to report it — hence manual assessment and configuration review are also needed"
+    },
+    {
+      "num": 85,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "The counterpart term for “reported vulnerability that does not actually exist” is:",
+      "options": [
+        "False positive",
+        "True positive",
+        "Patch Tuesday",
+        "Zero-day"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: False positive"
+    },
+    {
+      "num": 86,
+      "section": "Result 2: Security Awareness & Culture",
+      "topicSlug": "cyber-security-professional-iv-awareness",
+      "text": "“Automatically identifies gaps” refers to:",
+      "options": [
+        "Automated vulnerability scanning and configuration checking tools",
+        "Reading newspapers automatically",
+        "Automatic door locks only",
+        "Guessing passwords manually"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Automated vulnerability scanning and configuration checking tools"
+    },
+    {
+      "num": 87,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "“Manual vulnerability assessment and configuration review” is still needed because automated scans may:",
+      "options": [
+        "Run without any credentials",
+        "Detect everything perfectly",
+        "Miss logic flaws, misconfigurations, false negatives, and business-context risks that human review catches",
+        "Replace all humans permanently"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Miss logic flaws, misconfigurations, false negatives, and business-context risks that human review catches"
+    },
+    {
+      "num": 88,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A credentialed scan differs from a non-credentialed (network) scan in that credentialed scans:",
+      "options": [
+        "Require no permission",
+        "Authenticate to hosts to inspect patches, configurations, and local weaknesses in greater depth",
+        "Cannot detect missing patches",
+        "Only check the office door locks"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Authenticate to hosts to inspect patches, configurations, and local weaknesses in greater depth"
+    },
+    {
+      "num": 89,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Reviewing firewall rule sets manually is important because:",
+      "options": [
+        "More rules always mean more security",
+        "Overly permissive or shadow rules (e.g., ANY-ANY) may be missed or misjudged by automated scans",
+        "Manual review wastes time",
+        "Firewalls never need review"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Overly permissive or shadow rules (e.g., ANY-ANY) may be missed or misjudged by automated scans"
+    },
+    {
+      "num": 90,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Evaluating “implementation and compliance with internal regulations” means the Professional must:",
+      "options": [
+        "Check whether actual practice matches written policies and enforce or remediate deviations",
+        "Rewrite policies to match whatever staff do",
+        "Delete policies to ensure compliance",
+        "Ignore violations by senior staff"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Check whether actual practice matches written policies and enforce or remediate deviations"
+    },
+    {
+      "num": 91,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A compliance gap example in access management would be:",
+      "options": [
+        "Logs are retained per policy",
+        "Former employees’ accounts remain active with finance system access",
+        "All accounts have unique owners and reviewed rights",
+        "MFA is enforced for admins"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Former employees’ accounts remain active with finance system access"
+    },
+    {
+      "num": 92,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "“Audits initiated in accordance with the established plan” implies audits should be:",
+      "options": [
+        "Planned, scheduled, scoped, and risk-based — not ad hoc or surprise-driven only",
+        "Performed only after a breach",
+        "Avoided to save effort",
+        "Conducted randomly with no plan"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Planned, scheduled, scoped, and risk-based — not ad hoc or surprise-driven only"
+    },
+    {
+      "num": 93,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "For gaps found, the Professional must “organize” remediation considering:",
+      "options": [
+        "Assigning all fixes to one intern",
+        "The institution’s mission, capacity, and current state — prioritizing realistically with owners and deadlines",
+        "Ignoring low-capacity constraints",
+        "Fixing everything simultaneously regardless of capacity"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: The institution’s mission, capacity, and current state — prioritizing realistically with owners and deadlines"
+    },
+    {
+      "num": 94,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Setting “the level of risk of the gap” requires considering:",
+      "options": [
+        "The day of the week",
+        "The font size of the audit report",
+        "Personal liking of the system owner",
+        "Likelihood, impact, exploitability, asset criticality, and existing controls"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Likelihood, impact, exploitability, asset criticality, and existing controls"
+    },
+    {
+      "num": 95,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A CVSS base score is useful in Result 3 work because it:",
+      "options": [
+        "Sets staff salaries",
+        "Measures network speed",
+        "Provides a standardized severity rating (exploitability + impact) to help prioritize vulnerabilities",
+        "Replaces risk assessment entirely"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Provides a standardized severity rating (exploitability + impact) to help prioritize vulnerabilities"
+    },
+    {
+      "num": 96,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A vulnerability with CVSS 9.8 on an exposed finance server with public exploit code should be treated as:",
+      "options": [
+        "Informational decoration",
+        "Urgent: patch/mitigate immediately with heightened monitoring",
+        "Low priority next year",
+        "A reason to disable scanning"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Urgent: patch/mitigate immediately with heightened monitoring"
+    },
+    {
+      "num": 97,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "“Conduct security vulnerability testing and survey” MOST likely includes:",
+      "options": [
+        "Unauthorized hacking of other institutions",
+        "Testing only the office coffee machine",
+        "Authorized scanning, penetration testing, configuration review, and surveys/interviews to validate posture",
+        "Asking vendors for marketing brochures"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Authorized scanning, penetration testing, configuration review, and surveys/interviews to validate posture"
+    },
+    {
+      "num": 98,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A vulnerability assessment report should contain all of the following EXCEPT:",
+      "options": [
+        "Step-by-step exploit payloads for the public internet",
+        "Detailed findings with evidence, affected assets, and severity",
+        "Remediation recommendations with owners and timelines",
+        "Executive summary with risk ratings"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Step-by-step exploit payloads for the public internet"
+    },
+    {
+      "num": 99,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Re-testing/validation after remediation is necessary to:",
+      "options": [
+        "Avoid documenting anything",
+        "Punish system owners",
+        "Delay closure indefinitely",
+        "Confirm fixes work, ensure no regression or new issues, and close findings with evidence"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Confirm fixes work, ensure no regression or new issues, and close findings with evidence"
+    },
+    {
+      "num": 100,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Segregation of duties in finance systems (e.g., maker-checker for payments) primarily mitigates:",
+      "options": [
+        "Fraud and error by requiring independent authorization of critical actions",
+        "Slow printers",
+        "Network latency",
+        "Power failures"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Fraud and error by requiring independent authorization of critical actions"
+    },
+    {
+      "num": 101,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "An auditor finds developers have production database admin rights with no logging. The BEST recommendation is to:",
+      "options": [
+        "Disable all logging to improve performance",
+        "Grant more people admin rights for speed",
+        "Allow shared admin accounts",
+        "Remove standing production rights, enforce least privilege, require approved change tickets, and enable monitored, logged access"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Remove standing production rights, enforce least privilege, require approved change tickets, and enable monitored, logged access"
+    },
+    {
+      "num": 102,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Unpatched finance servers three years behind updates indicate a failure in:",
+      "options": [
+        "Staff birthday planning",
+        "Office cleaning schedules",
+        "Patch management and Result 1’s “regular updates” duty, now a Result 3 audit finding requiring a remediation plan",
+        "Printer toner ordering"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Patch management and Result 1’s “regular updates” duty, now a Result 3 audit finding requiring a remediation plan"
+    },
+    {
+      "num": 103,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Default credentials found on network devices during an audit should be rated:",
+      "options": [
+        "No risk, since defaults are secret",
+        "Acceptable for convenience",
+        "High risk: easily exploited, requiring immediate rotation to unique, vaulted credentials",
+        "Low risk, to be fixed someday"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: High risk: easily exploited, requiring immediate rotation to unique, vaulted credentials"
+    },
+    {
+      "num": 104,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Clear-text Telnet enabled for managing switches in the finance network should be replaced with:",
+      "options": [
+        "Postcards",
+        "More Telnet servers",
+        "Unencrypted messaging apps",
+        "SSH (and HTTPS) with strong authentication and logging"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: SSH (and HTTPS) with strong authentication and logging"
+    },
+    {
+      "num": 105,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Audit finds no offsite backups and restores never tested. The risk is:",
+      "options": [
+        "Improved security through obscurity",
+        "Faster backups",
+        "Loss of availability and recoverability; a single ransomware or fire event could destroy finance data irreversibly",
+        "Too many backup copies"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Loss of availability and recoverability; a single ransomware or fire event could destroy finance data irreversibly"
+    },
+    {
+      "num": 106,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Weak audit-log coverage (no central collection, short retention, no review) undermines:",
+      "options": [
+        "Office lighting",
+        "Staff morale only",
+        "Detection, investigation, and accountability for Result 1 monitoring and Result 3 audits",
+        "Printer speed"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Detection, investigation, and accountability for Result 1 monitoring and Result 3 audits"
+    },
+    {
+      "num": 107,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "An appropriate log-retention stance for finance systems is to:",
+      "options": [
+        "Retain per legal/regulatory and investigative needs with protected, time-synced, centralized storage",
+        "Delete logs daily to save space",
+        "Keep logs only on the attacker-accessible host",
+        "Disable timestamps"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Retain per legal/regulatory and investigative needs with protected, time-synced, centralized storage"
+    },
+    {
+      "num": 108,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "During an audit, discovering personal Dropbox syncing of finance data requires:",
+      "options": [
+        "Immediate risk containment, policy enforcement, secure alternatives (e.g., approved encrypted sharing), and monitoring",
+        "Blocking all internet access permanently",
+        "Ignoring shadow IT",
+        "Congratulating the user for initiative"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Immediate risk containment, policy enforcement, secure alternatives (e.g., approved encrypted sharing), and monitoring"
+    },
+    {
+      "num": 109,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A clean-desk and print-policy finding (sensitive reports left on printers) should lead to:",
+      "options": [
+        "Leaving documents overnight for convenience",
+        "More printers without controls",
+        "Banning all printing including required records",
+        "Secure printing (badge release), retrieval discipline, shredding, and awareness reinforcement"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Secure printing (badge release), retrieval discipline, shredding, and awareness reinforcement"
+    },
+    {
+      "num": 110,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Social engineering testing (with approval) complements technical audits by:",
+      "options": [
+        "Revealing human-layer susceptibility that scanners cannot measure",
+        "Embarrassing specific employees publicly",
+        "Breaking the law for realism",
+        "Replacing all technical testing"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Revealing human-layer susceptibility that scanners cannot measure"
+    },
+    {
+      "num": 111,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "The MOST ethical way to conduct a social-engineering test in the institution is to:",
+      "options": [
+        "Run it without any approval",
+        "Publish recordings externally",
+        "Target one person relentlessly",
+        "Obtain written authorization, protect staff dignity, debrief and train, and report trends — not individual punishment"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Obtain written authorization, protect staff dignity, debrief and train, and report trends — not individual punishment"
+    },
+    {
+      "num": 112,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A risk register for the institution should record:",
+      "options": [
+        "Vendor advertisements",
+        "Identified risks, owners, likelihood/impact, treatments, status, and review dates",
+        "Football scores",
+        "Lunch menus"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Identified risks, owners, likelihood/impact, treatments, status, and review dates"
+    },
+    {
+      "num": 113,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Risk treatment options the Professional can recommend are:",
+      "options": [
+        "Avoid, mitigate, transfer (e.g., insurance/outsourcing with controls), or accept (formally, with justification)",
+        "Only accepting all risks",
+        "Only buying insurance for everything",
+        "Ignore, deny, hide, or blame"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Avoid, mitigate, transfer (e.g., insurance/outsourcing with controls), or accept (formally, with justification)"
+    },
+    {
+      "num": 114,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Transferring risk via cyber insurance is acceptable only when:",
+      "options": [
+        "No controls are implemented",
+        "The institution still maintains controls and understands residual risk and policy conditions — insurance does not replace security",
+        "The policy is unread",
+        "Management believes insurance stops attackers"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: The institution still maintains controls and understands residual risk and policy conditions — insurance does not replace security"
+    },
+    {
+      "num": 115,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A management decision to formally accept a high risk without mitigation should require:",
+      "options": [
+        "Blaming the auditor",
+        "Documented justification, senior sign-off, compensating monitoring, and a review date",
+        "A verbal nod in the hallway",
+        "No documentation"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Documented justification, senior sign-off, compensating monitoring, and a review date"
+    },
+    {
+      "num": 116,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Key performance indicators for Result 3 audit work include:",
+      "options": [
+        "Coffee consumed during audits",
+        "Number of pages stapled",
+        "Auditor’s travel miles",
+        "Coverage of planned audits, % findings remediated on time, repeat-finding rate, and mean time to close critical gaps"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Coverage of planned audits, % findings remediated on time, repeat-finding rate, and mean time to close critical gaps"
+    },
+    {
+      "num": 117,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A repeat audit finding (same gap reappearing) MOST suggests:",
+      "options": [
+        "Excellent progress",
+        "Findings should be deleted",
+        "The auditor is mistaken by definition",
+        "Root-cause or governance failure: fixes were superficial, ownership unclear, or controls not sustained"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Root-cause or governance failure: fixes were superficial, ownership unclear, or controls not sustained"
+    },
+    {
+      "num": 118,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Independence and objectivity in audits matter because:",
+      "options": [
+        "Findings should favor friends",
+        "Auditors should audit their own work for speed",
+        "They ensure honest assessment without conflicts, increasing trust in findings and remediation",
+        "Evidence is unnecessary"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: They ensure honest assessment without conflicts, increasing trust in findings and remediation"
+    },
+    {
+      "num": 119,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Working papers/evidence for each finding should include:",
+      "options": [
+        "Only the auditor’s opinion",
+        "Rumors and guesses",
+        "No references",
+        "Criteria, condition, cause, effect, evidence, severity, and agreed actions — enabling verification and follow-up"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Criteria, condition, cause, effect, evidence, severity, and agreed actions — enabling verification and follow-up"
+    },
+    {
+      "num": 120,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Prioritizing remediation when capacity is limited should follow:",
+      "options": [
+        "Whoever shouts loudest",
+        "Fixing easy low-risk items only to look productive",
+        "Risk-based sequencing: critical/exposed finance assets first, with interim mitigations for the rest",
+        "Alphabetical order"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Risk-based sequencing: critical/exposed finance assets first, with interim mitigations for the rest"
+    },
+    {
+      "num": 121,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "An interim mitigation for a legacy finance app that cannot be patched immediately is to:",
+      "options": [
+        "Isolate/segment it, restrict access, add monitoring/WAF rules, and plan replacement/migration with a deadline",
+        "Share its passwords widely",
+        "Remove all monitoring to reduce alerts",
+        "Expose it directly to the internet"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Isolate/segment it, restrict access, add monitoring/WAF rules, and plan replacement/migration with a deadline"
+    },
+    {
+      "num": 122,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Configuration baselines for finance servers should be:",
+      "options": [
+        "Changed casually without records",
+        "Documented, version-controlled, hardened, and drift-monitored with approved change control",
+        "Identical to home gaming PCs",
+        "Kept in one person’s memory"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Documented, version-controlled, hardened, and drift-monitored with approved change control"
+    },
+    {
+      "num": 123,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "File integrity monitoring (FIM) on critical finance system files helps detect:",
+      "options": [
+        "Unauthorized changes to binaries, configs, or data indicating compromise or drift",
+        "Better video quality",
+        "Faster downloads",
+        "Printer toner levels"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Unauthorized changes to binaries, configs, or data indicating compromise or drift"
+    },
+    {
+      "num": 124,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Which activity BEST validates that Result 1’s 24/7 monitoring actually works?",
+      "options": [
+        "Tabletop/simulation exercises plus review of real alerts: detection, escalation, and response within targets",
+        "Never testing to avoid disruption",
+        "Assuming it works because tools were bought",
+        "Turning off alerts during drills"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Tabletop/simulation exercises plus review of real alerts: detection, escalation, and response within targets"
+    },
+    {
+      "num": 125,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Executive reporting of audit results should emphasize:",
+      "options": [
+        "Risk to mission/services, remediation priorities, resources needed, and trends — in clear business language",
+        "Technical jargon to confuse management",
+        "Only good news",
+        "Raw scanner output pasted without analysis"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Risk to mission/services, remediation priorities, resources needed, and trends — in clear business language"
+    },
+    {
+      "num": 126,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Follow-up audits primarily verify:",
+      "options": [
+        "That findings were deleted",
+        "That owners felt comfortable",
+        "That agreed actions were implemented effectively and risks actually reduced, with evidence",
+        "That reports were nicely formatted"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: That agreed actions were implemented effectively and risks actually reduced, with evidence"
+    },
+    {
+      "num": 127,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Result 4 requires monitoring “current cybersecurity situations.” Its operational purpose is to:",
+      "options": [
+        "Detect emerging threats, technologies, and practices early so institutional controls stay effective and adaptive",
+        "Collect news clippings for decoration",
+        "Replace all internal monitoring with TV news",
+        "Justify buying every new gadget"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Detect emerging threats, technologies, and practices early so institutional controls stay effective and adaptive"
+    },
+    {
+      "num": 128,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "“General Operating Procedures study / TOP” offering “new approaches and recommendations” suggests the Professional should:",
+      "options": [
+        "Adopt every trend without evaluation",
+        "Reject all new approaches",
+        "Benchmark against good practice, pilot suitable innovations, and recommend improvements with evidence",
+        "Copy competitors secretly"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Benchmark against good practice, pilot suitable innovations, and recommend improvements with evidence"
+    },
+    {
+      "num": 129,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Formulating “principles, models, methodologies, workflows, strategies and frameworks” with long-term impact requires:",
+      "options": [
+        "Changing strategy weekly",
+        "Ignoring mission and capacity",
+        "Writing long documents nobody reads",
+        "Aligning them with cybersecurity needs, institutional mission, and measurable outcomes — not paperwork for its own sake"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Aligning them with cybersecurity needs, institutional mission, and measurable outcomes — not paperwork for its own sake"
+    },
+    {
+      "num": 130,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A strategic plan for institutional information systems should include all of the following EXCEPT:",
+      "options": [
+        "Vision, objectives, prioritized initiatives, owners, resources, timelines, metrics, and risk alignment",
+        "Dependencies and assumptions",
+        "A detailed list of every employee’s passwords",
+        "Governance and review cadence"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: A detailed list of every employee’s passwords"
+    },
+    {
+      "num": 131,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "“Adapting to context in the event of cybersecurity-related changes” BEST describes:",
+      "options": [
+        "Adaptive security/change management: assessing change impact, adjusting controls, communicating, and monitoring",
+        "Applying changes directly in production without review",
+        "Ignoring vendor end-of-life notices",
+        "Freezing all systems forever"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Adaptive security/change management: assessing change impact, adjusting controls, communicating, and monitoring"
+    },
+    {
+      "num": 132,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "A new national cybersecurity policy is issued. The Professional’s FIRST institutional step is to:",
+      "options": [
+        "Announce full compliance immediately without checks",
+        "Delegate to an intern with no follow-up",
+        "File it away unread",
+        "Gap-assess current policies/controls against the new requirements and plan compliant implementation"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Gap-assess current policies/controls against the new requirements and plan compliant implementation"
+    },
+    {
+      "num": 133,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "“Develops guidelines for various cybersecurity policies issued by the institution” means the Professional must:",
+      "options": [
+        "Translate high-level policy into practical, role-specific implementation guidance and verify adoption",
+        "Write policies that contradict each other",
+        "Keep guidelines secret from implementers",
+        "Avoid version control"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Translate high-level policy into practical, role-specific implementation guidance and verify adoption"
+    },
+    {
+      "num": 134,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Threat intelligence (e.g., vendor advisories, CERT alerts, ISAC feeds) is valuable to Result 4 because it:",
+      "options": [
+        "Guarantees prevention of all attacks",
+        "Is only useful to journalists",
+        "Provides timely indicators and context (TTPs, IOCs) to hunt, block, and prioritize defenses",
+        "Replaces all internal logs"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Provides timely indicators and context (TTPs, IOCs) to hunt, block, and prioritize defenses"
+    },
+    {
+      "num": 135,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "An indicator of compromise (IOC) such as a malicious hash, IP, or domain should be:",
+      "options": [
+        "Validated, then used for hunting/blocking with attention to expiry and false positives",
+        "Posted publicly with sensitive victim data",
+        "Ignored as theoretical",
+        "Blocked forever without review"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Validated, then used for hunting/blocking with attention to expiry and false positives"
+    },
+    {
+      "num": 136,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Tactics, Techniques, and Procedures (TTPs) in threat reports help the institution to:",
+      "options": [
+        "Learn cooking techniques",
+        "Design logos",
+        "Improve office etiquette",
+        "Understand HOW adversaries operate so detections and controls target behaviors, not just single IOCs"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Understand HOW adversaries operate so detections and controls target behaviors, not just single IOCs"
+    },
+    {
+      "num": 137,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Horizon scanning for “new changes of the time” (purpose statement) includes tracking:",
+      "options": [
+        "Only last year’s threats",
+        "Office furniture trends",
+        "Celebrity gossip",
+        "New attack trends, technology shifts (cloud, mobile, AI), regulatory changes, and vendor roadmaps"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: New attack trends, technology shifts (cloud, mobile, AI), regulatory changes, and vendor roadmaps"
+    },
+    {
+      "num": 138,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Cloud adoption by the finance institution introduces a shared-responsibility model meaning:",
+      "options": [
+        "The provider handles 100% of security",
+        "The provider secures the cloud infrastructure while the institution still secures its data, identities, and configurations",
+        "The institution has no responsibilities",
+        "Encryption is unnecessary in the cloud"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: The provider secures the cloud infrastructure while the institution still secures its data, identities, and configurations"
+    },
+    {
+      "num": 139,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "The MOST common cause of cloud finance-data exposure the Professional should guard against is:",
+      "options": [
+        "Customer misconfiguration (open storage, excessive permissions, exposed keys) rather than provider data-center failure",
+        "Using MFA",
+        "Alien interference",
+        "Too much encryption"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Customer misconfiguration (open storage, excessive permissions, exposed keys) rather than provider data-center failure"
+    },
+    {
+      "num": 140,
+      "section": "Result 3: Audit, Vulnerability, Risk & Remediation",
+      "topicSlug": "cyber-security-professional-iv-audit-risk",
+      "text": "Monitoring the effectiveness of newly added controls (“adding and improving new changes”) requires:",
+      "options": [
+        "Declaring success on deployment day",
+        "Removing old controls without assessment",
+        "Defining success metrics, collecting before/after data, and adjusting or rolling back if objectives are not met",
+        "Avoiding user feedback"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Defining success metrics, collecting before/after data, and adjusting or rolling back if objectives are not met"
+    },
+    {
+      "num": 141,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "A security roadmap for the next 2–3 years should be driven by:",
+      "options": [
+        "Whatever is newest regardless of need",
+        "Vendor sales pressure alone",
+        "Random selection",
+        "Risk, mission needs, audit findings, threat landscape, capacity, and measurable milestones"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Risk, mission needs, audit findings, threat landscape, capacity, and measurable milestones"
+    },
+    {
+      "num": 142,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "When recommending a new security technology, the Professional’s business case should include:",
+      "options": [
+        "Problem/risk, options analysis, total cost, expected benefit, integration, staffing, and success measures",
+        "Only the purchase price",
+        "Only the vendor’s marketing slogans",
+        "No mention of staffing or operations"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Problem/risk, options analysis, total cost, expected benefit, integration, staffing, and success measures"
+    },
+    {
+      "num": 143,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Continuous improvement (Plan-Do-Check-Act) applied to institutional cybersecurity means:",
+      "options": [
+        "Buying tools once and never reviewing",
+        "Blaming staff after every incident",
+        "Regularly planning, implementing, measuring, and refining controls based on audits, incidents, and monitoring",
+        "Auditing once per decade"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Regularly planning, implementing, measuring, and refining controls based on audits, incidents, and monitoring"
+    },
+    {
+      "num": 144,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "After a phishing incident compromises a finance mailbox, the lessons-learned review should produce:",
+      "options": [
+        "Root causes, control gaps, corrective actions with owners/dates, and updates to training, procedures, and monitoring",
+        "Punishment of one employee only",
+        "No documentation",
+        "A decision to hide future incidents"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Root causes, control gaps, corrective actions with owners/dates, and updates to training, procedures, and monitoring"
+    },
+    {
+      "num": 145,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Threat hunting as part of monitoring current situations differs from alert triage by:",
+      "options": [
+        "Waiting passively for antivirus popups",
+        "Deleting logs proactively",
+        "Proactively searching for hidden threats using hypotheses and intelligence, rather than waiting for alerts",
+        "Hunting animals near the data center"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Proactively searching for hidden threats using hypotheses and intelligence, rather than waiting for alerts"
+    },
+    {
+      "num": 146,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "A new ransomware gang targets public finance systems regionally. The BEST immediate institutional response is to:",
+      "options": [
+        "Pay in advance just in case",
+        "Disconnect all systems permanently with no plan",
+        "Heighten monitoring for their TTPs, verify backups/segmentation, patch exposed vectors, and rehearse response",
+        "Announce that backups make ransomware harmless without testing"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Heighten monitoring for their TTPs, verify backups/segmentation, patch exposed vectors, and rehearse response"
+    },
+    {
+      "num": 147,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Verifying backup resilience against ransomware specifically requires:",
+      "options": [
+        "Storing backup passwords with the backups",
+        "Backups on the same network with domain-admin access",
+        "Offline/immutable copies, tested restores, segregated credentials, and rehearsed recovery runbooks",
+        "Untested backup jobs assumed successful"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Offline/immutable copies, tested restores, segregated credentials, and rehearsed recovery runbooks"
+    },
+    {
+      "num": 148,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "An incident response runbook for the finance systems should define:",
+      "options": [
+        "That incidents resolve themselves",
+        "Only the phone number of one technician",
+        "Roles, escalation, communication, containment/eradication/recovery steps, evidence handling, and criteria for external reporting",
+        "No roles to keep things flexible"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Roles, escalation, communication, containment/eradication/recovery steps, evidence handling, and criteria for external reporting"
+    },
+    {
+      "num": 149,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Tabletop exercises for Result 4 monitoring are valuable because they:",
+      "options": [
+        "Are purely for entertainment",
+        "Require production outages to be valid",
+        "Test decision-making, coordination, and gaps in plans before a real crisis",
+        "Replace all technical controls"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Test decision-making, coordination, and gaps in plans before a real crisis"
+    },
+    {
+      "num": 150,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Reporting “current cybersecurity situations” to management should be:",
+      "options": [
+        "Only verbal with no record",
+        "Timely, concise, risk-focused, with impact, actions taken, and decisions needed",
+        "A dump of raw logs",
+        "Delayed until perfect information exists"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Timely, concise, risk-focused, with impact, actions taken, and decisions needed"
+    },
+    {
+      "num": 151,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "A sudden vendor end-of-life announcement for the institution’s firewall OS requires:",
+      "options": [
+        "Buying the same obsolete model again",
+        "Disabling the firewall to avoid alerts",
+        "Continuing unsupported indefinitely",
+        "Risk assessment, migration/upgrade planning, interim mitigations, and budget/timeline proposals"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Risk assessment, migration/upgrade planning, interim mitigations, and budget/timeline proposals"
+    },
+    {
+      "num": 152,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Adopting AI-assisted security analytics can help 24/7 monitoring by:",
+      "options": [
+        "Replacing analysts and accountability entirely",
+        "Automatically blocking all traffic",
+        "Prioritizing alerts, detecting anomalies, and accelerating triage — under human oversight with tuned use cases",
+        "Making decisions without logs"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Prioritizing alerts, detecting anomalies, and accelerating triage — under human oversight with tuned use cases"
+    },
+    {
+      "num": 153,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Before connecting a new fintech/payment integration to public finance management, the Professional must ensure:",
+      "options": [
+        "Skipping testing to meet deadlines",
+        "Sharing all credentials with the vendor",
+        "Immediate connection for convenience",
+        "Security review, contractual security clauses, access limits, logging, testing, and ongoing monitoring"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Security review, contractual security clauses, access limits, logging, testing, and ongoing monitoring"
+    },
+    {
+      "num": 154,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Third-party/vendor risk management for finance systems should include:",
+      "options": [
+        "Due diligence, security requirements in contracts, access reviews, monitoring, and exit/data-return plans",
+        "No contracts to stay agile",
+        "Permanent vendor access",
+        "Trusting all vendors implicitly"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Due diligence, security requirements in contracts, access reviews, monitoring, and exit/data-return plans"
+    },
+    {
+      "num": 155,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "A vendor breach affecting hosted finance data triggers the institution’s duty to:",
+      "options": [
+        "Blame users",
+        "Activate incident response, assess impact, notify per legal/contractual duties, and strengthen controls — not concealment",
+        "Hide the breach from stakeholders",
+        "Wait for media coverage"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Activate incident response, assess impact, notify per legal/contractual duties, and strengthen controls — not concealment"
+    },
+    {
+      "num": 156,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "The document’s emphasis on “adding new changes of the time” does NOT justify:",
+      "options": [
+        "Training staff on approved changes",
+        "Piloting promising controls with success criteria",
+        "Phasing out obsolete controls responsibly",
+        "Uncontrolled adoption of every novelty without risk assessment, testing, and training"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Uncontrolled adoption of every novelty without risk assessment, testing, and training"
+    },
+    {
+      "num": 157,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "INTEGRATED SCENARIO: Auditors find (a) no centralized logging, (b) shared admin passwords, (c) unpatched internet-facing portal, (d) no tested backups. The CORRECT risk-based sequence is:",
+      "options": [
+        "Repaint the server room first",
+        "Contain exposure first (restrict/patch portal, rotate credentials), restore logging/monitoring, then rebuild backup recovery with tests — with owners and dates",
+        "Buy new laptops for executives first",
+        "Write a longer policy before any technical fix"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Contain exposure first (restrict/patch portal, rotate credentials), restore logging/monitoring, then rebuild backup recovery with tests — with owners and dates"
+    },
+    {
+      "num": 158,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "In the same scenario, the shared admin password finding maps to Results:",
+      "options": [
+        "Result 4 only, so wait for future technology",
+        "Only Result 2, so training alone fixes it",
+        "Result 1 (access control failure) AND Result 3 (audit/compliance gap) requiring PAM and accountability",
+        "No result; it is acceptable"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Result 1 (access control failure) AND Result 3 (audit/compliance gap) requiring PAM and accountability"
+    },
+    {
+      "num": 159,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "In the same scenario, the untested-backup finding threatens:",
+      "options": [
+        "Availability and recoverability under Result 1, discovered via Result 3, needing urgent Result 4-style improvement",
+        "Only staff morale",
+        "Only printer availability",
+        "Nothing, because disks rarely fail"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Availability and recoverability under Result 1, discovered via Result 3, needing urgent Result 4-style improvement"
+    },
+    {
+      "num": 160,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: Finance staff routinely bypass USB scanning because “it is slow.” The Professional should:",
+      "options": [
+        "Ignore it as a minor preference",
+        "Remove all USB controls to please staff",
+        "Combine enforcement with a faster approved workflow, awareness of real incidents, monitoring, and consequences — per Results 1–2",
+        "Punish one junior publicly and stop there"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Combine enforcement with a faster approved workflow, awareness of real incidents, monitoring, and consequences — per Results 1–2"
+    },
+    {
+      "num": 161,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: A manager demands an exception granting permanent admin rights to a contractor. The Professional should:",
+      "options": [
+        "Share a personal admin account",
+        "Apply exception governance: business justification, risk review, time limit, compensating controls, approval, and review date",
+        "Refuse rudely with no alternative",
+        "Grant it permanently with no record"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Apply exception governance: business justification, risk review, time limit, compensating controls, approval, and review date"
+    },
+    {
+      "num": 162,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: Phishing email from “CFO” urges urgent transfer to new account. The finance officer should:",
+      "options": [
+        "Forward to personal email to handle at home",
+        "Transfer immediately to show responsiveness",
+        "Reply with all credentials to prove identity",
+        "Pause, verify via known out-of-band channel and dual authorization, and report as suspected BEC per procedure"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Pause, verify via known out-of-band channel and dual authorization, and report as suspected BEC per procedure"
+    },
+    {
+      "num": 163,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: Ransomware encrypts a finance file server but offline backups exist and were tested. The CORRECT order is:",
+      "options": [
+        "Pay immediately before analysis",
+        "Reconnect everything to see what happens",
+        "Isolate/identify scope, preserve evidence, eradicate, recover from clean backups, verify, harden, and review lessons",
+        "Delete backups to save space"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Isolate/identify scope, preserve evidence, eradicate, recover from clean backups, verify, harden, and review lessons"
+    },
+    {
+      "num": 164,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: A vulnerability scan reports 500 findings with limited staff. The Professional should:",
+      "options": [
+        "Rescan repeatedly without fixing",
+        "Risk-prioritize by exploitability/exposure/criticality, apply interim mitigations, schedule fixes with owners, and track to closure",
+        "Try to fix all 500 simultaneously overnight",
+        "Close all findings as accepted risk"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Risk-prioritize by exploitability/exposure/criticality, apply interim mitigations, schedule fixes with owners, and track to closure"
+    },
+    {
+      "num": 165,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: New national policy requires MFA for all finance administrators within 90 days. The BEST plan is to:",
+      "options": [
+        "Exempt everyone as too busy",
+        "Buy tokens but never distribute them",
+        "Wait until day 89 then rush",
+        "Inventory admins, choose approved MFA, pilot, roll out with training/support, enforce, monitor, and report compliance by the deadline"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Inventory admins, choose approved MFA, pilot, roll out with training/support, enforce, monitor, and report compliance by the deadline"
+    },
+    {
+      "num": 166,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: A penetration test finds the finance portal vulnerable to SQL injection. The root fix belongs in:",
+      "options": [
+        "Secure development lifecycle: parameterized queries, input validation, code review, testing, and WAF only as defense-in-depth",
+        "Asking attackers to be ethical",
+        "Buying a bigger monitor",
+        "Hiding the login page URL"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Secure development lifecycle: parameterized queries, input validation, code review, testing, and WAF only as defense-in-depth"
+    },
+    {
+      "num": 167,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "SCENARIO: Logs show a service account logging in interactively at 3 a.m. from a foreign IP. The Professional should:",
+      "options": [
+        "Treat as suspected compromise: disable/rotate, investigate scope, check for persistence/exfiltration, and strengthen controls",
+        "Ignore unusual service-account behavior",
+        "Delete the logs to stop alerts",
+        "Assume the service enjoys travel"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Treat as suspected compromise: disable/rotate, investigate scope, check for persistence/exfiltration, and strengthen controls"
+    },
+    {
+      "num": 168,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "The document’s “capacity” consideration when setting risk levels and remediation means:",
+      "options": [
+        "Capacity excuses inaction permanently",
+        "Capacity is irrelevant to risk",
+        "Plans must reflect real staffing, skills, budget, and tools — sequencing work credibly rather than promising the impossible",
+        "Only interns determine capacity"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Plans must reflect real staffing, skills, budget, and tools — sequencing work credibly rather than promising the impossible"
+    },
+    {
+      "num": 169,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "Sustaining “consistency” between stakeholders and national/institutional sectors over time requires:",
+      "options": [
+        "Deleting stakeholder contacts",
+        "Periodic reviews, updated mappings, joint exercises, and tracked action items — not a one-time meeting",
+        "One workshop with no follow-up",
+        "Annual silence"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Periodic reviews, updated mappings, joint exercises, and tracked action items — not a one-time meeting"
+    },
+    {
+      "num": 170,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "The FINAL measure of success for this position is BEST expressed as:",
+      "options": [
+        "Reduced risk to institutional and public finance systems demonstrated by monitored controls, closed audit gaps, resilient recovery, and improved awareness culture",
+        "Number of tools purchased",
+        "Number of meetings attended",
+        "Length of reports produced"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Reduced risk to institutional and public finance systems demonstrated by monitored controls, closed audit gaps, resilient recovery, and improved awareness culture"
+    },
+    {
+      "num": 171,
+      "section": "Result 4: Monitoring Current Situations, Strategy & Integrated Scenarios",
+      "topicSlug": "cyber-security-professional-iv-monitoring-strategy",
+      "text": "A new analyst asks where to start implementing this job description. The BEST advice is to:",
+      "options": [
+        "Wait for a major breach to justify action",
+        "Audit stationery supplies first",
+        "Baseline assets/risks, stabilize 24/7 monitoring and patching, run risk-based audits, build awareness with metrics, and track improvements in a living plan",
+        "Start by buying the most advertised product"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Baseline assets/risks, stabilize 24/7 monitoring and patching, run risk-based audits, build awareness with metrics, and track improvements in a living plan"
+    },
+    {
+      "num": 172,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Under Result 1, if two controls conflict — nightly automated patch reboots versus a 24/7 availability requirement for payment processing — the Professional should:",
+      "options": [
+        "Schedule maintenance windows with redundancy/failover, approvals, and rollback, so both patching and availability are satisfied",
+        "Unplug the monitoring system so reboots go unnoticed",
+        "Disable all patching permanently to protect uptime",
+        "Reboot production payment servers without notice during peak hours"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Schedule maintenance windows with redundancy/failover, approvals, and rollback, so both patching and availability are satisfied"
+    },
+    {
+      "num": 173,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A SIEM rule generates 5,000 identical low-value alerts per day, burying real incidents. The CORRECT tuning response is to:",
+      "options": [
+        "Delete the SIEM to eliminate alert noise",
+        "Tune, aggregate, and prioritize the rule, add context/suppression for known-benign cases, and measure detection quality",
+        "Forward all 5,000 alerts to executives daily",
+        "Tell analysts to ignore all alerts"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Tune, aggregate, and prioritize the rule, add context/suppression for known-benign cases, and measure detection quality"
+    },
+    {
+      "num": 174,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "For forensic readiness supporting audits and incidents, the institution must maintain:",
+      "options": [
+        "No documentation so attackers cannot read procedures",
+        "A policy of wiping all disks immediately after any incident",
+        "Logs stored only on volatile memory",
+        "Chain-of-custody procedures, synchronized time, protected centralized logs, and defined evidence-collection roles"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Chain-of-custody procedures, synchronized time, protected centralized logs, and defined evidence-collection roles"
+    },
+    {
+      "num": 175,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Hashing (e.g., SHA-256) of backup images and evidence files primarily provides:",
+      "options": [
+        "Confidentiality of the contents",
+        "Integrity assurance: any alteration is detectable by comparing hash values",
+        "Immunity from ransomware",
+        "Faster network transfers"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Integrity assurance: any alteration is detectable by comparing hash values"
+    },
+    {
+      "num": 176,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Digital signatures on official finance software releases and policy documents provide:",
+      "options": [
+        "Authenticity, integrity, and non-repudiation of origin",
+        "Faster printing speeds",
+        "Longer battery life",
+        "Free software licenses"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Authenticity, integrity, and non-repudiation of origin"
+    },
+    {
+      "num": 177,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A public finance portal must use TLS with valid certificates and HSTS because this combination:",
+      "options": [
+        "Prevents users from forgetting passwords",
+        "Eliminates the need for application security",
+        "Encrypts data in transit, authenticates the server, and resists protocol-downgrade attacks",
+        "Makes the website load in zero seconds"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Encrypts data in transit, authenticates the server, and resists protocol-downgrade attacks"
+    },
+    {
+      "num": 178,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Certificate warnings on the finance portal should be treated by staff as:",
+      "options": [
+        "An invitation to download a new browser",
+        "Proof the site is extra secure",
+        "A stop-and-report signal: do not bypass; verify through official channels before proceeding",
+        "A minor annoyance to click through quickly"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: A stop-and-report signal: do not bypass; verify through official channels before proceeding"
+    },
+    {
+      "num": 179,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Key management for encryption in the institution must address:",
+      "options": [
+        "Secure generation, storage, rotation, backup/recovery, and destruction of keys with defined custodianship",
+        "Storing private keys in public folders for convenience",
+        "Using one key forever with no rotation",
+        "Emailing keys to all staff for transparency"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Secure generation, storage, rotation, backup/recovery, and destruction of keys with defined custodianship"
+    },
+    {
+      "num": 180,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Network admission control (NAC) for devices joining the finance LAN helps enforce that:",
+      "options": [
+        "Personal devices bypass all checks automatically",
+        "Patching becomes unnecessary",
+        "Guests receive domain-admin rights",
+        "Only compliant, authorized devices gain appropriate network access"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Only compliant, authorized devices gain appropriate network access"
+    },
+    {
+      "num": 181,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A data loss prevention (DLP) control on finance endpoints and email gateways is designed to:",
+      "options": [
+        "Detect and block unauthorized movement of sensitive data such as account records and credentials",
+        "Replace firewalls entirely",
+        "Speed up large video downloads",
+        "Monitor employees' private messages for entertainment"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Detect and block unauthorized movement of sensitive data such as account records and credentials"
+    },
+    {
+      "num": 182,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "When DLP blocks a legitimate finance report, the CORRECT governance response is to:",
+      "options": [
+        "Delete the report to avoid future blocks",
+        "Email the report from a personal account",
+        "Review the rule, provide an approved secure sharing alternative, and tune with documented approval — not permanent bypass",
+        "Disable DLP permanently for everyone"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Review the rule, provide an approved secure sharing alternative, and tune with documented approval — not permanent bypass"
+    },
+    {
+      "num": 183,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "An insider with legitimate access exfiltrates finance data slowly over months. The control MOST likely to detect this is:",
+      "options": [
+        "Annual office parties",
+        "Faster printers",
+        "Behavioral monitoring: baselining normal access with alerts on anomalous volumes, times, and destinations, plus data-access reviews",
+        "A stronger front-door lock"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Behavioral monitoring: baselining normal access with alerts on anomalous volumes, times, and destinations, plus data-access reviews"
+    },
+    {
+      "num": 184,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Separation of development, test, and production environments for finance systems matters because:",
+      "options": [
+        "Developers enjoy having three desktops",
+        "Production data should be used for all testing",
+        "It prevents untested changes and live-data exposure, preserving integrity and confidentiality",
+        "Change control becomes unnecessary"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: It prevents untested changes and live-data exposure, preserving integrity and confidentiality"
+    },
+    {
+      "num": 185,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Test data derived from real citizen payment records must be:",
+      "options": [
+        "Copied freely to personal laptops for convenience",
+        "Emailed to vendors for feedback",
+        "Posted on the test server without access control",
+        "De-identified/masked with access controls, since real personal data in test systems creates breach and compliance risk"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: De-identified/masked with access controls, since real personal data in test systems creates breach and compliance risk"
+    },
+    {
+      "num": 186,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A disaster recovery (DR) plan for public finance management differs from daily backups in that DR ALSO covers:",
+      "options": [
+        "Only the purchase of new servers",
+        "Alternate sites, roles, communications, dependencies, and service restoration targets (RTO/RPO) beyond data copies",
+        "Blaming the weather",
+        "Office decoration after a disaster"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Alternate sites, roles, communications, dependencies, and service restoration targets (RTO/RPO) beyond data copies"
+    },
+    {
+      "num": 187,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for the payment system define respectively:",
+      "options": [
+        "Printer speed and paper size",
+        "Staff lunch duration and vacation days",
+        "The age of backup tapes",
+        "How fast services must be restored, and how much data loss (in time) is tolerable"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: How fast services must be restored, and how much data loss (in time) is tolerable"
+    },
+    {
+      "num": 188,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A DR drill that restores the finance system from backups to an isolated environment validates:",
+      "options": [
+        "That production should be taken down for fun",
+        "That drills are a waste of time",
+        "Recoverability without risking production, including procedures, credentials, and dependencies",
+        "That documentation is unnecessary"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Recoverability without risking production, including procedures, credentials, and dependencies"
+    },
+    {
+      "num": 189,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "During a real regional power outage, the Professional's FIRST operational priority under Result 1 is to:",
+      "options": [
+        "Open the server room doors for ventilation during a storm",
+        "Keep every non-critical system running until batteries explode",
+        "Protect life safety, then gracefully preserve finance systems (UPS load-shedding, controlled shutdowns) and activate continuity plans",
+        "Post outage photos on social media"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Protect life safety, then gracefully preserve finance systems (UPS load-shedding, controlled shutdowns) and activate continuity plans"
+    },
+    {
+      "num": 190,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "After any major incident, the “post-incident review” must be blameless yet accountable by focusing on:",
+      "options": [
+        "Declaring the incident never happened",
+        "Naming and shaming one scapegoat",
+        "Deleting all incident records",
+        "Systemic causes, control improvements, and assigned actions — while maintaining individual responsibility through process"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Systemic causes, control improvements, and assigned actions — while maintaining individual responsibility through process"
+    },
+    {
+      "num": 191,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A request to monitor an employee's email during a fraud investigation must be handled by:",
+      "options": [
+        "The technician reading all mailboxes out of curiosity",
+        "Sharing findings with the whole office",
+        "Following legal authorization, HR/legal coordination, minimal scope, and documented handling — not unilateral snooping",
+        "Installing spyware on all computers"
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Correct answer is C: Following legal authorization, HR/legal coordination, minimal scope, and documented handling — not unilateral snooping"
+    },
+    {
+      "num": 192,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Retention of finance security logs must balance:",
+      "options": [
+        "Keeping everything forever with no protection",
+        "Investigative/legal needs and storage cost, with defined periods, protection, and lawful disposal",
+        "Deleting everything immediately",
+        "Storing logs only on attackers' servers"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Investigative/legal needs and storage cost, with defined periods, protection, and lawful disposal"
+    },
+    {
+      "num": 193,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Secure disposal of decommissioned finance disks requires:",
+      "options": [
+        "Donating servers with live data",
+        "Sanitization per sensitivity (wipe, degauss, or destroy) with verification and records — not ordinary deletion",
+        "Dragging files to the recycle bin",
+        "Selling disks online as-is"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Sanitization per sensitivity (wipe, degauss, or destroy) with verification and records — not ordinary deletion"
+    },
+    {
+      "num": 194,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Before disposing of printers/copiers from finance areas, the Professional must ensure:",
+      "options": [
+        "Stored images on internal drives are wiped, since multifunction devices retain document copies",
+        "Network cables are gift-wrapped",
+        "Toner is refilled for the next owner",
+        "Paper trays are full"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Stored images on internal drives are wiped, since multifunction devices retain document copies"
+    },
+    {
+      "num": 195,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "A secure software-development requirement for future finance applications is to:",
+      "options": [
+        "Disable logging to improve speed",
+        "Hard-code credentials for support convenience",
+        "Deliver code as fast as possible with no review",
+        "Include threat modeling, secure coding standards, peer review, security testing, and signed releases in procurement/development"
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Correct answer is D: Include threat modeling, secure coding standards, peer review, security testing, and signed releases in procurement/development"
+    },
+    {
+      "num": 196,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Open-source components used in institutional systems require:",
+      "options": [
+        "Inventory, license compliance, vulnerability tracking, and timely updates like any other software",
+        "Avoiding all updates to preserve stability",
+        "Blind trust in all community code",
+        "No tracking because they are free"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Inventory, license compliance, vulnerability tracking, and timely updates like any other software"
+    },
+    {
+      "num": 197,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "The institution plans biometric authentication for its data center. The Professional should advise that biometrics:",
+      "options": [
+        "Are infallible and need no fallback",
+        "Require liveness/anti-spoofing, fallback/revocation procedures, and privacy-compliant template protection",
+        "Eliminate all other controls",
+        "Can be shared freely like passwords"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Require liveness/anti-spoofing, fallback/revocation procedures, and privacy-compliant template protection"
+    },
+    {
+      "num": 198,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "An executive asks for a single dashboard proving “we are secure.” The HONEST response is to present:",
+      "options": [
+        "Risk-based indicators (control coverage, audit closure, detection/response times, awareness trends) showing posture and gaps — not absolute security",
+        "Only last month's good news",
+        "A green light labeled 100% secure forever",
+        "No metrics at all"
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Correct answer is A: Risk-based indicators (control coverage, audit closure, detection/response times, awareness trends) showing posture and gaps — not absolute security"
+    },
+    {
+      "num": 199,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "Continuity of Result 1–4 duties during staff turnover requires:",
+      "options": [
+        "Suspending monitoring during leave",
+        "Documented procedures, cross-training, succession coverage, and vaulted credentials so 24/7 duties survive absences",
+        "No documentation to save time",
+        "Keeping all knowledge in one person's head"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Documented procedures, cross-training, succession coverage, and vaulted credentials so 24/7 duties survive absences"
+    },
+    {
+      "num": 200,
+      "section": "Advanced Integrated & Hardening Scenarios",
+      "topicSlug": "cyber-security-professional-iv-hardening",
+      "text": "The ULTIMATE test that this Cyber Security Professional IV role is fulfilled is that:",
+      "options": [
+        "Reports are long and colorful",
+        "Institutional and public finance systems remain protected, monitored, audited, and continuously improved with evidence and stakeholder trust",
+        "The office has the newest gadgets",
+        "No one ever asks security questions"
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Correct answer is B: Institutional and public finance systems remain protected, monitored, audited, and continuously improved with evidence and stakeholder trust"
+    }
+  ]
+}
