@@ -319,10 +319,10 @@
       "topicSlug": "me2-ch1",
       "text": "Which statement BEST defines Strategic thinking as advanced behavioral competency in the Strategic Thinking & Leadership context?",
       "options": [
-        "Strategic thinking as advanced behavioral competency means cognitive discipline linking daily tasks and mandates to enterprise goals and national development.",
-        "Strategic thinking as advanced behavioral competency means reacting only to immediate crises without asking why.",
-        "Strategic thinking as advanced behavioral competency means focusing exclusively on typing speed and filing.",
-        "Strategic thinking as advanced behavioral competency means avoiding any consideration of long-term outcomes."
+        "Strategic thinking as advanced behavioral competency means cognitive, in practice.",
+        "Strategic thinking as advanced behavioral competency means reacting.",
+        "Strategic thinking as advanced behavioral competency means focusing, during implementation.",
+        "Strategic thinking as advanced behavioral competency means avoiding, when priorities shift."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -334,10 +334,10 @@
       "topicSlug": "me2-ch1",
       "text": "Sustained high competency in Executive foresight labs and policy simulation would MOST directly lead to:",
       "options": [
-        "Normalization of favoritism, opacity and crisis management.",
-        "Higher backlog, repeated rework and talent attrition.",
-        "Resilient future-ready institutions aligned to national plans instead of perpetual crisis firefighting.",
-        "More rigid bureaucracy, longer queues and deeper citizen distrust."
+        "Normalization of favoritism, opacity and crisis management, within existing resources.",
+        "Higher backlog, repeated rework and talent attrition, during routine work.",
+        "Resilient future-ready institutions aligned to national plans instead.",
+        "More rigid bureaucracy, longer queues and deeper citizen frustration, with regular review."
       ],
       "correctAnswer": "C",
       "correctIndex": 2,
@@ -349,10 +349,10 @@
       "topicSlug": "me2-ch1",
       "text": "Which strategy or tool would MOST effectively strengthen Environmental scanning & future foresight in a public agency?",
       "options": [
-        "Adding extra approval signatures to show control.",
-        "Ad-hoc verbal orders with no documentation or follow-up.",
-        "Rewarding only error-free silence and punishing all pilot failures.",
-        "Executive foresight labs, horizon-scanning briefs and cross-agency policy simulations."
+        "Adding extra approval signatures to show control without improving outcomes.",
+        "Ad-hoc verbal orders with no documentation, ownership, or follow-up, when circumstances change.",
+        "Rewarding only error-free silence and punishing all pilot, in practice.",
+        "Executive foresight labs, horizon-scanning briefs and cross-agency policy."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -365,9 +365,9 @@
       "text": "Scenario: A regional bureau tracks demographic and tech trends, models two future demand scenarios, and pre-positions budget and staff before a new proclamation takes effect. This example BEST illustrates:",
       "options": [
         "Withholding information to protect a directorate fiefdom.",
-        "High Strategic Thinking & Leadership competency -- scenario-based prompts about identifying systemic risks and linking role to national impact.",
-        "Deliberate creation of extra approval tiers to display authority.",
-        "Strict seniority-based promotion without competency review."
+        "Scenario-based prompts about identifying systemic risks and linking.",
+        "Deliberate creation of extra approval tiers to display authority rather than solve problems, in complex situations.",
+        "Strict seniority-based promotion without competency review, during routine work."
       ],
       "correctAnswer": "B",
       "correctIndex": 1,
@@ -379,10 +379,10 @@
       "topicSlug": "me2-ch1",
       "text": "How does effective Short-term operational firefighting vs visionary foresight MOST clearly differ from its poor-practice counterpart?",
       "options": [
-        "Effective practice avoids all planning while poor practice plans excessively.",
-        "Effective practice both approaches are identical in impact, while poor practice firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis.",
-        "There is no meaningful difference; both produce identical outcomes.",
-        "Effective practice firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis, while poor practice both approaches are identical in impact."
+        "Effective practice avoids all planning while poor practice, in practice.",
+        "Effective practice both approaches are identical in impact.",
+        "There is no meaningful difference; both produce identical.",
+        "Effective practice firefighting traps organizations in crisis loops, throughout the review cycle."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -394,9 +394,9 @@
       "topicSlug": "me2-ch1",
       "text": "Which strategy or tool would MOST effectively strengthen Structured executive interviews in a public agency?",
       "options": [
-        "Ad-hoc verbal orders with no documentation or follow-up.",
-        "Rewarding only error-free silence and punishing all pilot failures.",
-        "Executive foresight labs, horizon-scanning briefs and cross-agency policy simulations.",
+        "Ad-hoc verbal orders with no documentation, ownership, or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot, during routine work.",
+        "Executive foresight labs, horizon-scanning briefs and cross-agency policy.",
         "Annual lectures with no practice, feedback or measurement."
       ],
       "correctAnswer": "C",
@@ -411,7 +411,7 @@
       "options": [
         "Strict seniority-based promotion without competency review.",
         "Withholding information to protect a directorate fiefdom.",
-        "Deliberate creation of extra approval tiers to display authority.",
+        "Deliberate creation of extra approval tiers to display authority rather than solve problems, in practice.",
         "High Strategic Thinking & Leadership competency -- monitoring macro-trends, demographics, technology and citizen expectations to anticipate shifts."
       ],
       "correctAnswer": "D",
@@ -1099,10 +1099,10 @@
       "topicSlug": "me2-ch5",
       "text": "Which behavior BEST indicates LOW competency related to Cross-cultural communication?",
       "options": [
-        "Practitioner neglects adapting language and protocol for diverse citizen and colleague backgrounds; e.g., mocking accents or languages.",
-        "Practitioner documents and improves Cross-cultural communication systematically.",
-        "Practitioner models adapting language and protocol for diverse citizen and colleague backgrounds consistently.",
-        "Practitioner seeks feedback and corrects course on Cross-cultural communication."
+        "Neglects adapting language and protocol for diverse citizen frustration.",
+        "Documents and improves Cross-cultural communication systematically, when circumstances change.",
+        "Models adapting language and protocol for diverse citizen frustration, during routine work.",
+        "Seeks feedback and corrects course on Cross-cultural communication."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -1114,10 +1114,10 @@
       "topicSlug": "me2-ch5",
       "text": "In a promotional behavioral interview assessing Structured messaging frameworks, which candidate response deserves the HIGHEST rating?",
       "options": [
-        "Blaming colleagues and waiting to be told each next step.",
+        "Blaming colleagues and waiting to be told each.",
         "Insisting legacy paperwork must never change.",
-        "A vague claim of competence with no example, timeline or result.",
-        "Listening to opponents, reframing around shared goals and achieving voluntary commitment, with evidence and reflection."
+        "A vague claim of competence without a concrete example, in complex situations.",
+        "Listening to opponents, reframing around shared goals, in practice."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -1129,10 +1129,10 @@
       "topicSlug": "me2-ch5",
       "text": "Sustained high competency in Communication and influencing definition would MOST directly lead to:",
       "options": [
-        "Normalization of favoritism, opacity and crisis management.",
-        "Faster policy buy-in, fewer rework cycles and stronger institutional legitimacy.",
+        "Normalization of favoritism, opacity and crisis management, during routine work.",
+        "Faster policy buy-in, fewer rework cycles and stronger.",
         "Fragmented fiefdoms optimizing visibility over national outcomes.",
-        "Higher backlog, repeated rework and talent attrition."
+        "Higher backlog, repeated rework and talent attrition, throughout the review cycle."
       ],
       "correctAnswer": "B",
       "correctIndex": 1,
@@ -1144,10 +1144,10 @@
       "topicSlug": "me2-ch5",
       "text": "Which behavior BEST indicates LOW competency related to Structured messaging frameworks?",
       "options": [
-        "Practitioner neglects deliberate planning: objective, key messages, evidence, call to action; e.g., rambling without purpose.",
-        "Practitioner documents and improves Structured messaging frameworks systematically.",
-        "Practitioner seeks feedback and corrects course on Structured messaging frameworks.",
-        "Practitioner models deliberate planning: objective, key messages, evidence, call to action consistently."
+        "Neglects deliberate planning: objective, key messages, evidence, call.",
+        "Documents and improves Structured messaging frameworks systematically, in practice.",
+        "Seeks feedback and corrects course on Structured messaging.",
+        "Models deliberate planning: objective, key messages, evidence, call."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -1159,10 +1159,10 @@
       "topicSlug": "me2-ch5",
       "text": "In a promotional behavioral interview assessing Cross-cultural communication, which candidate response deserves the HIGHEST rating?",
       "options": [
-        "A vague claim of competence with no example, timeline or result.",
+        "A vague claim of competence without a concrete example.",
         "Insisting legacy paperwork must never change.",
-        "Boasting about putting out daily fires without preventing recurrence.",
-        "Listening to opponents, reframing around shared goals and achieving voluntary commitment, with evidence and reflection."
+        "Boasting about putting out daily fires without preventing the same problems from recurring, during routine work.",
+        "Listening to opponents, reframing around shared goals."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -1174,10 +1174,10 @@
       "topicSlug": "me2-ch5",
       "text": "Which strategy or tool would MOST effectively strengthen Structured messaging frameworks in a public agency?",
       "options": [
-        "Annual lectures with no practice, feedback or measurement.",
-        "Ad-hoc verbal orders with no documentation or follow-up.",
-        "Structured messaging frameworks, active-listening drills and win-win negotiation practice.",
-        "Rewarding only error-free silence and punishing all pilot failures."
+        "Annual lectures with no practice, feedback or measurement, over time.",
+        "Ad-hoc verbal orders with no documentation, ownership, or follow-up.",
+        "Structured messaging frameworks, active-listening drills and win-win negotiation.",
+        "Rewarding only error-free silence and punishing all pilot, in practice."
       ],
       "correctAnswer": "C",
       "correctIndex": 2,
@@ -1189,10 +1189,10 @@
       "topicSlug": "me2-ch5",
       "text": "Scenario: Before a contentious tariff reform, an officer studies farmer and trader concerns, frames the message around shared growth, listens actively, and secures voluntary compliance. This example BEST illustrates:",
       "options": [
-        "Strict seniority-based promotion without competency review.",
-        "Withholding information to protect a directorate fiefdom.",
-        "High Communication and Influencing competency -- open sharing that prevents rumors, corruption perceptions and unfair treatment.",
-        "Deliberate creation of extra approval tiers to display authority."
+        "Strict seniority-based promotion without competency review, while keeping responsibilities clear.",
+        "Withholding information to protect a directorate fiefdom, when priorities shift.",
+        "Open sharing that prevents rumors, corruption perceptions.",
+        "Deliberate creation of extra approval tiers to display authority rather than solve problems."
       ],
       "correctAnswer": "C",
       "correctIndex": 2,
@@ -1311,8 +1311,8 @@
       "options": [
         "Practitioner seeks feedback and corrects course on Shared accountability and ownership.",
         "Practitioner neglects sharing burdens of setbacks and credit for successes collectively; e.g., claiming sole credit.",
-        "Practitioner models sharing burdens of setbacks and credit for successes collectively consistently.",
-        "Practitioner documents and improves Shared accountability and ownership systematically."
+        "Models sharing burdens of setbacks and credit, in practice.",
+        "Documents and improves Shared accountability and ownership systematically."
       ],
       "correctAnswer": "B",
       "correctIndex": 1,
@@ -1324,10 +1324,10 @@
       "topicSlug": "me2-ch6",
       "text": "In a promotional behavioral interview assessing Conflict resolution in teams, which candidate response deserves the HIGHEST rating?",
       "options": [
-        "A vague claim of competence with no example, timeline or result.",
+        "A vague claim of competence without a concrete example, when priorities shift.",
         "Insisting legacy paperwork must never change.",
-        "Boasting about putting out daily fires without preventing recurrence.",
-        "Sharing credit, coordinating handoffs and resolving a joint failure without blame, with evidence and reflection."
+        "Boasting about putting out daily fires without preventing the same problems from recurring.",
+        "Sharing credit, coordinating handoffs and resolving a joint, during routine work."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -1339,10 +1339,10 @@
       "topicSlug": "me2-ch6",
       "text": "Which strategy or tool would MOST effectively strengthen Unified public service delivery in a public agency?",
       "options": [
-        "Joint planning huddles, clear raci handoffs and structured peer retrospectives.",
-        "Annual lectures with no practice, feedback or measurement.",
-        "Ad-hoc verbal orders with no documentation or follow-up.",
-        "Rewarding only error-free silence and punishing all pilot failures."
+        "Joint planning huddles, clear raci handoffs and structured, while keeping responsibilities clear.",
+        "Annual lectures with no practice, feedback or measurement, over time.",
+        "Ad-hoc verbal orders with no documentation, ownership, or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -1355,9 +1355,9 @@
       "text": "Scenario: Three directorates facing a flood response share staff, run joint daily huddles, and issue one coordinated citizen update instead of separate conflicting notices. This example BEST illustrates:",
       "options": [
         "Withholding information to protect a directorate fiefdom.",
-        "Deliberate creation of extra approval tiers to display authority.",
-        "Strict seniority-based promotion without competency review.",
-        "High Teamwork competency -- clear responsibilities, handoffs and mutual support."
+        "Deliberate creation of extra approval tiers to display authority rather than solve problems, across the relevant team.",
+        "Strict seniority-based promotion without competency review, when priorities shift.",
+        "Clear responsibilities, handoffs and mutual support."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -1369,10 +1369,10 @@
       "topicSlug": "me2-ch6",
       "text": "How does effective Unified public service delivery MOST clearly differ from its poor-practice counterpart?",
       "options": [
-        "There is no meaningful difference; both produce identical outcomes.",
-        "Effective practice shuttling citizens office to office, while poor practice citizens experiencing seamless government response not bouncing between offices.",
-        "Effective practice avoids all planning while poor practice plans excessively.",
-        "Effective practice citizens experiencing seamless government response not bouncing between offices, while poor practice shuttling citizens office to office."
+        "There is no meaningful difference; both produce identical, during routine work.",
+        "Effective practice shuttling citizens office to office, while.",
+        "Effective practice avoids all planning while poor practice, during implementation.",
+        "Effective practice citizens experiencing seamless government response not, over time."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -1384,10 +1384,10 @@
       "topicSlug": "me2-ch6",
       "text": "Which strategy or tool would MOST effectively strengthen Conflict resolution in teams in a public agency?",
       "options": [
-        "Adding extra approval signatures to show control.",
-        "Annual lectures with no practice, feedback or measurement.",
-        "Joint planning huddles, clear raci handoffs and structured peer retrospectives.",
-        "Ad-hoc verbal orders with no documentation or follow-up."
+        "Adding extra approval signatures to show control without improving outcomes, within existing resources.",
+        "Annual lectures with no practice, feedback or measurement, in practice.",
+        "Joint planning huddles, clear raci handoffs and structured.",
+        "Ad-hoc verbal orders with no documentation, ownership, or follow-up, with regular review."
       ],
       "correctAnswer": "C",
       "correctIndex": 2,
@@ -1400,9 +1400,9 @@
       "text": "Scenario: Three directorates facing a flood response share staff, run joint daily huddles, and issue one coordinated citizen update instead of separate conflicting notices. This example BEST illustrates:",
       "options": [
         "Withholding information to protect a directorate fiefdom.",
-        "Strict seniority-based promotion without competency review.",
-        "Deliberate creation of extra approval tiers to display authority.",
-        "High Teamwork competency -- citizens experiencing seamless government response not bouncing between offices."
+        "Strict seniority-based promotion without competency review, when circumstances change.",
+        "Deliberate creation of extra approval tiers to display authority rather than solve problems, during routine work.",
+        "Citizens experiencing seamless government response not bouncing between."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -1414,10 +1414,10 @@
       "topicSlug": "me2-ch6",
       "text": "How does effective Role clarity and coordination MOST clearly differ from its poor-practice counterpart?",
       "options": [
-        "There is no meaningful difference; both produce identical outcomes.",
-        "Effective practice avoids all planning while poor practice plans excessively.",
-        "Effective practice clear responsibilities, handoffs and mutual support, while poor practice overlapping mandates causing conflict.",
-        "Effective practice overlapping mandates causing conflict, while poor practice clear responsibilities, handoffs and mutual support."
+        "There is no meaningful difference; both produce identical.",
+        "Effective practice avoids all planning while poor practice.",
+        "Effective practice clear responsibilities, handoffs and mutual support, in complex situations.",
+        "Effective practice overlapping mandates causing conflict, while poor, in practice."
       ],
       "correctAnswer": "C",
       "correctIndex": 2,
@@ -2915,9 +2915,9 @@
       "text": "How does effective Responsibility definition MOST clearly differ from its poor-practice counterpart?",
       "options": [
         "Effective practice accepting tasks then abandoning them, while poor practice reliably owning assigned duties through to quality completion with accountability.",
-        "There is no meaningful difference; both produce identical outcomes.",
-        "Effective practice reliably owning assigned duties through to quality completion with accountability, while poor practice accepting tasks then abandoning them.",
-        "Effective practice avoids all planning while poor practice plans excessively."
+        "There is no meaningful difference; both produce identical.",
+        "Effective practice reliably owning assigned duties, in complex situations.",
+        "Effective practice avoids all planning while poor practice, in practice."
       ],
       "correctAnswer": "C",
       "correctIndex": 2,
@@ -2929,10 +2929,10 @@
       "topicSlug": "me2-ch14",
       "text": "Which of the following is NOT a genuine component or indicator of Low-responsibility behaviors?",
       "options": [
-        "negligence, poor execution and aversion to accountability.",
-        "Monitoring and improving Low-responsibility behaviors regularly.",
+        "Negligence, poor execution and aversion to accountability, during routine work.",
+        "Monitoring and improving Low-responsibility behaviors.",
         "Aligning Low-responsibility behaviors with citizen value.",
-        "Shouting down dissenting colleagues in meetings."
+        "Shouting down dissenting colleagues in meetings, throughout the review cycle."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -2944,10 +2944,10 @@
       "topicSlug": "me2-ch14",
       "text": "Which statement BEST defines Culture of trust and reliability in the Carrying Out Responsibility context?",
       "options": [
-        "Culture of trust and reliability means broken promises normalized.",
-        "Culture of trust and reliability means reliability seen as optional.",
+        "Culture of trust and reliability means broken promises.",
+        "Culture of trust and reliability means reliability seen, in practice.",
         "Culture of trust and reliability means unpredictable delivery.",
-        "Culture of trust and reliability means consistent delivery building credibility among colleagues and citizens."
+        "Culture of trust and reliability means consistent delivery."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -2961,7 +2961,7 @@
       "options": [
         "Fragmented fiefdoms optimizing visibility over national outcomes.",
         "Higher backlog, repeated rework and talent attrition.",
-        "Normalization of favoritism, opacity and crisis management.",
+        "Normalization of favoritism, opacity and crisis management, during routine work.",
         "Reliable delivery strengthening public faith in government competence."
       ],
       "correctAnswer": "D",
@@ -2974,10 +2974,10 @@
       "topicSlug": "me2-ch14",
       "text": "Which behavior BEST indicates LOW competency related to Individual Performance Plans (IPPs)?",
       "options": [
-        "Practitioner seeks feedback and corrects course on Individual Performance Plans (IPPs).",
-        "Practitioner neglects breaking annual targets into quarterly/monthly/weekly milestones; e.g., annual goals never broken down.",
-        "Practitioner documents and improves Individual Performance Plans (IPPs) systematically.",
-        "Practitioner models breaking annual targets into quarterly/monthly/weekly milestones consistently."
+        "Seeks feedback and corrects course on Individual Performance, over time.",
+        "Neglects breaking annual targets into quarterly/monthly/weekly milestones.",
+        "Documents and improves Individual Performance Plans (IPPs) systematically.",
+        "Models breaking annual targets into quarterly/monthly/weekly milestones consistently, in practice."
       ],
       "correctAnswer": "B",
       "correctIndex": 1,
@@ -2989,10 +2989,10 @@
       "topicSlug": "me2-ch14",
       "text": "In a promotional behavioral interview assessing Macro impact on state legitimacy, which candidate response deserves the HIGHEST rating?",
       "options": [
-        "Breaking a target into milestones, tackling obstacles early and delivering to standard, with evidence and reflection.",
-        "Boasting about putting out daily fires without preventing recurrence.",
-        "A vague claim of competence with no example, timeline or result.",
-        "Blaming colleagues and waiting to be told each next step."
+        "Breaking a target into milestones, tackling obstacles early, while keeping responsibilities clear.",
+        "Boasting about putting out daily fires without preventing the same problems from recurring, when priorities shift.",
+        "A vague claim of competence without a concrete example.",
+        "Blaming colleagues and waiting to be told each."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -3004,10 +3004,10 @@
       "topicSlug": "me2-ch15",
       "text": "Sustained high competency in Low-leadership behaviors would MOST directly lead to:",
       "options": [
-        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
-        "Normalization of favoritism, opacity and crisis management.",
-        "Fragmented fiefdoms optimizing visibility over national outcomes.",
-        "Agile synergistic departments with elevated standards and capable successors."
+        "More rigid bureaucracy, longer queues and deeper citizen frustration.",
+        "Normalization of favoritism, opacity and crisis management, across the relevant team.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes, over time.",
+        "Agile synergistic departments with elevated standards and capable."
       ],
       "correctAnswer": "D",
       "correctIndex": 3,
@@ -3019,10 +3019,10 @@
       "topicSlug": "me2-ch15",
       "text": "Which behavior BEST indicates LOW competency related to Elevating service standards?",
       "options": [
-        "Practitioner neglects pushing teams to modernize, cut red tape and accelerate turnaround; e.g., defending delays as thoroughness.",
-        "Practitioner documents and improves Elevating service standards systematically.",
-        "Practitioner seeks feedback and corrects course on Elevating service standards.",
-        "Practitioner models pushing teams to modernize, cut red tape and accelerate turnaround consistently."
+        "Neglects pushing teams to modernize, cut red tape, in practice.",
+        "Documents and improves Elevating service standards systematically.",
+        "Seeks feedback and corrects course on Elevating service, during implementation.",
+        "Models pushing teams to modernize, cut red tape, when priorities shift."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -3034,10 +3034,10 @@
       "topicSlug": "me2-ch15",
       "text": "In a promotional behavioral interview assessing Developing others, which candidate response deserves the HIGHEST rating?",
       "options": [
-        "Blaming colleagues and waiting to be told each next step.",
-        "Delegating meaningful authority, coaching growth and building a successor, with evidence and reflection.",
-        "A vague claim of competence with no example, timeline or result.",
-        "Boasting about putting out daily fires without preventing recurrence."
+        "Blaming colleagues and waiting to be told each, within existing resources.",
+        "Delegating meaningful authority, coaching growth and building, during routine work.",
+        "A vague claim of competence without a concrete example.",
+        "Boasting about putting out daily fires without preventing the same problems from recurring, with regular review."
       ],
       "correctAnswer": "B",
       "correctIndex": 1,
@@ -3049,10 +3049,10 @@
       "topicSlug": "me2-ch15",
       "text": "Which strategy or tool would MOST effectively strengthen Mentorship and 360 feedback loops in a public agency?",
       "options": [
-        "Executive mentorship pathways, delegation coaching and 360-degree leadership feedback loops.",
-        "Rewarding only error-free silence and punishing all pilot failures.",
-        "Adding extra approval signatures to show control.",
-        "Ad-hoc verbal orders with no documentation or follow-up."
+        "Executive mentorship pathways, delegation coaching and 360-degree leadership.",
+        "Rewarding only error-free silence and punishing all pilot, when circumstances change.",
+        "Adding extra approval signatures to show control without improving outcomes, in practice.",
+        "Ad-hoc verbal orders with no documentation, ownership, or follow-up."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -3064,10 +3064,10 @@
       "topicSlug": "me2-ch15",
       "text": "Scenario: A director delegates a licensing reform to a junior with clear authority, coaches weekly, defends the team's pilot to top management, and shares credit for success. This example BEST illustrates:",
       "options": [
-        "High Leadership competency -- breaking structural barriers for institutional agility.",
+        "Breaking structural barriers for institutional agility.",
         "Strict seniority-based promotion without competency review.",
-        "Deliberate creation of extra approval tiers to display authority.",
-        "Withholding information to protect a directorate fiefdom."
+        "Deliberate creation of extra approval tiers to display authority rather than solve problems, in complex situations.",
+        "Withholding information to protect a directorate fiefdom, during routine work."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -3079,10 +3079,10 @@
       "topicSlug": "me2-ch15",
       "text": "How does effective Strategic delegation MOST clearly differ from its poor-practice counterpart?",
       "options": [
-        "Effective practice assigning meaningful authority matched to strengths with support, while poor practice dumping blame without authority.",
-        "Effective practice avoids all planning while poor practice plans excessively.",
-        "There is no meaningful difference; both produce identical outcomes.",
-        "Effective practice dumping blame without authority, while poor practice assigning meaningful authority matched to strengths with support."
+        "Effective practice assigning meaningful authority matched to strengths, in practice.",
+        "Effective practice avoids all planning while poor practice.",
+        "There is no meaningful difference; both produce identical.",
+        "Effective practice dumping blame without authority, while poor, throughout the review cycle."
       ],
       "correctAnswer": "A",
       "correctIndex": 0,
@@ -3094,8 +3094,8 @@
       "topicSlug": "me2-ch15",
       "text": "Which of the following is NOT a genuine component or indicator of Leadership core concept?",
       "options": [
-        "mobilizing and developing people toward shared institutional and development goals.",
-        "Monitoring and improving Leadership core concept regularly.",
+        "Mobilizing and developing people toward shared goals.",
+        "Monitoring and improving Leadership core concept, during routine work.",
         "Aligning Leadership core concept with citizen value.",
         "Securing promotion through personal connections alone."
       ],
