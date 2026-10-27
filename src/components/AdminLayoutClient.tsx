@@ -28,6 +28,7 @@ function AdminSidebar({ collapsed, onToggle, mobileOpen, onCloseMobile }: AdminS
     { href: "/admin/checkins", label: "Check-In Queue", icon: "✓" },
     { href: "/questions", label: "Question Bank", icon: "✎" },
     { href: "/exams", label: "Exams", icon: "📄" },
+    { href: "/admin/attempts", label: "Exam Attempts", icon: "📊" },
     { href: "/admin/bulk-exam", label: "Bulk Add Exam", icon: "+" },
     { href: "/admin/import", label: "Import Questions", icon: "↑" },
     { href: "/admin/audit", label: "Audit Log", icon: "☰" },

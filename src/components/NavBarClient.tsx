@@ -72,6 +72,7 @@ export function NavBarClient({ user }: NavBarClientProps) {
               <Link href="/exams" className={isActive("/exams") ? "active" : ""}>Exams</Link>
               {isStaff && <Link href="/questions" className={isActive("/questions") ? "active" : ""}>Question Bank</Link>}
               {isStaff && <Link href="/results" className={isActive("/results") ? "active" : ""}>Results</Link>}
+              {isStaff && <Link href="/admin/attempts" className={isActive("/admin/attempts") ? "active" : ""}>Attempts</Link>}
               {isStaff && <Link href="/admin/checkins" className={isActive("/admin/checkins") ? "active" : ""}>Check-Ins</Link>}
               {isStaff && <Link href="/admin/bulk-exam" className={isActive("/admin/bulk-exam") ? "active" : ""}>Bulk Add Exam</Link>}
               {isStaff && <Link href="/admin/import" className={isActive("/admin/import") ? "active" : ""}>Import</Link>}
@@ -182,6 +183,17 @@ export function NavBarClient({ user }: NavBarClientProps) {
                     >
                       <span className="mobile-nav-icon">📊</span>
                       <span>Results</span>
+                    </Link>
+                  )}
+
+                  {isStaff && (
+                    <Link
+                      href="/admin/attempts"
+                      className={`mobile-nav-link ${isActive("/admin/attempts") ? "active" : ""}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <span className="mobile-nav-icon">📊</span>
+                      <span>Exam Attempts</span>
                     </Link>
                   )}
 

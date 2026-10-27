@@ -23,8 +23,12 @@ export async function listResultsForUser(userId: string): Promise<ResultListItem
   );
 }
 
-export async function listAllResults(limit = 200): Promise<(ResultListItem & { studentName: string | null; studentEmail: string })[]> {
-  return all<ResultListItem & { studentName: string | null; studentEmail: string }>(
+export type ResultWithStudent = ResultListItem & { studentName: string | null; studentEmail: string };
+
+export async function listAllResults(
+  limit = 200,
+): Promise<ResultWithStudent[]> {
+  return all<ResultWithStudent>(
     `SELECT r.*, t."name" AS "templateName", t."slug" AS "templateSlug",
             a."attemptToken" AS "attemptToken", t."durationMinutes" AS "timeLimitMinutes",
             u."name" AS "studentName", u."email" AS "studentEmail"
@@ -36,6 +40,56 @@ export async function listAllResults(limit = 200): Promise<(ResultListItem & { s
      LIMIT ?`,
     [limit],
   );
+}
+
+export interface UserAttemptsGroup {
+  userId: string;
+  name: string | null;
+  email: string;
+  /** Newest first. */
+  attempts: ResultWithStudent[];
+}
+
+/**
+ * Every submitted attempt, bucketed per candidate so the admin side can show
+ * how often someone sat an exam and what they scored each time.
+ *
+ * Rows arrive newest first, so groups come out ordered by recent activity and
+ * each group's attempts stay newest first.
+ */
+export async function listAttemptsGroupedByUser(limit = 500): Promise<UserAttemptsGroup[]> {
+  const rows = await all<ResultWithStudent>(
+    `SELECT r.*, t."name" AS "templateName", t."slug" AS "templateSlug",
+            a."attemptToken" AS "attemptToken", t."durationMinutes" AS "timeLimitMinutes",
+            u."name" AS "studentName", u."email" AS "studentEmail"
+     FROM "Result" r
+     JOIN "ExamAttempt"  a ON a."id" = r."attemptId"
+     JOIN "ExamTemplate" t ON t."id" = a."templateId"
+     JOIN "User"         u ON u."id" = r."userId"
+     ORDER BY COALESCE(r."submittedAt", r."createdAt") DESC
+     LIMIT ?`,
+    [limit],
+  );
+
+  const groups: UserAttemptsGroup[] = [];
+  const byUser = new Map<string, UserAttemptsGroup>();
+
+  for (const row of rows) {
+    let group = byUser.get(row.userId);
+    if (!group) {
+      group = {
+        userId: row.userId,
+        name: row.studentName,
+        email: row.studentEmail,
+        attempts: [],
+      };
+      byUser.set(row.userId, group);
+      groups.push(group);
+    }
+    group.attempts.push(row);
+  }
+
+  return groups;
 }
 
 export interface ResultDetail {
