@@ -1,0 +1,3107 @@
+{
+  "examName": "Mock Exam 2",
+  "source": "Behavioral Competency in the Workplace — 1,000 Challenging MCQs",
+  "bankName": "Mock Exam 2 - Behavioral Competency 200-Question Bank",
+  "totalQuestions": 100,
+  "bankSize": 200,
+  "topics": [
+    {
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "slug": "me2-intro",
+      "name": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "code": "INTRO"
+    },
+    {
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "slug": "me2-ch1",
+      "name": "CH1 -- Strategic Thinking & Leadership",
+      "code": "CH1"
+    },
+    {
+      "section": "CH2 -- Innovation",
+      "slug": "me2-ch2",
+      "name": "CH2 -- Innovation",
+      "code": "CH2"
+    },
+    {
+      "section": "CH3 -- Market Building",
+      "slug": "me2-ch3",
+      "name": "CH3 -- Market Building",
+      "code": "CH3"
+    },
+    {
+      "section": "CH4 -- Role-Modeling Leadership",
+      "slug": "me2-ch4",
+      "name": "CH4 -- Role-Modeling Leadership",
+      "code": "CH4"
+    },
+    {
+      "section": "CH5 -- Communication and Influencing",
+      "slug": "me2-ch5",
+      "name": "CH5 -- Communication and Influencing",
+      "code": "CH5"
+    },
+    {
+      "section": "CH6 -- Teamwork",
+      "slug": "me2-ch6",
+      "name": "CH6 -- Teamwork",
+      "code": "CH6"
+    },
+    {
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "slug": "me2-ch7",
+      "name": "CH7 -- Emotional Intelligence (EI)",
+      "code": "CH7"
+    },
+    {
+      "section": "CH8 -- Ethics and Role Modeling",
+      "slug": "me2-ch8",
+      "name": "CH8 -- Ethics and Role Modeling",
+      "code": "CH8"
+    },
+    {
+      "section": "CH9 -- Diversity and Inclusion",
+      "slug": "me2-ch9",
+      "name": "CH9 -- Diversity and Inclusion",
+      "code": "CH9"
+    },
+    {
+      "section": "CH10 -- Proficiency and Engagement",
+      "slug": "me2-ch10",
+      "name": "CH10 -- Proficiency and Engagement",
+      "code": "CH10"
+    },
+    {
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "slug": "me2-ch11",
+      "name": "CH11 -- Public Stewardship & Servanthood",
+      "code": "CH11"
+    },
+    {
+      "section": "CH12 -- Time Management",
+      "slug": "me2-ch12",
+      "name": "CH12 -- Time Management",
+      "code": "CH12"
+    },
+    {
+      "section": "CH13 -- Value-Adding Work",
+      "slug": "me2-ch13",
+      "name": "CH13 -- Value-Adding Work",
+      "code": "CH13"
+    },
+    {
+      "section": "CH14 -- Carrying Out Responsibility",
+      "slug": "me2-ch14",
+      "name": "CH14 -- Carrying Out Responsibility",
+      "code": "CH14"
+    },
+    {
+      "section": "CH15 -- Leadership",
+      "slug": "me2-ch15",
+      "name": "CH15 -- Leadership",
+      "code": "CH15"
+    }
+  ],
+  "questions": [
+    {
+      "num": 1,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "Which statement BEST defines Work pillar in the Introduction -- Behavioral Competency Categories (Work, Human, Result) context?",
+      "options": [
+        "Work pillar means aligning daily responsibilities with institutional policies, strategies and strategic plans to drive success through innovation and efficient service.",
+        "Work pillar means maximizing personal promotion regardless of institutional goals.",
+        "Work pillar means managing emotions and empathy in interpersonal relations.",
+        "Work pillar means focusing only on technical execution without strategic linkage."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Work pillar is defined by aligning daily responsibilities with institutional policies, strategies and strategic plans to drive success through innovation and efficient service."
+    },
+    {
+      "num": 2,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "Sustained high competency in Core institutional values as benchmark would MOST directly lead to:",
+      "options": [
+        "Daily work measurably advancing institutional mandates, efficiency and public-service effectiveness.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Higher backlog, repeated rework and talent attrition."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Impact: daily work measurably advancing institutional mandates, efficiency and public-service effectiveness."
+    },
+    {
+      "num": 3,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "Which behavior BEST indicates LOW competency related to Fifteen core behavioral competency elements?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Fifteen core behavioral competency elements.",
+        "Practitioner models specific sub-competencies grouped into Work, Human and Result categories as benchmark for proficiency consistently.",
+        "Practitioner neglects specific sub-competencies grouped into Work, Human and Result categories as benchmark for proficiency; e.g., three technical IT skills for digital services only.",
+        "Practitioner documents and improves Fifteen core behavioral competency elements systematically."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 4,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "In a promotional behavioral interview assessing Human pillar, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Describing how weekly tasks were re-linked to the strategic plan with measurable service gains, with evidence and reflection.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Insisting legacy paperwork must never change."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Highest-rated response shows applied Human pillar with evidence."
+    },
+    {
+      "num": 5,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "Which strategy or tool would MOST effectively strengthen Public sector operations psychology in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Quarterly alignment reviews linking individual work-plans to institutional missions and national outcomes.",
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Best tool per PDF: quarterly alignment reviews linking individual work-plans to institutional missions and national outcomes."
+    },
+    {
+      "num": 6,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "Which behavior BEST indicates LOW competency related to Core institutional values as benchmark?",
+      "options": [
+        "Practitioner neglects reliable standard to evaluate whether employees are proficient and effective in roles; e.g., optional guide with no evaluation use.",
+        "Practitioner models reliable standard to evaluate whether employees are proficient and effective in roles consistently.",
+        "Practitioner seeks feedback and corrects course on Core institutional values as benchmark.",
+        "Practitioner documents and improves Core institutional values as benchmark systematically."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 7,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "In a promotional behavioral interview assessing Fifteen core behavioral competency elements, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Describing how weekly tasks were re-linked to the strategic plan with measurable service gains, with evidence and reflection.",
+        "Blaming colleagues and waiting to be told each next step.",
+        "Boasting about putting out daily fires without preventing recurrence."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Highest-rated response shows applied Fifteen core behavioral competency elements with evidence."
+    },
+    {
+      "num": 8,
+      "section": "INTRO -- Introduction -- Behavioral Competency Categories (Work, Human, Result)",
+      "topicSlug": "me2-intro",
+      "text": "Which strategy or tool would MOST effectively strengthen Human pillar in a public agency?",
+      "options": [
+        "Quarterly alignment reviews linking individual work-plans to institutional missions and national outcomes.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Ad-hoc verbal orders with no documentation or follow-up."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Best tool per PDF: quarterly alignment reviews linking individual work-plans to institutional missions and national outcomes."
+    },
+    {
+      "num": 9,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Scenario: A regional bureau tracks demographic and tech trends, models two future demand scenarios, and pre-positions budget and staff before a new proclamation takes effect. This example BEST illustrates:",
+      "options": [
+        "High Strategic Thinking & Leadership competency -- firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Short-term operational firefighting vs visionary foresight."
+    },
+    {
+      "num": 10,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "In a promotional behavioral interview assessing Structured executive interviews, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Identifying an emerging systemic risk early, modeling impacts and aligning the response to national strategy, with evidence and reflection.",
+        "Insisting legacy paperwork must never change.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Highest-rated response shows applied Structured executive interviews with evidence."
+    },
+    {
+      "num": 11,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Which strategy or tool would MOST effectively strengthen Short-term operational firefighting vs visionary foresight in a public agency?",
+      "options": [
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Executive foresight labs, horizon-scanning briefs and cross-agency policy simulations.",
+        "Adding extra approval signatures to show control."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: executive foresight labs, horizon-scanning briefs and cross-agency policy simulations."
+    },
+    {
+      "num": 12,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Scenario: A regional bureau tracks demographic and tech trends, models two future demand scenarios, and pre-positions budget and staff before a new proclamation takes effect. This example BEST illustrates:",
+      "options": [
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "High Strategic Thinking & Leadership competency -- premier percentage weight for strategic thinking in senior civil service examinations."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Competency weighting in promotion."
+    },
+    {
+      "num": 13,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "How does effective Short-term operational firefighting vs visionary foresight MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice both approaches are identical in impact, while poor practice firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis.",
+        "Effective practice firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis, while poor practice both approaches are identical in impact.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 14,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Which of the following is NOT a genuine component or indicator of Executive foresight labs and policy simulation?",
+      "options": [
+        "Monitoring and improving Executive foresight labs and policy simulation regularly.",
+        "collaborative intellectual spaces to test scenarios and build strategic capability.",
+        "Aligning Executive foresight labs and policy simulation with citizen value.",
+        "Shouting down dissenting colleagues in meetings."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "The correct option is inconsistent with Executive foresight labs and policy simulation."
+    },
+    {
+      "num": 15,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Which statement BEST defines Strategic thinking as advanced behavioral competency in the Strategic Thinking & Leadership context?",
+      "options": [
+        "Strategic thinking as advanced behavioral competency means cognitive discipline linking daily tasks and mandates to enterprise goals and national development.",
+        "Strategic thinking as advanced behavioral competency means reacting only to immediate crises without asking why.",
+        "Strategic thinking as advanced behavioral competency means focusing exclusively on typing speed and filing.",
+        "Strategic thinking as advanced behavioral competency means avoiding any consideration of long-term outcomes."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Strategic thinking as advanced behavioral competency is defined by cognitive discipline linking daily tasks and mandates to enterprise goals and national development."
+    },
+    {
+      "num": 16,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Sustained high competency in Executive foresight labs and policy simulation would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Resilient future-ready institutions aligned to national plans instead of perpetual crisis firefighting.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: resilient future-ready institutions aligned to national plans instead of perpetual crisis firefighting."
+    },
+    {
+      "num": 17,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Which strategy or tool would MOST effectively strengthen Environmental scanning & future foresight in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Executive foresight labs, horizon-scanning briefs and cross-agency policy simulations."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: executive foresight labs, horizon-scanning briefs and cross-agency policy simulations."
+    },
+    {
+      "num": 18,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Scenario: A regional bureau tracks demographic and tech trends, models two future demand scenarios, and pre-positions budget and staff before a new proclamation takes effect. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "High Strategic Thinking & Leadership competency -- scenario-based prompts about identifying systemic risks and linking role to national impact.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Scenario demonstrates Structured executive interviews."
+    },
+    {
+      "num": 19,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "How does effective Short-term operational firefighting vs visionary foresight MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice both approaches are identical in impact, while poor practice firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis, while poor practice both approaches are identical in impact."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 20,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Which strategy or tool would MOST effectively strengthen Structured executive interviews in a public agency?",
+      "options": [
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Executive foresight labs, horizon-scanning briefs and cross-agency policy simulations.",
+        "Annual lectures with no practice, feedback or measurement."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: executive foresight labs, horizon-scanning briefs and cross-agency policy simulations."
+    },
+    {
+      "num": 21,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Scenario: A regional bureau tracks demographic and tech trends, models two future demand scenarios, and pre-positions budget and staff before a new proclamation takes effect. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Strategic Thinking & Leadership competency -- monitoring macro-trends, demographics, technology and citizen expectations to anticipate shifts."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Environmental scanning & future foresight."
+    },
+    {
+      "num": 22,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "How does effective Structured executive interviews MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice questions only about hobbies, while poor practice scenario-based prompts about identifying systemic risks and linking role to national impact.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice scenario-based prompts about identifying systemic risks and linking role to national impact, while poor practice questions only about hobbies.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 23,
+      "section": "CH1 -- Strategic Thinking & Leadership",
+      "topicSlug": "me2-ch1",
+      "text": "Which of the following is NOT a genuine component or indicator of Short-term operational firefighting vs visionary foresight?",
+      "options": [
+        "Shouting down dissenting colleagues in meetings.",
+        "firefighting traps organizations in crisis loops; foresight prevents tomorrow's crises through systemic analysis.",
+        "Aligning Short-term operational firefighting vs visionary foresight with citizen value.",
+        "Monitoring and improving Short-term operational firefighting vs visionary foresight regularly."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Short-term operational firefighting vs visionary foresight."
+    },
+    {
+      "num": 24,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Scenario: A woreda office pilots a one-page digital intake form with 50 citizens, measures queue time, then scales it after cutting average wait by 40%. This example BEST illustrates:",
+      "options": [
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Innovation competency -- incremental everyday enhancements and organizational agility.",
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Scenario demonstrates Kaizen mindset and continuous improvement."
+    },
+    {
+      "num": 25,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "How does effective Adaptability MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice adjusting workflows rapidly in response to feedback, technology and policy shifts, while poor practice clinging to obsolete manuals.",
+        "Effective practice clinging to obsolete manuals, while poor practice adjusting workflows rapidly in response to feedback, technology and policy shifts.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 26,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which strategy or tool would MOST effectively strengthen Kaizen mindset and continuous improvement in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Innovation labs, structured brainstorming and small-scale piloting with citizen feedback metrics."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: innovation labs, structured brainstorming and small-scale piloting with citizen feedback metrics."
+    },
+    {
+      "num": 27,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Scenario: A woreda office pilots a one-page digital intake form with 50 citizens, measures queue time, then scales it after cutting average wait by 40%. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Withholding information to protect a directorate fiefdom.",
+        "High Innovation competency -- calculated experimentation balanced with public accountability and safeguards."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Risk-taking within accountability."
+    },
+    {
+      "num": 28,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "How does effective Kaizen mindset and continuous improvement MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice waiting for massive once-a-decade reforms, while poor practice incremental everyday enhancements and organizational agility.",
+        "Effective practice incremental everyday enhancements and organizational agility, while poor practice waiting for massive once-a-decade reforms.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 29,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which of the following is NOT a genuine component or indicator of Adaptability?",
+      "options": [
+        "adjusting workflows rapidly in response to feedback, technology and policy shifts.",
+        "Aligning Adaptability with citizen value.",
+        "Monitoring and improving Adaptability regularly.",
+        "Accepting gifts to expedite favored files."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "The correct option is inconsistent with Adaptability."
+    },
+    {
+      "num": 30,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which statement BEST defines Innovation in public service modernization in the Innovation context?",
+      "options": [
+        "Innovation in public service modernization means preserving every legacy procedure unchanged.",
+        "Innovation in public service modernization means introducing novel processes, digital services and administrative reforms to improve citizen value.",
+        "Innovation in public service modernization means avoiding any experimentation.",
+        "Innovation in public service modernization means equating innovation with rule-breaking."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Innovation in public service modernization is defined by introducing novel processes, digital services and administrative reforms to improve citizen value."
+    },
+    {
+      "num": 31,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Sustained high competency in Adaptability would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Faster transparent citizen services and a culture of adaptive improvement.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: faster transparent citizen services and a culture of adaptive improvement."
+    },
+    {
+      "num": 32,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which behavior BEST indicates LOW competency related to Innovation in public service modernization?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Innovation in public service modernization.",
+        "Practitioner documents and improves Innovation in public service modernization systematically.",
+        "Practitioner models introducing novel processes, digital services and administrative reforms to improve citizen value consistently.",
+        "Practitioner neglects introducing novel processes, digital services and administrative reforms to improve citizen value; e.g., preserving every legacy procedure unchanged."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 33,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "In a promotional behavioral interview assessing Innovation labs and brainstorming frameworks, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Blaming colleagues and waiting to be told each next step.",
+        "Insisting legacy paperwork must never change.",
+        "Piloting a small citizen-tested improvement, measuring results and scaling what worked, with evidence and reflection.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Highest-rated response shows applied Innovation labs and brainstorming frameworks with evidence."
+    },
+    {
+      "num": 34,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which strategy or tool would MOST effectively strengthen Measuring innovation impact in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Innovation labs, structured brainstorming and small-scale piloting with citizen feedback metrics.",
+        "Adding extra approval signatures to show control."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: innovation labs, structured brainstorming and small-scale piloting with citizen feedback metrics."
+    },
+    {
+      "num": 35,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which behavior BEST indicates LOW competency related to Adaptability?",
+      "options": [
+        "Practitioner models adjusting workflows rapidly in response to feedback, technology and policy shifts consistently.",
+        "Practitioner documents and improves Adaptability systematically.",
+        "Practitioner neglects adjusting workflows rapidly in response to feedback, technology and policy shifts; e.g., clinging to obsolete manuals.",
+        "Practitioner seeks feedback and corrects course on Adaptability."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 36,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "In a promotional behavioral interview assessing Innovation in public service modernization, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Insisting legacy paperwork must never change.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Piloting a small citizen-tested improvement, measuring results and scaling what worked, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Innovation in public service modernization with evidence."
+    },
+    {
+      "num": 37,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Sustained high competency in Adaptability would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Faster transparent citizen services and a culture of adaptive improvement.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: faster transparent citizen services and a culture of adaptive improvement."
+    },
+    {
+      "num": 38,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "Which behavior BEST indicates LOW competency related to Innovation in public service modernization?",
+      "options": [
+        "Practitioner models introducing novel processes, digital services and administrative reforms to improve citizen value consistently.",
+        "Practitioner documents and improves Innovation in public service modernization systematically.",
+        "Practitioner seeks feedback and corrects course on Innovation in public service modernization.",
+        "Practitioner neglects introducing novel processes, digital services and administrative reforms to improve citizen value; e.g., preserving every legacy procedure unchanged."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 39,
+      "section": "CH2 -- Innovation",
+      "topicSlug": "me2-ch2",
+      "text": "In a promotional behavioral interview assessing Adaptability, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Insisting legacy paperwork must never change.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Piloting a small citizen-tested improvement, measuring results and scaling what worked, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Adaptability with evidence."
+    },
+    {
+      "num": 40,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Which strategy or tool would MOST effectively strengthen Enhancing market liquidity and access in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "Enterprise support hubs, innovation grants and digital one-stop-shop licensing platforms.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Annual lectures with no practice, feedback or measurement."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Best tool per PDF: enterprise support hubs, innovation grants and digital one-stop-shop licensing platforms."
+    },
+    {
+      "num": 41,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Scenario: A civil servant consolidates five licensing steps into a digital one-stop-shop, publishes clear fees, and meets weekly with SME associations to fix bottlenecks. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Market Building competency -- designing enabling environments, streamlining pathways and solving supply-demand bottlenecks for ecosystem growth."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Market building definition."
+    },
+    {
+      "num": 42,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "How does effective Maintaining compliance under pressure MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice waiving standards for bribes, while poor practice enforcing safety, tax and labor standards firmly without yielding to lobbying.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice enforcing safety, tax and labor standards firmly without yielding to lobbying, while poor practice waiving standards for bribes.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 43,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Which of the following is NOT a genuine component or indicator of Proactive market facilitation?",
+      "options": [
+        "Aligning Proactive market facilitation with citizen value.",
+        "Monitoring and improving Proactive market facilitation regularly.",
+        "building infrastructure, simplifying procedures and engaging stakeholders in coordinated efforts.",
+        "Securing promotion through personal connections alone."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "The correct option is inconsistent with Proactive market facilitation."
+    },
+    {
+      "num": 44,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Which statement BEST defines Enterprise support hubs and grants in the Market Building context?",
+      "options": [
+        "Enterprise support hubs and grants means platforms that never function.",
+        "Enterprise support hubs and grants means practical infrastructure: hubs, innovation grants, digital licensing platforms.",
+        "Enterprise support hubs and grants means empty offices with no services.",
+        "Enterprise support hubs and grants means grants awarded by nepotism."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Enterprise support hubs and grants is defined by practical infrastructure: hubs, innovation grants, digital licensing platforms."
+    },
+    {
+      "num": 45,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Sustained high competency in Accelerating industrial transformation would MOST directly lead to:",
+      "options": [
+        "Higher backlog, repeated rework and talent attrition.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "Liquid accessible markets, enterprise growth and compliant investor confidence."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: liquid accessible markets, enterprise growth and compliant investor confidence."
+    },
+    {
+      "num": 46,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Which behavior BEST indicates LOW competency related to Stakeholder identification and engagement?",
+      "options": [
+        "Practitioner models systematically mapping and coordinating private, community and public actors consistently.",
+        "Practitioner documents and improves Stakeholder identification and engagement systematically.",
+        "Practitioner neglects systematically mapping and coordinating private, community and public actors; e.g., engaging only familiar contacts.",
+        "Practitioner seeks feedback and corrects course on Stakeholder identification and engagement."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 47,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "In a promotional behavioral interview assessing Enhancing market liquidity and access, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Simplifying a licensing bottleneck transparently while upholding standards under lobbying pressure, with evidence and reflection.",
+        "Insisting legacy paperwork must never change.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Highest-rated response shows applied Enhancing market liquidity and access with evidence."
+    },
+    {
+      "num": 48,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Which strategy or tool would MOST effectively strengthen Market building definition in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Enterprise support hubs, innovation grants and digital one-stop-shop licensing platforms."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: enterprise support hubs, innovation grants and digital one-stop-shop licensing platforms."
+    },
+    {
+      "num": 49,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Scenario: A civil servant consolidates five licensing steps into a digital one-stop-shop, publishes clear fees, and meets weekly with SME associations to fix bottlenecks. This example BEST illustrates:",
+      "options": [
+        "High Market Building competency -- enforcing safety, tax and labor standards firmly without yielding to lobbying.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Maintaining compliance under pressure."
+    },
+    {
+      "num": 50,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "How does effective Proactive market facilitation MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice building infrastructure, simplifying procedures and engaging stakeholders in coordinated efforts, while poor practice creating deliberate bottlenecks for leverage.",
+        "Effective practice creating deliberate bottlenecks for leverage, while poor practice building infrastructure, simplifying procedures and engaging stakeholders in coordinated efforts.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 51,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Which strategy or tool would MOST effectively strengthen Stakeholder identification and engagement in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Enterprise support hubs, innovation grants and digital one-stop-shop licensing platforms."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: enterprise support hubs, innovation grants and digital one-stop-shop licensing platforms."
+    },
+    {
+      "num": 52,
+      "section": "CH3 -- Market Building",
+      "topicSlug": "me2-ch3",
+      "text": "Scenario: A civil servant consolidates five licensing steps into a digital one-stop-shop, publishes clear fees, and meets weekly with SME associations to fix bottlenecks. This example BEST illustrates:",
+      "options": [
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "High Market Building competency -- eliminating monopolies, fixing supply chains, ensuring capital and market access."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Enhancing market liquidity and access."
+    },
+    {
+      "num": 53,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Which statement BEST defines Role-modeling leadership concept in the Role-Modeling Leadership context?",
+      "options": [
+        "Role-modeling leadership concept means leading by fear and threats.",
+        "Role-modeling leadership concept means influencing through lived example, integrity and consistent ethical execution.",
+        "Role-modeling leadership concept means saying one thing and doing another.",
+        "Role-modeling leadership concept means delegating all ethics to others."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Role-modeling leadership concept is defined by influencing through lived example, integrity and consistent ethical execution."
+    },
+    {
+      "num": 54,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Sustained high competency in Visibility and accessibility would MOST directly lead to:",
+      "options": [
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Trusted high-performing teams with strong succession and ethical continuity.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: trusted high-performing teams with strong succession and ethical continuity."
+    },
+    {
+      "num": 55,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Which behavior BEST indicates LOW competency related to Succession planning and continuity?",
+      "options": [
+        "Practitioner documents and improves Succession planning and continuity systematically.",
+        "Practitioner neglects identifying talent, mentoring high-potentials and ensuring leadership pipeline; e.g., hoarding knowledge to stay indispensable.",
+        "Practitioner seeks feedback and corrects course on Succession planning and continuity.",
+        "Practitioner models identifying talent, mentoring high-potentials and ensuring leadership pipeline consistently."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 56,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "In a promotional behavioral interview assessing Daily professional ethics execution, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Insisting legacy paperwork must never change.",
+        "Owning a mistake openly, fixing systems and crediting the team, with evidence and reflection.",
+        "Blaming colleagues and waiting to be told each next step."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Highest-rated response shows applied Daily professional ethics execution with evidence."
+    },
+    {
+      "num": 57,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Which strategy or tool would MOST effectively strengthen Accountability modeling in a public agency?",
+      "options": [
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Adding extra approval signatures to show control.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Regular behavioral audits, 360 feedback and visible mentoring with merit-based recognition."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: regular behavioral audits, 360 feedback and visible mentoring with merit-based recognition."
+    },
+    {
+      "num": 58,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Scenario: A supervisor arrives prepared, admits a scheduling error openly, corrects it, and publicly credits the junior who flagged it. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Role-Modeling Leadership competency -- regularly evaluating leadership behaviors against standards to close gaps."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Behavioral audits."
+    },
+    {
+      "num": 59,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "How does effective Positive reinforcement and merit MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice rewarding loyalty over performance, while poor practice recognizing high performers and managing underperformance transparently.",
+        "Effective practice recognizing high performers and managing underperformance transparently, while poor practice rewarding loyalty over performance."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 60,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Which of the following is NOT a genuine component or indicator of Role-modeling leadership concept?",
+      "options": [
+        "influencing through lived example, integrity and consistent ethical execution.",
+        "Shouting down dissenting colleagues in meetings.",
+        "Aligning Role-modeling leadership concept with citizen value.",
+        "Monitoring and improving Role-modeling leadership concept regularly."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "The correct option is inconsistent with Role-modeling leadership concept."
+    },
+    {
+      "num": 61,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Which statement BEST defines Visibility and accessibility in the Role-Modeling Leadership context?",
+      "options": [
+        "Visibility and accessibility means hiding in office during crises.",
+        "Visibility and accessibility means changing standards by mood.",
+        "Visibility and accessibility means being present, approachable and consistent under pressure.",
+        "Visibility and accessibility means being available only to elites."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Visibility and accessibility is defined by being present, approachable and consistent under pressure."
+    },
+    {
+      "num": 62,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Sustained high competency in Succession planning and continuity would MOST directly lead to:",
+      "options": [
+        "Trusted high-performing teams with strong succession and ethical continuity.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Normalization of favoritism, opacity and crisis management."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Impact: trusted high-performing teams with strong succession and ethical continuity."
+    },
+    {
+      "num": 63,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "Which behavior BEST indicates LOW competency related to Daily professional ethics execution?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Daily professional ethics execution.",
+        "Practitioner documents and improves Daily professional ethics execution systematically.",
+        "Practitioner models embedding honesty and compliance in routine decisions and paperwork consistently.",
+        "Practitioner neglects embedding honesty and compliance in routine decisions and paperwork; e.g., cutting corners when unwatched."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 64,
+      "section": "CH4 -- Role-Modeling Leadership",
+      "topicSlug": "me2-ch4",
+      "text": "In a promotional behavioral interview assessing Accountability modeling, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Owning a mistake openly, fixing systems and crediting the team, with evidence and reflection.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Blaming colleagues and waiting to be told each next step."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Highest-rated response shows applied Accountability modeling with evidence."
+    },
+    {
+      "num": 65,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which statement BEST defines Communication and influencing definition in the Communication and Influencing context?",
+      "options": [
+        "Communication and influencing definition means communicating only in jargon.",
+        "Communication and influencing definition means clear exchange plus framing arguments around shared goals to inspire commitment not mere compliance.",
+        "Communication and influencing definition means withholding key information.",
+        "Communication and influencing definition means ordering compliance through intimidation."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Communication and influencing definition is defined by clear exchange plus framing arguments around shared goals to inspire commitment not mere compliance."
+    },
+    {
+      "num": 66,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Sustained high competency in Structured messaging frameworks would MOST directly lead to:",
+      "options": [
+        "Faster policy buy-in, fewer rework cycles and stronger institutional legitimacy.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Normalization of favoritism, opacity and crisis management."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Impact: faster policy buy-in, fewer rework cycles and stronger institutional legitimacy."
+    },
+    {
+      "num": 67,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which behavior BEST indicates LOW competency related to Cross-cultural communication?",
+      "options": [
+        "Practitioner neglects adapting language and protocol for diverse citizen and colleague backgrounds; e.g., mocking accents or languages.",
+        "Practitioner documents and improves Cross-cultural communication systematically.",
+        "Practitioner models adapting language and protocol for diverse citizen and colleague backgrounds consistently.",
+        "Practitioner seeks feedback and corrects course on Cross-cultural communication."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 68,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "In a promotional behavioral interview assessing Structured messaging frameworks, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Blaming colleagues and waiting to be told each next step.",
+        "Insisting legacy paperwork must never change.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Listening to opponents, reframing around shared goals and achieving voluntary commitment, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Structured messaging frameworks with evidence."
+    },
+    {
+      "num": 69,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Sustained high competency in Communication and influencing definition would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Faster policy buy-in, fewer rework cycles and stronger institutional legitimacy.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Higher backlog, repeated rework and talent attrition."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Impact: faster policy buy-in, fewer rework cycles and stronger institutional legitimacy."
+    },
+    {
+      "num": 70,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which behavior BEST indicates LOW competency related to Structured messaging frameworks?",
+      "options": [
+        "Practitioner neglects deliberate planning: objective, key messages, evidence, call to action; e.g., rambling without purpose.",
+        "Practitioner documents and improves Structured messaging frameworks systematically.",
+        "Practitioner seeks feedback and corrects course on Structured messaging frameworks.",
+        "Practitioner models deliberate planning: objective, key messages, evidence, call to action consistently."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 71,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "In a promotional behavioral interview assessing Cross-cultural communication, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Insisting legacy paperwork must never change.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Listening to opponents, reframing around shared goals and achieving voluntary commitment, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Cross-cultural communication with evidence."
+    },
+    {
+      "num": 72,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which strategy or tool would MOST effectively strengthen Structured messaging frameworks in a public agency?",
+      "options": [
+        "Annual lectures with no practice, feedback or measurement.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Structured messaging frameworks, active-listening drills and win-win negotiation practice.",
+        "Rewarding only error-free silence and punishing all pilot failures."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: structured messaging frameworks, active-listening drills and win-win negotiation practice."
+    },
+    {
+      "num": 73,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Scenario: Before a contentious tariff reform, an officer studies farmer and trader concerns, frames the message around shared growth, listens actively, and secures voluntary compliance. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "High Communication and Influencing competency -- open sharing that prevents rumors, corruption perceptions and unfair treatment.",
+        "Deliberate creation of extra approval tiers to display authority."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Scenario demonstrates Transparency and trust."
+    },
+    {
+      "num": 74,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "In a promotional behavioral interview assessing Structured messaging frameworks, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Listening to opponents, reframing around shared goals and achieving voluntary commitment, with evidence and reflection.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Blaming colleagues and waiting to be told each next step.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Highest-rated response shows applied Structured messaging frameworks with evidence."
+    },
+    {
+      "num": 75,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which strategy or tool would MOST effectively strengthen Cross-cultural communication in a public agency?",
+      "options": [
+        "Structured messaging frameworks, active-listening drills and win-win negotiation practice.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Best tool per PDF: structured messaging frameworks, active-listening drills and win-win negotiation practice."
+    },
+    {
+      "num": 76,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Scenario: Before a contentious tariff reform, an officer studies farmer and trader concerns, frames the message around shared growth, listens actively, and secures voluntary compliance. This example BEST illustrates:",
+      "options": [
+        "High Communication and Influencing competency -- deliberate planning: objective, key messages, evidence, call to action.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Structured messaging frameworks."
+    },
+    {
+      "num": 77,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "How does effective Transparency and trust MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice secrecy breeding suspicion, while poor practice open sharing that prevents rumors, corruption perceptions and unfair treatment.",
+        "Effective practice open sharing that prevents rumors, corruption perceptions and unfair treatment, while poor practice secrecy breeding suspicion."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 78,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which of the following is NOT a genuine component or indicator of Win-win negotiation?",
+      "options": [
+        "focusing on shared interests and mutually beneficial outcomes.",
+        "Securing promotion through personal connections alone.",
+        "Monitoring and improving Win-win negotiation regularly.",
+        "Aligning Win-win negotiation with citizen value."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "The correct option is inconsistent with Win-win negotiation."
+    },
+    {
+      "num": 79,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Which statement BEST defines Transparency and trust in the Communication and Influencing context?",
+      "options": [
+        "Transparency and trust means secrecy breeding suspicion.",
+        "Transparency and trust means open sharing that prevents rumors, corruption perceptions and unfair treatment.",
+        "Transparency and trust means selective disclosure.",
+        "Transparency and trust means spinning failures."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Transparency and trust is defined by open sharing that prevents rumors, corruption perceptions and unfair treatment."
+    },
+    {
+      "num": 80,
+      "section": "CH5 -- Communication and Influencing",
+      "topicSlug": "me2-ch5",
+      "text": "Sustained high competency in Win-win negotiation would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Faster policy buy-in, fewer rework cycles and stronger institutional legitimacy.",
+        "Higher backlog, repeated rework and talent attrition."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: faster policy buy-in, fewer rework cycles and stronger institutional legitimacy."
+    },
+    {
+      "num": 81,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which behavior BEST indicates LOW competency related to Shared accountability and ownership?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Shared accountability and ownership.",
+        "Practitioner neglects sharing burdens of setbacks and credit for successes collectively; e.g., claiming sole credit.",
+        "Practitioner models sharing burdens of setbacks and credit for successes collectively consistently.",
+        "Practitioner documents and improves Shared accountability and ownership systematically."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 82,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "In a promotional behavioral interview assessing Conflict resolution in teams, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Insisting legacy paperwork must never change.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Sharing credit, coordinating handoffs and resolving a joint failure without blame, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Conflict resolution in teams with evidence."
+    },
+    {
+      "num": 83,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which strategy or tool would MOST effectively strengthen Unified public service delivery in a public agency?",
+      "options": [
+        "Joint planning huddles, clear raci handoffs and structured peer retrospectives.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot failures."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Best tool per PDF: joint planning huddles, clear RACI handoffs and structured peer retrospectives."
+    },
+    {
+      "num": 84,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Scenario: Three directorates facing a flood response share staff, run joint daily huddles, and issue one coordinated citizen update instead of separate conflicting notices. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review.",
+        "High Teamwork competency -- clear responsibilities, handoffs and mutual support."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Role clarity and coordination."
+    },
+    {
+      "num": 85,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "How does effective Unified public service delivery MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice shuttling citizens office to office, while poor practice citizens experiencing seamless government response not bouncing between offices.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice citizens experiencing seamless government response not bouncing between offices, while poor practice shuttling citizens office to office."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 86,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which strategy or tool would MOST effectively strengthen Conflict resolution in teams in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Joint planning huddles, clear raci handoffs and structured peer retrospectives.",
+        "Ad-hoc verbal orders with no documentation or follow-up."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: joint planning huddles, clear RACI handoffs and structured peer retrospectives."
+    },
+    {
+      "num": 87,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Scenario: Three directorates facing a flood response share staff, run joint daily huddles, and issue one coordinated citizen update instead of separate conflicting notices. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Teamwork competency -- citizens experiencing seamless government response not bouncing between offices."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Unified public service delivery."
+    },
+    {
+      "num": 88,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "How does effective Role clarity and coordination MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice clear responsibilities, handoffs and mutual support, while poor practice overlapping mandates causing conflict.",
+        "Effective practice overlapping mandates causing conflict, while poor practice clear responsibilities, handoffs and mutual support."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 89,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which of the following is NOT a genuine component or indicator of Unified public service delivery?",
+      "options": [
+        "citizens experiencing seamless government response not bouncing between offices.",
+        "Shouting down dissenting colleagues in meetings.",
+        "Monitoring and improving Unified public service delivery regularly.",
+        "Aligning Unified public service delivery with citizen value."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "The correct option is inconsistent with Unified public service delivery."
+    },
+    {
+      "num": 90,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which statement BEST defines Peer reviews and retrospectives in the Teamwork context?",
+      "options": [
+        "Peer reviews and retrospectives means regular debriefs evaluating collaboration and improving handoffs.",
+        "Peer reviews and retrospectives means blame-focused postmortems.",
+        "Peer reviews and retrospectives means never reviewing teamwork.",
+        "Peer reviews and retrospectives means reviews only for punishment."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Peer reviews and retrospectives is defined by regular debriefs evaluating collaboration and improving handoffs."
+    },
+    {
+      "num": 91,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Sustained high competency in Teamwork core concept would MOST directly lead to:",
+      "options": [
+        "Higher backlog, repeated rework and talent attrition.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Seamless citizen experience, higher morale and faster administrative throughput."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: seamless citizen experience, higher morale and faster administrative throughput."
+    },
+    {
+      "num": 92,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which behavior BEST indicates LOW competency related to Peer reviews and retrospectives?",
+      "options": [
+        "Practitioner neglects regular debriefs evaluating collaboration and improving handoffs; e.g., never reviewing teamwork.",
+        "Practitioner models regular debriefs evaluating collaboration and improving handoffs consistently.",
+        "Practitioner documents and improves Peer reviews and retrospectives systematically.",
+        "Practitioner seeks feedback and corrects course on Peer reviews and retrospectives."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 93,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "In a promotional behavioral interview assessing Teamwork core concept, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Sharing credit, coordinating handoffs and resolving a joint failure without blame, with evidence and reflection.",
+        "Insisting legacy paperwork must never change."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Highest-rated response shows applied Teamwork core concept with evidence."
+    },
+    {
+      "num": 94,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Which strategy or tool would MOST effectively strengthen Shifting blame as low teamwork in a public agency?",
+      "options": [
+        "Joint planning huddles, clear raci handoffs and structured peer retrospectives.",
+        "Adding extra approval signatures to show control.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Ad-hoc verbal orders with no documentation or follow-up."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Best tool per PDF: joint planning huddles, clear RACI handoffs and structured peer retrospectives."
+    },
+    {
+      "num": 95,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "Scenario: Three directorates facing a flood response share staff, run joint daily huddles, and issue one coordinated citizen update instead of separate conflicting notices. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Teamwork competency -- documenting lessons, mentoring and cross-training for resilience."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Knowledge sharing."
+    },
+    {
+      "num": 96,
+      "section": "CH6 -- Teamwork",
+      "topicSlug": "me2-ch6",
+      "text": "How does effective Shifting blame as low teamwork MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice owning joint failures, while poor practice pointing fingers, taking credit for joint outputs, talking behind backs.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice pointing fingers, taking credit for joint outputs, talking behind backs, while poor practice owning joint failures.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 97,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which of the following is NOT a genuine component or indicator of Self-confidence?",
+      "options": [
+        "Aligning Self-confidence with citizen value.",
+        "Monitoring and improving Self-confidence regularly.",
+        "Accepting gifts to expedite favored files.",
+        "belief in capability allowing voicing necessary unpopular expert opinions."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "The correct option is inconsistent with Self-confidence."
+    },
+    {
+      "num": 98,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which statement BEST defines EI driving effectiveness in the Emotional Intelligence (EI) context?",
+      "options": [
+        "EI driving effectiveness means technically sound plus practically acceptable decisions improving productivity.",
+        "EI driving effectiveness means compliance without commitment.",
+        "EI driving effectiveness means high turnover from poor climate.",
+        "EI driving effectiveness means brilliant plans rejected due to abrasive delivery."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "EI driving effectiveness is defined by technically sound plus practically acceptable decisions improving productivity."
+    },
+    {
+      "num": 99,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Sustained high competency in Self-regulation would MOST directly lead to:",
+      "options": [
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Collaborative climate, sound acceptable decisions and sustained productivity."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: collaborative climate, sound acceptable decisions and sustained productivity."
+    },
+    {
+      "num": 100,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which behavior BEST indicates LOW competency related to 360-degree feedback for EI?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on 360-degree feedback for EI.",
+        "Practitioner models multi-source anonymous input from supervisors, peers and subordinates consistently.",
+        "Practitioner documents and improves 360-degree feedback for EI systematically.",
+        "Practitioner neglects multi-source anonymous input from supervisors, peers and subordinates; e.g., self-rating only."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 101,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "In a promotional behavioral interview assessing Self-regulation, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Insisting legacy paperwork must never change.",
+        "Blaming colleagues and waiting to be told each next step.",
+        "Pausing under provocation, regulating tone, empathizing and repairing constructively, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Self-regulation with evidence."
+    },
+    {
+      "num": 102,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which strategy or tool would MOST effectively strengthen 360-degree feedback for EI in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "360-degree ei feedback, self-regulation coaching and reflective pause-before-response routines.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Annual lectures with no practice, feedback or measurement."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Best tool per PDF: 360-degree EI feedback, self-regulation coaching and reflective pause-before-response routines."
+    },
+    {
+      "num": 103,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Scenario: During a heated budget meeting, an officer pauses, names her frustration silently, paraphrases a critic's concern calmly, and proposes a fact-based compromise. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "High Emotional Intelligence (EI) competency -- accurate understanding of triggers, strengths and impact on others.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Scenario demonstrates Self-awareness."
+    },
+    {
+      "num": 104,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "How does effective Reactive communication as low EI MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice sharp tones, interruptions, charged emails and impulsive outbursts, while poor practice calm paraphrasing and pausing.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice calm paraphrasing and pausing, while poor practice sharp tones, interruptions, charged emails and impulsive outbursts.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 105,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which of the following is NOT a genuine component or indicator of Self-awareness?",
+      "options": [
+        "Securing promotion through personal connections alone.",
+        "Monitoring and improving Self-awareness regularly.",
+        "Aligning Self-awareness with citizen value.",
+        "accurate understanding of triggers, strengths and impact on others."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Self-awareness."
+    },
+    {
+      "num": 106,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which statement BEST defines Building collaborative trusting teams via EI in the Emotional Intelligence (EI) context?",
+      "options": [
+        "Building collaborative trusting teams via EI means public humiliation.",
+        "Building collaborative trusting teams via EI means culture of fear and blame.",
+        "Building collaborative trusting teams via EI means creating safety where staff voice ideas and accept responsibility.",
+        "Building collaborative trusting teams via EI means deflecting blame to juniors."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Building collaborative trusting teams via EI is defined by creating safety where staff voice ideas and accept responsibility."
+    },
+    {
+      "num": 107,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Sustained high competency in EI core concept would MOST directly lead to:",
+      "options": [
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "Collaborative climate, sound acceptable decisions and sustained productivity.",
+        "Higher backlog, repeated rework and talent attrition."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: collaborative climate, sound acceptable decisions and sustained productivity."
+    },
+    {
+      "num": 108,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which behavior BEST indicates LOW competency related to Building collaborative trusting teams via EI?",
+      "options": [
+        "Practitioner documents and improves Building collaborative trusting teams via EI systematically.",
+        "Practitioner models creating safety where staff voice ideas and accept responsibility consistently.",
+        "Practitioner neglects creating safety where staff voice ideas and accept responsibility; e.g., culture of fear and blame.",
+        "Practitioner seeks feedback and corrects course on Building collaborative trusting teams via EI."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 109,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "In a promotional behavioral interview assessing EI core concept, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Blaming colleagues and waiting to be told each next step.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Pausing under provocation, regulating tone, empathizing and repairing constructively, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied EI core concept with evidence."
+    },
+    {
+      "num": 110,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Which strategy or tool would MOST effectively strengthen Relationship management in a public agency?",
+      "options": [
+        "Annual lectures with no practice, feedback or measurement.",
+        "Adding extra approval signatures to show control.",
+        "360-degree ei feedback, self-regulation coaching and reflective pause-before-response routines.",
+        "Rewarding only error-free silence and punishing all pilot failures."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: 360-degree EI feedback, self-regulation coaching and reflective pause-before-response routines."
+    },
+    {
+      "num": 111,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "Scenario: During a heated budget meeting, an officer pauses, names her frustration silently, paraphrases a critic's concern calmly, and proposes a fact-based compromise. This example BEST illustrates:",
+      "options": [
+        "High Emotional Intelligence (EI) competency -- accepting responsibility rather than deflecting onto colleagues.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Withholding information to protect a directorate fiefdom."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Accountability with EI."
+    },
+    {
+      "num": 112,
+      "section": "CH7 -- Emotional Intelligence (EI)",
+      "topicSlug": "me2-ch7",
+      "text": "How does effective Relationship management MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice manipulating relationships for gain, while poor practice applying awareness to manage interactions, influence and resolve tension.",
+        "Effective practice applying awareness to manage interactions, influence and resolve tension, while poor practice manipulating relationships for gain.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 113,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which of the following is NOT a genuine component or indicator of Fair equitable treatment?",
+      "options": [
+        "services rendered without bias or discrimination to all citizens and colleagues.",
+        "Monitoring and improving Fair equitable treatment regularly.",
+        "Securing promotion through personal connections alone.",
+        "Aligning Fair equitable treatment with citizen value."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "The correct option is inconsistent with Fair equitable treatment."
+    },
+    {
+      "num": 114,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which statement BEST defines Restorative response to breaches in the Ethics and Role Modeling context?",
+      "options": [
+        "Restorative response to breaches means scapegoating juniors.",
+        "Restorative response to breaches means investigating fairly, sanctioning proportionally and fixing systems.",
+        "Restorative response to breaches means shielding offenders with rank.",
+        "Restorative response to breaches means ignoring root causes."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Restorative response to breaches is defined by investigating fairly, sanctioning proportionally and fixing systems."
+    },
+    {
+      "num": 115,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Sustained high competency in Common ethical pitfalls would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Credible reputable organizations with low corruption and fair service for all."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: credible reputable organizations with low corruption and fair service for all."
+    },
+    {
+      "num": 116,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which behavior BEST indicates LOW competency related to Ethics definition in civil service?",
+      "options": [
+        "Practitioner models upholding integrity, impartiality and public interest as constitutional and institutional mandate consistently.",
+        "Practitioner neglects upholding integrity, impartiality and public interest as constitutional and institutional mandate; e.g., using office for private gain.",
+        "Practitioner seeks feedback and corrects course on Ethics definition in civil service.",
+        "Practitioner documents and improves Ethics definition in civil service systematically."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 117,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "In a promotional behavioral interview assessing Codes and value-alignment, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Declining a gift, declaring interest, reporting pressure and following competitive process, with evidence and reflection.",
+        "Blaming colleagues and waiting to be told each next step."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Highest-rated response shows applied Codes and value-alignment with evidence."
+    },
+    {
+      "num": 118,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which strategy or tool would MOST effectively strengthen Organizational reputation via ethics in a public agency?",
+      "options": [
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Conflict-of-interest declarations, whistleblower protection and ethics value-alignment sessions.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Rewarding only error-free silence and punishing all pilot failures."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Best tool per PDF: conflict-of-interest declarations, whistleblower protection and ethics value-alignment sessions."
+    },
+    {
+      "num": 119,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Scenario: An procurement officer declares a family interest, recuses herself, reports a bribe offer, and insists on competitive bidding despite pressure calls. This example BEST illustrates:",
+      "options": [
+        "High Ethics and Role Modeling competency -- documenting decisions and accepting scrutiny.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Reporting and accountability."
+    },
+    {
+      "num": 120,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "How does effective Fair equitable treatment MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice preferential queues for connections, while poor practice services rendered without bias or discrimination to all citizens and colleagues.",
+        "Effective practice services rendered without bias or discrimination to all citizens and colleagues, while poor practice preferential queues for connections.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 121,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which of the following is NOT a genuine component or indicator of Restorative response to breaches?",
+      "options": [
+        "Accepting gifts to expedite favored files.",
+        "Monitoring and improving Restorative response to breaches regularly.",
+        "Aligning Restorative response to breaches with citizen value.",
+        "investigating fairly, sanctioning proportionally and fixing systems."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Restorative response to breaches."
+    },
+    {
+      "num": 122,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which statement BEST defines Common ethical pitfalls in the Ethics and Role Modeling context?",
+      "options": [
+        "Common ethical pitfalls means conflicts of interest, gift pressures, procurement manipulation and nepotism.",
+        "Common ethical pitfalls means competitive bidding.",
+        "Common ethical pitfalls means merit-based hiring.",
+        "Common ethical pitfalls means transparent declarations."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Common ethical pitfalls is defined by conflicts of interest, gift pressures, procurement manipulation and nepotism."
+    },
+    {
+      "num": 123,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "How does effective Professional integrity and anti-corruption MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice proactively identifying, rejecting and reporting corrupt practices, while poor practice soliciting facilitation payments.",
+        "Effective practice soliciting facilitation payments, while poor practice proactively identifying, rejecting and reporting corrupt practices.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 124,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which of the following is NOT a genuine component or indicator of Reporting and accountability?",
+      "options": [
+        "Securing promotion through personal connections alone.",
+        "documenting decisions and accepting scrutiny.",
+        "Monitoring and improving Reporting and accountability regularly.",
+        "Aligning Reporting and accountability with citizen value."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Reporting and accountability."
+    },
+    {
+      "num": 125,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Which statement BEST defines Fair equitable treatment in the Ethics and Role Modeling context?",
+      "options": [
+        "Fair equitable treatment means preferential queues for connections.",
+        "Fair equitable treatment means services rendered without bias or discrimination to all citizens and colleagues.",
+        "Fair equitable treatment means expediting for gifts.",
+        "Fair equitable treatment means different standards by ethnicity or gender."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Fair equitable treatment is defined by services rendered without bias or discrimination to all citizens and colleagues."
+    },
+    {
+      "num": 126,
+      "section": "CH8 -- Ethics and Role Modeling",
+      "topicSlug": "me2-ch8",
+      "text": "Sustained high competency in Impartiality under pressure would MOST directly lead to:",
+      "options": [
+        "Credible reputable organizations with low corruption and fair service for all.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Impact: credible reputable organizations with low corruption and fair service for all."
+    },
+    {
+      "num": 127,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which strategy or tool would MOST effectively strengthen Cognitive diversity vs groupthink in a public agency?",
+      "options": [
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Unconscious-bias awareness, cultural-competency training and transparent merit-based assignment.",
+        "Annual lectures with no practice, feedback or measurement."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: unconscious-bias awareness, cultural-competency training and transparent merit-based assignment."
+    },
+    {
+      "num": 128,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which behavior BEST indicates LOW competency related to Equitable citizen experience?",
+      "options": [
+        "Practitioner models licensing, registration and welfare delivered impartially across demographics and languages consistently.",
+        "Practitioner neglects licensing, registration and welfare delivered impartially across demographics and languages; e.g., different service speed by origin.",
+        "Practitioner seeks feedback and corrects course on Equitable citizen experience.",
+        "Practitioner documents and improves Equitable citizen experience systematically."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 129,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "In a promotional behavioral interview assessing Equitable participation design, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Blaming colleagues and waiting to be told each next step.",
+        "Amplifying marginalized voices, halting bias firmly and ensuring merit-based access, with evidence and reflection.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Highest-rated response shows applied Equitable participation design with evidence."
+    },
+    {
+      "num": 130,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which strategy or tool would MOST effectively strengthen State legitimacy via inclusion in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Unconscious-bias awareness, cultural-competency training and transparent merit-based assignment.",
+        "Rewarding only error-free silence and punishing all pilot failures."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: unconscious-bias awareness, cultural-competency training and transparent merit-based assignment."
+    },
+    {
+      "num": 131,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Scenario: A chair rotates facilitation, invites quieter regional and female colleagues first, challenges an ethnic joke firmly, and publishes transparent assignment criteria. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "High Diversity and Inclusion competency -- politely intervening on stereotypes and reframing to professional respect.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Scenario demonstrates Challenging microaggressions."
+    },
+    {
+      "num": 132,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "In a promotional behavioral interview assessing Belonging and morale, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Insisting legacy paperwork must never change.",
+        "Blaming colleagues and waiting to be told each next step.",
+        "Amplifying marginalized voices, halting bias firmly and ensuring merit-based access, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Belonging and morale with evidence."
+    },
+    {
+      "num": 133,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which strategy or tool would MOST effectively strengthen Equitable citizen experience in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Unconscious-bias awareness, cultural-competency training and transparent merit-based assignment."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: unconscious-bias awareness, cultural-competency training and transparent merit-based assignment."
+    },
+    {
+      "num": 134,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Scenario: A chair rotates facilitation, invites quieter regional and female colleagues first, challenges an ethnic joke firmly, and publishes transparent assignment criteria. This example BEST illustrates:",
+      "options": [
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "High Diversity and Inclusion competency -- separating personal affinities from hiring, evaluation and promotion."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Unbiased decision-making."
+    },
+    {
+      "num": 135,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "How does effective State legitimacy via inclusion MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice eliminating bias at frontline prevents alienation and strengthens trust and cohesion, while poor practice favoritism fueling grievance.",
+        "Effective practice favoritism fueling grievance, while poor practice eliminating bias at frontline prevents alienation and strengthens trust and cohesion."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 136,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which of the following is NOT a genuine component or indicator of Challenging microaggressions?",
+      "options": [
+        "Monitoring and improving Challenging microaggressions regularly.",
+        "Shouting down dissenting colleagues in meetings.",
+        "Aligning Challenging microaggressions with citizen value.",
+        "politely intervening on stereotypes and reframing to professional respect."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "The correct option is inconsistent with Challenging microaggressions."
+    },
+    {
+      "num": 137,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which statement BEST defines Cognitive diversity vs groupthink in the Diversity and Inclusion context?",
+      "options": [
+        "Cognitive diversity vs groupthink means rewarding conformity only.",
+        "Cognitive diversity vs groupthink means varied regional, academic and demographic perspectives producing creative reforms.",
+        "Cognitive diversity vs groupthink means homogeneous teams recycling stale fixes.",
+        "Cognitive diversity vs groupthink means dismissing dissent as disloyalty."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Cognitive diversity vs groupthink is defined by varied regional, academic and demographic perspectives producing creative reforms."
+    },
+    {
+      "num": 138,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Sustained high competency in Culturally responsive governance would MOST directly lead to:",
+      "options": [
+        "Higher backlog, repeated rework and talent attrition.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Equitable service, social cohesion, legal compliance and retention of diverse talent.",
+        "Normalization of favoritism, opacity and crisis management."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: equitable service, social cohesion, legal compliance and retention of diverse talent."
+    },
+    {
+      "num": 139,
+      "section": "CH9 -- Diversity and Inclusion",
+      "topicSlug": "me2-ch9",
+      "text": "Which behavior BEST indicates LOW competency related to Belonging and morale?",
+      "options": [
+        "Practitioner neglects every professional feeling respected regardless of gender, ethnicity, disability or background; e.g., microaggressions unchecked.",
+        "Practitioner documents and improves Belonging and morale systematically.",
+        "Practitioner seeks feedback and corrects course on Belonging and morale.",
+        "Practitioner models every professional feeling respected regardless of gender, ethnicity, disability or background consistently."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 140,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Scenario: A technician masters the new e-filing system on her own time, spots a recurring indexing error, fixes the guide, and trains two peers without being asked. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Proficiency and Engagement competency -- updating knowledge, seeking feedback and pursuing training.",
+        "Withholding information to protect a directorate fiefdom."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Scenario demonstrates Continuous self-improvement."
+    },
+    {
+      "num": 141,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "How does effective Knowledge currency MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice staying current with proclamations, systems and best practices, while poor practice relying on obsolete circulars.",
+        "Effective practice relying on obsolete circulars, while poor practice staying current with proclamations, systems and best practices."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 142,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Which of the following is NOT a genuine component or indicator of Engagement vs presenteeism?",
+      "options": [
+        "Monitoring and improving Engagement vs presenteeism regularly.",
+        "cognitive and emotional investment beyond mere attendance.",
+        "Adding redundant paperwork to appear busy.",
+        "Aligning Engagement vs presenteeism with citizen value."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "The correct option is inconsistent with Engagement vs presenteeism."
+    },
+    {
+      "num": 143,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Which statement BEST defines Productivity correlation in the Proficiency and Engagement context?",
+      "options": [
+        "Productivity correlation means competence gaps causing errors.",
+        "Productivity correlation means disengagement causing backlogs.",
+        "Productivity correlation means apathy slowing delivery.",
+        "Productivity correlation means skilled engaged staff driving throughput and service speed."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Productivity correlation is defined by skilled engaged staff driving throughput and service speed."
+    },
+    {
+      "num": 144,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Sustained high competency in Proficiency definition would MOST directly lead to:",
+      "options": [
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "High throughput, quality delivery and rapid adaptation to new systems."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: high throughput, quality delivery and rapid adaptation to new systems."
+    },
+    {
+      "num": 145,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Which behavior BEST indicates LOW competency related to Operational gap spotting?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Operational gap spotting.",
+        "Practitioner models independently identifying gaps and taking corrective initiative consistently.",
+        "Practitioner documents and improves Operational gap spotting systematically.",
+        "Practitioner neglects independently identifying gaps and taking corrective initiative; e.g., ignoring obvious problems."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 146,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "In a promotional behavioral interview assessing Feedback seeking behavior, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Insisting legacy paperwork must never change.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Mastering a new system independently, fixing a gap and coaching peers, with evidence and reflection.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Highest-rated response shows applied Feedback seeking behavior with evidence."
+    },
+    {
+      "num": 147,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Which strategy or tool would MOST effectively strengthen Continuous self-improvement in a public agency?",
+      "options": [
+        "Annual lectures with no practice, feedback or measurement.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Individual development plans, continuous technical upskilling and feedback-seeking routines."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: individual development plans, continuous technical upskilling and feedback-seeking routines."
+    },
+    {
+      "num": 148,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Scenario: A technician masters the new e-filing system on her own time, spots a recurring indexing error, fixes the guide, and trains two peers without being asked. This example BEST illustrates:",
+      "options": [
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "High Proficiency and Engagement competency -- staying current with proclamations, systems and best practices."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Knowledge currency."
+    },
+    {
+      "num": 149,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "How does effective Engagement vs presenteeism MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice physically present but disengaged, while poor practice cognitive and emotional investment beyond mere attendance.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice cognitive and emotional investment beyond mere attendance, while poor practice physically present but disengaged.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 150,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Which of the following is NOT a genuine component or indicator of Productivity correlation?",
+      "options": [
+        "Accepting gifts to expedite favored files.",
+        "Monitoring and improving Productivity correlation regularly.",
+        "skilled engaged staff driving throughput and service speed.",
+        "Aligning Productivity correlation with citizen value."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Productivity correlation."
+    },
+    {
+      "num": 151,
+      "section": "CH10 -- Proficiency and Engagement",
+      "topicSlug": "me2-ch10",
+      "text": "Which statement BEST defines Proficiency definition in the Proficiency and Engagement context?",
+      "options": [
+        "Proficiency definition means superficial knowledge with excuses.",
+        "Proficiency definition means waiting to be told every step.",
+        "Proficiency definition means deep technical mastery plus proactive ownership from conception to completion.",
+        "Proficiency definition means abandoning tasks midway."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Proficiency definition is defined by deep technical mastery plus proactive ownership from conception to completion."
+    },
+    {
+      "num": 152,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Scenario: A front-desk team greets every citizen respectfully, explains requirements in plain language, tracks each file to completion, and phones applicants when ready. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "High Public Stewardship & Servanthood competency -- servanthood bridging legal mandate and ethical governance.",
+        "Deliberate creation of extra approval tiers to display authority."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Scenario demonstrates Constitutional ethics and public trust."
+    },
+    {
+      "num": 153,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "How does effective Balancing speed and quality MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice handling high volumes without cutting corners or compromising thorough support, while poor practice rushing producing errors.",
+        "Effective practice rushing producing errors, while poor practice handling high volumes without cutting corners or compromising thorough support."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 154,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which of the following is NOT a genuine component or indicator of Humility & service orientation?",
+      "options": [
+        "Securing promotion through personal connections alone.",
+        "approachable egalitarian respect leaving arrogance behind.",
+        "Monitoring and improving Humility & service orientation regularly.",
+        "Aligning Humility & service orientation with citizen value."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Humility & service orientation."
+    },
+    {
+      "num": 155,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which statement BEST defines Level 1-3 stewardship anchors in the Public Stewardship & Servanthood context?",
+      "options": [
+        "Level 1-3 stewardship anchors means from dismissive attitudes (L1) to reliable service (L2) to exemplary proactive care (L3).",
+        "Level 1-3 stewardship anchors means no standards for service.",
+        "Level 1-3 stewardship anchors means punishing citizen-centered staff.",
+        "Level 1-3 stewardship anchors means rating everyone top regardless."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Level 1-3 stewardship anchors is defined by from dismissive attitudes (L1) to reliable service (L2) to exemplary proactive care (L3)."
+    },
+    {
+      "num": 156,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Sustained high competency in Accelerated service delivery would MOST directly lead to:",
+      "options": [
+        "Restored citizen trust, humane swift service and prudent use of public resources.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Normalization of favoritism, opacity and crisis management."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Impact: restored citizen trust, humane swift service and prudent use of public resources."
+    },
+    {
+      "num": 157,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which of the following is NOT a genuine component or indicator of Stewardship & servanthood definition?",
+      "options": [
+        "holding public resources in trust and serving citizens with humility and diligence.",
+        "Shouting down dissenting colleagues in meetings.",
+        "Aligning Stewardship & servanthood definition with citizen value.",
+        "Monitoring and improving Stewardship & servanthood definition regularly."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "The correct option is inconsistent with Stewardship & servanthood definition."
+    },
+    {
+      "num": 158,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which statement BEST defines Balancing speed and quality in the Public Stewardship & Servanthood context?",
+      "options": [
+        "Balancing speed and quality means stalling in name of perfection.",
+        "Balancing speed and quality means sacrificing fairness for speed.",
+        "Balancing speed and quality means rushing producing errors.",
+        "Balancing speed and quality means handling high volumes without cutting corners or compromising thorough support."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Balancing speed and quality is defined by handling high volumes without cutting corners or compromising thorough support."
+    },
+    {
+      "num": 159,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Sustained high competency in Humility & service orientation would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Restored citizen trust, humane swift service and prudent use of public resources.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Impact: restored citizen trust, humane swift service and prudent use of public resources."
+    },
+    {
+      "num": 160,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which behavior BEST indicates LOW competency related to Level 1-3 stewardship anchors?",
+      "options": [
+        "Practitioner documents and improves Level 1-3 stewardship anchors systematically.",
+        "Practitioner models from dismissive attitudes (L1) to reliable service (L2) to exemplary proactive care (L3) consistently.",
+        "Practitioner seeks feedback and corrects course on Level 1-3 stewardship anchors.",
+        "Practitioner neglects from dismissive attitudes (L1) to reliable service (L2) to exemplary proactive care (L3); e.g., rating everyone top regardless."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 161,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "In a promotional behavioral interview assessing Eliminating bureaucratic arrogance, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Blaming colleagues and waiting to be told each next step.",
+        "Proactively shepherding a vulnerable citizen's case to completion with dignity, with evidence and reflection.",
+        "Insisting legacy paperwork must never change."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Highest-rated response shows applied Eliminating bureaucratic arrogance with evidence."
+    },
+    {
+      "num": 162,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which strategy or tool would MOST effectively strengthen Resource prudence in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Service charters with benchmarks, ethical codes of conduct and recognition for exemplary servants.",
+        "Adding extra approval signatures to show control."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: service charters with benchmarks, ethical codes of conduct and recognition for exemplary servants."
+    },
+    {
+      "num": 163,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Scenario: A front-desk team greets every citizen respectfully, explains requirements in plain language, tracks each file to completion, and phones applicants when ready. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Public Stewardship & Servanthood competency -- greeting respectfully, explaining clearly, following up without being chased."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Observable high-servanthood behaviors."
+    },
+    {
+      "num": 164,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "How does effective Stewardship & servanthood definition MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice treating office as personal entitlement, while poor practice holding public resources in trust and serving citizens with humility and diligence.",
+        "Effective practice holding public resources in trust and serving citizens with humility and diligence, while poor practice treating office as personal entitlement.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 165,
+      "section": "CH11 -- Public Stewardship & Servanthood",
+      "topicSlug": "me2-ch11",
+      "text": "Which of the following is NOT a genuine component or indicator of Balancing speed and quality?",
+      "options": [
+        "Securing promotion through personal connections alone.",
+        "Aligning Balancing speed and quality with citizen value.",
+        "Monitoring and improving Balancing speed and quality regularly.",
+        "handling high volumes without cutting corners or compromising thorough support."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Balancing speed and quality."
+    },
+    {
+      "num": 166,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Which behavior BEST indicates LOW competency related to Digital distraction control?",
+      "options": [
+        "Practitioner models managing notifications, scrolling and non-essential messaging during core hours consistently.",
+        "Practitioner documents and improves Digital distraction control systematically.",
+        "Practitioner seeks feedback and corrects course on Digital distraction control.",
+        "Practitioner neglects managing notifications, scrolling and non-essential messaging during core hours; e.g., constant social media during work."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 167,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "In a promotional behavioral interview assessing Time management core concept, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Blaming colleagues and waiting to be told each next step.",
+        "Reprioritizing to high-impact tasks, automating tracking and beating slas consistently, with evidence and reflection.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Highest-rated response shows applied Time management core concept with evidence."
+    },
+    {
+      "num": 168,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Which strategy or tool would MOST effectively strengthen Workflow automation and tracking in a public agency?",
+      "options": [
+        "Adding extra approval signatures to show control.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Prioritization matrices, sla dashboards and workflow automation with task-tracking software."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Best tool per PDF: prioritization matrices, SLA dashboards and workflow automation with task-tracking software."
+    },
+    {
+      "num": 169,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Scenario: An officer blocks deep-work mornings, batches emails twice daily, tracks SLAs on a dashboard, and finishes statutory reports two days early. This example BEST illustrates:",
+      "options": [
+        "Withholding information to protect a directorate fiefdom.",
+        "High Time Management competency -- systematically allocating time to high-impact core tasks to exceed targets.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Strict seniority-based promotion without competency review."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Scenario demonstrates KPI achievement via allocation."
+    },
+    {
+      "num": 170,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "How does effective SLA adherence MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice strict compliance with service level agreements for requests, audits and reports, while poor practice missing statutory deadlines.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice missing statutory deadlines, while poor practice strict compliance with service level agreements for requests, audits and reports.",
+        "There is no meaningful difference; both produce identical outcomes."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 171,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Which of the following is NOT a genuine component or indicator of Prioritization matrices?",
+      "options": [
+        "Securing promotion through personal connections alone.",
+        "urgent-important sorting, delegation and saying no to non-essentials.",
+        "Monitoring and improving Prioritization matrices regularly.",
+        "Aligning Prioritization matrices with citizen value."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "The correct option is inconsistent with Prioritization matrices."
+    },
+    {
+      "num": 172,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Which statement BEST defines Empowering leadership via time discipline in the Time Management context?",
+      "options": [
+        "Empowering leadership via time discipline means managers as expediters of late reports.",
+        "Empowering leadership via time discipline means micromanaging every minute.",
+        "Empowering leadership via time discipline means crisis firefighting as norm.",
+        "Empowering leadership via time discipline means supervisors freed from chasing overdues to coach and resource strategically."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Empowering leadership via time discipline is defined by supervisors freed from chasing overdues to coach and resource strategically."
+    },
+    {
+      "num": 173,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Sustained high competency in Digital distraction control would MOST directly lead to:",
+      "options": [
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Consistent sla/kpi achievement and leadership freed for strategic coaching.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "More rigid bureaucracy, longer queues and deeper citizen distrust."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Impact: consistent SLA/KPI achievement and leadership freed for strategic coaching."
+    },
+    {
+      "num": 174,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Which behavior BEST indicates LOW competency related to Time management core concept?",
+      "options": [
+        "Practitioner neglects prioritizing, scheduling and executing to meet mandates efficiently; e.g., working randomly without plan.",
+        "Practitioner documents and improves Time management core concept systematically.",
+        "Practitioner seeks feedback and corrects course on Time management core concept.",
+        "Practitioner models prioritizing, scheduling and executing to meet mandates efficiently consistently."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 175,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "In a promotional behavioral interview assessing Workflow automation and tracking, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "A vague claim of competence with no example, timeline or result.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "Insisting legacy paperwork must never change.",
+        "Reprioritizing to high-impact tasks, automating tracking and beating slas consistently, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Workflow automation and tracking with evidence."
+    },
+    {
+      "num": 176,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Sustained high competency in Empowering leadership via time discipline would MOST directly lead to:",
+      "options": [
+        "Normalization of favoritism, opacity and crisis management.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Consistent sla/kpi achievement and leadership freed for strategic coaching."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: consistent SLA/KPI achievement and leadership freed for strategic coaching."
+    },
+    {
+      "num": 177,
+      "section": "CH12 -- Time Management",
+      "topicSlug": "me2-ch12",
+      "text": "Which behavior BEST indicates LOW competency related to Digital distraction control?",
+      "options": [
+        "Practitioner models managing notifications, scrolling and non-essential messaging during core hours consistently.",
+        "Practitioner seeks feedback and corrects course on Digital distraction control.",
+        "Practitioner neglects managing notifications, scrolling and non-essential messaging during core hours; e.g., constant social media during work.",
+        "Practitioner documents and improves Digital distraction control systematically."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 178,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "Which strategy or tool would MOST effectively strengthen Waste elimination in a public agency?",
+      "options": [
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Annual lectures with no practice, feedback or measurement.",
+        "As-is vs to-be process mapping and kaizen waste-elimination reviews.",
+        "Adding extra approval signatures to show control."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Best tool per PDF: AS-IS vs TO-BE process mapping and Kaizen waste-elimination reviews."
+    },
+    {
+      "num": 179,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "Scenario: A team maps its 14-step payment process, finds 6 non-value steps, removes duplicates, and redirects saved hours to citizen advisory support. This example BEST illustrates:",
+      "options": [
+        "High Value-Adding Work competency -- removing delays, rework, over-processing and unnecessary handoffs with constrained budgets.",
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Waste elimination."
+    },
+    {
+      "num": 180,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "How does effective Waste elimination MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "Effective practice tolerating chronic rework, while poor practice removing delays, rework, over-processing and unnecessary handoffs with constrained budgets.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice removing delays, rework, over-processing and unnecessary handoffs with constrained budgets, while poor practice tolerating chronic rework."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 181,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "Which of the following is NOT a genuine component or indicator of Operational value dimensions?",
+      "options": [
+        "Aligning Operational value dimensions with citizen value.",
+        "efficiency, quality, timeliness and citizen impact as value lenses.",
+        "Monitoring and improving Operational value dimensions regularly.",
+        "Accepting gifts to expedite favored files."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "The correct option is inconsistent with Operational value dimensions."
+    },
+    {
+      "num": 182,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "Which statement BEST defines Operational value dimensions in the Value-Adding Work context?",
+      "options": [
+        "Operational value dimensions means measuring only effort hours.",
+        "Operational value dimensions means efficiency, quality, timeliness and citizen impact as value lenses.",
+        "Operational value dimensions means valuing complexity over clarity.",
+        "Operational value dimensions means rewarding lengthy procedures."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Operational value dimensions is defined by efficiency, quality, timeliness and citizen impact as value lenses."
+    },
+    {
+      "num": 183,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "Sustained high competency in Operational value dimensions would MOST directly lead to:",
+      "options": [
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "Lean value-focused workflows delivering more citizen impact per birr/hour."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: lean value-focused workflows delivering more citizen impact per birr/hour."
+    },
+    {
+      "num": 184,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "Which behavior BEST indicates LOW competency related to Kaizen optimization?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Kaizen optimization.",
+        "Practitioner models constantly seeking small improvements in how work gets done consistently.",
+        "Practitioner documents and improves Kaizen optimization systematically.",
+        "Practitioner neglects constantly seeking small improvements in how work gets done; e.g., defending every step as sacred."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 185,
+      "section": "CH13 -- Value-Adding Work",
+      "topicSlug": "me2-ch13",
+      "text": "In a promotional behavioral interview assessing Kaizen optimization, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Blaming colleagues and waiting to be told each next step.",
+        "Mapping a process, removing non-value steps and reinvesting savings in citizen value, with evidence and reflection."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Highest-rated response shows applied Kaizen optimization with evidence."
+    },
+    {
+      "num": 186,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "Which strategy or tool would MOST effectively strengthen Macro impact on state legitimacy in a public agency?",
+      "options": [
+        "Annual lectures with no practice, feedback or measurement.",
+        "Individual performance plans (ipps) with weekly milestones plus accountability-focused case reviews.",
+        "Ad-hoc verbal orders with no documentation or follow-up.",
+        "Adding extra approval signatures to show control."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Best tool per PDF: Individual Performance Plans (IPPs) with weekly milestones plus accountability-focused case reviews."
+    },
+    {
+      "num": 187,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "Scenario: Assigned a delayed audit, an officer breaks it into weekly milestones, clears obstacles with finance proactively, documents progress, and delivers to quality standard. This example BEST illustrates:",
+      "options": [
+        "Strict seniority-based promotion without competency review.",
+        "Withholding information to protect a directorate fiefdom.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "High Carrying Out Responsibility competency -- anticipating roadblocks and overcoming obstacles without derailing duties."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Scenario demonstrates Proactive problem-solving."
+    },
+    {
+      "num": 188,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "How does effective Responsibility definition MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice accepting tasks then abandoning them, while poor practice reliably owning assigned duties through to quality completion with accountability.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice reliably owning assigned duties through to quality completion with accountability, while poor practice accepting tasks then abandoning them.",
+        "Effective practice avoids all planning while poor practice plans excessively."
+      ],
+      "correctAnswer": "C",
+      "correctIndex": 2,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 189,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "Which of the following is NOT a genuine component or indicator of Low-responsibility behaviors?",
+      "options": [
+        "negligence, poor execution and aversion to accountability.",
+        "Monitoring and improving Low-responsibility behaviors regularly.",
+        "Aligning Low-responsibility behaviors with citizen value.",
+        "Shouting down dissenting colleagues in meetings."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "The correct option is inconsistent with Low-responsibility behaviors."
+    },
+    {
+      "num": 190,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "Which statement BEST defines Culture of trust and reliability in the Carrying Out Responsibility context?",
+      "options": [
+        "Culture of trust and reliability means broken promises normalized.",
+        "Culture of trust and reliability means reliability seen as optional.",
+        "Culture of trust and reliability means unpredictable delivery.",
+        "Culture of trust and reliability means consistent delivery building credibility among colleagues and citizens."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Culture of trust and reliability is defined by consistent delivery building credibility among colleagues and citizens."
+    },
+    {
+      "num": 191,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "Sustained high competency in Public accountability would MOST directly lead to:",
+      "options": [
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Higher backlog, repeated rework and talent attrition.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "Reliable delivery strengthening public faith in government competence."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: reliable delivery strengthening public faith in government competence."
+    },
+    {
+      "num": 192,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "Which behavior BEST indicates LOW competency related to Individual Performance Plans (IPPs)?",
+      "options": [
+        "Practitioner seeks feedback and corrects course on Individual Performance Plans (IPPs).",
+        "Practitioner neglects breaking annual targets into quarterly/monthly/weekly milestones; e.g., annual goals never broken down.",
+        "Practitioner documents and improves Individual Performance Plans (IPPs) systematically.",
+        "Practitioner models breaking annual targets into quarterly/monthly/weekly milestones consistently."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 193,
+      "section": "CH14 -- Carrying Out Responsibility",
+      "topicSlug": "me2-ch14",
+      "text": "In a promotional behavioral interview assessing Macro impact on state legitimacy, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Breaking a target into milestones, tackling obstacles early and delivering to standard, with evidence and reflection.",
+        "Boasting about putting out daily fires without preventing recurrence.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Blaming colleagues and waiting to be told each next step."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Highest-rated response shows applied Macro impact on state legitimacy with evidence."
+    },
+    {
+      "num": 194,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "Sustained high competency in Low-leadership behaviors would MOST directly lead to:",
+      "options": [
+        "More rigid bureaucracy, longer queues and deeper citizen distrust.",
+        "Normalization of favoritism, opacity and crisis management.",
+        "Fragmented fiefdoms optimizing visibility over national outcomes.",
+        "Agile synergistic departments with elevated standards and capable successors."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "Impact: agile synergistic departments with elevated standards and capable successors."
+    },
+    {
+      "num": 195,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "Which behavior BEST indicates LOW competency related to Elevating service standards?",
+      "options": [
+        "Practitioner neglects pushing teams to modernize, cut red tape and accelerate turnaround; e.g., defending delays as thoroughness.",
+        "Practitioner documents and improves Elevating service standards systematically.",
+        "Practitioner seeks feedback and corrects course on Elevating service standards.",
+        "Practitioner models pushing teams to modernize, cut red tape and accelerate turnaround consistently."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Low competency shows neglect/avoidance."
+    },
+    {
+      "num": 196,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "In a promotional behavioral interview assessing Developing others, which candidate response deserves the HIGHEST rating?",
+      "options": [
+        "Blaming colleagues and waiting to be told each next step.",
+        "Delegating meaningful authority, coaching growth and building a successor, with evidence and reflection.",
+        "A vague claim of competence with no example, timeline or result.",
+        "Boasting about putting out daily fires without preventing recurrence."
+      ],
+      "correctAnswer": "B",
+      "correctIndex": 1,
+      "explanation": "Highest-rated response shows applied Developing others with evidence."
+    },
+    {
+      "num": 197,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "Which strategy or tool would MOST effectively strengthen Mentorship and 360 feedback loops in a public agency?",
+      "options": [
+        "Executive mentorship pathways, delegation coaching and 360-degree leadership feedback loops.",
+        "Rewarding only error-free silence and punishing all pilot failures.",
+        "Adding extra approval signatures to show control.",
+        "Ad-hoc verbal orders with no documentation or follow-up."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Best tool per PDF: executive mentorship pathways, delegation coaching and 360-degree leadership feedback loops."
+    },
+    {
+      "num": 198,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "Scenario: A director delegates a licensing reform to a junior with clear authority, coaches weekly, defends the team's pilot to top management, and shares credit for success. This example BEST illustrates:",
+      "options": [
+        "High Leadership competency -- breaking structural barriers for institutional agility.",
+        "Strict seniority-based promotion without competency review.",
+        "Deliberate creation of extra approval tiers to display authority.",
+        "Withholding information to protect a directorate fiefdom."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Scenario demonstrates Cross-departmental synergy."
+    },
+    {
+      "num": 199,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "How does effective Strategic delegation MOST clearly differ from its poor-practice counterpart?",
+      "options": [
+        "Effective practice assigning meaningful authority matched to strengths with support, while poor practice dumping blame without authority.",
+        "Effective practice avoids all planning while poor practice plans excessively.",
+        "There is no meaningful difference; both produce identical outcomes.",
+        "Effective practice dumping blame without authority, while poor practice assigning meaningful authority matched to strengths with support."
+      ],
+      "correctAnswer": "A",
+      "correctIndex": 0,
+      "explanation": "Distinguishes high vs low behavior."
+    },
+    {
+      "num": 200,
+      "section": "CH15 -- Leadership",
+      "topicSlug": "me2-ch15",
+      "text": "Which of the following is NOT a genuine component or indicator of Leadership core concept?",
+      "options": [
+        "mobilizing and developing people toward shared institutional and development goals.",
+        "Monitoring and improving Leadership core concept regularly.",
+        "Aligning Leadership core concept with citizen value.",
+        "Securing promotion through personal connections alone."
+      ],
+      "correctAnswer": "D",
+      "correctIndex": 3,
+      "explanation": "The correct option is inconsistent with Leadership core concept."
+    }
+  ]
+}

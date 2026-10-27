@@ -20,6 +20,7 @@
     "db:setup": "npm run db:create && npm run db:seed",
     "db:migrate:randomized": "node --env-file=.env scripts/migrate-randomized-exam.cjs",
     "db:seed:bc1000": "node --env-file=.env scripts/seed-behavioral-1000.cjs",
+    "db:seed:mock2": "node --env-file=.env scripts/seed-mock-exam-2.cjs",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
