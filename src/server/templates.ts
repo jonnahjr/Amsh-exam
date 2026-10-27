@@ -36,7 +36,9 @@ export async function listTemplates(options: { includeUnpublished?: boolean } = 
      LEFT JOIN "Subject"  s ON s."id" = t."subjectId"
      LEFT JOIN "Category" c ON c."id" = t."categoryId"
      ${options.includeUnpublished ? "" : 'WHERE t."isPublic" = TRUE'}
-     ORDER BY CASE WHEN t."slug" = 'mock-exam-1' THEN 0 ELSE 1 END, t."name"`,
+     ORDER BY CASE WHEN t."slug" = 'mock-exam-2' THEN 0
+                   WHEN t."slug" = 'mock-exam-1' THEN 1
+                   ELSE 2 END, t."name"`,
   );
   return rows.map((row) => ({
     ...hydrateTemplate(row),

@@ -7,6 +7,14 @@ import { EmptyState, PageHeader } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
+/** Cards for these slugs come first, in this order. */
+const PINNED_EXAM_SLUGS = ["mock-exam-2", "mock-exam-1"];
+
+function pinRank(slug: string): number {
+  const index = PINNED_EXAM_SLUGS.indexOf(slug);
+  return index === -1 ? PINNED_EXAM_SLUGS.length : index;
+}
+
 export default async function ExamsPage() {
   const user = await getSessionUser();
   if (!user) redirect("/login");
@@ -25,8 +33,8 @@ export default async function ExamsPage() {
           : counts.total;
       return { ...template, available: available ?? 0 };
     })
-    // Pin Mock Exam 1 as the first card; everything else keeps its order.
-    .sort((a, b) => Number(b.slug === "mock-exam-1") - Number(a.slug === "mock-exam-1"));
+    // Pin Mock Exam 2 as the first card, Mock Exam 1 second; everything else keeps its order.
+    .sort((a, b) => pinRank(a.slug) - pinRank(b.slug));
 
   return (
     <>
